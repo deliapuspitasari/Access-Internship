@@ -15,17 +15,23 @@
             theme: {
                 extend: {
                     colors: {
-                        sage: "#B7D9C2",
-                        mint: "#E4F2E8",
-                        greenmain: "#76A987",
-                        darkgreen: "#4F795D",
+                        green: {
+                            50: "#F0F7F3",
+                            100: "#DDEDE4",
+                            500: "#5B8A70",
+                            600: "#4C775F",
+                            700: "#3F624F",
+                        },
 
-                        lavender: "#D9CBEF",
-                        purple: "#9A82C2",
-                        darkpurple: "#705596",
+                        purple: {
+                            50: "#F5F1FA",
+                            100: "#E9DFF4",
+                            400: "#9B7DB8",
+                            500: "#8868A8",
+                            600: "#745493",
+                        },
 
-                        cream: "#FAFAF8",
-                        navy: "#26354D"
+                        navy: "#263750",
                     }
                 }
             }
@@ -33,52 +39,123 @@
     </script>
 
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
+        * {
+            box-sizing: border-box;
         }
 
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8faf9;
+        }
+
+        /* background dashboard */
+        .dashboard-bg {
+            background:
+                radial-gradient(
+                    circle at 85% 8%,
+                    rgba(136, 104, 168, 0.12),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 10% 90%,
+                    rgba(91, 138, 112, 0.12),
+                    transparent 25%
+                ),
+                #f8faf9;
+        }
+
+        /* card shadow */
+        .soft-shadow {
+            box-shadow:
+                0 2px 8px rgba(38, 55, 80, 0.04),
+                0 1px 2px rgba(38, 55, 80, 0.03);
+        }
+
+        /* menu hover */
+        .menu-item {
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background: #f0f7f3;
+            color: #4c775f;
+        }
+
+        /* active menu */
+        .menu-active {
+            background: linear-gradient(
+                90deg,
+                #e1f0e7,
+                #eee6f5
+            );
+            color: #3f624f;
+        }
+
+        /* stat card */
+        .stat-card {
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 20px rgba(38, 55, 80, 0.07);
+        }
+
+        /* scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f8faf9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5d0;
+            border-radius: 10px;
         }
     </style>
 </head>
 
 
-<body class="bg-cream text-slate-700">
+<body class="text-slate-600">
 
 
-    <!-- ================= SIDEBAR ================= -->
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
 
     <aside
-        class="fixed left-0 top-0 z-40 h-screen w-56 bg-white border-r border-slate-100 flex flex-col">
+        class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col">
 
 
-        <!-- LOGO -->
+        <!-- LOGO / BRAND -->
+        <!-- Tinggi sama dengan navbar -->
 
-        <div class="px-5 py-5 border-b border-slate-100">
+        <div class="flex items-center gap-3 w-[220px] shrink-0">
 
-            <div class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center shrink-0">
+                <img
+                    src="assets/images/logo.jpeg"
+                    alt="Logo Access Media"
+                    class="w-full h-full object-contain">
+            </div>
 
-                <div
-                    class="w-9 h-9 rounded-xl bg-gradient-to-br from-darkgreen to-purple flex items-center justify-center">
+            <div>
 
-                    <span class="text-base font-bold text-white">
-                        A
-                    </span>
+                <h1 class="text-[13px] font-bold text-navy">
+                    Access Internship
+                </h1>
 
-                </div>
-
-                <div>
-
-                    <h1 class="text-sm font-bold text-navy">
-                        Access Internship
-                    </h1>
-
-                    <p class="text-[10px] text-slate-400">
-                        CV Access Media
-                    </p>
-
-                </div>
+                <p class="text-[10px] text-slate-400 mt-0.5">
+                    CV Access Media
+                </p>
 
             </div>
 
@@ -86,16 +163,30 @@
 
 
 
-        <!-- MENU -->
+        <!-- =====================================================
+             MENU
+        ====================================================== -->
 
-        <nav class="flex-1 px-3 py-5 space-y-1">
+        <nav class="flex-1 px-3 py-5 overflow-y-auto">
+
+
+            <p
+                class="px-3 mb-3 text-[9px] font-semibold
+                       uppercase tracking-[0.12em] text-slate-400">
+
+                Menu utama
+
+            </p>
 
 
             <!-- DASHBOARD -->
 
             <a
                 href="dashboard.html"
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-lightgreen text-darkgreen text-sm font-semibold">
+                class="menu-item menu-active
+                       flex items-center gap-3
+                       px-3 py-2.5 rounded-lg
+                       text-xs font-semibold mb-1">
 
                 <svg
                     class="w-4 h-4"
@@ -107,7 +198,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="1.8"
-                        d="M3 13h8V3H3v10Zm0 8h8v-5H3v5Zm10 0h8V11h-8v10Zm0-18v5h8V3h-8Z" />
+                        d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" />
 
                 </svg>
 
@@ -121,7 +212,10 @@
 
             <a
                 href="kegiatan.html"
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+                class="menu-item
+                       flex items-center gap-3
+                       px-3 py-2.5 rounded-lg
+                       text-xs text-slate-500 mb-1">
 
                 <svg
                     class="w-4 h-4"
@@ -147,7 +241,10 @@
 
             <a
                 href="project.html"
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+                class="menu-item
+                       flex items-center gap-3
+                       px-3 py-2.5 rounded-lg
+                       text-xs text-slate-500 mb-1">
 
                 <svg
                     class="w-4 h-4"
@@ -159,7 +256,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="1.8"
-                        d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5ZM3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5" />
+                        d="M4 7h16v13H4V7Zm4 0V4h8v3" />
 
                 </svg>
 
@@ -173,7 +270,10 @@
 
             <a
                 href="dokumentasi.html"
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+                class="menu-item
+                       flex items-center gap-3
+                       px-3 py-2.5 rounded-lg
+                       text-xs text-slate-500 mb-1">
 
                 <svg
                     class="w-4 h-4"
@@ -185,7 +285,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="1.8"
-                        d="M4 5h16v14H4V5Zm0 4h16M8 5v4m4-4v4m4-4v4" />
+                        d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
 
                 </svg>
 
@@ -199,7 +299,10 @@
 
             <a
                 href="instansi.html"
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+                class="menu-item
+                       flex items-center gap-3
+                       px-3 py-2.5 rounded-lg
+                       text-xs text-slate-500">
 
                 <svg
                     class="w-4 h-4"
@@ -211,7 +314,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="1.8"
-                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 12h.01M15 12h.01" />
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
 
                 </svg>
 
@@ -223,32 +326,56 @@
 
 
 
-        <!-- USER -->
+        <!-- =====================================================
+             USER
+        ====================================================== -->
 
-        <div class="px-4 py-4 border-t border-slate-100">
+        <div class="p-4 border-t border-slate-200 shrink-0">
 
-            <div class="flex items-center gap-3">
+            <div
+                class="flex items-center gap-3
+                       p-2 rounded-lg hover:bg-slate-50 transition">
 
                 <div
-                    class="w-8 h-8 rounded-full bg-gradient-to-br from-sage to-lavender flex items-center justify-center">
+                    class="w-8 h-8 rounded-full
+                           bg-gradient-to-br
+                           from-green-100 to-purple-100
+                           flex items-center justify-center">
 
-                    <span class="text-xs font-bold text-darkgreen">
+                    <span
+                        class="text-[11px] font-bold text-green-700">
+
                         A
+
                     </span>
 
                 </div>
 
-                <div class="min-w-0">
 
-                    <p class="text-xs font-semibold text-navy truncate">
+                <div class="min-w-0 flex-1">
+
+                    <p
+                        class="text-[11px] font-semibold
+                               text-navy truncate">
+
                         Administrator
+
                     </p>
 
-                    <p class="text-[10px] text-slate-400 truncate">
+                    <p class="text-[9px] text-slate-400">
+
                         Admin
+
                     </p>
 
                 </div>
+
+
+                <span
+                    class="w-1.5 h-1.5 rounded-full
+                           bg-green-500">
+
+                </span>
 
             </div>
 
@@ -258,35 +385,57 @@
 
 
 
-    <!-- ================= MAIN ================= -->
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-    <main class="ml-56 min-h-screen">
+    <main class="ml-[220px] min-h-screen">
 
 
-        <!-- HEADER -->
+        <!-- =====================================================
+             NAVBAR
+             STICKY = TETAP SAAT SCROLL
+        ====================================================== -->
 
         <header
-            class="h-16 bg-white border-b border-slate-100 flex items-center justify-between px-7">
+            class="sticky top-0 z-40
+                   h-[64px]
+                   bg-white/95 backdrop-blur-md
+                   border-b border-slate-200
+                   px-7
+                   flex items-center justify-between">
+
+
+            <!-- TITLE -->
 
             <div>
 
-                <h2 class="text-lg font-bold text-navy">
+                <h2
+                    class="text-[17px] font-bold text-navy">
+
                     Dashboard
+
                 </h2>
 
-                <p class="text-xs text-slate-400 mt-0.5">
+                <p
+                    class="text-[11px] text-slate-400 mt-0.5">
+
                     Ringkasan informasi Access Internship
+
                 </p>
 
             </div>
 
 
+
             <!-- DATE -->
 
-            <div class="hidden sm:flex items-center gap-2 text-xs text-slate-400">
+            <div
+                class="flex items-center gap-2
+                       text-[11px] text-slate-400">
 
                 <svg
-                    class="w-4 h-4"
+                    class="w-4 h-4 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -294,8 +443,8 @@
                     <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+                        stroke-width="1.7"
+                        d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
 
                 </svg>
 
@@ -307,59 +456,193 @@
 
 
 
-        <!-- CONTENT -->
+        <!-- =====================================================
+             CONTENT
+        ====================================================== -->
 
-        <div class="p-6 lg:p-7">
-
-
-            <!-- WELCOME -->
-
-            <div class="mb-6">
-
-                <p class="text-xs font-medium text-darkgreen mb-1">
-                    Selamat datang kembali 👋
-                </p>
-
-                <h1 class="text-2xl font-bold text-navy">
-                    Ringkasan Internship
-                </h1>
-
-                <p class="text-xs text-slate-400 mt-1">
-                    Pantau informasi internship dalam satu halaman.
-                </p>
-
-            </div>
+        <div
+            class="dashboard-bg
+                   min-h-[calc(100vh-64px)]
+                   p-6">
 
 
+            <!-- =================================================
+                 WELCOME
+            ================================================== -->
 
-            <!-- ================= STATISTICS ================= -->
+            <section
+                class="relative overflow-hidden
+                       rounded-2xl
+                       border border-slate-200
+                       bg-gradient-to-r
+                       from-green-600
+                       via-green-500
+                       to-purple-500
+                       p-[1px]
+                       mb-6
+                       soft-shadow">
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+
+                <div
+                    class="relative overflow-hidden
+                           rounded-[15px]
+                           bg-gradient-to-r
+                           from-[#f4faf6]
+                           via-white
+                           to-[#f7f3fb]
+                           px-6 py-5">
 
 
-                <!-- KEGIATAN -->
+                    <!-- DECORATION -->
 
-                <div class="bg-white rounded-xl border border-slate-100 p-4">
+                    <div
+                        class="absolute
+                               -right-10 -top-16
+                               w-40 h-40
+                               rounded-full
+                               bg-purple-100/60">
 
-                    <div class="flex items-center justify-between">
+                    </div>
+
+
+                    <div
+                        class="absolute
+                               -left-10 -bottom-20
+                               w-36 h-36
+                               rounded-full
+                               bg-green-100/60">
+
+                    </div>
+
+
+                    <div class="relative">
+
+                        <div
+                            class="inline-flex items-center
+                                   px-2.5 py-1
+                                   rounded-full
+                                   bg-green-100
+                                   text-green-700
+                                   text-[9px]
+                                   font-semibold
+                                   mb-2">
+
+                            Access Internship
+
+                        </div>
+
+
+                        <h1
+                            class="text-xl font-bold text-navy">
+
+                            Selamat datang kembali 👋
+
+                        </h1>
+
+
+                        <p
+                            class="text-[11px]
+                                   text-slate-500
+                                   mt-1
+                                   max-w-xl">
+
+                            Pantau kegiatan, project,
+                            dokumentasi, dan informasi
+                            internship melalui satu dashboard.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+                 4 CARD SEJAJAR
+            ================================================== -->
+
+            <div
+                class="grid grid-cols-4 gap-4 mb-6">
+
+
+                <!-- =================================================
+                     CARD 1
+                ================================================== -->
+
+                <div
+                    class="stat-card
+                           relative overflow-hidden
+                           bg-white
+                           border border-green-100
+                           rounded-xl
+                           p-4
+                           soft-shadow">
+
+
+                    <!-- TOP ACCENT -->
+
+                    <div
+                        class="absolute
+                               left-0 top-0
+                               w-full h-1
+                               bg-green-500">
+
+                    </div>
+
+
+                    <div
+                        class="flex items-start
+                               justify-between">
+
 
                         <div>
 
-                            <p class="text-xs text-slate-400">
+                            <p
+                                class="text-[10px]
+                                       font-medium
+                                       text-slate-400">
+
                                 Kegiatan
+
                             </p>
 
-                            <p class="text-2xl font-bold text-navy mt-1">
+
+                            <p
+                                class="text-2xl
+                                       font-bold
+                                       text-navy
+                                       mt-1">
+
                                 8
+
+                            </p>
+
+
+                            <p
+                                class="text-[9px]
+                                       text-green-600
+                                       mt-2">
+
+                                Total kegiatan
+
                             </p>
 
                         </div>
 
+
                         <div
-                            class="w-9 h-9 rounded-lg bg-lightgreen flex items-center justify-center">
+                            class="w-9 h-9
+                                   rounded-xl
+                                   bg-green-100
+                                   flex items-center
+                                   justify-center">
 
                             <svg
-                                class="w-4 h-4 text-darkgreen"
+                                class="w-4 h-4 text-green-600"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -367,8 +650,8 @@
                                 <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M8 7V3m8 4V3M4 11h16" />
+                                    stroke-width="1.7"
+                                    d="M8 3v4m8-4v4M4 10h16M5 6h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" />
 
                             </svg>
 
@@ -376,37 +659,82 @@
 
                     </div>
 
-                    <p class="text-[10px] text-darkgreen mt-3">
-                        Total kegiatan
-                    </p>
-
                 </div>
 
 
 
-                <!-- PROJECT -->
+                <!-- =================================================
+                     CARD 2
+                ================================================== -->
 
-                <div class="bg-white rounded-xl border border-slate-100 p-4">
+                <div
+                    class="stat-card
+                           relative overflow-hidden
+                           bg-white
+                           border border-purple-100
+                           rounded-xl
+                           p-4
+                           soft-shadow">
 
-                    <div class="flex items-center justify-between">
+
+                    <div
+                        class="absolute
+                               left-0 top-0
+                               w-full h-1
+                               bg-purple-500">
+
+                    </div>
+
+
+                    <div
+                        class="flex items-start
+                               justify-between">
+
 
                         <div>
 
-                            <p class="text-xs text-slate-400">
+                            <p
+                                class="text-[10px]
+                                       font-medium
+                                       text-slate-400">
+
                                 Project
+
                             </p>
 
-                            <p class="text-2xl font-bold text-navy mt-1">
+
+                            <p
+                                class="text-2xl
+                                       font-bold
+                                       text-navy
+                                       mt-1">
+
                                 12
+
+                            </p>
+
+
+                            <p
+                                class="text-[9px]
+                                       text-purple-600
+                                       mt-2">
+
+                                Total project
+
                             </p>
 
                         </div>
 
+
                         <div
-                            class="w-9 h-9 rounded-lg bg-lightpurple flex items-center justify-center">
+                            class="w-9 h-9
+                                   rounded-xl
+                                   bg-purple-100
+                                   flex items-center
+                                   justify-center">
 
                             <svg
-                                class="w-4 h-4 text-purple"
+                                class="w-4 h-4 text-purple-600"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -414,8 +742,8 @@
                                 <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M4 7h16M4 7v13h16V7M8 7V4h8v3" />
+                                    stroke-width="1.7"
+                                    d="M4 7h16v13H4V7Zm4 0V4h8v3" />
 
                             </svg>
 
@@ -423,37 +751,86 @@
 
                     </div>
 
-                    <p class="text-[10px] text-purple mt-3">
-                        Total project
-                    </p>
-
                 </div>
 
 
 
-                <!-- DOKUMENTASI -->
+                <!-- =================================================
+                     CARD 3
+                ================================================== -->
 
-                <div class="bg-white rounded-xl border border-slate-100 p-4">
+                <div
+                    class="stat-card
+                           relative overflow-hidden
+                           bg-white
+                           border border-green-100
+                           rounded-xl
+                           p-4
+                           soft-shadow">
 
-                    <div class="flex items-center justify-between">
+
+                    <div
+                        class="absolute
+                               left-0 top-0
+                               w-full h-1
+                               bg-gradient-to-r
+                               from-green-500
+                               to-purple-500">
+
+                    </div>
+
+
+                    <div
+                        class="flex items-start
+                               justify-between">
+
 
                         <div>
 
-                            <p class="text-xs text-slate-400">
+                            <p
+                                class="text-[10px]
+                                       font-medium
+                                       text-slate-400">
+
                                 Dokumentasi
+
                             </p>
 
-                            <p class="text-2xl font-bold text-navy mt-1">
+
+                            <p
+                                class="text-2xl
+                                       font-bold
+                                       text-navy
+                                       mt-1">
+
                                 15
+
+                            </p>
+
+
+                            <p
+                                class="text-[9px]
+                                       text-green-600
+                                       mt-2">
+
+                                Total dokumentasi
+
                             </p>
 
                         </div>
 
+
                         <div
-                            class="w-9 h-9 rounded-lg bg-lightgreen flex items-center justify-center">
+                            class="w-9 h-9
+                                   rounded-xl
+                                   bg-gradient-to-br
+                                   from-green-100
+                                   to-purple-100
+                                   flex items-center
+                                   justify-center">
 
                             <svg
-                                class="w-4 h-4 text-darkgreen"
+                                class="w-4 h-4 text-green-700"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -461,46 +838,91 @@
                                 <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M4 5h16v14H4V5Zm4 4h8" />
+                                    stroke-width="1.7"
+                                    d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
 
                             </svg>
 
                         </div>
 
                     </div>
-
-                    <p class="text-[10px] text-darkgreen mt-3">
-                        Total dokumentasi
-                    </p>
 
                 </div>
 
 
 
-                <!-- INSTANSI -->
+                <!-- =================================================
+                     CARD 4
+                ================================================== -->
 
-                <div class="bg-white rounded-xl border border-slate-100 p-4">
+                <div
+                    class="stat-card
+                           relative overflow-hidden
+                           bg-white
+                           border border-purple-100
+                           rounded-xl
+                           p-4
+                           soft-shadow">
 
-                    <div class="flex items-center justify-between">
+
+                    <div
+                        class="absolute
+                               left-0 top-0
+                               w-full h-1
+                               bg-purple-500">
+
+                    </div>
+
+
+                    <div
+                        class="flex items-start
+                               justify-between">
+
 
                         <div>
 
-                            <p class="text-xs text-slate-400">
+                            <p
+                                class="text-[10px]
+                                       font-medium
+                                       text-slate-400">
+
                                 Instansi
+
                             </p>
 
-                            <p class="text-2xl font-bold text-navy mt-1">
+
+                            <p
+                                class="text-2xl
+                                       font-bold
+                                       text-navy
+                                       mt-1">
+
                                 6
+
+                            </p>
+
+
+                            <p
+                                class="text-[9px]
+                                       text-purple-600
+                                       mt-2">
+
+                                Total instansi
+
                             </p>
 
                         </div>
 
+
                         <div
-                            class="w-9 h-9 rounded-lg bg-lightpurple flex items-center justify-center">
+                            class="w-9 h-9
+                                   rounded-xl
+                                   bg-purple-100
+                                   flex items-center
+                                   justify-center">
 
                             <svg
-                                class="w-4 h-4 text-purple"
+                                class="w-4 h-4 text-purple-600"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -508,18 +930,14 @@
                                 <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M3 21h18M5 21V7l7-4 7 4v14" />
+                                    stroke-width="1.7"
+                                    d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
 
                             </svg>
 
                         </div>
 
                     </div>
-
-                    <p class="text-[10px] text-purple mt-3">
-                        Total instansi
-                    </p>
 
                 </div>
 
@@ -527,133 +945,364 @@
 
 
 
-            <!-- ================= BOTTOM ================= -->
+            <!-- =================================================
+                 BOTTOM SECTION
+            ================================================== -->
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div
+                class="grid grid-cols-5 gap-4">
 
 
-                <!-- AKSI CEPAT -->
+                <!-- =================================================
+                     AKSI CEPAT
+                ================================================== -->
 
-                <div class="bg-white rounded-xl border border-slate-100 p-5">
+                <section
+                    class="col-span-3
+                           bg-white
+                           border border-slate-200
+                           rounded-xl
+                           p-5
+                           soft-shadow">
 
-                    <div class="mb-4">
 
-                        <h3 class="text-sm font-bold text-navy">
-                            Aksi Cepat
-                        </h3>
+                    <div class="mb-5">
 
-                        <p class="text-[11px] text-slate-400 mt-1">
+                        <div class="flex items-center gap-2">
+
+                            <span
+                                class="w-2 h-2
+                                       rounded-full
+                                       bg-green-500">
+
+                            </span>
+
+                            <h3
+                                class="text-sm
+                                       font-bold
+                                       text-navy">
+
+                                Aksi Cepat
+
+                            </h3>
+
+                        </div>
+
+
+                        <p
+                            class="text-[10px]
+                                   text-slate-400
+                                   mt-1">
+
                             Akses menu yang sering digunakan.
+
                         </p>
 
                     </div>
 
 
-                    <div class="grid grid-cols-2 gap-3">
 
+                    <div
+                        class="grid grid-cols-2 gap-3">
+
+
+                        <!-- KEGIATAN -->
 
                         <a
                             href="kegiatan.html"
-                            class="p-3 rounded-lg bg-lightgreen hover:bg-sage transition">
+                            class="group
+                                   border border-slate-200
+                                   rounded-xl
+                                   p-4
+                                   hover:border-green-200
+                                   hover:bg-green-50/40
+                                   transition">
 
-                            <p class="text-xs font-semibold text-darkgreen">
-                                Kegiatan
-                            </p>
+                            <div
+                                class="flex items-center
+                                       justify-between">
 
-                            <p class="text-[10px] text-slate-400 mt-1">
-                                Kelola kegiatan
+                                <span
+                                    class="text-xs
+                                           font-semibold
+                                           text-navy">
+
+                                    Kegiatan
+
+                                </span>
+
+                                <span
+                                    class="text-slate-300
+                                           group-hover:text-green-600
+                                           transition">
+
+                                    →
+
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="text-[10px]
+                                       text-slate-400
+                                       mt-1">
+
+                                Kelola kegiatan internship
+
                             </p>
 
                         </a>
 
+
+
+                        <!-- PROJECT -->
 
                         <a
                             href="project.html"
-                            class="p-3 rounded-lg bg-lightpurple hover:bg-lavender transition">
+                            class="group
+                                   border border-slate-200
+                                   rounded-xl
+                                   p-4
+                                   hover:border-purple-200
+                                   hover:bg-purple-50/40
+                                   transition">
 
-                            <p class="text-xs font-semibold text-darkpurple">
-                                Project
-                            </p>
+                            <div
+                                class="flex items-center
+                                       justify-between">
 
-                            <p class="text-[10px] text-slate-400 mt-1">
+                                <span
+                                    class="text-xs
+                                           font-semibold
+                                           text-navy">
+
+                                    Project
+
+                                </span>
+
+                                <span
+                                    class="text-slate-300
+                                           group-hover:text-purple-600
+                                           transition">
+
+                                    →
+
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="text-[10px]
+                                       text-slate-400
+                                       mt-1">
+
                                 Kelola project
+
                             </p>
 
                         </a>
 
+
+
+                        <!-- DOKUMENTASI -->
 
                         <a
                             href="dokumentasi.html"
-                            class="p-3 rounded-lg bg-lightgreen hover:bg-sage transition">
+                            class="group
+                                   border border-slate-200
+                                   rounded-xl
+                                   p-4
+                                   hover:border-green-200
+                                   hover:bg-green-50/40
+                                   transition">
 
-                            <p class="text-xs font-semibold text-darkgreen">
-                                Dokumentasi
-                            </p>
+                            <div
+                                class="flex items-center
+                                       justify-between">
 
-                            <p class="text-[10px] text-slate-400 mt-1">
+                                <span
+                                    class="text-xs
+                                           font-semibold
+                                           text-navy">
+
+                                    Dokumentasi
+
+                                </span>
+
+                                <span
+                                    class="text-slate-300
+                                           group-hover:text-green-600
+                                           transition">
+
+                                    →
+
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="text-[10px]
+                                       text-slate-400
+                                       mt-1">
+
                                 Kelola dokumentasi
+
                             </p>
 
                         </a>
 
+
+
+                        <!-- INSTANSI -->
 
                         <a
                             href="instansi.html"
-                            class="p-3 rounded-lg bg-lightpurple hover:bg-lavender transition">
+                            class="group
+                                   border border-slate-200
+                                   rounded-xl
+                                   p-4
+                                   hover:border-purple-200
+                                   hover:bg-purple-50/40
+                                   transition">
 
-                            <p class="text-xs font-semibold text-darkpurple">
-                                Instansi
-                            </p>
+                            <div
+                                class="flex items-center
+                                       justify-between">
 
-                            <p class="text-[10px] text-slate-400 mt-1">
-                                Kelola instansi
+                                <span
+                                    class="text-xs
+                                           font-semibold
+                                           text-navy">
+
+                                    Instansi
+
+                                </span>
+
+                                <span
+                                    class="text-slate-300
+                                           group-hover:text-purple-600
+                                           transition">
+
+                                    →
+
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="text-[10px]
+                                       text-slate-400
+                                       mt-1">
+
+                                Kelola informasi instansi
+
                             </p>
 
                         </a>
 
                     </div>
 
-                </div>
+                </section>
 
 
 
-                <!-- AKTIVITAS TERBARU -->
+                <!-- =================================================
+                     AKTIVITAS
+                ================================================== -->
 
-                <div class="bg-white rounded-xl border border-slate-100 p-5">
+                <section
+                    class="col-span-2
+                           bg-white
+                           border border-slate-200
+                           rounded-xl
+                           p-5
+                           soft-shadow">
 
-                    <div class="mb-4">
 
-                        <h3 class="text-sm font-bold text-navy">
-                            Aktivitas Terbaru
-                        </h3>
+                    <div class="mb-5">
 
-                        <p class="text-[11px] text-slate-400 mt-1">
+                        <div class="flex items-center gap-2">
+
+                            <span
+                                class="w-2 h-2
+                                       rounded-full
+                                       bg-purple-500">
+
+                            </span>
+
+                            <h3
+                                class="text-sm
+                                       font-bold
+                                       text-navy">
+
+                                Aktivitas Terbaru
+
+                            </h3>
+
+                        </div>
+
+
+                        <p
+                            class="text-[10px]
+                                   text-slate-400
+                                   mt-1">
+
                             Aktivitas terbaru dalam sistem.
+
                         </p>
 
                     </div>
+
 
 
                     <div class="space-y-4">
 
 
+                        <!-- ACTIVITY 1 -->
+
                         <div class="flex gap-3">
 
                             <div
-                                class="w-7 h-7 shrink-0 rounded-lg bg-lightgreen flex items-center justify-center">
+                                class="w-7 h-7
+                                       rounded-lg
+                                       bg-green-100
+                                       flex items-center
+                                       justify-center
+                                       shrink-0">
 
-                                <div class="w-2 h-2 rounded-full bg-greenmain"></div>
+                                <span
+                                    class="w-1.5 h-1.5
+                                           rounded-full
+                                           bg-green-600">
+
+                                </span>
 
                             </div>
 
+
                             <div>
 
-                                <p class="text-xs font-medium text-navy">
+                                <p
+                                    class="text-[11px]
+                                           font-medium
+                                           text-navy">
+
                                     Kegiatan internship diperbarui
+
                                 </p>
 
-                                <p class="text-[10px] text-slate-400 mt-1">
+
+                                <p
+                                    class="text-[9px]
+                                           text-slate-400
+                                           mt-1">
+
                                     Beberapa saat yang lalu
+
                                 </p>
 
                             </div>
@@ -661,23 +1310,48 @@
                         </div>
 
 
+
+                        <!-- ACTIVITY 2 -->
+
                         <div class="flex gap-3">
 
                             <div
-                                class="w-7 h-7 shrink-0 rounded-lg bg-lightpurple flex items-center justify-center">
+                                class="w-7 h-7
+                                       rounded-lg
+                                       bg-purple-100
+                                       flex items-center
+                                       justify-center
+                                       shrink-0">
 
-                                <div class="w-2 h-2 rounded-full bg-purple"></div>
+                                <span
+                                    class="w-1.5 h-1.5
+                                           rounded-full
+                                           bg-purple-600">
+
+                                </span>
 
                             </div>
 
+
                             <div>
 
-                                <p class="text-xs font-medium text-navy">
+                                <p
+                                    class="text-[11px]
+                                           font-medium
+                                           text-navy">
+
                                     Project baru ditambahkan
+
                                 </p>
 
-                                <p class="text-[10px] text-slate-400 mt-1">
+
+                                <p
+                                    class="text-[9px]
+                                           text-slate-400
+                                           mt-1">
+
                                     Hari ini
+
                                 </p>
 
                             </div>
@@ -685,23 +1359,97 @@
                         </div>
 
 
+
+                        <!-- ACTIVITY 3 -->
+
                         <div class="flex gap-3">
 
                             <div
-                                class="w-7 h-7 shrink-0 rounded-lg bg-lightgreen flex items-center justify-center">
+                                class="w-7 h-7
+                                       rounded-lg
+                                       bg-green-100
+                                       flex items-center
+                                       justify-center
+                                       shrink-0">
 
-                                <div class="w-2 h-2 rounded-full bg-greenmain"></div>
+                                <span
+                                    class="w-1.5 h-1.5
+                                           rounded-full
+                                           bg-green-600">
+
+                                </span>
 
                             </div>
 
+
                             <div>
 
-                                <p class="text-xs font-medium text-navy">
+                                <p
+                                    class="text-[11px]
+                                           font-medium
+                                           text-navy">
+
                                     Dokumentasi diperbarui
+
                                 </p>
 
-                                <p class="text-[10px] text-slate-400 mt-1">
+
+                                <p
+                                    class="text-[9px]
+                                           text-slate-400
+                                           mt-1">
+
                                     Kemarin
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- ACTIVITY 4 -->
+
+                        <div class="flex gap-3">
+
+                            <div
+                                class="w-7 h-7
+                                       rounded-lg
+                                       bg-purple-100
+                                       flex items-center
+                                       justify-center
+                                       shrink-0">
+
+                                <span
+                                    class="w-1.5 h-1.5
+                                           rounded-full
+                                           bg-purple-600">
+
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <p
+                                    class="text-[11px]
+                                           font-medium
+                                           text-navy">
+
+                                    Informasi instansi diperbarui
+
+                                </p>
+
+
+                                <p
+                                    class="text-[9px]
+                                           text-slate-400
+                                           mt-1">
+
+                                    2 hari yang lalu
+
                                 </p>
 
                             </div>
@@ -710,10 +1458,9 @@
 
                     </div>
 
-                </div>
+                </section>
 
             </div>
-
 
         </div>
 
