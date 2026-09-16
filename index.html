@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Admin | Access Internship</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: "#B7D9C2",
+                        mint: "#E4F2E8",
+                        greenmain: "#76A987",
+                        darkgreen: "#4F795D",
+                        lavender: "#D9CBEF",
+                        purple: "#9A82C2",
+                        darkpurple: "#705596",
+                        cream: "#FAFAF8",
+                        navy: "#26354D"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .soft-bg {
+            background:
+                radial-gradient(circle at 10% 10%, rgba(183, 217, 194, 0.35), transparent 28%),
+                radial-gradient(circle at 90% 15%, rgba(217, 203, 239, 0.38), transparent 30%),
+                #FAFAF8;
+        }
+
+        .sidebar-gradient {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(228, 242, 232, 0.85),
+                    rgba(250, 250, 248, 0.95) 48%,
+                    rgba(217, 203, 239, 0.55)
+                );
+        }
+    </style>
+</head>
+
+<body class="soft-bg text-slate-700">
+
+    <div class="min-h-screen flex">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="hidden md:flex w-64 lg:w-72 sidebar-gradient border-r border-white/70 flex-col">
+
+            <!-- LOGO -->
+            <div class="px-6 py-7">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-11 h-11 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+                        <span class="text-xl font-bold text-darkgreen">
+                            A
+                        </span>
+                    </div>
+
+                    <div>
+                        <h1 class="font-bold text-navy text-base">
+                            Access Internship
+                        </h1>
+
+                        <p class="text-xs text-slate-500 mt-0.5">
+                            CV Access Media
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <div class="px-4">
+
+                <p class="px-3 mb-3 text-[11px] uppercase tracking-widest font-semibold text-slate-400">
+                    Menu Utama
+                </p>
+
+
+                <nav class="space-y-1.5">
+
+
+                    <!-- DASHBOARD -->
+
+                    <a href="#"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white shadow-sm text-darkgreen font-semibold">
+
+                        <span class="w-5 text-center">
+                            ▦
+                        </span>
+
+                        <span class="text-sm">
+                            Dashboard
+                        </span>
+
+                    </a>
+
+
+                    <!-- KEGIATAN -->
+
+                    <a href="#"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-white/70 hover:text-darkgreen transition">
+
+                        <span class="w-5 text-center">
+                            ◷
+                        </span>
+
+                        <span class="text-sm">
+                            Kegiatan
+                        </span>
+
+                    </a>
+
+
+                    <!-- PROJECT -->
+
+                    <a href="#"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-white/70 hover:text-darkgreen transition">
+
+                        <span class="w-5 text-center">
+                            ◫
+                        </span>
+
+                        <span class="text-sm">
+                            Project
+                        </span>
+
+                    </a>
+
+
+                    <!-- DOKUMENTASI -->
+
+                    <a href="#"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-white/70 hover:text-darkgreen transition">
+
+                        <span class="w-5 text-center">
+                            ▧
+                        </span>
+
+                        <span class="text-sm">
+                            Dokumentasi
+                        </span>
+
+                    </a>
+
+
+                    <!-- INSTANSI -->
+
+                    <a href="#"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-white/70 hover:text-darkgreen transition">
+
+                        <span class="w-5 text-center">
+                            ⌂
+                        </span>
+
+                        <span class="text-sm">
+                            Instansi
+                        </span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- BOTTOM PROFILE -->
+
+            <div class="mt-auto p-4">
+
+                <div class="bg-white/75 backdrop-blur-sm rounded-2xl p-3 flex items-center gap-3 shadow-sm">
+
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sage to-lavender flex items-center justify-center">
+
+                        <span class="font-bold text-darkpurple">
+                            A
+                        </span>
+
+                    </div>
+
+                    <div class="min-w-0 flex-1">
+
+                        <p class="text-sm font-semibold text-navy">
+                            Admin
+                        </p>
+
+                        <p class="text-xs text-slate-400">
+                            Administrator
+                        </p>
+
+                    </div>
+
+                    <button class="text-slate-400 hover:text-darkpurple">
+                        ⋮
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="flex-1 min-w-0">
+
+
+            <!-- TOPBAR -->
+
+            <header class="bg-white/75 backdrop-blur-md border-b border-white/80">
+
+                <div class="px-5 sm:px-7 lg:px-10 py-5 flex items-center justify-between">
+
+
+                    <div>
+
+                        <p class="text-xs text-slate-400 mb-1">
+                            Halaman Admin
+                        </p>
+
+                        <h2 class="text-xl sm:text-2xl font-bold text-navy">
+                            Dashboard
+                        </h2>
+
+                    </div>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="flex items-center gap-3">
+
+                        <div class="hidden sm:block text-right">
+
+                            <p class="text-sm font-semibold text-navy">
+                                Admin
+                            </p>
+
+                            <p class="text-xs text-slate-400">
+                                Pengelola Website
+                            </p>
+
+                        </div>
+
+
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sage to-lavender flex items-center justify-center">
+
+                            <span class="font-bold text-darkpurple">
+                                A
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- CONTENT -->
+
+            <section class="px-5 sm:px-7 lg:px-10 py-8">
+
+
+                <!-- WELCOME -->
+
+                <div class="mb-8">
+
+                    <p class="text-sm text-darkgreen font-medium mb-1">
+                        Selamat datang kembali 👋
+                    </p>
+
+                    <h3 class="text-2xl font-bold text-navy">
+                        Halo, Admin!
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-2 max-w-xl">
+                        Kelola informasi dan konten Access Internship
+                        melalui dashboard ini.
+                    </p>
+
+                </div>
+
+
+
+                <!-- ================= STATISTICS ================= -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+
+
+                    <!-- KEGIATAN -->
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-white">
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="w-11 h-11 rounded-xl bg-mint flex items-center justify-center text-darkgreen text-lg">
+                                ◷
+                            </div>
+
+                            <span class="text-xs text-slate-400">
+                                Data
+                            </span>
+
+                        </div>
+
+                        <p class="text-sm text-slate-400 mt-5">
+                            Kegiatan
+                        </p>
+
+                        <h4 class="text-3xl font-bold text-navy mt-1">
+                            8
+                        </h4>
+
+                        <p class="text-xs text-slate-400 mt-2">
+                            Kegiatan tersimpan
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- PROJECT -->
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-white">
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="w-11 h-11 rounded-xl bg-lavender flex items-center justify-center text-darkpurple text-lg">
+                                ◫
+                            </div>
+
+                            <span class="text-xs text-slate-400">
+                                Data
+                            </span>
+
+                        </div>
+
+                        <p class="text-sm text-slate-400 mt-5">
+                            Project
+                        </p>
+
+                        <h4 class="text-3xl font-bold text-navy mt-1">
+                            12
+                        </h4>
+
+                        <p class="text-xs text-slate-400 mt-2">
+                            Project tersimpan
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- DOKUMENTASI -->
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-white">
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="w-11 h-11 rounded-xl bg-sage flex items-center justify-center text-darkgreen text-lg">
+                                ▧
+                            </div>
+
+                            <span class="text-xs text-slate-400">
+                                Data
+                            </span>
+
+                        </div>
+
+                        <p class="text-sm text-slate-400 mt-5">
+                            Dokumentasi
+                        </p>
+
+                        <h4 class="text-3xl font-bold text-navy mt-1">
+                            15
+                        </h4>
+
+                        <p class="text-xs text-slate-400 mt-2">
+                            Dokumentasi tersimpan
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- INSTANSI -->
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-white">
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="w-11 h-11 rounded-xl bg-[#F0EAF8] flex items-center justify-center text-darkpurple text-lg">
+                                ⌂
+                            </div>
+
+                            <span class="text-xs text-slate-400">
+                                Data
+                            </span>
+
+                        </div>
+
+                        <p class="text-sm text-slate-400 mt-5">
+                            Instansi
+                        </p>
+
+                        <h4 class="text-3xl font-bold text-navy mt-1">
+                            6
+                        </h4>
+
+                        <p class="text-xs text-slate-400 mt-2">
+                            Instansi tersimpan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= LOWER SECTION ================= -->
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-7">
+
+
+                    <!-- AKSI CEPAT -->
+
+                    <div class="bg-white rounded-2xl p-6 border border-white shadow-sm">
+
+                        <div class="mb-5">
+
+                            <h3 class="font-bold text-navy">
+                                Aksi Cepat
+                            </h3>
+
+                            <p class="text-xs text-slate-400 mt-1">
+                                Tambahkan data baru
+                            </p>
+
+                        </div>
+
+
+                        <div class="space-y-3">
+
+
+                            <a href="#"
+                               class="group flex items-center gap-3 p-3.5 rounded-xl bg-mint hover:bg-sage transition">
+
+                                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-darkgreen">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-slate-700">
+                                        Tambah Kegiatan
+                                    </p>
+
+                                    <p class="text-[11px] text-slate-400">
+                                        Buat kegiatan baru
+                                    </p>
+
+                                </div>
+
+                                <span class="text-darkgreen group-hover:translate-x-1 transition">
+                                    →
+                                </span>
+
+                            </a>
+
+
+
+                            <a href="#"
+                               class="group flex items-center gap-3 p-3.5 rounded-xl bg-[#F4EFF9] hover:bg-lavender transition">
+
+                                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-darkpurple">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-slate-700">
+                                        Tambah Project
+                                    </p>
+
+                                    <p class="text-[11px] text-slate-400">
+                                        Tambahkan project baru
+                                    </p>
+
+                                </div>
+
+                                <span class="text-darkpurple group-hover:translate-x-1 transition">
+                                    →
+                                </span>
+
+                            </a>
+
+
+
+                            <a href="#"
+                               class="group flex items-center gap-3 p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition">
+
+                                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-darkgreen">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-slate-700">
+                                        Tambah Dokumentasi
+                                    </p>
+
+                                    <p class="text-[11px] text-slate-400">
+                                        Tambahkan dokumentasi
+                                    </p>
+
+                                </div>
+
+                                <span class="text-slate-500 group-hover:translate-x-1 transition">
+                                    →
+                                </span>
+
+                            </a>
+
+
+
+                            <a href="#"
+                               class="group flex items-center gap-3 p-3.5 rounded-xl bg-[#F4EFF9] hover:bg-lavender transition">
+
+                                <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-darkpurple">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-slate-700">
+                                        Tambah Instansi
+                                    </p>
+
+                                    <p class="text-[11px] text-slate-400">
+                                        Tambahkan instansi baru
+                                    </p>
+
+                                </div>
+
+                                <span class="text-darkpurple group-hover:translate-x-1 transition">
+                                    →
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- AKTIVITAS TERBARU -->
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-6 border border-white shadow-sm">
+
+
+                        <div class="flex items-start justify-between mb-6">
+
+                            <div>
+
+                                <h3 class="font-bold text-navy">
+                                    Aktivitas Terbaru
+                                </h3>
+
+                                <p class="text-xs text-slate-400 mt-1">
+                                    Informasi aktivitas terakhir
+                                </p>
+
+                            </div>
+
+
+                            <button class="text-xs font-semibold text-darkpurple hover:underline">
+                                Lihat Semua
+                            </button>
+
+                        </div>
+
+
+
+                        <div class="space-y-2">
+
+
+                            <!-- ACTIVITY 1 -->
+
+                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
+
+                                <div class="w-10 h-10 rounded-xl bg-mint flex items-center justify-center text-darkgreen">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-navy">
+                                        Kegiatan ditambahkan
+                                    </p>
+
+                                    <p class="text-xs text-slate-400 mt-0.5">
+                                        Pengembangan Website
+                                    </p>
+
+                                </div>
+
+                                <span class="text-[11px] text-slate-400">
+                                    Hari ini
+                                </span>
+
+                            </div>
+
+
+
+                            <!-- ACTIVITY 2 -->
+
+                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
+
+                                <div class="w-10 h-10 rounded-xl bg-lavender flex items-center justify-center text-darkpurple">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-navy">
+                                        Project ditambahkan
+                                    </p>
+
+                                    <p class="text-xs text-slate-400 mt-0.5">
+                                        Website Portfolio
+                                    </p>
+
+                                </div>
+
+                                <span class="text-[11px] text-slate-400">
+                                    Kemarin
+                                </span>
+
+                            </div>
+
+
+
+                            <!-- ACTIVITY 3 -->
+
+                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
+
+                                <div class="w-10 h-10 rounded-xl bg-sage flex items-center justify-center text-darkgreen">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-navy">
+                                        Dokumentasi ditambahkan
+                                    </p>
+
+                                    <p class="text-xs text-slate-400 mt-0.5">
+                                        Kegiatan PKL
+                                    </p>
+
+                                </div>
+
+                                <span class="text-[11px] text-slate-400">
+                                    2 hari lalu
+                                </span>
+
+                            </div>
+
+
+
+                            <!-- ACTIVITY 4 -->
+
+                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
+
+                                <div class="w-10 h-10 rounded-xl bg-[#F0EAF8] flex items-center justify-center text-darkpurple">
+                                    +
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <p class="text-sm font-semibold text-navy">
+                                        Instansi ditambahkan
+                                    </p>
+
+                                    <p class="text-xs text-slate-400 mt-0.5">
+                                        SMK Negeri 3 Banjar
+                                    </p>
+
+                                </div>
+
+                                <span class="text-[11px] text-slate-400">
+                                    3 hari lalu
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
