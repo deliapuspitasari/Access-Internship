@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Access Internship</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        greenmain: "#76A987",
+                        darkgreen: "#4F795D",
+                        lightgreen: "#E4F2E8",
+
+                        purple: "#9A82C2",
+                        darkpurple: "#705596",
+                        lightpurple: "#D9CBEF",
+
+                        navy: "#26354D"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .page-bg {
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(118, 169, 135, 0.16),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 85% 85%,
+                    rgba(154, 130, 194, 0.18),
+                    transparent 25%
+                ),
+                #FAFAF8;
+        }
+    </style>
+</head>
+
+
+<body class="page-bg min-h-screen flex items-center justify-center px-4 py-6">
+
+
+    <!-- LOGIN CARD -->
+
+    <div
+        class="w-full max-w-[360px] bg-white rounded-2xl border border-slate-100 shadow-sm px-6 py-7">
+
+
+        <!-- ================= LOGO ================= -->
+
+        <div class="text-center mb-6">
+
+            <div
+                class="w-11 h-11 mx-auto rounded-xl bg-gradient-to-br from-darkgreen to-purple flex items-center justify-center mb-3">
+
+                <span class="text-lg font-bold text-white">
+                    A
+                </span>
+
+            </div>
+
+            <h1 class="text-lg font-bold text-navy">
+                Access Internship
+            </h1>
+
+            <p class="text-xs text-slate-400 mt-1">
+                Masuk ke akun Anda
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= FORM ================= -->
+
+        <form
+            action="dashboard.html"
+            method="GET"
+            class="space-y-4">
+
+
+            <!-- EMAIL -->
+
+            <div>
+
+                <label
+                    for="email"
+                    class="block text-xs font-semibold text-navy mb-1.5">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="nama@email.com"
+                    required
+                    class="w-full h-10 px-3.5 rounded-lg border border-slate-200 bg-white text-xs text-slate-700 placeholder-slate-300 outline-none transition focus:border-greenmain focus:ring-2 focus:ring-greenmain/10">
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div>
+
+                <div class="flex items-center justify-between mb-1.5">
+
+                    <label
+                        for="password"
+                        class="text-xs font-semibold text-navy">
+                        Kata sandi
+                    </label>
+
+                    <a
+                        href="#"
+                        class="text-[10px] text-darkpurple hover:underline">
+                        Lupa password?
+                    </a>
+
+                </div>
+
+
+                <div class="relative">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Masukkan kata sandi"
+                        required
+                        class="w-full h-10 px-3.5 pr-10 rounded-lg border border-slate-200 bg-white text-xs text-slate-700 placeholder-slate-300 outline-none transition focus:border-purple focus:ring-2 focus:ring-purple/10">
+
+
+                    <!-- EYE -->
+
+                    <button
+                        type="button"
+                        onclick="togglePassword()"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-300 hover:text-darkpurple transition">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.6"
+                            stroke="currentColor"
+                            class="w-4 h-4">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12 18 18.75 12 18.75 2.25 12 2.25 12Z" />
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="2.5" />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= REMEMBER ================= -->
+
+            <div class="flex items-center gap-2">
+
+                <input
+                    type="checkbox"
+                    id="remember"
+                    name="remember"
+                    class="w-3.5 h-3.5 rounded border-slate-300 text-darkgreen focus:ring-greenmain">
+
+                <label
+                    for="remember"
+                    class="text-[11px] text-slate-500">
+                    Ingat saya
+                </label>
+
+            </div>
+
+
+
+            <!-- ================= LOGIN ================= -->
+
+            <button
+                type="submit"
+                class="w-full h-10 rounded-lg bg-gradient-to-r from-darkgreen to-purple text-white text-xs font-semibold hover:opacity-90 transition">
+
+                Masuk
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- ================= DIVIDER ================= -->
+
+        <div class="flex items-center gap-3 my-5">
+
+            <div class="flex-1 h-px bg-slate-100"></div>
+
+            <span class="text-[10px] text-slate-400">
+                atau
+            </span>
+
+            <div class="flex-1 h-px bg-slate-100"></div>
+
+        </div>
+
+
+
+        <!-- ================= GOOGLE ================= -->
+
+        <button
+            type="button"
+            class="w-full h-10 rounded-lg border border-slate-200 bg-white flex items-center justify-center gap-2.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 transition">
+
+
+            <!-- GOOGLE ICON -->
+
+            <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24">
+
+                <path
+                    fill="#4285F4"
+                    d="M21.35 12.27c0-.78-.07-1.53-.22-2.25H12v4.26h5.23a4.47 4.47 0 0 1-1.94 2.93v2.44h3.14c1.84-1.69 2.92-4.18 2.92-7.38Z" />
+
+                <path
+                    fill="#34A853"
+                    d="M12 21.5c2.63 0 4.84-.87 6.45-2.35l-3.14-2.44c-.87.58-1.98.92-3.31.92-2.54 0-4.69-1.72-5.46-4.03H3.3v2.52A9.74 9.74 0 0 0 12 21.5Z" />
+
+                <path
+                    fill="#FBBC05"
+                    d="M6.54 13.6a5.86 5.86 0 0 1 0-3.72V7.36H3.3a9.75 9.75 0 0 0 0 8.76l3.24-2.52Z" />
+
+                <path
+                    fill="#EA4335"
+                    d="M12 5.85c1.43 0 2.71.49 3.72 1.46l2.79-2.79C16.84 2.94 14.63 2.5 12 2.5a9.74 9.74 0 0 0-8.7 5.36l3.24 2.52C7.31 7.57 9.46 5.85 12 5.85Z" />
+
+            </svg>
+
+            Lanjutkan dengan Google
+
+        </button>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <p class="text-center text-[10px] text-slate-400 mt-5">
+            © 2026 Access Internship · CV Access Media
+        </p>
+
+
+    </div>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function togglePassword() {
+
+            const password = document.getElementById("password");
+
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

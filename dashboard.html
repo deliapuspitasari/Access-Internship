@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Access Internship</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: "#B7D9C2",
+                        mint: "#E4F2E8",
+                        greenmain: "#76A987",
+                        darkgreen: "#4F795D",
+
+                        lavender: "#D9CBEF",
+                        purple: "#9A82C2",
+                        darkpurple: "#705596",
+
+                        cream: "#FAFAF8",
+                        navy: "#26354D"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+
+<body class="bg-cream text-slate-700">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside
+        class="fixed left-0 top-0 z-40 h-screen w-56 bg-white border-r border-slate-100 flex flex-col">
+
+
+        <!-- LOGO -->
+
+        <div class="px-5 py-5 border-b border-slate-100">
+
+            <div class="flex items-center gap-3">
+
+                <div
+                    class="w-9 h-9 rounded-xl bg-gradient-to-br from-darkgreen to-purple flex items-center justify-center">
+
+                    <span class="text-base font-bold text-white">
+                        A
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h1 class="text-sm font-bold text-navy">
+                        Access Internship
+                    </h1>
+
+                    <p class="text-[10px] text-slate-400">
+                        CV Access Media
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MENU -->
+
+        <nav class="flex-1 px-3 py-5 space-y-1">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="dashboard.html"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-lightgreen text-darkgreen text-sm font-semibold">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 13h8V3H3v10Zm0 8h8v-5H3v5Zm10 0h8V11h-8v10Zm0-18v5h8V3h-8Z" />
+
+                </svg>
+
+                Dashboard
+
+            </a>
+
+
+
+            <!-- KEGIATAN -->
+
+            <a
+                href="kegiatan.html"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+
+                </svg>
+
+                Kegiatan
+
+            </a>
+
+
+
+            <!-- PROJECT -->
+
+            <a
+                href="project.html"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5ZM3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5" />
+
+                </svg>
+
+                Project
+
+            </a>
+
+
+
+            <!-- DOKUMENTASI -->
+
+            <a
+                href="dokumentasi.html"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 5h16v14H4V5Zm0 4h16M8 5v4m4-4v4m4-4v4" />
+
+                </svg>
+
+                Dokumentasi
+
+            </a>
+
+
+
+            <!-- INSTANSI -->
+
+            <a
+                href="instansi.html"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-lightgreen hover:text-darkgreen text-sm transition">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 12h.01M15 12h.01" />
+
+                </svg>
+
+                Instansi
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- USER -->
+
+        <div class="px-4 py-4 border-t border-slate-100">
+
+            <div class="flex items-center gap-3">
+
+                <div
+                    class="w-8 h-8 rounded-full bg-gradient-to-br from-sage to-lavender flex items-center justify-center">
+
+                    <span class="text-xs font-bold text-darkgreen">
+                        A
+                    </span>
+
+                </div>
+
+                <div class="min-w-0">
+
+                    <p class="text-xs font-semibold text-navy truncate">
+                        Administrator
+                    </p>
+
+                    <p class="text-[10px] text-slate-400 truncate">
+                        Admin
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="ml-56 min-h-screen">
+
+
+        <!-- HEADER -->
+
+        <header
+            class="h-16 bg-white border-b border-slate-100 flex items-center justify-between px-7">
+
+            <div>
+
+                <h2 class="text-lg font-bold text-navy">
+                    Dashboard
+                </h2>
+
+                <p class="text-xs text-slate-400 mt-0.5">
+                    Ringkasan informasi Access Internship
+                </p>
+
+            </div>
+
+
+            <!-- DATE -->
+
+            <div class="hidden sm:flex items-center gap-2 text-xs text-slate-400">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+
+                </svg>
+
+                September 2026
+
+            </div>
+
+        </header>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="p-6 lg:p-7">
+
+
+            <!-- WELCOME -->
+
+            <div class="mb-6">
+
+                <p class="text-xs font-medium text-darkgreen mb-1">
+                    Selamat datang kembali 👋
+                </p>
+
+                <h1 class="text-2xl font-bold text-navy">
+                    Ringkasan Internship
+                </h1>
+
+                <p class="text-xs text-slate-400 mt-1">
+                    Pantau informasi internship dalam satu halaman.
+                </p>
+
+            </div>
+
+
+
+            <!-- ================= STATISTICS ================= -->
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+
+
+                <!-- KEGIATAN -->
+
+                <div class="bg-white rounded-xl border border-slate-100 p-4">
+
+                    <div class="flex items-center justify-between">
+
+                        <div>
+
+                            <p class="text-xs text-slate-400">
+                                Kegiatan
+                            </p>
+
+                            <p class="text-2xl font-bold text-navy mt-1">
+                                8
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-9 h-9 rounded-lg bg-lightgreen flex items-center justify-center">
+
+                            <svg
+                                class="w-4 h-4 text-darkgreen"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M8 7V3m8 4V3M4 11h16" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                    <p class="text-[10px] text-darkgreen mt-3">
+                        Total kegiatan
+                    </p>
+
+                </div>
+
+
+
+                <!-- PROJECT -->
+
+                <div class="bg-white rounded-xl border border-slate-100 p-4">
+
+                    <div class="flex items-center justify-between">
+
+                        <div>
+
+                            <p class="text-xs text-slate-400">
+                                Project
+                            </p>
+
+                            <p class="text-2xl font-bold text-navy mt-1">
+                                12
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-9 h-9 rounded-lg bg-lightpurple flex items-center justify-center">
+
+                            <svg
+                                class="w-4 h-4 text-purple"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M4 7h16M4 7v13h16V7M8 7V4h8v3" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                    <p class="text-[10px] text-purple mt-3">
+                        Total project
+                    </p>
+
+                </div>
+
+
+
+                <!-- DOKUMENTASI -->
+
+                <div class="bg-white rounded-xl border border-slate-100 p-4">
+
+                    <div class="flex items-center justify-between">
+
+                        <div>
+
+                            <p class="text-xs text-slate-400">
+                                Dokumentasi
+                            </p>
+
+                            <p class="text-2xl font-bold text-navy mt-1">
+                                15
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-9 h-9 rounded-lg bg-lightgreen flex items-center justify-center">
+
+                            <svg
+                                class="w-4 h-4 text-darkgreen"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M4 5h16v14H4V5Zm4 4h8" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                    <p class="text-[10px] text-darkgreen mt-3">
+                        Total dokumentasi
+                    </p>
+
+                </div>
+
+
+
+                <!-- INSTANSI -->
+
+                <div class="bg-white rounded-xl border border-slate-100 p-4">
+
+                    <div class="flex items-center justify-between">
+
+                        <div>
+
+                            <p class="text-xs text-slate-400">
+                                Instansi
+                            </p>
+
+                            <p class="text-2xl font-bold text-navy mt-1">
+                                6
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-9 h-9 rounded-lg bg-lightpurple flex items-center justify-center">
+
+                            <svg
+                                class="w-4 h-4 text-purple"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M3 21h18M5 21V7l7-4 7 4v14" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                    <p class="text-[10px] text-purple mt-3">
+                        Total instansi
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= BOTTOM ================= -->
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+
+                <!-- AKSI CEPAT -->
+
+                <div class="bg-white rounded-xl border border-slate-100 p-5">
+
+                    <div class="mb-4">
+
+                        <h3 class="text-sm font-bold text-navy">
+                            Aksi Cepat
+                        </h3>
+
+                        <p class="text-[11px] text-slate-400 mt-1">
+                            Akses menu yang sering digunakan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="grid grid-cols-2 gap-3">
+
+
+                        <a
+                            href="kegiatan.html"
+                            class="p-3 rounded-lg bg-lightgreen hover:bg-sage transition">
+
+                            <p class="text-xs font-semibold text-darkgreen">
+                                Kegiatan
+                            </p>
+
+                            <p class="text-[10px] text-slate-400 mt-1">
+                                Kelola kegiatan
+                            </p>
+
+                        </a>
+
+
+                        <a
+                            href="project.html"
+                            class="p-3 rounded-lg bg-lightpurple hover:bg-lavender transition">
+
+                            <p class="text-xs font-semibold text-darkpurple">
+                                Project
+                            </p>
+
+                            <p class="text-[10px] text-slate-400 mt-1">
+                                Kelola project
+                            </p>
+
+                        </a>
+
+
+                        <a
+                            href="dokumentasi.html"
+                            class="p-3 rounded-lg bg-lightgreen hover:bg-sage transition">
+
+                            <p class="text-xs font-semibold text-darkgreen">
+                                Dokumentasi
+                            </p>
+
+                            <p class="text-[10px] text-slate-400 mt-1">
+                                Kelola dokumentasi
+                            </p>
+
+                        </a>
+
+
+                        <a
+                            href="instansi.html"
+                            class="p-3 rounded-lg bg-lightpurple hover:bg-lavender transition">
+
+                            <p class="text-xs font-semibold text-darkpurple">
+                                Instansi
+                            </p>
+
+                            <p class="text-[10px] text-slate-400 mt-1">
+                                Kelola instansi
+                            </p>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AKTIVITAS TERBARU -->
+
+                <div class="bg-white rounded-xl border border-slate-100 p-5">
+
+                    <div class="mb-4">
+
+                        <h3 class="text-sm font-bold text-navy">
+                            Aktivitas Terbaru
+                        </h3>
+
+                        <p class="text-[11px] text-slate-400 mt-1">
+                            Aktivitas terbaru dalam sistem.
+                        </p>
+
+                    </div>
+
+
+                    <div class="space-y-4">
+
+
+                        <div class="flex gap-3">
+
+                            <div
+                                class="w-7 h-7 shrink-0 rounded-lg bg-lightgreen flex items-center justify-center">
+
+                                <div class="w-2 h-2 rounded-full bg-greenmain"></div>
+
+                            </div>
+
+                            <div>
+
+                                <p class="text-xs font-medium text-navy">
+                                    Kegiatan internship diperbarui
+                                </p>
+
+                                <p class="text-[10px] text-slate-400 mt-1">
+                                    Beberapa saat yang lalu
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="flex gap-3">
+
+                            <div
+                                class="w-7 h-7 shrink-0 rounded-lg bg-lightpurple flex items-center justify-center">
+
+                                <div class="w-2 h-2 rounded-full bg-purple"></div>
+
+                            </div>
+
+                            <div>
+
+                                <p class="text-xs font-medium text-navy">
+                                    Project baru ditambahkan
+                                </p>
+
+                                <p class="text-[10px] text-slate-400 mt-1">
+                                    Hari ini
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="flex gap-3">
+
+                            <div
+                                class="w-7 h-7 shrink-0 rounded-lg bg-lightgreen flex items-center justify-center">
+
+                                <div class="w-2 h-2 rounded-full bg-greenmain"></div>
+
+                            </div>
+
+                            <div>
+
+                                <p class="text-xs font-medium text-navy">
+                                    Dokumentasi diperbarui
+                                </p>
+
+                                <p class="text-[10px] text-slate-400 mt-1">
+                                    Kemarin
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
