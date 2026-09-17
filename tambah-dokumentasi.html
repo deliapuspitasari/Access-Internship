@@ -131,7 +131,6 @@
 
         /* =====================================================
            MENU AKTIF
-           TETAP GRADASI HIJAU - UNGU
         ===================================================== */
 
         .menu-active {
@@ -200,36 +199,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }
-
-        /* =====================================================
-           DATE PICKER
-        ===================================================== */
-
-        .date-button {
-            transition: all 0.2s ease;
-        }
-
-        .date-button:hover {
-            background: #F8FAF9;
-        }
-
-        .calendar-popup {
-            animation: calendarShow 0.15s ease;
-        }
-
-        @keyframes calendarShow {
-
-            from {
-                opacity: 0;
-                transform: translateY(-4px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
         }
 
         /* =====================================================
@@ -356,25 +325,25 @@
         ===================================================== */
 
         .back-button {
-            background: #EFFAF4;
+            background: #008A4B;
 
-            border: 1px solid #DDF3E7;
+            border: 1px solid #008A4B;
 
-            color: #007A43;
+            color: #FFFFFF;
 
             box-shadow:
-                0 2px 7px rgba(0, 138, 75, 0.04);
+                0 2px 7px rgba(0, 138, 75, 0.10);
         }
 
         .back-button:hover {
-            background: #DDF3E7;
+            background: #007A43;
 
-            border-color: #BDE4CC;
+            border-color: #007A43;
 
-            color: #006A3A;
+            color: #FFFFFF;
 
             box-shadow:
-                0 5px 12px rgba(0, 138, 75, 0.07);
+                0 5px 12px rgba(0, 138, 75, 0.14);
         }
 
         .back-button-wrapper {
@@ -465,10 +434,7 @@
                 display: none !important;
             }
 
-            /* =================================================
-               PROFILE MOBILE
-               HANYA BAGIAN INI YANG DIPERBAIKI
-            ================================================= */
+            /* PROFILE MOBILE */
 
             .sidebar-profile {
                 display: block !important;
@@ -515,14 +481,7 @@
                 display: none !important;
             }
 
-            /*
-              5 MENU:
-              Dashboard
-              Project
-              Dokumentasi
-              Instansi
-              Profil
-            */
+            /* 5 MENU */
 
             .nav-links {
                 width: 100%;
@@ -573,31 +532,6 @@
                 display: flex !important;
             }
 
-            /* =================================================
-               PROFILE DROPDOWN MOBILE
-               RESPONSIVE TERHADAP LAYAR
-            ================================================= */
-
-            #profileDropdown {
-                position: fixed !important;
-
-                left: 12px !important;
-                right: 12px !important;
-
-                bottom: 76px !important;
-
-                width: auto !important;
-                max-width: calc(100vw - 24px) !important;
-
-                margin: 0 !important;
-
-                z-index: 9999 !important;
-
-                box-sizing: border-box !important;
-
-                border-radius: 14px !important;
-            }
-
             /* MAIN */
 
             .main-area {
@@ -631,32 +565,6 @@
 
             .main-header p {
                 font-size: 9px !important;
-            }
-
-            /* DATE */
-
-            .date-button {
-                padding: 7px !important;
-
-                gap: 4px !important;
-            }
-
-            .date-button span {
-                display: none;
-            }
-
-            .date-button svg:first-child {
-                width: 16px;
-                height: 16px;
-            }
-
-            .date-button svg:last-child {
-                display: none;
-            }
-
-            .calendar-popup {
-                right: -2px;
-                width: 220px;
             }
 
             /* CONTENT */
@@ -1163,9 +1071,8 @@
 
                     <!-- PROFIL MOBILE -->
 
-                    <button
-                        id="mobileProfileToggle"
-                        type="button"
+                    <a
+                        href="profile.html"
                         class="menu-item
                                md:hidden
                                flex
@@ -1188,13 +1095,13 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="1.8"
-                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                                d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
 
                         </svg>
 
                         <span>Profil</span>
 
-                    </button>
+                    </a>
 
                 </div>
 
@@ -1462,124 +1369,6 @@
                         Tambahkan dokumentasi kegiatan baru
 
                     </p>
-
-                </div>
-
-
-                <!-- DATE PICKER -->
-
-                <div class="relative">
-
-                    <button
-                        id="dateButton"
-                        type="button"
-                        class="date-button
-                               flex
-                               items-center
-                               gap-2.5
-                               px-2
-                               py-2
-                               rounded-lg
-                               text-[11px]
-                               text-slate-500">
-
-                        <svg
-                            class="w-4 h-4 text-green-600"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.7"
-                                d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
-
-                        </svg>
-
-                        <span id="currentDate">
-                            17 September 2026
-                        </span>
-
-                        <svg
-                            class="w-3 h-3 text-slate-300"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="m7 10 5 5 5-5" />
-
-                        </svg>
-
-                    </button>
-
-
-                    <!-- CALENDAR -->
-
-                    <div
-                        id="calendarPopup"
-                        class="calendar-popup
-                               hidden
-                               absolute
-                               right-0
-                               top-full
-                               mt-2
-                               z-50
-                               bg-white
-                               border
-                               border-slate-200
-                               rounded-xl
-                               shadow-xl
-                               p-3
-                               w-[230px]">
-
-                        <p
-                            class="text-[9px]
-                                   font-semibold
-                                   text-navy
-                                   mb-2">
-
-                            Pilih tanggal
-
-                        </p>
-
-                        <input
-                            type="date"
-                            id="datePicker"
-                            class="w-full
-                                   border
-                                   border-slate-200
-                                   rounded-lg
-                                   px-3
-                                   py-2
-                                   text-[10px]
-                                   text-slate-600
-                                   outline-none
-                                   focus:border-green-300">
-
-                        <button
-                            type="button"
-                            id="todayButton"
-                            class="mt-2
-                                   w-full
-                                   py-2
-                                   rounded-lg
-                                   bg-green-50
-                                   text-green-700
-                                   text-[9px]
-                                   font-semibold
-                                   hover:bg-green-100
-                                   transition">
-
-                            Kembali ke Hari Ini
-
-                        </button>
-
-                    </div>
 
                 </div>
 
@@ -2251,159 +2040,12 @@
     <script>
 
         /* =====================================================
-           DATE PICKER
-        ===================================================== */
-
-        const dateButton =
-            document.getElementById("dateButton");
-
-        const calendarPopup =
-            document.getElementById("calendarPopup");
-
-        const datePicker =
-            document.getElementById("datePicker");
-
-        const currentDate =
-            document.getElementById("currentDate");
-
-        const todayButton =
-            document.getElementById("todayButton");
-
-
-        function formatDate(dateValue) {
-
-            const date =
-                new Date(dateValue + "T00:00:00");
-
-            return date.toLocaleDateString(
-                "id-ID",
-                {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                }
-            );
-
-        }
-
-
-        function getTodayValue() {
-
-            const today = new Date();
-
-            const year =
-                today.getFullYear();
-
-            const month =
-                String(today.getMonth() + 1)
-                    .padStart(2, "0");
-
-            const day =
-                String(today.getDate())
-                    .padStart(2, "0");
-
-            return `${year}-${month}-${day}`;
-
-        }
-
-
-        const todayValue =
-            getTodayValue();
-
-
-        datePicker.value =
-            todayValue;
-
-        currentDate.textContent =
-            formatDate(todayValue);
-
-
-        dateButton.addEventListener(
-            "click",
-            function (event) {
-
-                event.stopPropagation();
-
-                calendarPopup.classList.toggle(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        datePicker.addEventListener(
-            "change",
-            function () {
-
-                const selectedDate =
-                    datePicker.value;
-
-                if (!selectedDate) {
-                    return;
-                }
-
-                currentDate.textContent =
-                    formatDate(selectedDate);
-
-                calendarPopup.classList.add(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        todayButton.addEventListener(
-            "click",
-            function () {
-
-                datePicker.value =
-                    todayValue;
-
-                currentDate.textContent =
-                    formatDate(todayValue);
-
-                calendarPopup.classList.add(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        document.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    !calendarPopup.contains(event.target) &&
-                    !dateButton.contains(event.target)
-                ) {
-
-                    calendarPopup.classList.add(
-                        "hidden"
-                    );
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           PROFILE DROPDOWN
-           DIPERBAIKI HANYA UNTUK PROFILE
+           PROFILE DROPDOWN DESKTOP
         ===================================================== */
 
         const profileToggle =
             document.getElementById(
                 "profileToggle"
-            );
-
-        const mobileProfileToggle =
-            document.getElementById(
-                "mobileProfileToggle"
             );
 
         const profileDropdown =
@@ -2437,22 +2079,6 @@
         );
 
 
-        /* PROFILE MOBILE */
-
-        mobileProfileToggle.addEventListener(
-            "click",
-            function (event) {
-
-                event.stopPropagation();
-
-                profileDropdown.classList.toggle(
-                    "hidden"
-                );
-
-            }
-        );
-
-
         /* CLOSE PROFILE */
 
         document.addEventListener(
@@ -2461,8 +2087,7 @@
 
                 if (
                     !profileDropdown.contains(event.target) &&
-                    !profileToggle.contains(event.target) &&
-                    !mobileProfileToggle.contains(event.target)
+                    !profileToggle.contains(event.target)
                 ) {
 
                     profileDropdown.classList.add(
