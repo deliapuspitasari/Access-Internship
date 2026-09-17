@@ -7,8 +7,10 @@
 
     <title>Project | Access Internship</title>
 
+    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- TAILWIND CONFIG -->
     <script>
         tailwind.config = {
             theme: {
@@ -35,6 +37,7 @@
         }
     </script>
 
+    <!-- CUSTOM STYLE -->
     <style>
         * {
             box-sizing: border-box;
@@ -89,43 +92,14 @@
             color: #006A3A;
         }
 
-        .stat-card {
+        .project-card {
             transition: all 0.2s ease;
         }
 
-        .stat-card:hover {
+        .project-card:hover {
             transform: translateY(-2px);
             box-shadow:
                 0 8px 20px rgba(38, 55, 80, 0.08);
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #F8FAF9;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #CBD5D0;
-            border-radius: 10px;
-        }
-
-        .calendar-popup {
-            animation: calendarShow 0.15s ease;
-        }
-
-        @keyframes calendarShow {
-            from {
-                opacity: 0;
-                transform: translateY(-4px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .profile-dropdown {
@@ -143,25 +117,365 @@
                 transform: translateY(0);
             }
         }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F8FAF9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5D0;
+            border-radius: 10px;
+        }
+
+        /* ========================= */
+        /* MOBILE */
+        /* ========================= */
+
+        @media (max-width: 768px) {
+
+            body {
+                background: #F8FAF9;
+                padding-bottom: 68px;
+            }
+
+            /* SIDEBAR JADI NAVBAR BAWAH */
+            aside {
+                display: flex !important;
+
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                top: auto !important;
+                bottom: 0 !important;
+
+                width: 100% !important;
+                height: 68px !important;
+
+                background: #FFFFFF !important;
+                opacity: 1 !important;
+
+                border-top: 1px solid #E2E8F0 !important;
+                border-right: 0 !important;
+
+                z-index: 9999 !important;
+
+                /* TIDAK ADA BLUR */
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+
+                box-shadow:
+                    0 -2px 10px rgba(38, 55, 80, 0.06) !important;
+            }
+
+            /* LOGO SIDEBAR HILANG */
+            aside > div:first-child {
+                display: none !important;
+            }
+
+            /* MENU MOBILE */
+            aside nav {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-around !important;
+
+                width: 100% !important;
+                height: 68px !important;
+
+                padding: 5px 8px !important;
+                margin: 0 !important;
+
+                overflow: hidden !important;
+            }
+
+            /* MENU ITEM */
+            aside nav a {
+                flex: 1 !important;
+
+                min-width: 0 !important;
+                max-width: 80px !important;
+
+                height: 58px !important;
+
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+
+                gap: 4px !important;
+
+                padding: 5px 4px !important;
+                margin: 0 !important;
+
+                border-radius: 9px !important;
+
+                text-decoration: none !important;
+            }
+
+            /* ICON */
+            aside nav a svg {
+                width: 17px !important;
+                height: 17px !important;
+
+                flex-shrink: 0 !important;
+            }
+
+            /* TEXT */
+            aside nav a span {
+                display: block !important;
+
+                font-size: 7px !important;
+                line-height: 1 !important;
+
+                white-space: nowrap !important;
+            }
+
+            /* PROJECT AKTIF */
+            aside nav a.menu-active {
+                background: linear-gradient(
+                    135deg,
+                    #DDF3E7,
+                    #F1D9EB
+                ) !important;
+
+                color: #006A3A !important;
+            }
+
+            aside nav a.menu-active span {
+                font-weight: 700 !important;
+            }
+
+            /* ADMINISTRATOR HILANG */
+            aside > div:last-child {
+                display: none !important;
+            }
+
+            /* MAIN */
+            main {
+                margin-left: 0 !important;
+                width: 100% !important;
+                min-height: calc(100vh - 68px) !important;
+                padding-bottom: 0 !important;
+            }
+
+            /* HEADER */
+            main > header {
+                position: sticky !important;
+                top: 0 !important;
+
+                height: 64px !important;
+
+                padding: 0 16px !important;
+
+                background: #FFFFFF !important;
+                opacity: 1 !important;
+
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+
+                z-index: 100 !important;
+            }
+
+            main > header h2 {
+                font-size: 15px !important;
+                line-height: 1.2 !important;
+            }
+
+            main > header p {
+                font-size: 9px !important;
+                margin-top: 3px !important;
+            }
+
+            /* CONTENT */
+            .dashboard-bg {
+                min-height: calc(100vh - 64px) !important;
+
+                padding: 14px !important;
+                padding-bottom: 20px !important;
+            }
+
+            /* HEADER CONTENT PROJECT */
+            .project-header {
+                padding: 17px !important;
+                margin-bottom: 14px !important;
+                border-radius: 15px !important;
+            }
+
+            .project-header h1 {
+                font-size: 17px !important;
+                line-height: 1.3 !important;
+            }
+
+            .project-header p {
+                font-size: 9px !important;
+                line-height: 1.5 !important;
+
+                max-width: 230px !important;
+            }
+
+            .project-header a {
+                padding: 9px 11px !important;
+
+                font-size: 9px !important;
+
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .project-header a svg {
+                width: 12px !important;
+                height: 12px !important;
+            }
+
+            /* PROJECT SECTION */
+            .project-section {
+                padding: 15px !important;
+                border-radius: 14px !important;
+            }
+
+            .project-section h3 {
+                font-size: 12px !important;
+            }
+
+            .project-section-description {
+                font-size: 8.5px !important;
+                line-height: 1.5 !important;
+            }
+
+            /* GRID */
+            .project-grid {
+                grid-template-columns: 1fr !important;
+
+                gap: 10px !important;
+            }
+
+            /* CARD */
+            .project-card {
+                padding: 13px !important;
+
+                border-radius: 12px !important;
+            }
+
+            .project-card:hover {
+                transform: none !important;
+            }
+
+            .project-card h4 {
+                font-size: 11px !important;
+            }
+
+            .project-card p {
+                font-size: 8.5px !important;
+                line-height: 1.5 !important;
+            }
+
+            .project-card .project-icon {
+                width: 32px !important;
+                height: 32px !important;
+            }
+
+            .project-card .project-icon svg {
+                width: 14px !important;
+                height: 14px !important;
+            }
+
+            .project-card .project-type {
+                font-size: 7px !important;
+                padding: 4px 7px !important;
+            }
+
+            .project-card .project-footer {
+                margin-top: 10px !important;
+                padding-top: 9px !important;
+            }
+
+            .project-card .project-footer span {
+                font-size: 7px !important;
+            }
+        }
+
+        /* ========================= */
+        /* HP KECIL */
+        /* ========================= */
+
+        @media (max-width: 480px) {
+
+            aside {
+                height: 64px !important;
+            }
+
+            aside nav {
+                height: 64px !important;
+                padding: 4px 6px !important;
+            }
+
+            aside nav a {
+                height: 55px !important;
+                max-width: 72px !important;
+            }
+
+            aside nav a svg {
+                width: 16px !important;
+                height: 16px !important;
+            }
+
+            aside nav a span {
+                font-size: 7px !important;
+            }
+
+            main {
+                min-height: calc(100vh - 64px) !important;
+            }
+
+            .dashboard-bg {
+                padding: 12px !important;
+            }
+
+            .project-header {
+                padding: 15px !important;
+            }
+
+            .project-header h1 {
+                font-size: 16px !important;
+            }
+
+            .project-header p {
+                max-width: 200px !important;
+            }
+
+            .project-header a {
+                padding: 8px 9px !important;
+                font-size: 8px !important;
+            }
+
+            .project-section {
+                padding: 13px !important;
+            }
+
+            .project-card {
+                padding: 12px !important;
+            }
+        }
     </style>
 </head>
 
 
-<body class="text-slate-600">
+<body class="text-slate-600 overflow-x-hidden">
 
-
-    <!-- =====================================================
-         SIDEBAR
-    ====================================================== -->
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
 
     <aside
-        class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col">
+        class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col max-md:top-auto max-md:bottom-0 max-md:w-full max-md:h-[68px] max-md:flex-row max-md:border-r-0 max-md:border-t max-md:border-slate-200">
 
-
-        <!-- LOGO -->
-
+        <!-- LOGO / BRAND -->
         <div
-            class="h-[78px] px-5 flex items-center border-b border-slate-200 shrink-0">
+            class="h-[78px] px-5 flex items-center border-b border-slate-200 shrink-0 max-md:hidden">
 
             <div class="flex items-center gap-3 min-w-0">
 
@@ -172,18 +486,12 @@
 
                 <div class="min-w-0">
 
-                    <h1
-                        class="text-[13px] font-bold text-navy whitespace-nowrap">
-
+                    <h1 class="text-[13px] font-bold text-navy whitespace-nowrap">
                         Access Internship
-
                     </h1>
 
-                    <p
-                        class="text-[10px] text-slate-400 mt-1 whitespace-nowrap">
-
+                    <p class="text-[10px] text-slate-400 mt-1 whitespace-nowrap">
                         CV Access Media
-
                     </p>
 
                 </div>
@@ -193,27 +501,23 @@
         </div>
 
 
-        <!-- MENU -->
-
+        <!-- MENU UTAMA -->
         <nav
-            class="flex-1 px-3 py-5 overflow-y-auto">
+            class="flex-1 px-3 py-5 overflow-y-auto max-md:flex max-md:flex-row max-md:items-center max-md:justify-around max-md:w-full max-md:p-1.5 max-md:overflow-x-auto max-md:overflow-y-hidden">
 
             <p
-                class="px-3 mb-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
-
+                class="px-3 mb-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 max-md:hidden">
                 Menu Utama
-
             </p>
 
 
             <!-- DASHBOARD -->
-
             <a
                 href="dashboard.html"
-                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1">
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
 
                 <svg
-                    class="w-4 h-4"
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -226,22 +530,20 @@
 
                 </svg>
 
-                Dashboard
+                <span class="max-md:text-[8px]">
+                    Dashboard
+                </span>
 
             </a>
 
 
-            <!-- KEGIATAN -->
-
-
-            <!-- PROJECT ACTIVE -->
-
+            <!-- PROJECT AKTIF -->
             <a
                 href="project.html"
-                class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold mb-1">
+                class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
 
                 <svg
-                    class="w-4 h-4"
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -254,19 +556,20 @@
 
                 </svg>
 
-                Project
+                <span class="max-md:text-[8px]">
+                    Project
+                </span>
 
             </a>
 
 
             <!-- DOKUMENTASI -->
-
             <a
                 href="dokumentasi.html"
-                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1">
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
 
                 <svg
-                    class="w-4 h-4"
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -279,19 +582,20 @@
 
                 </svg>
 
-                Dokumentasi
+                <span class="max-md:text-[8px]">
+                    Dokumentasi
+                </span>
 
             </a>
 
 
             <!-- INSTANSI -->
-
             <a
                 href="instansi.html"
-                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500">
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2">
 
                 <svg
-                    class="w-4 h-4"
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -304,7 +608,35 @@
 
                 </svg>
 
-                Instansi
+                <span class="max-md:text-[8px]">
+                    Instansi
+                </span>
+
+            </a>
+
+
+            <!-- PROFILE MOBILE -->
+            <a
+                href="profile.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Profile
+                </span>
 
             </a>
 
@@ -312,9 +644,8 @@
 
 
         <!-- ADMINISTRATOR -->
-
         <div
-            class="relative p-3 border-t border-slate-200 shrink-0">
+            class="relative p-3 border-t border-slate-200 shrink-0 max-md:hidden">
 
             <button
                 id="profileToggle"
@@ -324,29 +655,20 @@
                 <div
                     class="w-8 h-8 rounded-full bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
 
-                    <span
-                        class="text-[11px] font-bold text-green-700">
-
+                    <span class="text-[11px] font-bold text-green-700">
                         A
-
                     </span>
 
                 </div>
 
                 <div class="min-w-0 flex-1">
 
-                    <p
-                        class="text-[11px] font-semibold text-navy truncate">
-
+                    <p class="text-[11px] font-semibold text-navy truncate">
                         Administrator
-
                     </p>
 
-                    <p
-                        class="text-[9px] text-slate-400">
-
+                    <p class="text-[9px] text-slate-400">
                         Admin
-
                     </p>
 
                 </div>
@@ -369,13 +691,12 @@
             </button>
 
 
-            <!-- PROFILE DROPDOWN -->
-
+            <!-- DROPDOWN PROFILE -->
             <div
                 id="profileDropdown"
                 class="profile-dropdown hidden absolute left-3 right-3 bottom-[68px] z-50 bg-white border border-slate-200 rounded-xl shadow-xl p-2">
 
-
+                <!-- PROFILE -->
                 <a
                     href="profile.html"
                     class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-green-50 hover:text-green-700 transition">
@@ -402,16 +723,11 @@
                     <div>
 
                         <p class="font-semibold text-navy">
-
                             Profile
-
                         </p>
 
-                        <p
-                            class="text-[8px] text-slate-400 mt-0.5">
-
+                        <p class="text-[8px] text-slate-400 mt-0.5">
                             Lihat profile admin
-
                         </p>
 
                     </div>
@@ -419,6 +735,7 @@
                 </a>
 
 
+                <!-- LOGOUT -->
                 <button
                     id="logoutButton"
                     type="button"
@@ -446,16 +763,11 @@
                     <div>
 
                         <p class="font-semibold text-slate-600">
-
                             Logout
-
                         </p>
 
-                        <p
-                            class="text-[8px] text-slate-400 mt-0.5">
-
+                        <p class="text-[8px] text-slate-400 mt-0.5">
                             Keluar dari akun
-
                         </p>
 
                     </div>
@@ -469,171 +781,59 @@
     </aside>
 
 
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
+    <!-- ========================= -->
+    <!-- MAIN -->
+    <!-- ========================= -->
 
-    <main
-        class="ml-[220px] min-h-screen">
+    <main class="ml-[220px] min-h-screen max-md:ml-0 max-md:pb-[68px]">
 
-
-        <!-- NAVBAR -->
-
+        <!-- NAVBAR / HEADER -->
         <header
-            class="sticky top-0 z-40 h-[78px] bg-white/95 backdrop-blur-md border-b border-slate-200 px-7 flex items-center justify-between">
+            class="sticky top-0 z-40 h-[78px] bg-white border-b border-slate-200 px-7 flex items-center justify-between max-md:h-[64px] max-md:px-4">
 
-
-            <div>
+            <div class="min-w-0">
 
                 <h2
-                    class="text-[17px] font-bold text-navy">
-
+                    class="text-[17px] font-bold text-navy max-md:text-[15px]">
                     Project
-
                 </h2>
 
                 <p
-                    class="text-[11px] text-slate-400 mt-0.5">
-
+                    class="text-[11px] text-slate-400 mt-0.5 truncate max-md:text-[9px]">
                     Daftar project Access Internship
-
                 </p>
-
-            </div>
-
-
-            <!-- DATE PICKER -->
-
-            <div class="relative">
-
-                <button
-                    id="dateButton"
-                    type="button"
-                    class="flex items-center gap-2 text-[11px] text-slate-400 hover:text-slate-600 transition cursor-pointer">
-
-                    <svg
-                        class="w-4 h-4 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.7"
-                            d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
-
-                    </svg>
-
-                    <span id="currentDate">
-                        Memuat tanggal...
-                    </span>
-
-                    <svg
-                        class="w-3 h-3 text-slate-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m6 9 6 6 6-6" />
-
-                    </svg>
-
-                </button>
-
-
-                <div
-                    id="calendarPopup"
-                    class="calendar-popup hidden absolute right-0 top-9 z-50 w-[240px] bg-white border border-slate-200 rounded-xl shadow-xl p-4">
-
-                    <div
-                        class="flex items-center justify-between mb-3">
-
-                        <div>
-
-                            <p class="text-[10px] text-slate-400">
-
-                                Pilih tanggal
-
-                            </p>
-
-                            <p
-                                id="selectedDateLabel"
-                                class="text-xs font-semibold text-navy mt-0.5">
-
-                                Hari ini
-
-                            </p>
-
-                        </div>
-
-                        <button
-                            id="todayButton"
-                            type="button"
-                            class="text-[9px] font-semibold text-green-600 hover:text-green-700 hover:underline">
-
-                            Hari ini
-
-                        </button>
-
-                    </div>
-
-                    <input
-                        type="date"
-                        id="datePicker"
-                        class="w-full px-3 py-2.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-lg outline-none cursor-pointer focus:border-green-500 focus:ring-2 focus:ring-green-100">
-
-                    <div
-                        class="mt-3 pt-3 border-t border-slate-100">
-
-                        <p
-                            class="text-[9px] text-slate-400 leading-relaxed">
-
-                            Pilih tanggal untuk melihat
-                            informasi dashboard pada tanggal
-                            tersebut.
-
-                        </p>
-
-                    </div>
-
-                </div>
 
             </div>
 
         </header>
 
 
-        <!-- =====================================================
-             PROJECT CONTENT
-        ====================================================== -->
+        <!-- ========================= -->
+        <!-- CONTENT -->
+        <!-- ========================= -->
 
         <div
-            class="dashboard-bg min-h-[calc(100vh-78px)] p-6">
+            class="dashboard-bg min-h-[calc(100vh-78px)] p-6 max-md:p-4 max-sm:p-3">
 
 
-            <!-- PROJECT HEADER -->
-
+            <!-- HEADER PROJECT -->
             <section
-                class="relative overflow-hidden rounded-2xl border border-green-100 bg-gradient-to-r from-[#EFFAF4] via-white to-[#FBF0F8] px-6 py-5 mb-6 soft-shadow">
+                class="project-header relative overflow-hidden rounded-2xl border border-green-100 bg-gradient-to-r from-[#EFFAF4] via-white to-[#FBF0F8] px-6 py-5 mb-6 soft-shadow">
 
+                <!-- DECORATION -->
                 <div
-                    class="absolute -right-10 -top-16 w-40 h-40 rounded-full bg-purple-100/60">
+                    class="absolute -right-10 -top-16 w-40 h-40 rounded-full bg-purple-100/60 max-md:w-28 max-md:h-28 max-md:-right-8 max-md:-top-10">
                 </div>
 
                 <div
-                    class="absolute -left-10 -bottom-20 w-36 h-36 rounded-full bg-green-100/60">
+                    class="absolute -left-10 -bottom-20 w-36 h-36 rounded-full bg-green-100/60 max-md:w-28 max-md:h-28">
                 </div>
 
 
                 <div
-                    class="relative flex items-center justify-between">
+                    class="relative flex items-center justify-between gap-5 max-sm:gap-3">
 
-                    <div>
+                    <div class="min-w-0">
 
                         <div
                             class="inline-flex items-center px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-[9px] font-semibold mb-2">
@@ -643,29 +843,29 @@
                         </div>
 
                         <h1
-                            class="text-xl font-bold text-navy">
+                            class="text-xl font-bold text-navy max-md:text-[17px]">
 
                             Daftar Project
 
                         </h1>
 
                         <p
-                            class="text-[11px] text-slate-500 mt-1 max-w-xl">
+                            class="text-[11px] text-slate-500 mt-1 max-w-xl leading-relaxed max-md:text-[10px]">
 
-                            Project yang dikerjakan peserta
-                            Access Internship.
+                            Project yang dikerjakan peserta Access Internship.
 
                         </p>
 
                     </div>
 
 
+                    <!-- TAMBAH PROJECT -->
                     <a
                         href="tambah-project.html"
-                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-green-600 text-white text-[10px] font-semibold hover:bg-green-700 transition shadow-sm">
+                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-green-600 text-white text-[10px] font-semibold hover:bg-green-700 transition shadow-sm shrink-0">
 
                         <svg
-                            class="w-3.5 h-3.5"
+                            class="w-4 h-4"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24">
@@ -673,7 +873,7 @@
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                stroke-width="2"
+                                stroke-width="1.8"
                                 d="M12 5v14M5 12h14" />
 
                         </svg>
@@ -687,16 +887,17 @@
             </section>
 
 
+            <!-- ========================= -->
             <!-- PROJECT LIST -->
+            <!-- ========================= -->
 
             <section
-                class="bg-white border border-slate-200 rounded-xl p-5 soft-shadow">
+                class="project-section bg-white border border-slate-200 rounded-xl p-5 soft-shadow">
 
-
+                <!-- SECTION HEADER -->
                 <div class="mb-5">
 
-                    <div
-                        class="flex items-center gap-2">
+                    <div class="flex items-center gap-2">
 
                         <span
                             class="w-2 h-2 rounded-full bg-purple-500">
@@ -705,17 +906,16 @@
                         <h3
                             class="text-sm font-bold text-navy">
 
-                            Project Internship
+                            Semua Project
 
                         </h3>
 
                     </div>
 
                     <p
-                        class="text-[10px] text-slate-400 mt-1">
+                        class="project-section-description text-[10px] text-slate-400 mt-1">
 
-                        Daftar project yang dikerjakan selama
-                        pelaksanaan internship.
+                        Daftar project yang sedang dan telah dikerjakan peserta internship.
 
                     </p>
 
@@ -723,28 +923,27 @@
 
 
                 <!-- PROJECT GRID -->
-
                 <div
-                    class="grid grid-cols-4 gap-4">
+                    class="project-grid grid grid-cols-2 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
 
 
                     <!-- PROJECT 1 -->
-
                     <div
-                        class="stat-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow">
+                        class="project-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow">
 
                         <div
                             class="absolute left-0 top-0 w-full h-1 bg-green-500">
                         </div>
 
+
                         <div
-                            class="flex items-start justify-between mb-4">
+                            class="flex items-start justify-between gap-3">
 
                             <div
-                                class="w-9 h-9 rounded-lg bg-green-100 flex items-center justify-center">
+                                class="project-icon w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-4 h-4 text-green-600"
+                                    class="w-5 h-5 text-green-600"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -753,14 +952,15 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+                                        d="M4 5h16v14H4V5Zm4 4h8m-8 4h5" />
 
                                 </svg>
 
                             </div>
 
+
                             <span
-                                class="px-2 py-1 rounded-full bg-green-50 text-green-600 text-[8px] font-semibold">
+                                class="project-type px-2.5 py-1 rounded-full bg-green-50 text-green-600 text-[8px] font-semibold">
 
                                 Website
 
@@ -768,35 +968,37 @@
 
                         </div>
 
+
                         <h4
-                            class="text-xs font-bold text-navy">
+                            class="text-sm font-bold text-navy mt-4">
 
                             Website Company Profile
 
                         </h4>
 
-                        <p
-                            class="text-[10px] text-slate-400 leading-relaxed mt-2">
 
-                            Pembuatan website company profile
-                            untuk kebutuhan informasi perusahaan.
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
+
+                            Pembuatan website company profile untuk kebutuhan informasi perusahaan.
 
                         </p>
 
+
                         <div
-                            class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
 
                             <span
-                                class="text-[9px] text-slate-400">
+                                class="text-[8px] text-slate-400">
 
                                 Peserta PKL
 
                             </span>
 
                             <span
-                                class="text-[9px] font-semibold text-green-600">
+                                class="text-[8px] font-semibold text-green-600">
 
-                                Lihat →
+                                Project
 
                             </span>
 
@@ -806,22 +1008,22 @@
 
 
                     <!-- PROJECT 2 -->
-
                     <div
-                        class="stat-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow">
+                        class="project-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow">
 
                         <div
                             class="absolute left-0 top-0 w-full h-1 bg-purple-500">
                         </div>
 
+
                         <div
-                            class="flex items-start justify-between mb-4">
+                            class="flex items-start justify-between gap-3">
 
                             <div
-                                class="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center">
+                                class="project-icon w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-4 h-4 text-purple-600"
+                                    class="w-5 h-5 text-purple-600"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -830,14 +1032,15 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+                                        d="M4 7h16v13H4V7Zm4 0V4h8v3M8 11h8m-8 4h5" />
 
                                 </svg>
 
                             </div>
 
+
                             <span
-                                class="px-2 py-1 rounded-full bg-purple-50 text-purple-600 text-[8px] font-semibold">
+                                class="project-type px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 text-[8px] font-semibold">
 
                                 Aplikasi
 
@@ -845,35 +1048,37 @@
 
                         </div>
 
+
                         <h4
-                            class="text-xs font-bold text-navy">
+                            class="text-sm font-bold text-navy mt-4">
 
                             Sistem Informasi PKL
 
                         </h4>
 
-                        <p
-                            class="text-[10px] text-slate-400 leading-relaxed mt-2">
 
-                            Sistem informasi untuk membantu
-                            pengelolaan kegiatan peserta PKL.
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
+
+                            Sistem informasi untuk membantu pengelolaan kegiatan peserta PKL.
 
                         </p>
 
+
                         <div
-                            class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
 
                             <span
-                                class="text-[9px] text-slate-400">
+                                class="text-[8px] text-slate-400">
 
                                 Peserta PKL
 
                             </span>
 
                             <span
-                                class="text-[9px] font-semibold text-purple-600">
+                                class="text-[8px] font-semibold text-purple-600">
 
-                                Lihat →
+                                Project
 
                             </span>
 
@@ -883,22 +1088,22 @@
 
 
                     <!-- PROJECT 3 -->
-
                     <div
-                        class="stat-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow">
+                        class="project-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow">
 
                         <div
                             class="absolute left-0 top-0 w-full h-1 bg-gradient-to-r from-green-500 to-purple-500">
                         </div>
 
+
                         <div
-                            class="flex items-start justify-between mb-4">
+                            class="flex items-start justify-between gap-3">
 
                             <div
-                                class="w-9 h-9 rounded-lg bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center">
+                                class="project-icon w-10 h-10 rounded-lg bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-4 h-4 text-green-700"
+                                    class="w-5 h-5 text-green-700"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -907,14 +1112,15 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="M12 3v18M3 12h18" />
+                                        d="M4 5h16v14H4V5Zm4 4 8 3-8 3V9Z" />
 
                                 </svg>
 
                             </div>
 
+
                             <span
-                                class="px-2 py-1 rounded-full bg-green-50 text-green-600 text-[8px] font-semibold">
+                                class="project-type px-2.5 py-1 rounded-full bg-green-50 text-green-600 text-[8px] font-semibold">
 
                                 Desain
 
@@ -922,35 +1128,37 @@
 
                         </div>
 
+
                         <h4
-                            class="text-xs font-bold text-navy">
+                            class="text-sm font-bold text-navy mt-4">
 
                             Desain Media Promosi
 
                         </h4>
 
-                        <p
-                            class="text-[10px] text-slate-400 leading-relaxed mt-2">
 
-                            Perancangan berbagai media visual
-                            untuk mendukung kebutuhan promosi.
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
+
+                            Perancangan berbagai media visual untuk mendukung kebutuhan promosi.
 
                         </p>
 
+
                         <div
-                            class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
 
                             <span
-                                class="text-[9px] text-slate-400">
+                                class="text-[8px] text-slate-400">
 
                                 Peserta PKL
 
                             </span>
 
                             <span
-                                class="text-[9px] font-semibold text-green-600">
+                                class="text-[8px] font-semibold text-green-600">
 
-                                Lihat →
+                                Project
 
                             </span>
 
@@ -960,22 +1168,22 @@
 
 
                     <!-- PROJECT 4 -->
-
                     <div
-                        class="stat-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow">
+                        class="project-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow">
 
                         <div
                             class="absolute left-0 top-0 w-full h-1 bg-purple-500">
                         </div>
 
+
                         <div
-                            class="flex items-start justify-between mb-4">
+                            class="flex items-start justify-between gap-3">
 
                             <div
-                                class="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center">
+                                class="project-icon w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-4 h-4 text-purple-600"
+                                    class="w-5 h-5 text-purple-600"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -984,14 +1192,15 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="M4 6h16v12H4V6Zm4 3 3 2 3-2 2 2v3H8V9Z" />
+                                        d="m9 3 2 2h8a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4Zm1 7 6 3-6 3v-6Z" />
 
                                 </svg>
 
                             </div>
 
+
                             <span
-                                class="px-2 py-1 rounded-full bg-purple-50 text-purple-600 text-[8px] font-semibold">
+                                class="project-type px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 text-[8px] font-semibold">
 
                                 Video
 
@@ -999,41 +1208,44 @@
 
                         </div>
 
+
                         <h4
-                            class="text-xs font-bold text-navy">
+                            class="text-sm font-bold text-navy mt-4">
 
                             Video Dokumentasi
 
                         </h4>
 
-                        <p
-                            class="text-[10px] text-slate-400 leading-relaxed mt-2">
 
-                            Pembuatan video dokumentasi kegiatan
-                            selama pelaksanaan PKL.
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
+
+                            Pembuatan video dokumentasi kegiatan selama pelaksanaan PKL.
 
                         </p>
 
+
                         <div
-                            class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
 
                             <span
-                                class="text-[9px] text-slate-400">
+                                class="text-[8px] text-slate-400">
 
                                 Peserta PKL
 
                             </span>
 
                             <span
-                                class="text-[9px] font-semibold text-purple-600">
+                                class="text-[8px] font-semibold text-purple-600">
 
-                                Lihat →
+                                Project
 
                             </span>
 
                         </div>
 
                     </div>
+
 
                 </div>
 
@@ -1044,217 +1256,66 @@
     </main>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
 
     <script>
 
-        /* DATE */
-
-        const dateButton =
-            document.getElementById("dateButton");
-
-        const calendarPopup =
-            document.getElementById("calendarPopup");
-
-        const datePicker =
-            document.getElementById("datePicker");
-
-        const currentDate =
-            document.getElementById("currentDate");
-
-        const selectedDateLabel =
-            document.getElementById("selectedDateLabel");
-
-        const todayButton =
-            document.getElementById("todayButton");
-
-
-        function formatDate(dateValue) {
-
-            const date =
-                new Date(dateValue + "T00:00:00");
-
-            return date.toLocaleDateString(
-                "id-ID",
-                {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                }
-            );
-
-        }
-
-
-        function getTodayValue() {
-
-            const today = new Date();
-
-            const year =
-                today.getFullYear();
-
-            const month =
-                String(today.getMonth() + 1)
-                    .padStart(2, "0");
-
-            const day =
-                String(today.getDate())
-                    .padStart(2, "0");
-
-            return `${year}-${month}-${day}`;
-
-        }
-
-
-        const todayValue =
-            getTodayValue();
-
-
-        datePicker.value =
-            todayValue;
-
-        currentDate.textContent =
-            formatDate(todayValue);
-
-        selectedDateLabel.textContent =
-            "Hari ini";
-
-
-        dateButton.addEventListener(
-            "click",
-            function(event) {
-
-                event.stopPropagation();
-
-                calendarPopup.classList.toggle(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        datePicker.addEventListener(
-            "change",
-            function() {
-
-                const selectedDate =
-                    datePicker.value;
-
-                if (!selectedDate) {
-                    return;
-                }
-
-                currentDate.textContent =
-                    formatDate(selectedDate);
-
-                selectedDateLabel.textContent =
-                    selectedDate === todayValue
-                        ? "Hari ini"
-                        : formatDate(selectedDate);
-
-                calendarPopup.classList.add(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        todayButton.addEventListener(
-            "click",
-            function() {
-
-                datePicker.value =
-                    todayValue;
-
-                currentDate.textContent =
-                    formatDate(todayValue);
-
-                selectedDateLabel.textContent =
-                    "Hari ini";
-
-                calendarPopup.classList.add(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        document.addEventListener(
-            "click",
-            function(event) {
-
-                if (
-                    !calendarPopup.contains(event.target) &&
-                    !dateButton.contains(event.target)
-                ) {
-
-                    calendarPopup.classList.add(
-                        "hidden"
-                    );
-
-                }
-
-            }
-        );
-
-
+        /* ========================= */
         /* PROFILE DROPDOWN */
+        /* ========================= */
 
         const profileToggle =
-            document.getElementById(
-                "profileToggle"
-            );
+            document.getElementById("profileToggle");
 
         const profileDropdown =
-            document.getElementById(
-                "profileDropdown"
-            );
+            document.getElementById("profileDropdown");
 
         const profileChevron =
-            document.getElementById(
-                "profileChevron"
+            document.getElementById("profileChevron");
+
+
+        if (profileToggle && profileDropdown) {
+
+            profileToggle.addEventListener(
+                "click",
+                function (event) {
+
+                    event.stopPropagation();
+
+                    profileDropdown.classList.toggle("hidden");
+
+                    if (profileChevron) {
+                        profileChevron.classList.toggle(
+                            "rotate-180"
+                        );
+                    }
+
+                }
             );
 
-
-        profileToggle.addEventListener(
-            "click",
-            function(event) {
-
-                event.stopPropagation();
-
-                profileDropdown.classList.toggle(
-                    "hidden"
-                );
-
-                profileChevron.classList.toggle(
-                    "rotate-180"
-                );
-
-            }
-        );
+        }
 
 
         document.addEventListener(
             "click",
-            function(event) {
+            function (event) {
 
                 if (
+                    profileDropdown &&
+                    profileToggle &&
                     !profileDropdown.contains(event.target) &&
                     !profileToggle.contains(event.target)
                 ) {
 
-                    profileDropdown.classList.add(
-                        "hidden"
-                    );
+                    profileDropdown.classList.add("hidden");
 
-                    profileChevron.classList.remove(
-                        "rotate-180"
-                    );
+                    if (profileChevron) {
+                        profileChevron.classList.remove(
+                            "rotate-180"
+                        );
+                    }
 
                 }
 
@@ -1262,36 +1323,40 @@
         );
 
 
+        /* ========================= */
         /* LOGOUT */
+        /* ========================= */
 
         const logoutButton =
-            document.getElementById(
-                "logoutButton"
-            );
+            document.getElementById("logoutButton");
 
 
-        logoutButton.addEventListener(
-            "click",
-            function() {
+        if (logoutButton) {
 
-                const confirmLogout =
-                    confirm(
-                        "Apakah Anda yakin ingin logout?"
-                    );
+            logoutButton.addEventListener(
+                "click",
+                function () {
 
-                if (confirmLogout) {
+                    const confirmLogout =
+                        confirm(
+                            "Apakah Anda yakin ingin logout?"
+                        );
 
-                    localStorage.removeItem(
-                        "isLoggedIn"
-                    );
+                    if (confirmLogout) {
 
-                    window.location.href =
-                        "login.html";
+                        localStorage.removeItem(
+                            "isLoggedIn"
+                        );
+
+                        window.location.href =
+                            "login.html";
+
+                    }
 
                 }
+            );
 
-            }
-        );
+        }
 
     </script>
 
