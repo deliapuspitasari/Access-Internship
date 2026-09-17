@@ -102,19 +102,6 @@
                 0 8px 20px rgba(38, 55, 80, 0.08);
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #F8FAF9;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #CBD5D0;
-            border-radius: 10px;
-        }
-
         .profile-dropdown {
             animation: profileShow 0.15s ease;
         }
@@ -130,23 +117,79 @@
                 transform: translateY(0);
             }
         }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F8FAF9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5D0;
+            border-radius: 10px;
+        }
+
+        /* ========================= */
+        /* MOBILE */
+        /* ========================= */
+
+      
+        /* ========================= */
+        /* HP KECIL */
+        /* ========================= */
+
+        @media (max-width: 480px) {
+
+            .dashboard-bg {
+                padding: 12px !important;
+            }
+
+            .project-header {
+                padding: 15px !important;
+            }
+
+            .project-header h1 {
+                font-size: 16px !important;
+            }
+
+            .project-header p {
+                max-width: 200px !important;
+            }
+
+            .project-header a {
+                padding: 8px 9px !important;
+                font-size: 8px !important;
+            }
+
+            .project-section {
+                padding: 13px !important;
+            }
+
+            .project-card {
+                padding: 12px !important;
+            }
+        }
     </style>
 </head>
 
+
 <body class="text-slate-600 overflow-x-hidden">
 
-    <!-- ========================================================= -->
+    <!-- ========================= -->
     <!-- SIDEBAR -->
-    <!-- ========================================================= -->
+    <!-- ========================= -->
 
-    <aside
+  <aside
         class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col
-        max-md:top-auto max-md:bottom-0 max-md:w-full max-md:h-[68px] max-md:flex-row
-        max-md:border-r-0 max-md:border-t max-md:border-slate-200">
+        max-md:top-auto max-md:bottom-0 max-md:w-full max-md:h-[68px]
+        max-md:flex-row max-md:border-r-0 max-md:border-t max-md:border-slate-200">
 
         <!-- LOGO / BRAND -->
         <div
-            class="h-[78px] px-5 flex items-center border-b border-slate-200 shrink-0 max-md:hidden">
+            class="h-[78px] px-5 flex items-center border-b border-slate-200 shrink-0
+            max-md:hidden">
 
             <div class="flex items-center gap-3 min-w-0">
 
@@ -168,25 +211,24 @@
             </div>
         </div>
 
-
         <!-- MENU UTAMA -->
         <nav
             class="flex-1 px-3 py-5 overflow-y-auto
-            max-md:flex max-md:flex-row max-md:items-center max-md:justify-around
-            max-md:w-full max-md:p-1.5
+            max-md:flex max-md:flex-row max-md:items-center
+            max-md:justify-around max-md:w-full max-md:p-1.5
             max-md:overflow-x-auto max-md:overflow-y-hidden">
 
-            <!-- LABEL MENU -->
             <p
-                class="px-3 mb-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 max-md:hidden">
+                class="px-3 mb-3 text-[9px] font-semibold uppercase
+                tracking-[0.12em] text-slate-400 max-md:hidden">
                 Menu Utama
             </p>
-
 
             <!-- DASHBOARD -->
             <a
                 href="dashboard.html"
-                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500 mb-1
                 max-md:flex-col max-md:justify-center max-md:gap-1
                 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
 
@@ -208,11 +250,11 @@
                 </span>
             </a>
 
-
-            <!-- PROJECT ACTIVE -->
+            <!-- PROJECT -->
             <a
                 href="project.html"
-                class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold mb-1
+                class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs font-semibold mb-1
                 max-md:flex-col max-md:justify-center max-md:gap-1
                 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
 
@@ -234,11 +276,11 @@
                 </span>
             </a>
 
-
             <!-- DOKUMENTASI -->
             <a
                 href="dokumentasi.html"
-                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500 mb-1
                 max-md:flex-col max-md:justify-center max-md:gap-1
                 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
 
@@ -260,11 +302,11 @@
                 </span>
             </a>
 
-
             <!-- INSTANSI -->
             <a
                 href="instansi.html"
-                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500
                 max-md:flex-col max-md:justify-center max-md:gap-1
                 max-md:min-w-[62px] max-md:px-2 max-md:py-2">
 
@@ -286,11 +328,11 @@
                 </span>
             </a>
 
-
             <!-- PROFILE KHUSUS MOBILE -->
             <a
                 href="profile.html"
-                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500
                 max-md:flex-col max-md:justify-center max-md:gap-1
                 max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
 
@@ -314,21 +356,21 @@
 
         </nav>
 
-
-        <!-- ===================================================== -->
         <!-- ADMINISTRATOR -->
-        <!-- ===================================================== -->
-
         <div
-            class="relative p-3 border-t border-slate-200 shrink-0 max-md:hidden">
+            class="relative p-3 border-t border-slate-200 shrink-0
+            max-md:hidden">
 
             <button
                 id="profileToggle"
                 type="button"
-                class="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition text-left">
+                class="w-full flex items-center gap-3 p-2 rounded-lg
+                hover:bg-slate-50 transition text-left">
 
                 <div
-                    class="w-8 h-8 rounded-full bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
+                    class="w-8 h-8 rounded-full bg-gradient-to-br
+                    from-green-100 to-purple-100 flex items-center
+                    justify-center shrink-0">
 
                     <span class="text-[11px] font-bold text-green-700">
                         A
@@ -359,25 +401,27 @@
                         stroke-linejoin="round"
                         stroke-width="1.8"
                         d="m6 9 6 6 6-6" />
-
                 </svg>
 
             </button>
 
-
-            <!-- PROFILE DROPDOWN -->
+            <!-- DROPDOWN PROFILE -->
             <div
                 id="profileDropdown"
-                class="profile-dropdown hidden absolute left-3 right-3 bottom-[68px] z-50 bg-white border border-slate-200 rounded-xl shadow-xl p-2">
+                class="profile-dropdown hidden absolute left-3 right-3
+                bottom-[68px] z-50 bg-white border border-slate-200
+                rounded-xl shadow-xl p-2">
 
                 <!-- PROFILE -->
                 <a
                     href="profile.html"
-                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500
+                    class="flex items-center gap-3 px-3 py-2.5
+                    rounded-lg text-[10px] font-medium text-slate-500
                     hover:bg-green-50 hover:text-green-700 transition">
 
                     <div
-                        class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center">
+                        class="w-7 h-7 rounded-lg bg-green-100
+                        flex items-center justify-center">
 
                         <svg
                             class="w-3.5 h-3.5 text-green-600"
@@ -390,9 +434,7 @@
                                 stroke-linejoin="round"
                                 stroke-width="1.8"
                                 d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
-
                         </svg>
-
                     </div>
 
                     <div>
@@ -407,16 +449,17 @@
 
                 </a>
 
-
                 <!-- LOGOUT -->
                 <button
                     id="logoutButton"
                     type="button"
-                    class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500
+                    class="w-full flex items-center gap-3 px-3 py-2.5
+                    rounded-lg text-[10px] font-medium text-slate-500
                     hover:bg-red-50 hover:text-red-500 transition text-left">
 
                     <div
-                        class="w-7 h-7 rounded-lg bg-red-50 flex items-center justify-center">
+                        class="w-7 h-7 rounded-lg bg-red-50
+                        flex items-center justify-center">
 
                         <svg
                             class="w-3.5 h-3.5 text-red-500"
@@ -429,7 +472,6 @@
                                 stroke-linejoin="round"
                                 stroke-width="1.8"
                                 d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
-
                         </svg>
 
                     </div>
@@ -447,28 +489,20 @@
                 </button>
 
             </div>
-
         </div>
 
     </aside>
 
 
-    <!-- ========================================================= -->
+    <!-- ========================= -->
     <!-- MAIN -->
-    <!-- ========================================================= -->
+    <!-- ========================= -->
 
-    <main
-        class="ml-[220px] min-h-screen max-md:ml-0 max-md:pb-[68px]">
+    <main class="ml-[220px] min-h-screen max-md:ml-0 max-md:pb-[68px]">
 
-
-        <!-- ===================================================== -->
-        <!-- NAVBAR -->
-        <!-- ===================================================== -->
-
+        <!-- NAVBAR / HEADER -->
         <header
-            class="sticky top-0 z-40 h-[78px] bg-white/95 backdrop-blur-md border-b border-slate-200 px-7
-            flex items-center justify-between
-            max-md:h-[70px] max-md:px-4 max-md:gap-3">
+            class="sticky top-0 z-40 h-[78px] bg-white border-b border-slate-200 px-7 flex items-center justify-between max-md:h-[64px] max-md:px-4">
 
             <div class="min-w-0">
 
@@ -487,61 +521,52 @@
         </header>
 
 
-        <!-- ===================================================== -->
+        <!-- ========================= -->
         <!-- CONTENT -->
-        <!-- ===================================================== -->
+        <!-- ========================= -->
 
         <div
             class="dashboard-bg min-h-[calc(100vh-78px)] p-6 max-md:p-4 max-sm:p-3">
 
 
-            <!-- ================================================= -->
             <!-- HEADER PROJECT -->
-            <!-- ================================================= -->
-
             <section
-                class="relative overflow-hidden rounded-2xl border border-green-100
-                bg-gradient-to-r from-[#EFFAF4] via-white to-[#FBF0F8]
-                px-6 py-5 mb-6 soft-shadow
-                max-md:px-4 max-md:py-4 max-md:mb-4">
+                class="project-header relative overflow-hidden rounded-2xl border border-green-100 bg-gradient-to-r from-[#EFFAF4] via-white to-[#FBF0F8] px-6 py-5 mb-6 soft-shadow">
 
                 <!-- DECORATION -->
                 <div
-                    class="absolute -right-10 -top-16 w-40 h-40 rounded-full
-                    bg-purple-100/60
-                    max-md:w-28 max-md:h-28
-                    max-md:-right-8 max-md:-top-10">
+                    class="absolute -right-10 -top-16 w-40 h-40 rounded-full bg-purple-100/60 max-md:w-28 max-md:h-28 max-md:-right-8 max-md:-top-10">
                 </div>
 
                 <div
-                    class="absolute -left-10 -bottom-20 w-36 h-36 rounded-full
-                    bg-green-100/60
-                    max-md:w-28 max-md:h-28">
+                    class="absolute -left-10 -bottom-20 w-36 h-36 rounded-full bg-green-100/60 max-md:w-28 max-md:h-28">
                 </div>
 
 
                 <div
-                    class="relative flex items-center justify-between gap-5
-                    max-md:items-end max-md:gap-3">
+                    class="relative flex items-center justify-between gap-5 max-sm:gap-3">
 
                     <div class="min-w-0">
 
                         <div
-                            class="inline-flex items-center px-2.5 py-1 rounded-full
-                            bg-green-100 text-green-700 text-[9px] font-semibold mb-2">
+                            class="inline-flex items-center px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-[9px] font-semibold mb-2">
+
                             Access Internship
+
                         </div>
 
                         <h1
-                            class="text-xl font-bold text-navy
-                            max-md:text-[17px]">
+                            class="text-xl font-bold text-navy max-md:text-[17px]">
+
                             Daftar Project
+
                         </h1>
 
                         <p
-                            class="text-[11px] text-slate-500 mt-1 max-w-xl leading-relaxed
-                            max-md:text-[10px]">
+                            class="text-[11px] text-slate-500 mt-1 max-w-xl leading-relaxed max-md:text-[10px]">
+
                             Project yang dikerjakan peserta Access Internship.
+
                         </p>
 
                     </div>
@@ -550,16 +575,10 @@
                     <!-- TAMBAH PROJECT -->
                     <a
                         href="tambah-project.html"
-                        class="shrink-0 inline-flex items-center gap-2
-                        px-4 py-2.5 rounded-lg
-                        bg-green-600 text-white
-                        text-[10px] font-semibold
-                        hover:bg-green-700 transition
-                        shadow-sm
-                        max-md:px-3 max-md:py-2 max-md:text-[9px]">
+                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-green-600 text-white text-[10px] font-semibold hover:bg-green-700 transition shadow-sm shrink-0">
 
                         <svg
-                            class="w-3.5 h-3.5"
+                            class="w-4 h-4"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24">
@@ -567,14 +586,12 @@
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                stroke-width="2"
+                                stroke-width="1.8"
                                 d="M12 5v14M5 12h14" />
 
                         </svg>
 
-                        <span>
-                            Tambah Project
-                        </span>
+                        Tambah Project
 
                     </a>
 
@@ -583,79 +600,63 @@
             </section>
 
 
-            <!-- ================================================= -->
-            <!-- DAFTAR PROJECT -->
-            <!-- ================================================= -->
+            <!-- ========================= -->
+            <!-- PROJECT LIST -->
+            <!-- ========================= -->
 
             <section
-                class="bg-white border border-slate-200 rounded-xl p-5 soft-shadow
-                max-md:p-4">
+                class="project-section bg-white border border-slate-200 rounded-xl p-5 soft-shadow">
 
                 <!-- SECTION HEADER -->
-                <div
-                    class="mb-5">
+                <div class="mb-5">
 
                     <div class="flex items-center gap-2">
 
                         <span
-                            class="w-2 h-2 rounded-full bg-green-500">
+                            class="w-2 h-2 rounded-full bg-purple-500">
                         </span>
 
                         <h3
-                            class="text-sm font-bold text-navy
-                            max-md:text-[13px]">
-                            Project Peserta
+                            class="text-sm font-bold text-navy">
+
+                            Semua Project
+
                         </h3>
 
                     </div>
 
                     <p
-                        class="text-[10px] text-slate-400 mt-1
-                        max-md:text-[9px]">
-                        Daftar project yang sedang dan telah dikerjakan selama internship.
+                        class="project-section-description text-[10px] text-slate-400 mt-1">
+
+                        Daftar project yang sedang dan telah dikerjakan peserta internship.
+
                     </p>
 
                 </div>
 
 
-                <!-- ================================================= -->
                 <!-- PROJECT GRID -->
-                <!-- ================================================= -->
-
                 <div
-                    class="grid grid-cols-2 gap-4
-                    max-lg:grid-cols-1
-                    max-md:gap-3">
+                    class="project-grid grid grid-cols-2 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
 
 
-                    <!-- ============================================= -->
                     <!-- PROJECT 1 -->
-                    <!-- ============================================= -->
-
                     <div
-                        class="project-card relative overflow-hidden
-                        bg-white border border-green-100 rounded-xl
-                        p-4 soft-shadow
-                        max-md:p-3">
+                        class="project-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow">
 
-                        <!-- TOP LINE -->
                         <div
                             class="absolute left-0 top-0 w-full h-1 bg-green-500">
                         </div>
 
 
                         <div
-                            class="flex items-start gap-4
-                            max-md:gap-3">
+                            class="flex items-start justify-between gap-3">
 
-                            <!-- ICON -->
                             <div
-                                class="w-10 h-10 rounded-lg bg-green-100
-                                flex items-center justify-center shrink-0
-                                max-md:w-9 max-md:h-9">
+                                class="project-icon w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-5 h-5 text-green-600 max-md:w-4 max-md:h-4"
+                                    class="w-5 h-5 text-green-600"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -664,94 +665,78 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+                                        d="M4 5h16v14H4V5Zm4 4h8m-8 4h5" />
 
                                 </svg>
 
                             </div>
 
 
-                            <!-- CONTENT -->
-                            <div class="min-w-0 flex-1">
+                            <span
+                                class="project-type px-2.5 py-1 rounded-full bg-green-50 text-green-600 text-[8px] font-semibold">
 
-                                <div
-                                    class="flex items-start justify-between gap-2">
+                                Website
 
-                                    <h4
-                                        class="text-xs font-bold text-navy
-                                        max-md:text-[11px]">
-                                        Website Company Profile
-                                    </h4>
+                            </span>
 
-                                    <span
-                                        class="shrink-0 px-2 py-1 rounded-full
-                                        bg-green-50 text-green-600
-                                        text-[8px] font-semibold
-                                        max-md:text-[7px]">
-                                        Website
-                                    </span>
+                        </div>
 
-                                </div>
 
-                                <p
-                                    class="text-[10px] text-slate-400 leading-relaxed mt-2
-                                    max-md:text-[8.5px]">
-                                    Pembuatan website company profile untuk kebutuhan informasi perusahaan.
-                                </p>
+                        <h4
+                            class="text-sm font-bold text-navy mt-4">
 
-                                <div
-                                    class="mt-3 pt-3 border-t border-slate-100
-                                    flex items-center justify-between">
+                            Website Company Profile
 
-                                    <span
-                                        class="text-[9px] text-slate-400
-                                        max-md:text-[8px]">
-                                        Peserta PKL
-                                    </span>
+                        </h4>
 
-                                    <span
-                                        class="text-[9px] font-semibold text-green-600
-                                        max-md:text-[8px]">
-                                        Project
-                                    </span>
 
-                                </div>
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
 
-                            </div>
+                            Pembuatan website company profile untuk kebutuhan informasi perusahaan.
+
+                        </p>
+
+
+                        <div
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
+
+                            <span
+                                class="text-[8px] text-slate-400">
+
+                                Peserta PKL
+
+                            </span>
+
+                            <span
+                                class="text-[8px] font-semibold text-green-600">
+
+                                Project
+
+                            </span>
 
                         </div>
 
                     </div>
 
 
-                    <!-- ============================================= -->
                     <!-- PROJECT 2 -->
-                    <!-- ============================================= -->
-
                     <div
-                        class="project-card relative overflow-hidden
-                        bg-white border border-purple-100 rounded-xl
-                        p-4 soft-shadow
-                        max-md:p-3">
+                        class="project-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow">
 
-                        <!-- TOP LINE -->
                         <div
                             class="absolute left-0 top-0 w-full h-1 bg-purple-500">
                         </div>
 
 
                         <div
-                            class="flex items-start gap-4
-                            max-md:gap-3">
+                            class="flex items-start justify-between gap-3">
 
-                            <!-- ICON -->
                             <div
-                                class="w-10 h-10 rounded-lg bg-purple-100
-                                flex items-center justify-center shrink-0
-                                max-md:w-9 max-md:h-9">
+                                class="project-icon w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-5 h-5 text-purple-600 max-md:w-4 max-md:h-4"
+                                    class="w-5 h-5 text-purple-600"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -760,96 +745,78 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="M4 6h16v14H4V6Zm4-3h8v3H8V3Zm0 7h8m-8 4h5" />
+                                        d="M4 7h16v13H4V7Zm4 0V4h8v3M8 11h8m-8 4h5" />
 
                                 </svg>
 
                             </div>
 
 
-                            <!-- CONTENT -->
-                            <div class="min-w-0 flex-1">
+                            <span
+                                class="project-type px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 text-[8px] font-semibold">
 
-                                <div
-                                    class="flex items-start justify-between gap-2">
+                                Aplikasi
 
-                                    <h4
-                                        class="text-xs font-bold text-navy
-                                        max-md:text-[11px]">
-                                        Sistem Informasi PKL
-                                    </h4>
+                            </span>
 
-                                    <span
-                                        class="shrink-0 px-2 py-1 rounded-full
-                                        bg-purple-50 text-purple-600
-                                        text-[8px] font-semibold
-                                        max-md:text-[7px]">
-                                        Aplikasi
-                                    </span>
+                        </div>
 
-                                </div>
 
-                                <p
-                                    class="text-[10px] text-slate-400 leading-relaxed mt-2
-                                    max-md:text-[8.5px]">
-                                    Sistem informasi untuk membantu pengelolaan kegiatan peserta PKL.
-                                </p>
+                        <h4
+                            class="text-sm font-bold text-navy mt-4">
 
-                                <div
-                                    class="mt-3 pt-3 border-t border-slate-100
-                                    flex items-center justify-between">
+                            Sistem Informasi PKL
 
-                                    <span
-                                        class="text-[9px] text-slate-400
-                                        max-md:text-[8px]">
-                                        Peserta PKL
-                                    </span>
+                        </h4>
 
-                                    <span
-                                        class="text-[9px] font-semibold text-purple-600
-                                        max-md:text-[8px]">
-                                        Project
-                                    </span>
 
-                                </div>
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
 
-                            </div>
+                            Sistem informasi untuk membantu pengelolaan kegiatan peserta PKL.
+
+                        </p>
+
+
+                        <div
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
+
+                            <span
+                                class="text-[8px] text-slate-400">
+
+                                Peserta PKL
+
+                            </span>
+
+                            <span
+                                class="text-[8px] font-semibold text-purple-600">
+
+                                Project
+
+                            </span>
 
                         </div>
 
                     </div>
 
 
-                    <!-- ============================================= -->
                     <!-- PROJECT 3 -->
-                    <!-- ============================================= -->
-
                     <div
-                        class="project-card relative overflow-hidden
-                        bg-white border border-green-100 rounded-xl
-                        p-4 soft-shadow
-                        max-md:p-3">
+                        class="project-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow">
 
-                        <!-- TOP LINE -->
                         <div
-                            class="absolute left-0 top-0 w-full h-1
-                            bg-gradient-to-r from-green-500 to-purple-500">
+                            class="absolute left-0 top-0 w-full h-1 bg-gradient-to-r from-green-500 to-purple-500">
                         </div>
 
 
                         <div
-                            class="flex items-start gap-4
-                            max-md:gap-3">
+                            class="flex items-start justify-between gap-3">
 
-                            <!-- ICON -->
                             <div
-                                class="w-10 h-10 rounded-lg
-                                bg-gradient-to-br from-green-100 to-purple-100
-                                flex items-center justify-center shrink-0
-                                max-md:w-9 max-md:h-9">
+                                class="project-icon w-10 h-10 rounded-lg bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-5 h-5 text-green-700 max-md:w-4 max-md:h-4"
+                                    class="w-5 h-5 text-green-700"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -858,94 +825,78 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="m4 16 5-5 3 3 5-6 3 4M4 20h16M4 4h16v16H4V4Z" />
+                                        d="M4 5h16v14H4V5Zm4 4 8 3-8 3V9Z" />
 
                                 </svg>
 
                             </div>
 
 
-                            <!-- CONTENT -->
-                            <div class="min-w-0 flex-1">
+                            <span
+                                class="project-type px-2.5 py-1 rounded-full bg-green-50 text-green-600 text-[8px] font-semibold">
 
-                                <div
-                                    class="flex items-start justify-between gap-2">
+                                Desain
 
-                                    <h4
-                                        class="text-xs font-bold text-navy
-                                        max-md:text-[11px]">
-                                        Desain Media Promosi
-                                    </h4>
+                            </span>
 
-                                    <span
-                                        class="shrink-0 px-2 py-1 rounded-full
-                                        bg-green-50 text-green-600
-                                        text-[8px] font-semibold
-                                        max-md:text-[7px]">
-                                        Desain
-                                    </span>
+                        </div>
 
-                                </div>
 
-                                <p
-                                    class="text-[10px] text-slate-400 leading-relaxed mt-2
-                                    max-md:text-[8.5px]">
-                                    Perancangan berbagai media visual untuk mendukung kebutuhan promosi.
-                                </p>
+                        <h4
+                            class="text-sm font-bold text-navy mt-4">
 
-                                <div
-                                    class="mt-3 pt-3 border-t border-slate-100
-                                    flex items-center justify-between">
+                            Desain Media Promosi
 
-                                    <span
-                                        class="text-[9px] text-slate-400
-                                        max-md:text-[8px]">
-                                        Peserta PKL
-                                    </span>
+                        </h4>
 
-                                    <span
-                                        class="text-[9px] font-semibold text-green-600
-                                        max-md:text-[8px]">
-                                        Project
-                                    </span>
 
-                                </div>
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
 
-                            </div>
+                            Perancangan berbagai media visual untuk mendukung kebutuhan promosi.
+
+                        </p>
+
+
+                        <div
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
+
+                            <span
+                                class="text-[8px] text-slate-400">
+
+                                Peserta PKL
+
+                            </span>
+
+                            <span
+                                class="text-[8px] font-semibold text-green-600">
+
+                                Project
+
+                            </span>
 
                         </div>
 
                     </div>
 
 
-                    <!-- ============================================= -->
                     <!-- PROJECT 4 -->
-                    <!-- ============================================= -->
-
                     <div
-                        class="project-card relative overflow-hidden
-                        bg-white border border-purple-100 rounded-xl
-                        p-4 soft-shadow
-                        max-md:p-3">
+                        class="project-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow">
 
-                        <!-- TOP LINE -->
                         <div
                             class="absolute left-0 top-0 w-full h-1 bg-purple-500">
                         </div>
 
 
                         <div
-                            class="flex items-start gap-4
-                            max-md:gap-3">
+                            class="flex items-start justify-between gap-3">
 
-                            <!-- ICON -->
                             <div
-                                class="w-10 h-10 rounded-lg bg-purple-100
-                                flex items-center justify-center shrink-0
-                                max-md:w-9 max-md:h-9">
+                                class="project-icon w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
 
                                 <svg
-                                    class="w-5 h-5 text-purple-600 max-md:w-4 max-md:h-4"
+                                    class="w-5 h-5 text-purple-600"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -954,64 +905,60 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="1.7"
-                                        d="M4 7h16v13H4V7Zm4 0V4h8v3M8 12h8m-8 4h5" />
+                                        d="m9 3 2 2h8a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4Zm1 7 6 3-6 3v-6Z" />
 
                                 </svg>
 
                             </div>
 
 
-                            <!-- CONTENT -->
-                            <div class="min-w-0 flex-1">
+                            <span
+                                class="project-type px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 text-[8px] font-semibold">
 
-                                <div
-                                    class="flex items-start justify-between gap-2">
+                                Video
 
-                                    <h4
-                                        class="text-xs font-bold text-navy
-                                        max-md:text-[11px]">
-                                        Video Dokumentasi
-                                    </h4>
+                            </span>
 
-                                    <span
-                                        class="shrink-0 px-2 py-1 rounded-full
-                                        bg-purple-50 text-purple-600
-                                        text-[8px] font-semibold
-                                        max-md:text-[7px]">
-                                        Video
-                                    </span>
+                        </div>
 
-                                </div>
 
-                                <p
-                                    class="text-[10px] text-slate-400 leading-relaxed mt-2
-                                    max-md:text-[8.5px]">
-                                    Pembuatan video dokumentasi kegiatan selama pelaksanaan PKL.
-                                </p>
+                        <h4
+                            class="text-sm font-bold text-navy mt-4">
 
-                                <div
-                                    class="mt-3 pt-3 border-t border-slate-100
-                                    flex items-center justify-between">
+                            Video Dokumentasi
 
-                                    <span
-                                        class="text-[9px] text-slate-400
-                                        max-md:text-[8px]">
-                                        Peserta PKL
-                                    </span>
+                        </h4>
 
-                                    <span
-                                        class="text-[9px] font-semibold text-purple-600
-                                        max-md:text-[8px]">
-                                        Project
-                                    </span>
 
-                                </div>
+                        <p
+                            class="text-[10px] text-slate-400 mt-2 leading-relaxed">
 
-                            </div>
+                            Pembuatan video dokumentasi kegiatan selama pelaksanaan PKL.
+
+                        </p>
+
+
+                        <div
+                            class="project-footer flex items-center justify-between border-t border-slate-100">
+
+                            <span
+                                class="text-[8px] text-slate-400">
+
+                                Peserta PKL
+
+                            </span>
+
+                            <span
+                                class="text-[8px] font-semibold text-purple-600">
+
+                                Project
+
+                            </span>
 
                         </div>
 
                     </div>
+
 
                 </div>
 
@@ -1022,15 +969,15 @@
     </main>
 
 
-    <!-- ========================================================= -->
+    <!-- ========================= -->
     <!-- JAVASCRIPT -->
-    <!-- ========================================================= -->
+    <!-- ========================= -->
 
     <script>
 
-        /* =======================================================
-           PROFILE DROPDOWN
-        ======================================================= */
+        /* ========================= */
+        /* PROFILE DROPDOWN */
+        /* ========================= */
 
         const profileToggle =
             document.getElementById("profileToggle");
@@ -1042,7 +989,7 @@
             document.getElementById("profileChevron");
 
 
-        if (profileToggle && profileDropdown && profileChevron) {
+        if (profileToggle && profileDropdown) {
 
             profileToggle.addEventListener(
                 "click",
@@ -1052,25 +999,10 @@
 
                     profileDropdown.classList.toggle("hidden");
 
-                    profileChevron.classList.toggle("rotate-180");
-
-                }
-            );
-
-
-            document.addEventListener(
-                "click",
-                function (event) {
-
-                    if (
-                        !profileDropdown.contains(event.target) &&
-                        !profileToggle.contains(event.target)
-                    ) {
-
-                        profileDropdown.classList.add("hidden");
-
-                        profileChevron.classList.remove("rotate-180");
-
+                    if (profileChevron) {
+                        profileChevron.classList.toggle(
+                            "rotate-180"
+                        );
                     }
 
                 }
@@ -1079,9 +1011,34 @@
         }
 
 
-        /* =======================================================
-           LOGOUT
-        ======================================================= */
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    profileDropdown &&
+                    profileToggle &&
+                    !profileDropdown.contains(event.target) &&
+                    !profileToggle.contains(event.target)
+                ) {
+
+                    profileDropdown.classList.add("hidden");
+
+                    if (profileChevron) {
+                        profileChevron.classList.remove(
+                            "rotate-180"
+                        );
+                    }
+
+                }
+
+            }
+        );
+
+
+        /* ========================= */
+        /* LOGOUT */
+        /* ========================= */
 
         const logoutButton =
             document.getElementById("logoutButton");
@@ -1094,13 +1051,18 @@
                 function () {
 
                     const confirmLogout =
-                        confirm("Apakah Anda yakin ingin logout?");
+                        confirm(
+                            "Apakah Anda yakin ingin logout?"
+                        );
 
                     if (confirmLogout) {
 
-                        localStorage.removeItem("isLoggedIn");
+                        localStorage.removeItem(
+                            "isLoggedIn"
+                        );
 
-                        window.location.href = "login.html";
+                        window.location.href =
+                            "login.html";
 
                     }
 
