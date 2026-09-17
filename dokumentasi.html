@@ -2,35 +2,18 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dokumentasi | Access Internship</title>
 
-
-    <!-- =====================================================
-         TAILWIND CSS
-    ====================================================== -->
-
     <script src="https://cdn.tailwindcss.com"></script>
 
-
-    <!-- =====================================================
-         TAILWIND CONFIG
-    ====================================================== -->
-
     <script>
-
         tailwind.config = {
-
             theme: {
-
                 extend: {
-
                     colors: {
-
                         green: {
                             50: "#EFFAF4",
                             100: "#DDF3E7",
@@ -38,7 +21,6 @@
                             600: "#007A43",
                             700: "#006A3A",
                         },
-
                         purple: {
                             50: "#FBF0F8",
                             100: "#F1D9EB",
@@ -46,538 +28,503 @@
                             500: "#8A1B78",
                             600: "#761666",
                         },
-
                         navy: "#263750",
-
                     }
-
                 }
-
             }
-
         }
-
     </script>
 
-
-    <!-- =====================================================
-         CUSTOM STYLE
-    ====================================================== -->
-
     <style>
-
         * {
             box-sizing: border-box;
         }
-
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             margin: 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             background: #F8FAF9;
-
         }
 
-
-        /* =================================================
-           BACKGROUND
-        ================================================= */
-
         .dashboard-bg {
-
             background:
-
                 radial-gradient(
                     circle at 90% 5%,
                     rgba(138, 27, 120, 0.08),
                     transparent 25%
                 ),
-
                 radial-gradient(
                     circle at 5% 90%,
                     rgba(0, 138, 75, 0.08),
                     transparent 25%
                 ),
-
                 #F8FAF9;
-
         }
-
-
-        /* =================================================
-           SHADOW
-        ================================================= */
 
         .soft-shadow {
-
             box-shadow:
-
-                0 2px 8px
-                rgba(38, 55, 80, 0.04),
-
-                0 1px 2px
-                rgba(38, 55, 80, 0.03);
-
+                0 2px 8px rgba(38, 55, 80, 0.04),
+                0 1px 2px rgba(38, 55, 80, 0.03);
         }
-
-
-        /* =================================================
-           MENU
-        ================================================= */
 
         .menu-item {
-
-            transition:
-                all 0.2s ease;
-
+            transition: all 0.2s ease;
         }
-
 
         .menu-item:hover {
-
             background: #EFFAF4;
-
             color: #008A4B;
-
         }
-
 
         .menu-active {
-
-            background:
-
-                linear-gradient(
-                    90deg,
-                    #DDF3E7,
-                    #F1D9EB
-                );
-
+            background: linear-gradient(
+                90deg,
+                #DDF3E7,
+                #F1D9EB
+            );
             color: #006A3A;
-
         }
 
-
-        /* =================================================
-           DOCUMENTATION CARD
-        ================================================= */
-
         .documentation-card {
-
             transition:
                 transform 0.2s ease,
                 box-shadow 0.2s ease,
                 border-color 0.2s ease;
-
             display: flex;
-
             flex-direction: column;
-
             height: 100%;
-
         }
-
 
         .documentation-card:hover {
-
-            transform:
-                translateY(-3px);
-
+            transform: translateY(-3px);
             box-shadow:
-
-                0 10px 24px
-                rgba(38, 55, 80, 0.08);
-
+                0 10px 24px rgba(38, 55, 80, 0.08);
             border-color: #DDF3E7;
-
         }
-
 
         .documentation-image {
-
-            transition:
-                transform 0.35s ease;
-
+            transition: transform 0.35s ease;
         }
 
-
-        .documentation-card:hover
-        .documentation-image {
-
-            transform:
-                scale(1.04);
-
+        .documentation-card:hover .documentation-image {
+            transform: scale(1.04);
         }
-
 
         .documentation-card-content {
-
             display: flex;
-
             flex-direction: column;
-
             flex: 1;
-
         }
-
 
         .documentation-card-content > div:last-child {
-
             margin-top: auto;
-
         }
-
-
-        /* =================================================
-           DOKUMENTASI TAMBAHAN
-        ================================================= */
 
         .additional-documentation {
-
             display: none !important;
-
         }
-
 
         .additional-documentation.show {
-
             display: grid !important;
-
-            animation:
-                documentationReveal 0.35s ease;
-
+            animation: documentationReveal 0.35s ease;
         }
-
 
         @keyframes documentationReveal {
-
             from {
-
                 opacity: 0;
-
-                transform:
-                    translateY(-8px);
-
+                transform: translateY(-8px);
             }
 
             to {
-
                 opacity: 1;
-
-                transform:
-                    translateY(0);
-
+                transform: translateY(0);
             }
-
         }
-
-
-        /* =================================================
-           CALENDAR
-        ================================================= */
 
         .calendar-popup {
-
-            animation:
-                calendarShow 0.15s ease;
-
+            animation: calendarShow 0.15s ease;
         }
-
 
         @keyframes calendarShow {
-
             from {
-
                 opacity: 0;
-
-                transform:
-                    translateY(-4px);
-
+                transform: translateY(-4px);
             }
 
             to {
-
                 opacity: 1;
-
-                transform:
-                    translateY(0);
-
+                transform: translateY(0);
             }
-
         }
-
-
-        /* =================================================
-           PROFILE DROPDOWN
-        ================================================= */
 
         .profile-dropdown {
-
-            animation:
-                profileShow 0.15s ease;
-
+            animation: profileShow 0.15s ease;
         }
 
-
         @keyframes profileShow {
-
             from {
-
                 opacity: 0;
-
-                transform:
-                    translateY(5px);
-
+                transform: translateY(5px);
             }
 
             to {
-
                 opacity: 1;
-
-                transform:
-                    translateY(0);
-
+                transform: translateY(0);
             }
-
         }
-
-
-        /* =================================================
-           SCROLLBAR
-        ================================================= */
 
         ::-webkit-scrollbar {
-
             width: 6px;
-
         }
-
 
         ::-webkit-scrollbar-track {
-
             background: #F8FAF9;
-
         }
-
 
         ::-webkit-scrollbar-thumb {
-
             background: #CBD5D0;
-
             border-radius: 10px;
-
         }
 
 
-        /* =================================================
-           MOBILE
-        ================================================= */
+        /* =====================================================
+           PROFIL MOBILE
+        ====================================================== */
+
+        .mobile-profile-item {
+            display: none !important;
+        }
+
+
+        /* =====================================================
+           MOBILE BOTTOM NAVIGATION
+        ====================================================== */
 
         @media (max-width: 767px) {
 
-            .sidebar-mobile {
+            body {
+                padding-bottom: 72px;
+            }
 
-                position: relative !important;
+            .sidebar-mobile {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                top: auto !important;
 
                 width: 100% !important;
+                height: 68px !important;
+                min-height: 68px !important;
 
-                height: auto !important;
+                z-index: 100 !important;
 
-                min-height: 0 !important;
+                background: rgba(255, 255, 255, 0.98) !important;
 
-                border-right: 0 !important;
+                border: 0 !important;
+                border-top: 1px solid #E2E8F0 !important;
 
-                border-bottom: 1px solid #E2E8F0;
+                display: block !important;
 
+                box-shadow:
+                    0 -4px 18px rgba(38, 55, 80, 0.08);
             }
 
+
+            /* LOGO DISEMBUNYIKAN PADA MOBILE */
+
+            .sidebar-mobile > div:first-child {
+                display: none !important;
+            }
+
+
+            /* NAVIGATION */
 
             .sidebar-nav-mobile {
+                width: 100% !important;
+                height: 68px !important;
 
-                overflow-x: auto;
+                padding: 6px 7px !important;
 
-                overflow-y: hidden;
+                overflow: hidden !important;
 
-                white-space: nowrap;
-
-                padding-bottom: 10px;
-
-            }
-
-
-            .sidebar-nav-mobile::-webkit-scrollbar {
-
-                height: 3px;
-
-            }
-
-
-            .sidebar-nav-mobile .nav-links {
-
-                display: flex;
-
-                width: max-content;
-
-                gap: 4px;
-
+                display: flex !important;
+                align-items: center !important;
             }
 
 
             .sidebar-nav-mobile .menu-title {
+                display: none !important;
+            }
 
-                display: none;
 
+            .sidebar-nav-mobile .nav-links {
+                width: 100% !important;
+                height: 100% !important;
+
+                display: grid !important;
+
+                grid-template-columns:
+                    repeat(5, minmax(0, 1fr)) !important;
+
+                gap: 3px !important;
+
+                align-items: stretch !important;
             }
 
 
             .sidebar-nav-mobile .menu-item {
+                margin: 0 !important;
 
-                margin-bottom: 0;
+                width: 100% !important;
+                height: 56px !important;
 
-                flex-shrink: 0;
+                padding: 6px 2px !important;
 
+                border-radius: 10px !important;
+
+                display: flex !important;
+                flex-direction: column !important;
+
+                justify-content: center !important;
+                align-items: center !important;
+
+                gap: 4px !important;
+
+                flex-shrink: 1 !important;
+
+                font-size: 8px !important;
+
+                white-space: nowrap !important;
+
+                text-align: center !important;
             }
 
+
+            /* PROFIL HANYA MUNCUL DI MOBILE */
+
+            .sidebar-nav-mobile .mobile-profile-item {
+                display: flex !important;
+            }
+
+
+            .sidebar-nav-mobile .menu-item svg {
+                width: 18px !important;
+                height: 18px !important;
+
+                flex-shrink: 0 !important;
+            }
+
+
+            .sidebar-nav-mobile .menu-item.menu-active {
+                background: linear-gradient(
+                    135deg,
+                    #DDF3E7,
+                    #F1D9EB
+                ) !important;
+
+                color: #006A3A !important;
+            }
+
+
+            /* MAIN */
 
             .main-mobile {
-
                 margin-left: 0 !important;
-
+                min-height: 100vh !important;
             }
 
 
+            /* HEADER */
+
             .header-mobile {
-
                 height: auto !important;
-
                 min-height: 72px;
 
-                padding: 14px 16px !important;
+                padding:
+                    14px 16px !important;
 
                 gap: 12px;
-
             }
 
 
             .header-button {
-
-                padding:
-                    9px 11px !important;
-
+                padding: 9px 11px !important;
             }
 
 
             .header-button span {
-
                 display: none;
-
             }
 
+
+            /* CONTENT */
 
             .content-mobile {
-
-                padding:
-                    16px !important;
-
+                padding: 16px !important;
+                padding-bottom: 20px !important;
             }
 
+
+            /* DESCRIPTION */
 
             .description-card {
-
-                padding:
-                    18px !important;
-
+                padding: 18px !important;
+                margin-bottom: 20px !important;
             }
 
 
-            .documentation-grid {
+            .description-card > div.relative {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 16px !important;
+            }
 
+
+            .description-card > div.relative > div:first-child {
+                max-width: none !important;
+                width: 100% !important;
+            }
+
+
+            .description-card > div.relative > div:last-child {
+                display: flex !important;
+
+                width: 100% !important;
+
+                justify-content: flex-start !important;
+                align-items: center !important;
+
+                gap: 0 !important;
+            }
+
+
+            .description-card
+            > div.relative
+            > div:last-child
+            > a {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+
+
+            /* DOCUMENTATION GRID */
+
+            .documentation-grid {
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr)) !important;
 
                 gap: 10px !important;
-
             }
 
 
             .documentation-card-content {
-
                 padding: 11px !important;
-
             }
 
 
             .documentation-card-title {
-
                 font-size: 11px !important;
-
             }
 
 
             .documentation-card-description {
-
                 font-size: 9px !important;
-
                 line-height: 1.5;
-
             }
 
 
             .documentation-card-image {
-
                 height: 115px !important;
-
             }
 
 
-            /* BUTTON DI DALAM CARD */
-
             .description-card > div:last-child {
-
                 flex-direction: column;
-
                 align-items: flex-start;
-
             }
 
 
             .description-card .flex.items-center.gap-3 {
-
                 width: 100%;
-
             }
 
+
+            /* PROFILE DROPDOWN MOBILE */
+
+            #profileDropdown {
+                position: fixed !important;
+
+                left: 12px !important;
+                right: 12px !important;
+
+                bottom: 76px !important;
+
+                width: auto !important;
+
+                z-index: 110 !important;
+            }
         }
 
 
         @media (max-width: 430px) {
 
             .documentation-grid {
-
-                grid-template-columns:
-                    1fr !important;
-
+                grid-template-columns: 1fr !important;
             }
 
 
             .documentation-card-image {
-
                 height: 175px !important;
-
             }
 
-        }
 
+            .description-card {
+                padding: 16px !important;
+            }
+
+
+            .description-card h1 {
+                font-size: 15px !important;
+                line-height: 1.4 !important;
+            }
+
+
+            .description-card p {
+                font-size: 10px !important;
+                line-height: 1.6 !important;
+            }
+
+
+            .description-card > div.relative {
+                gap: 14px !important;
+            }
+
+
+            /* BOTTOM MENU HP KECIL */
+
+            .sidebar-nav-mobile {
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+            }
+
+
+            .sidebar-nav-mobile .menu-item {
+                height: 56px !important;
+                font-size: 7.5px !important;
+                gap: 3px !important;
+            }
+
+
+            .sidebar-nav-mobile .menu-item svg {
+                width: 17px !important;
+                height: 17px !important;
+            }
+        }
     </style>
 
 </head>
@@ -813,12 +760,47 @@
 
                 </a>
 
+
+                <!-- PROFIL MOBILE -->
+
+                <button
+                    id="mobileProfileToggle"
+                    type="button"
+                    class="menu-item
+                           mobile-profile-item
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-xs
+                           text-slate-500
+                           mb-1">
+
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.8"
+                            d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+
+                    </svg>
+
+                    Profil
+
+                </button>
+
             </div>
 
         </nav>
 
 
-        <!-- USER / PROFILE -->
+        <!-- USER / PROFILE DESKTOP -->
 
         <div
             class="relative
@@ -1062,9 +1044,7 @@
                min-h-screen">
 
 
-        <!-- =================================================
-             NAVBAR
-        ================================================== -->
+        <!-- NAVBAR -->
 
         <header
             class="header-mobile
@@ -1104,8 +1084,6 @@
             </div>
 
 
-            <!-- DATE PICKER -->
-
             <div class="relative">
 
                 <button
@@ -1134,11 +1112,9 @@
 
                     </svg>
 
-
                     <span id="currentDate">
                         Memuat tanggal...
                     </span>
-
 
                     <svg
                         class="w-3 h-3 text-slate-300"
@@ -1156,8 +1132,6 @@
 
                 </button>
 
-
-                <!-- CALENDAR POPUP -->
 
                 <div
                     id="calendarPopup"
@@ -1203,7 +1177,6 @@
                             </p>
 
                         </div>
-
 
                         <button
                             id="todayButton"
@@ -1265,9 +1238,9 @@
         </header>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              CONTENT
-        ================================================== -->
+        ====================================================== -->
 
         <div
             class="dashboard-bg
@@ -1276,9 +1249,7 @@
                    p-6">
 
 
-            <!-- =================================================
-                 DESKRIPSI
-            ================================================== -->
+            <!-- DESKRIPSI -->
 
             <section
                 class="description-card
@@ -1306,7 +1277,6 @@
                            bg-purple-100/60">
                 </div>
 
-
                 <div
                     class="absolute
                            -left-12
@@ -1316,7 +1286,6 @@
                            rounded-full
                            bg-green-100/60">
                 </div>
-
 
                 <div
                     class="relative
@@ -1381,55 +1350,12 @@
                     </div>
 
 
-                    <!-- =================================================
-                         JUMLAH + BUTTON TAMBAH DOKUMENTASI
-                    ================================================== -->
-
                     <div
                         class="hidden
                                sm:flex
                                shrink-0
                                items-center
                                gap-3">
-
-                        <!-- JUMLAH DOKUMENTASI -->
-
-                        <div
-                            class="flex
-                                   flex-col
-                                   items-center
-                                   justify-center
-                                   w-20
-                                   h-20
-                                   rounded-xl
-                                   bg-white/80
-                                   border
-                                   border-white
-                                   shadow-sm">
-
-                            <span
-                                class="text-xl
-                                       font-bold
-                                       text-navy">
-
-                                15
-
-                            </span>
-
-
-                            <span
-                                class="text-[9px]
-                                       text-slate-400
-                                       mt-0.5">
-
-                                Dokumentasi
-
-                            </span>
-
-                        </div>
-
-
-                        <!-- BUTTON TAMBAH -->
 
                         <a
                             href="tambah-dokumentasi.html"
@@ -1477,9 +1403,7 @@
             </section>
 
 
-            <!-- =================================================
-                 HEADER SECTION
-            ================================================== -->
+            <!-- HEADER SECTION -->
 
             <section class="mb-4">
 
@@ -1500,7 +1424,6 @@
 
                         </h3>
 
-
                         <p
                             class="text-[10px]
                                    text-slate-400
@@ -1512,7 +1435,6 @@
                         </p>
 
                     </div>
-
 
                     <span
                         class="sm:hidden
@@ -1534,9 +1456,9 @@
             </section>
 
 
-            <!-- =================================================
-                 4 CARD UTAMA
-            ================================================== -->
+            <!-- =====================================================
+                 CARD DOCUMENTATION
+            ====================================================== -->
 
             <section
                 class="documentation-grid
@@ -1572,7 +1494,6 @@
 
                     </div>
 
-
                     <div
                         class="documentation-card-content
                                p-4">
@@ -1591,7 +1512,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -1602,7 +1522,6 @@
                             Briefing Pagi
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -1615,7 +1534,6 @@
                             pembagian tugas, dan target kegiatan.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -1633,7 +1551,6 @@
                                 Dokumentasi 01
 
                             </span>
-
 
                             <span
                                 class="text-green-600
@@ -1677,7 +1594,6 @@
 
                     </div>
 
-
                     <div
                         class="documentation-card-content
                                p-4">
@@ -1696,7 +1612,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -1707,7 +1622,6 @@
                             Diskusi Kegiatan
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -1720,7 +1634,6 @@
                             sebelum proses pekerjaan dilakukan.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -1738,7 +1651,6 @@
                                 Dokumentasi 02
 
                             </span>
-
 
                             <span
                                 class="text-purple-600
@@ -1782,7 +1694,6 @@
 
                     </div>
 
-
                     <div
                         class="documentation-card-content
                                p-4">
@@ -1801,7 +1712,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -1812,7 +1722,6 @@
                             Pengerjaan Project
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -1825,7 +1734,6 @@
                             tugas dan arahan yang telah diberikan.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -1843,7 +1751,6 @@
                                 Dokumentasi 03
 
                             </span>
-
 
                             <span
                                 class="text-green-600
@@ -1887,7 +1794,6 @@
 
                     </div>
 
-
                     <div
                         class="documentation-card-content
                                p-4">
@@ -1906,7 +1812,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -1917,7 +1822,6 @@
                             Presentasi Project
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -1930,7 +1834,6 @@
                             project kepada pembimbing.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -1949,7 +1852,6 @@
 
                             </span>
 
-
                             <span
                                 class="text-purple-600
                                        text-xs">
@@ -1967,9 +1869,9 @@
             </section>
 
 
-            <!-- =================================================
+            <!-- =====================================================
                  DOKUMENTASI TAMBAHAN
-            ================================================== -->
+            ====================================================== -->
 
             <section
                 id="additionalDocumentation"
@@ -2008,7 +1910,6 @@
 
                     </div>
 
-
                     <div class="documentation-card-content p-4">
 
                         <span
@@ -2025,7 +1926,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -2036,7 +1936,6 @@
                             Briefing Sore
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -2049,7 +1948,6 @@
                             berjalan sesuai rencana.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -2067,7 +1965,6 @@
                                 Dokumentasi 05
 
                             </span>
-
 
                             <span
                                 class="text-green-600
@@ -2111,7 +2008,6 @@
 
                     </div>
 
-
                     <div class="documentation-card-content p-4">
 
                         <span
@@ -2128,7 +2024,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -2139,7 +2034,6 @@
                             Diskusi Project
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -2152,7 +2046,6 @@
                             penyesuaian pekerjaan yang diperlukan.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -2170,7 +2063,6 @@
                                 Dokumentasi 06
 
                             </span>
-
 
                             <span
                                 class="text-purple-600
@@ -2214,7 +2106,6 @@
 
                     </div>
 
-
                     <div class="documentation-card-content p-4">
 
                         <span
@@ -2231,7 +2122,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -2242,7 +2132,6 @@
                             Pengerjaan Project Lanjutan
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -2255,7 +2144,6 @@
                             penyelesaian bagian project.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -2273,7 +2161,6 @@
                                 Dokumentasi 07
 
                             </span>
-
 
                             <span
                                 class="text-green-600
@@ -2317,7 +2204,6 @@
 
                     </div>
 
-
                     <div class="documentation-card-content p-4">
 
                         <span
@@ -2334,7 +2220,6 @@
 
                         </span>
 
-
                         <h4
                             class="documentation-card-title
                                    text-xs
@@ -2345,7 +2230,6 @@
                             Presentasi Project Lanjutan
 
                         </h4>
-
 
                         <p
                             class="documentation-card-description
@@ -2358,7 +2242,6 @@
                             penyelesaian project kepada pembimbing.
 
                         </p>
-
 
                         <div
                             class="flex
@@ -2377,7 +2260,6 @@
 
                             </span>
 
-
                             <span
                                 class="text-purple-600
                                        text-xs">
@@ -2395,9 +2277,7 @@
             </section>
 
 
-            <!-- =================================================
-                 BUTTON LIHAT DOKUMENTASI LAINNYA
-            ================================================== -->
+            <!-- BUTTON -->
 
             <div
                 class="flex
@@ -2426,11 +2306,8 @@
                            transition">
 
                     <span id="documentationToggleText">
-
                         Lihat Dokumentasi Lainnya
-
                     </span>
-
 
                     <svg
                         id="documentationToggleIcon"
@@ -2452,9 +2329,7 @@
             </div>
 
 
-            <!-- =================================================
-                 INFO BAWAH
-            ================================================== -->
+            <!-- INFO -->
 
             <section
                 class="mt-6
@@ -2502,7 +2377,6 @@
 
                     </div>
 
-
                     <div>
 
                         <p
@@ -2513,7 +2387,6 @@
                             Dokumentasi tersimpan secara terstruktur.
 
                         </p>
-
 
                         <p
                             class="text-[9px]
@@ -2542,10 +2415,7 @@
 
     <script>
 
-
-        /* =================================================
-           DATE PICKER
-        ================================================== */
+        /* DATE PICKER */
 
         const dateButton =
             document.getElementById("dateButton");
@@ -2569,9 +2439,7 @@
         function formatDate(dateValue) {
 
             const date =
-                new Date(
-                    dateValue + "T00:00:00"
-                );
+                new Date(dateValue + "T00:00:00");
 
             return date.toLocaleDateString(
                 "id-ID",
@@ -2615,10 +2483,8 @@
         datePicker.value =
             todayValue;
 
-
         currentDate.textContent =
             formatDate(todayValue);
-
 
         selectedDateLabel.textContent =
             "Hari ini";
@@ -2647,10 +2513,8 @@
 
                 if (!selectedDate) return;
 
-
                 currentDate.textContent =
                     formatDate(selectedDate);
-
 
                 if (
                     selectedDate ===
@@ -2666,7 +2530,6 @@
                         formatDate(selectedDate);
 
                 }
-
 
                 calendarPopup.classList.add(
                     "hidden"
@@ -2702,12 +2565,8 @@
             function (event) {
 
                 if (
-                    !calendarPopup.contains(
-                        event.target
-                    ) &&
-                    !dateButton.contains(
-                        event.target
-                    )
+                    !calendarPopup.contains(event.target) &&
+                    !dateButton.contains(event.target)
                 ) {
 
                     calendarPopup.classList.add(
@@ -2720,27 +2579,30 @@
         );
 
 
-        /* =================================================
-           PROFILE DROPDOWN
-        ================================================== */
+        /* PROFILE DESKTOP + MOBILE */
 
         const profileToggle =
             document.getElementById(
                 "profileToggle"
             );
 
-
         const profileDropdown =
             document.getElementById(
                 "profileDropdown"
             );
-
 
         const profileChevron =
             document.getElementById(
                 "profileChevron"
             );
 
+        const mobileProfileToggle =
+            document.getElementById(
+                "mobileProfileToggle"
+            );
+
+
+        /* PROFILE DESKTOP */
 
         profileToggle.addEventListener(
             "click",
@@ -2760,17 +2622,30 @@
         );
 
 
+        /* PROFILE MOBILE */
+
+        mobileProfileToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileDropdown.classList.toggle(
+                    "hidden"
+                );
+
+            }
+        );
+
+
         document.addEventListener(
             "click",
             function (event) {
 
                 if (
-                    !profileDropdown.contains(
-                        event.target
-                    ) &&
-                    !profileToggle.contains(
-                        event.target
-                    )
+                    !profileDropdown.contains(event.target) &&
+                    !profileToggle.contains(event.target) &&
+                    !mobileProfileToggle.contains(event.target)
                 ) {
 
                     profileDropdown.classList.add(
@@ -2787,9 +2662,7 @@
         );
 
 
-        /* =================================================
-           LOGOUT
-        ================================================== */
+        /* LOGOUT */
 
         const logoutButton =
             document.getElementById(
@@ -2822,27 +2695,22 @@
         );
 
 
-        /* =================================================
-           SHOW / HIDE DOKUMENTASI
-        ================================================== */
+        /* SHOW / HIDE DOKUMENTASI */
 
         const documentationToggle =
             document.getElementById(
                 "documentationToggle"
             );
 
-
         const additionalDocumentation =
             document.getElementById(
                 "additionalDocumentation"
             );
 
-
         const documentationToggleText =
             document.getElementById(
                 "documentationToggleText"
             );
-
 
         const documentationToggleIcon =
             document.getElementById(
@@ -2871,7 +2739,6 @@
                     documentationToggleText.textContent =
                         "Sembunyikan Dokumentasi";
 
-
                     documentationToggleIcon.style.transform =
                         "rotate(90deg)";
 
@@ -2880,23 +2747,18 @@
                         function () {
 
                             additionalDocumentation.scrollIntoView({
-
                                 behavior: "smooth",
-
                                 block: "start"
-
                             });
 
                         },
                         100
                     );
 
-
                 } else {
 
                     documentationToggleText.textContent =
                         "Lihat Dokumentasi Lainnya";
-
 
                     documentationToggleIcon.style.transform =
                         "rotate(0deg)";
@@ -2907,7 +2769,6 @@
         );
 
     </script>
-
 
 </body>
 
