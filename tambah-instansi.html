@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Instansi | Access Internship</title>
 
     <!-- TAILWIND -->
@@ -14,7 +15,6 @@
         tailwind.config = {
             theme: {
                 extend: {
-
                     colors: {
                         green: {
                             50: "#EFFAF4",
@@ -41,7 +41,6 @@
 
     <!-- STYLE -->
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -93,6 +92,7 @@
                     #DDF3E7,
                     #F1D9EB
                 );
+
             color: #006A3A;
         }
 
@@ -102,6 +102,7 @@
 
         .stat-card:hover {
             transform: translateY(-2px);
+
             box-shadow:
                 0 8px 20px rgba(38, 55, 80, 0.08);
         }
@@ -118,9 +119,7 @@
             background: #CBD5D0;
             border-radius: 10px;
         }
-
     </style>
-
 </head>
 
 
@@ -417,6 +416,7 @@
 
                 </div>
 
+
                 <div
                     class="min-w-0
                            flex-1">
@@ -539,13 +539,14 @@
 
 
             <!-- =================================================
-                 HERO COMPACT
+                 HERO
             ================================================== -->
 
             <section
                 class="bg-white
                        rounded-2xl
-                       border border-green-100
+                       border
+                       border-green-100
                        soft-shadow
                        relative
                        overflow-hidden
@@ -625,7 +626,7 @@
 
 
             <!-- =================================================
-                 STAT CARDS COMPACT
+                 STAT CARDS
             ================================================== -->
 
             <div
@@ -637,12 +638,12 @@
 
 
                 <!-- TOTAL INSTANSI -->
-
                 <div
                     class="stat-card
                            bg-white
                            rounded-2xl
-                           border border-green-100
+                           border
+                           border-green-100
                            border-t-4
                            border-t-green-500
                            p-4
@@ -718,12 +719,12 @@
 
 
                 <!-- SEKOLAH -->
-
                 <div
                     class="stat-card
                            bg-white
                            rounded-2xl
-                           border border-purple-100
+                           border
+                           border-purple-100
                            border-t-4
                            border-t-purple-500
                            p-4
@@ -799,12 +800,12 @@
 
 
                 <!-- PERGURUAN TINGGI -->
-
                 <div
                     class="stat-card
                            bg-white
                            rounded-2xl
-                           border border-green-100
+                           border
+                           border-green-100
                            border-t-4
                            border-t-green-500
                            p-4
@@ -888,13 +889,13 @@
             <section
                 class="bg-white
                        rounded-2xl
-                       border border-slate-200
+                       border
+                       border-slate-200
                        soft-shadow
                        overflow-hidden">
 
 
                 <!-- TABLE HEADER -->
-
                 <div
                     class="px-5
                            py-4
@@ -906,6 +907,7 @@
                            md:items-center
                            md:justify-between
                            gap-3">
+
 
                     <div>
 
@@ -946,15 +948,19 @@
                     </div>
 
 
-                    <!-- ACTION -->
+
+                    <!-- =================================================
+                         ACTION : SEARCH + FILTER + TAMBAH
+                    ================================================== -->
 
                     <div
                         class="flex
                                items-center
-                               gap-2.5">
+                               gap-2.5
+                               flex-wrap">
+
 
                         <!-- SEARCH -->
-
                         <div
                             class="relative">
 
@@ -988,7 +994,8 @@
                                        pr-3
                                        py-2
                                        rounded-lg
-                                       border border-slate-200
+                                       border
+                                       border-slate-200
                                        text-[10px]
                                        text-slate-600
                                        outline-none
@@ -999,8 +1006,96 @@
                         </div>
 
 
-                        <!-- TAMBAH -->
 
+                        <!-- FILTER JENIS INSTANSI -->
+                        <div
+                            class="relative">
+
+                            <!-- FILTER ICON -->
+                            <svg
+                                class="absolute
+                                       left-3
+                                       top-1/2
+                                       -translate-y-1/2
+                                       w-3.5
+                                       h-3.5
+                                       text-slate-400
+                                       pointer-events-none"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M4 6h16M7 12h10m-7 6h4"/>
+
+                            </svg>
+
+
+                            <select
+                                id="filterJenis"
+                                class="w-[145px]
+                                       h-[34px]
+                                       appearance-none
+                                       pl-9
+                                       pr-7
+                                       py-2
+                                       rounded-lg
+                                       border
+                                       border-slate-200
+                                       bg-white
+                                       text-[10px]
+                                       text-slate-600
+                                       outline-none
+                                       cursor-pointer
+                                       focus:border-green-500
+                                       focus:ring-2
+                                       focus:ring-green-100">
+
+                                <option value="all">
+                                    Semua Instansi
+                                </option>
+
+                                <option value="Sekolah">
+                                    Sekolah
+                                </option>
+
+                                <option value="Perguruan Tinggi">
+                                    Perguruan Tinggi
+                                </option>
+
+                            </select>
+
+
+                            <!-- ARROW -->
+                            <svg
+                                class="absolute
+                                       right-2.5
+                                       top-1/2
+                                       -translate-y-1/2
+                                       w-3
+                                       h-3
+                                       text-slate-400
+                                       pointer-events-none"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="m6 9 6 6 6-6"/>
+
+                            </svg>
+
+                        </div>
+
+
+
+                        <!-- TAMBAH INSTANSI -->
                         <a
                             href="tambah-instansi.html"
                             class="inline-flex
@@ -1041,9 +1136,12 @@
 
 
 
-                <!-- TABLE -->
+                <!-- =================================================
+                     TABLE
+                ================================================== -->
 
-                <div class="overflow-x-auto">
+                <div
+                    class="overflow-x-auto">
 
                     <table
                         class="w-full
@@ -1056,6 +1154,7 @@
                                 class="bg-slate-50
                                        border-b
                                        border-slate-200">
+
 
                                 <th
                                     class="px-5
@@ -1070,6 +1169,7 @@
 
                                 </th>
 
+
                                 <th
                                     class="px-4
                                            py-2.5
@@ -1082,6 +1182,7 @@
                                     Jenis
 
                                 </th>
+
 
                                 <th
                                     class="px-4
@@ -1096,6 +1197,7 @@
 
                                 </th>
 
+
                                 <th
                                     class="px-4
                                            py-2.5
@@ -1108,6 +1210,7 @@
                                     Status
 
                                 </th>
+
 
                                 <th
                                     class="px-5
@@ -1142,7 +1245,6 @@
 
 
                 <!-- EMPTY STATE -->
-
                 <div
                     id="emptyState"
                     class="hidden
@@ -1177,6 +1279,7 @@
 
                     </div>
 
+
                     <p
                         class="text-xs
                                font-semibold
@@ -1185,6 +1288,7 @@
                         Belum ada instansi
 
                     </p>
+
 
                     <p
                         class="text-[10px]
@@ -1211,7 +1315,9 @@
 
     <script>
 
-        /* DATA DEFAULT */
+        /* =====================================================
+           DATA DEFAULT
+        ====================================================== */
 
         const defaultInstansi = [
 
@@ -1273,12 +1379,15 @@
 
 
 
-        /* GET DATA */
+        /* =====================================================
+           GET DATA
+        ====================================================== */
 
         function getInstansi() {
 
             const data =
                 localStorage.getItem("accessInstansi");
+
 
             if (!data) {
 
@@ -1291,13 +1400,16 @@
 
             }
 
+
             return JSON.parse(data);
 
         }
 
 
 
-        /* RENDER TABLE */
+        /* =====================================================
+           RENDER TABLE
+        ====================================================== */
 
         function renderInstansi(data = getInstansi()) {
 
@@ -1306,6 +1418,7 @@
 
             const empty =
                 document.getElementById("emptyState");
+
 
             table.innerHTML = "";
 
@@ -1354,7 +1467,10 @@
 
                     <td class="px-5 py-3">
 
-                        <div class="flex items-center gap-2.5">
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2.5">
 
                             <div
                                 class="w-8
@@ -1411,6 +1527,7 @@
                     </td>
 
 
+
                     <td class="px-4 py-3">
 
                         <span
@@ -1429,6 +1546,7 @@
                     </td>
 
 
+
                     <td
                         class="px-4
                                py-3
@@ -1438,6 +1556,7 @@
                         ${instansi.periode}
 
                     </td>
+
 
 
                     <td class="px-4 py-3">
@@ -1454,6 +1573,7 @@
                                        h-1.5
                                        rounded-full
                                        bg-green-500">
+
                             </span>
 
                             ${instansi.status}
@@ -1461,6 +1581,7 @@
                         </span>
 
                     </td>
+
 
 
                     <td
@@ -1492,7 +1613,9 @@
 
 
 
-        /* UPDATE STAT */
+        /* =====================================================
+           UPDATE STAT
+        ====================================================== */
 
         function updateStats() {
 
@@ -1530,7 +1653,9 @@
 
 
 
-        /* DETAIL */
+        /* =====================================================
+           DETAIL
+        ====================================================== */
 
         function lihatDetail(id) {
 
@@ -1559,48 +1684,104 @@
 
 
 
-        /* SEARCH */
+        /* =====================================================
+           SEARCH + FILTER
+        ====================================================== */
+
+        function filterInstansi() {
+
+            const keyword =
+                document
+                    .getElementById("searchInstansi")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            const jenis =
+                document
+                    .getElementById("filterJenis")
+                    .value;
+
+
+            const data =
+                getInstansi().filter(item => {
+
+
+                    /* SEARCH */
+
+                    const cocokSearch =
+
+                        item.nama
+                            .toLowerCase()
+                            .includes(keyword)
+
+                        ||
+
+                        item.kota
+                            .toLowerCase()
+                            .includes(keyword)
+
+                        ||
+
+                        item.jenis
+                            .toLowerCase()
+                            .includes(keyword);
+
+
+
+                    /* FILTER JENIS */
+
+                    const cocokJenis =
+
+                        jenis === "all"
+
+                        ||
+
+                        item.jenis === jenis;
+
+
+
+                    return cocokSearch && cocokJenis;
+
+                });
+
+
+            renderInstansi(data);
+
+        }
+
+
+
+        /* =====================================================
+           EVENT SEARCH
+        ====================================================== */
 
         document
             .getElementById("searchInstansi")
             .addEventListener(
                 "input",
-                function () {
-
-                    const keyword =
-                        this.value.toLowerCase();
-
-
-                    const data =
-                        getInstansi().filter(item =>
-
-                            item.nama
-                                .toLowerCase()
-                                .includes(keyword)
-
-                            ||
-
-                            item.kota
-                                .toLowerCase()
-                                .includes(keyword)
-
-                            ||
-
-                            item.jenis
-                                .toLowerCase()
-                                .includes(keyword)
-
-                        );
-
-
-                    renderInstansi(data);
-
-                }
+                filterInstansi
             );
 
 
 
-        /* INIT */
+        /* =====================================================
+           EVENT FILTER
+        ====================================================== */
+
+        document
+            .getElementById("filterJenis")
+            .addEventListener(
+                "change",
+                filterInstansi
+            );
+
+
+
+        /* =====================================================
+           INIT
+        ====================================================== */
 
         renderInstansi();
 
