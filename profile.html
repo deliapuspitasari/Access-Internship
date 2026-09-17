@@ -1,2123 +1,437 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Profile Admin | Access Internship</title>
 
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- =====================================================
-         TAILWIND CSS
-    ====================================================== -->
-
-    <script src="https://cdn.tailwindcss.com"></script> 
- 
- 
-    <!-- ===================================================== 
-         TAILWIND CONFIG 
-    ====================================================== --> 
- 
-    <script> 
- 
-        tailwind.config = { 
- 
-            theme: { 
- 
-                extend: { 
- 
-                    colors: { 
- 
-                        green: { 
-                            50: "#EFFAF4", 
-                            100: "#DDF3E7", 
-                            500: "#008A4B", 
-                            600: "#007A43", 
-                            700: "#006A3A", 
-                        }, 
- 
-                        purple: { 
-                            50: "#FBF0F8", 
-                            100: "#F1D9EB", 
-                            400: "#A42B8E", 
-                            500: "#8A1B78", 
-                            600: "#761666", 
-                        }, 
- 
-                        navy: "#263750", 
- 
-                    } 
- 
-                } 
- 
-            } 
- 
-        } 
- 
-    </script> 
- 
- 
-    <!-- ===================================================== 
-         CUSTOM STYLE 
-    ====================================================== --> 
- 
-    <style> 
- 
-        * { 
-            box-sizing: border-box; 
-        } 
- 
- 
-        html { 
-            scroll-behavior: smooth; 
-        } 
- 
- 
-        body { 
- 
-            margin: 0; 
- 
-            font-family: 
-                Arial, 
-                Helvetica, 
-                sans-serif; 
- 
-            background: #F8FAF9; 
- 
-        } 
- 
- 
-        /* ================================================= 
-           BACKGROUND 
-        ================================================= */ 
- 
-        .profile-bg { 
- 
-            background: 
- 
-                radial-gradient( 
-                    circle at 90% 5%, 
-                    rgba(138, 27, 120, 0.08), 
-                    transparent 25% 
-                ), 
- 
-                radial-gradient( 
-                    circle at 5% 90%, 
-                    rgba(0, 138, 75, 0.08), 
-                    transparent 25% 
-                ), 
- 
-                #F8FAF9; 
- 
-        } 
- 
- 
-        /* ================================================= 
-           SHADOW 
-        ================================================= */ 
- 
-        .soft-shadow { 
- 
-            box-shadow: 
- 
-                0 2px 8px 
-                rgba(38, 55, 80, 0.04), 
- 
-                0 1px 2px 
-                rgba(38, 55, 80, 0.03); 
- 
-        } 
- 
- 
-        /* ================================================= 
-           MENU 
-        ================================================= */ 
- 
-        .menu-item { 
- 
-            transition: 
-                all 0.2s ease; 
- 
-        } 
- 
- 
-        .menu-item:hover { 
- 
-            background: #EFFAF4; 
- 
-            color: #008A4B; 
- 
-        } 
- 
- 
-        .menu-active { 
- 
-            background: 
- 
-                linear-gradient( 
-                    90deg, 
-                    #DDF3E7, 
-                    #F1D9EB 
-                ); 
- 
-            color: #006A3A; 
- 
-        } 
- 
- 
-        /* ================================================= 
-           PROFILE MENU
-           DIPERBAIKI AGAR DROPDOWN FLOATING
-        ================================================== */ 
- 
-        .profile-dropdown { 
- 
-            position: absolute;
-
-            left: 12px;
-
-            right: 12px;
-
-            bottom: 68px;
-
-            z-index: 100;
-
-            background: white;
-
-            border: 1px solid #e2e8f0;
-
-            border-radius: 12px;
-
-            padding: 8px;
-
-            box-shadow:
-                0 10px 25px
-                rgba(38, 55, 80, 0.10);
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transform: translateY(5px);
-
-            transition:
-                opacity 0.15s ease,
-                transform 0.15s ease,
-                visibility 0.15s ease;
-
-        } 
- 
- 
-        .profile-dropdown.show { 
- 
-            opacity: 1;
-
-            visibility: visible;
-
-            transform: translateY(0);
-
-        } 
- 
- 
-        /* ================================================= 
-           INPUT 
-        ================================================== */ 
- 
-        .form-input { 
- 
-            transition: 
-                all 0.2s ease; 
- 
-        } 
- 
- 
-        .form-input:focus { 
- 
-            outline: none; 
- 
-            border-color: #008A4B; 
- 
-            box-shadow: 
-                0 0 0 3px 
-                rgba(0, 138, 75, 0.08); 
- 
-        } 
- 
- 
-        /* ================================================= 
-           SCROLLBAR 
-        ================================================== */ 
- 
-        ::-webkit-scrollbar { 
- 
-            width: 6px; 
- 
-        } 
- 
- 
-        ::-webkit-scrollbar-track { 
- 
-            background: #F8FAF9; 
- 
-        } 
- 
- 
-        ::-webkit-scrollbar-thumb { 
- 
-            background: #CBD5D0; 
- 
-            border-radius: 10px; 
- 
-        } 
- 
-    </style> 
- 
-</head> 
- 
- 
-<body class="text-slate-600"> 
- 
- 
-    <!-- ===================================================== 
-         SIDEBAR 
-    ====================================================== --> 
- 
-    <aside 
-        class="fixed 
-               left-0 
-               top-0 
-               z-50 
-               h-screen 
-               w-[220px] 
-               bg-white 
-               border-r 
-               border-slate-200 
-               flex 
-               flex-col"> 
- 
- 
-        <!-- ================================================= 
-             LOGO 
-        ================================================== --> 
- 
-        <div 
-            class="h-[78px] 
-                   px-5 
-                   flex 
-                   items-center 
-                   border-b 
-                   border-slate-200 
-                   shrink-0"> 
- 
-            <div 
-                class="flex 
-                       items-center 
-                       gap-3 
-                       min-w-0"> 
- 
- 
-                <img 
-                    src="assets/images/logo.png" 
-                    alt="Logo Access Media" 
-                    class="w-11 h-11 object-contain shrink-0"> 
- 
- 
-                <div class="min-w-0"> 
- 
-                    <h1 
-                        class="text-[13px] 
-                               font-bold 
-                               text-navy 
-                               whitespace-nowrap"> 
- 
-                        Access Internship 
- 
-                    </h1> 
- 
- 
-                    <p 
-                        class="text-[10px] 
-                               text-slate-400 
-                               mt-1 
-                               whitespace-nowrap"> 
- 
-                        CV Access Media 
- 
-                    </p> 
- 
-                </div> 
- 
-            </div> 
- 
-        </div> 
- 
- 
- 
-        <!-- ================================================= 
-             MENU UTAMA 
-        ================================================== --> 
- 
-        <nav 
-            class="flex-1 
-                   px-3 
-                   py-5 
-                   overflow-y-auto"> 
- 
- 
-            <!-- TITLE --> 
- 
-            <p 
-                class="px-3 
-                       mb-3 
-                       text-[9px] 
-                       font-semibold 
-                       uppercase 
-                       tracking-[0.12em] 
-                       text-slate-400"> 
- 
-                Menu Utama 
- 
-            </p> 
- 
- 
- 
-            <!-- ================================================= 
-                 DASHBOARD 
-            ================================================== --> 
- 
-            <a 
-                href="dashboard.html" 
-                class="menu-item 
-                       flex 
-                       items-center 
-                       gap-3 
-                       px-3 
-                       py-2.5 
-                       rounded-lg 
-                       text-xs 
-                       text-slate-500 
-                       mb-1"> 
- 
-                <svg 
-                    class="w-4 h-4" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"> 
- 
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.8" 
-                        d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" /> 
- 
-                </svg> 
- 
-                Dashboard 
- 
-            </a> 
- 
- 
- 
-            <!-- ================================================= 
-                 KEGIATAN 
-            ================================================== --> 
- 
-            <a 
-                href="kegiatan.html" 
-                class="menu-item 
-                       flex 
-                       items-center 
-                       gap-3 
-                       px-3 
-                       py-2.5 
-                       rounded-lg 
-                       text-xs 
-                       text-slate-500 
-                       mb-1"> 
- 
-                <svg 
-                    class="w-4 h-4" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"> 
- 
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.8" 
-                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" /> 
- 
-                </svg> 
- 
-                Kegiatan 
- 
-            </a> 
- 
- 
- 
-            <!-- ================================================= 
-                 PROJECT 
-            ================================================== --> 
- 
-            <a 
-                href="project.html" 
-                class="menu-item 
-                       flex 
-                       items-center 
-                       gap-3 
-                       px-3 
-                       py-2.5 
-                       rounded-lg 
-                       text-xs 
-                       text-slate-500 
-                       mb-1"> 
- 
-                <svg 
-                    class="w-4 h-4" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"> 
- 
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.8" 
-                        d="M4 7h16v13H4V7Zm4 0V4h8v3" /> 
- 
-                </svg> 
- 
-                Project 
- 
-            </a> 
- 
- 
- 
-            <!-- ================================================= 
-                 DOKUMENTASI 
-            ================================================== --> 
- 
-            <a 
-                href="dokumentasi.html" 
-                class="menu-item 
-                       flex 
-                       items-center 
-                       gap-3 
-                       px-3 
-                       py-2.5 
-                       rounded-lg 
-                       text-xs 
-                       text-slate-500 
-                       mb-1"> 
- 
-                <svg 
-                    class="w-4 h-4" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"> 
- 
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.8" 
-                        d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" /> 
- 
-                </svg> 
- 
-                Dokumentasi 
- 
-            </a> 
- 
- 
- 
-            <!-- ================================================= 
-                 INSTANSI 
-            ================================================== --> 
- 
-            <a 
-                href="instansi.html" 
-                class="menu-item 
-                       flex 
-                       items-center 
-                       gap-3 
-                       px-3 
-                       py-2.5 
-                       rounded-lg 
-                       text-xs 
-                       text-slate-500"> 
- 
-                <svg 
-                    class="w-4 h-4" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"> 
- 
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.8" 
-                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" /> 
- 
-                </svg> 
- 
-                Instansi 
- 
-            </a> 
- 
-        </nav> 
- 
- 
- 
-        <!-- ================================================= 
-             PROFILE ADMIN 
-        ================================================== --> 
- 
-        <div 
-            class="relative 
-                   border-t 
-                   border-slate-200 
-                   p-3 
-                   shrink-0"> 
- 
- 
-            <!-- ================================================= 
-                 ADMIN BUTTON 
-            ================================================== --> 
- 
-            <button 
-                id="profileToggle" 
-                type="button" 
-                class="w-full 
-                       flex 
-                       items-center 
-                       gap-3 
-                       p-2 
-                       rounded-lg 
-                       hover:bg-slate-50 
-                       transition 
-                       text-left"> 
- 
- 
-                <!-- AVATAR --> 
- 
-                <div 
-                    class="w-8 
-                           h-8 
-                           rounded-full 
-                           bg-gradient-to-br 
-                           from-green-100 
-                           to-purple-100 
-                           flex 
-                           items-center 
-                           justify-center 
-                           shrink-0"> 
- 
-                    <span 
-                        class="text-[11px] 
-                               font-bold 
-                               text-green-700"> 
- 
-                        A 
- 
-                    </span> 
- 
-                </div> 
- 
- 
-                <!-- USER INFO --> 
- 
-                <div 
-                    class="min-w-0 
-                           flex-1"> 
- 
-                    <p 
-                        class="text-[11px] 
-                               font-semibold 
-                               text-navy 
-                               truncate"> 
- 
-                        Administrator 
- 
-                    </p> 
- 
- 
-                    <p 
-                        class="text-[9px] 
-                               text-slate-400"> 
- 
-                        Admin 
- 
-                    </p> 
- 
-                </div> 
- 
- 
-                <!-- CHEVRON --> 
- 
-                <svg 
-                    id="profileChevron" 
-                    class="w-4 h-4 text-slate-400 transition-transform duration-200" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"> 
- 
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.8" 
-                        d="m6 9 6 6 6-6" /> 
- 
-                </svg> 
- 
-            </button> 
- 
- 
- 
-            <!-- ================================================= 
-                 DROPDOWN PROFILE + LOGOUT 
-            ================================================== --> 
- 
-            <div 
-                id="profileDropdown" 
-                class="profile-dropdown"> 
- 
- 
-                <div> 
- 
- 
-                    <!-- PROFILE --> 
- 
-                    <a 
-                        href="profile.html" 
-                        class="flex 
-                               items-center 
-                               gap-3 
-                               px-3 
-                               py-2 
-                               rounded-lg 
-                               text-[10px] 
-                               font-medium 
-                               text-green-700 
-                               bg-green-50"> 
- 
-                        <svg 
-                            class="w-4 h-4" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"> 
- 
-                            <path 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round" 
-                                stroke-width="1.8" 
-                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /> 
- 
-                        </svg> 
- 
-                        Profile 
- 
-                    </a> 
- 
- 
- 
-                    <!-- LOGOUT --> 
- 
-                    <button 
-                        id="logoutButton" 
-                        type="button" 
-                        class="w-full 
-                               flex 
-                               items-center 
-                               gap-3 
-                               px-3 
-                               py-2 
-                               rounded-lg 
-                               text-[10px] 
-                               font-medium 
-                               text-slate-500 
-                               hover:bg-red-50 
-                               hover:text-red-500 
-                               transition 
-                               text-left"> 
- 
-                        <svg 
-                            class="w-4 h-4" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"> 
- 
-                            <path 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round" 
-                                stroke-width="1.8" 
-                                d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" /> 
- 
-                        </svg> 
- 
-                        Logout 
- 
-                    </button> 
- 
-                </div> 
- 
-            </div> 
- 
-        </div> 
- 
-    </aside> 
- 
- 
- 
-    <!-- ===================================================== 
-         MAIN 
-    ====================================================== --> 
- 
-    <main 
-        class="ml-[220px] 
-               min-h-screen"> 
- 
- 
-        <!-- ================================================= 
-             HEADER 
-        ================================================== --> 
- 
-        <header 
-            class="sticky 
-                   top-0 
-                   z-40 
-                   h-[78px] 
-                   bg-white/95 
-                   backdrop-blur-md 
-                   border-b 
-                   border-slate-200 
-                   px-7 
-                   flex 
-                   items-center 
-                   justify-between"> 
- 
- 
-            <!-- TITLE --> 
- 
-            <div> 
- 
-                <h2 
-                    class="text-[17px] 
-                           font-bold 
-                           text-navy"> 
- 
-                    Profile Admin 
- 
-                </h2> 
- 
- 
-                <p 
-                    class="text-[11px] 
-                           text-slate-400 
-                           mt-0.5"> 
- 
-                    Kelola informasi akun administrator 
- 
-                </p> 
- 
-            </div> 
- 
- 
- 
-            <!-- ================================================= 
-                 TANGGAL OTOMATIS 
-            ================================================== --> 
- 
-            <div 
-                class="flex 
-                       items-center 
-                       gap-2 
-                       text-[11px] 
-                       text-slate-400"> 
- 
- 
-                <svg 
-                    class="w-4 h-4 text-green-600" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"> 
- 
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        stroke-width="1.7" 
-                        d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" /> 
- 
-                </svg> 
- 
- 
-                <span id="currentDate"> 
- 
-                    Memuat tanggal... 
- 
-                </span> 
- 
-            </div> 
- 
-        </header> 
- 
- 
- 
-        <!-- ================================================= 
-             CONTENT 
-        ================================================== --> 
- 
-        <div 
-            class="profile-bg 
-                   min-h-[calc(100vh-78px)] 
-                   p-6"> 
- 
- 
-            <!-- ================================================= 
-                 PROFILE BANNER 
-            ================================================== --> 
- 
-            <section 
-                class="relative 
-                       overflow-hidden 
-                       rounded-2xl 
-                       border 
-                       border-green-100 
-                       bg-gradient-to-r 
-                       from-[#EFFAF4] 
-                       via-white 
-                       to-[#FBF0F8] 
-                       px-6 
-                       py-6 
-                       mb-6 
-                       soft-shadow"> 
- 
- 
-                <!-- DECORATION --> 
- 
-                <div 
-                    class="absolute 
-                           -right-10 
-                           -top-16 
-                           w-40 
-                           h-40 
-                           rounded-full 
-                           bg-purple-100/60"> 
- 
-                </div> 
- 
- 
-                <div 
-                    class="absolute 
-                           -left-10 
-                           -bottom-20 
-                           w-36 
-                           h-36 
-                           rounded-full 
-                           bg-green-100/60"> 
- 
-                </div> 
- 
- 
-                <div 
-                    class="relative 
-                           flex 
-                           items-center 
-                           gap-5"> 
- 
- 
-                    <!-- AVATAR --> 
- 
-                    <div 
-                        class="relative 
-                               w-20 
-                               h-20 
-                               rounded-full 
-                               bg-gradient-to-br 
-                               from-green-100 
-                               to-purple-100 
-                               border-4 
-                               border-white 
-                               shadow-sm 
-                               flex 
-                               items-center 
-                               justify-center 
-                               shrink-0"> 
- 
-                        <span 
-                            class="text-2xl 
-                                   font-bold 
-                                   text-green-700"> 
- 
-                            A 
- 
-                        </span> 
- 
- 
-                        <!-- STATUS --> 
- 
-                        <span 
-                            class="absolute 
-                                   right-0 
-                                   bottom-1 
-                                   w-4 
-                                   h-4 
-                                   rounded-full 
-                                   bg-green-500 
-                                   border-2 
-                                   border-white"> 
- 
-                        </span> 
- 
-                    </div> 
- 
- 
- 
-                    <!-- PROFILE INFORMATION --> 
- 
-                    <div> 
- 
-                        <h1 
-                            class="text-xl 
-                                   font-bold 
-                                   text-navy"> 
- 
-                            Administrator 
- 
-                        </h1> 
- 
- 
-                        <div 
-                            class="flex 
-                                   items-center 
-                                   gap-2 
-                                   mt-1"> 
- 
- 
-                            <span 
-                                class="px-2.5 
-                                       py-1 
-                                       rounded-full 
-                                       bg-purple-100 
-                                       text-purple-600 
-                                       text-[9px] 
-                                       font-semibold"> 
- 
-                                Admin 
- 
-                            </span> 
- 
- 
-                            <span 
-                                class="flex 
-                                       items-center 
-                                       gap-1 
-                                       text-[10px] 
-                                       text-green-600"> 
- 
-                                <span 
-                                    class="w-1.5 
-                                           h-1.5 
-                                           rounded-full 
-                                           bg-green-500"> 
- 
-                                </span> 
- 
-                                Aktif 
- 
-                            </span> 
- 
-                        </div> 
- 
- 
-                        <div 
-                            class="flex 
-                                   flex-wrap 
-                                   gap-x-5 
-                                   gap-y-1 
-                                   mt-3"> 
- 
- 
-                            <span 
-                                class="text-[10px] 
-                                       text-slate-500"> 
- 
-                                ✉ admin@access.com 
- 
-                            </span> 
- 
- 
-                            <span 
-                                class="text-[10px] 
-                                       text-slate-500"> 
- 
-                                🏢 CV Access Media 
- 
-                            </span> 
- 
-                        </div> 
- 
-                    </div> 
- 
-                </div> 
- 
-            </section> 
- 
- 
- 
-            <!-- ================================================= 
-                 PROFILE CONTENT 
-            ================================================== --> 
- 
-            <div 
-                class="grid 
-                       grid-cols-5 
-                       gap-4 
-                       mb-6"> 
- 
- 
-                <!-- ================================================= 
-                     INFORMASI AKUN 
-                ================================================== --> 
- 
-                <section 
-                    class="col-span-2 
-                           bg-white 
-                           border 
-                           border-slate-200 
-                           rounded-xl 
-                           p-5 
-                           soft-shadow"> 
- 
- 
-                    <!-- TITLE --> 
- 
-                    <div 
-                        class="flex 
-                               items-center 
-                               gap-3 
-                               mb-5"> 
- 
-                        <div 
-                            class="w-9 
-                                   h-9 
-                                   rounded-lg 
-                                   bg-green-100 
-                                   flex 
-                                   items-center 
-                                   justify-center"> 
- 
-                            <svg 
-                                class="w-4 h-4 text-green-600" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"> 
- 
-                                <path 
-                                    stroke-linecap="round" 
-                                    stroke-linejoin="round" 
-                                    stroke-width="1.8" 
-                                    d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /> 
- 
-                            </svg> 
- 
-                        </div> 
- 
- 
-                        <div> 
- 
-                            <h3 
-                                class="text-sm 
-                                       font-bold 
-                                       text-navy"> 
- 
-                                Informasi Akun 
- 
-                            </h3> 
- 
- 
-                            <p 
-                                class="text-[10px] 
-                                       text-slate-400 
-                                       mt-0.5"> 
- 
-                                Informasi administrator 
- 
-                            </p> 
- 
-                        </div> 
- 
-                    </div> 
- 
- 
- 
-                    <!-- DATA --> 
- 
-                    <div 
-                        class="space-y-4"> 
- 
- 
-                        <!-- NAMA --> 
- 
-                        <div 
-                            class="flex 
-                                   items-center 
-                                   justify-between 
-                                   border-b 
-                                   border-slate-100 
-                                   pb-3"> 
- 
-                            <span 
-                                class="text-[10px] 
-                                       text-slate-400"> 
- 
-                                Nama 
- 
-                            </span> 
- 
- 
-                            <span 
-                                class="text-[11px] 
-                                       font-semibold 
-                                       text-navy"> 
- 
-                                Administrator 
- 
-                            </span> 
- 
-                        </div> 
- 
- 
- 
-                        <!-- EMAIL --> 
- 
-                        <div 
-                            class="flex 
-                                   items-center 
-                                   justify-between 
-                                   border-b 
-                                   border-slate-100 
-                                   pb-3"> 
- 
-                            <span 
-                                class="text-[10px] 
-                                       text-slate-400"> 
- 
-                                Email 
- 
-                            </span> 
- 
- 
-                            <span 
-                                class="text-[11px] 
-                                       font-semibold 
-                                       text-navy"> 
- 
-                                admin@access.com 
- 
-                            </span> 
- 
-                        </div> 
- 
- 
- 
-                        <!-- ROLE --> 
- 
-                        <div 
-                            class="flex 
-                                   items-center 
-                                   justify-between 
-                                   border-b 
-                                   border-slate-100 
-                                   pb-3"> 
- 
-                            <span 
-                                class="text-[10px] 
-                                       text-slate-400"> 
- 
-                                Role 
- 
-                            </span> 
- 
- 
-                            <span 
-                                class="px-2 
-                                       py-1 
-                                       rounded-md 
-                                       bg-purple-50 
-                                       text-purple-600 
-                                       text-[9px] 
-                                       font-semibold"> 
- 
-                                Admin 
- 
-                            </span> 
- 
-                        </div> 
- 
- 
- 
-                        <!-- INSTANSI --> 
- 
-                        <div 
-                            class="flex 
-                                   items-center 
-                                   justify-between 
-                                   border-b 
-                                   border-slate-100 
-                                   pb-3"> 
- 
-                            <span 
-                                class="text-[10px] 
-                                       text-slate-400"> 
- 
-                                Instansi 
- 
-                            </span> 
- 
- 
-                            <span 
-                                class="text-[11px] 
-                                       font-semibold 
-                                       text-navy"> 
- 
-                                CV Access Media 
- 
-                            </span> 
- 
-                        </div> 
- 
- 
- 
-                        <!-- STATUS --> 
- 
-                        <div 
-                            class="flex 
-                                   items-center 
-                                   justify-between"> 
- 
-                            <span 
-                                class="text-[10px] 
-                                       text-slate-400"> 
- 
-                                Status 
- 
-                            </span> 
- 
- 
-                            <span 
-                                class="flex 
-                                       items-center 
-                                       gap-1.5 
-                                       text-[10px] 
-                                       font-semibold 
-                                       text-green-600"> 
- 
-                                <span 
-                                    class="w-1.5 
-                                           h-1.5 
-                                           rounded-full 
-                                           bg-green-500"> 
- 
-                                </span> 
- 
-                                Aktif 
- 
-                            </span> 
- 
-                        </div> 
- 
-                    </div> 
- 
-                </section> 
- 
- 
- 
-                <!-- ================================================= 
-                     EDIT PROFIL 
-                ================================================== --> 
- 
-                <section 
-                    class="col-span-3 
-                           bg-white 
-                           border 
-                           border-slate-200 
-                           rounded-xl 
-                           p-5 
-                           soft-shadow"> 
- 
- 
-                    <!-- TITLE --> 
- 
-                    <div 
-                        class="flex 
-                               items-center 
-                               gap-3 
-                               mb-5"> 
- 
-                        <div 
-                            class="w-9 
-                                   h-9 
-                                   rounded-lg 
-                                   bg-purple-100 
-                                   flex 
-                                   items-center 
-                                   justify-center"> 
- 
-                            <svg 
-                                class="w-4 h-4 text-purple-600" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"> 
- 
-                                <path 
-                                    stroke-linecap="round" 
-                                    stroke-linejoin="round" 
-                                    stroke-width="1.8" 
-                                    d="m16.862 4.487 1.65-1.65a2.121 2.121 0 0 1 3 3l-9.193 9.193-4 1 1-4 7.543-7.543ZM5 20h14" /> 
- 
-                            </svg> 
- 
-                        </div> 
- 
- 
-                        <div> 
- 
-                            <h3 
-                                class="text-sm 
-                                       font-bold 
-                                       text-navy"> 
- 
-                                Edit Profil 
- 
-                            </h3> 
- 
- 
-                            <p 
-                                class="text-[10px] 
-                                       text-slate-400 
-                                       mt-0.5"> 
- 
-                                Ubah informasi profil 
- 
-                            </p> 
- 
-                        </div> 
- 
-                    </div> 
- 
- 
- 
-                    <!-- FORM --> 
- 
-                    <form id="profileForm"> 
- 
- 
-                        <div 
-                            class="grid 
-                                   grid-cols-2 
-                                   gap-4"> 
- 
- 
-                            <!-- NAMA --> 
- 
-                            <div> 
- 
-                                <label 
-                                    class="block 
-                                           text-[10px] 
-                                           font-semibold 
-                                           text-slate-500 
-                                           mb-1.5"> 
- 
-                                    Nama Lengkap 
- 
-                                </label> 
- 
- 
-                                <input 
-                                    id="nameInput" 
-                                    type="text" 
-                                    value="Administrator" 
-                                    class="form-input 
-                                           w-full 
-                                           px-3 
-                                           py-2.5 
-                                           rounded-lg 
-                                           border 
-                                           border-slate-200 
-                                           text-[11px] 
-                                           text-navy"> 
- 
-                            </div> 
- 
- 
- 
-                            <!-- EMAIL --> 
- 
-                            <div> 
- 
-                                <label 
-                                    class="block 
-                                           text-[10px] 
-                                           font-semibold 
-                                           text-slate-500 
-                                           mb-1.5"> 
- 
-                                    Email 
- 
-                                </label> 
- 
- 
-                                <input 
-                                    id="emailInput" 
-                                    type="email" 
-                                    value="admin@access.com" 
-                                    class="form-input 
-                                           w-full 
-                                           px-3 
-                                           py-2.5 
-                                           rounded-lg 
-                                           border 
-                                           border-slate-200 
-                                           text-[11px] 
-                                           text-navy"> 
- 
-                            </div> 
- 
- 
- 
-                            <!-- ROLE --> 
- 
-                            <div> 
- 
-                                <label 
-                                    class="block 
-                                           text-[10px] 
-                                           font-semibold 
-                                           text-slate-500 
-                                           mb-1.5"> 
- 
-                                    Role 
- 
-                                </label> 
- 
- 
-                                <input 
-                                    type="text" 
-                                    value="Admin" 
-                                    disabled 
-                                    class="w-full 
-                                           px-3 
-                                           py-2.5 
-                                           rounded-lg 
-                                           border 
-                                           border-slate-200 
-                                           text-[11px] 
-                                           text-slate-400 
-                                           bg-slate-50"> 
- 
-                            </div> 
- 
- 
- 
-                            <!-- INSTANSI --> 
- 
-                            <div> 
- 
-                                <label 
-                                    class="block 
-                                           text-[10px] 
-                                           font-semibold 
-                                           text-slate-500 
-                                           mb-1.5"> 
- 
-                                    Instansi 
- 
-                                </label> 
- 
- 
-                                <input 
-                                    id="companyInput" 
-                                    type="text" 
-                                    value="CV Access Media" 
-                                    class="form-input 
-                                           w-full 
-                                           px-3 
-                                           py-2.5 
-                                           rounded-lg 
-                                           border 
-                                           border-slate-200 
-                                           text-[11px] 
-                                           text-navy"> 
- 
-                            </div> 
- 
-                        </div> 
- 
- 
- 
-                        <!-- BUTTON --> 
- 
-                        <div 
-                            class="flex 
-                                   justify-end 
-                                   gap-2 
-                                   mt-5"> 
- 
- 
-                            <button 
-                                type="button" 
-                                id="cancelButton" 
-                                class="px-4 
-                                       py-2.5 
-                                       rounded-lg 
-                                       border 
-                                       border-slate-200 
-                                       text-[10px] 
-                                       font-semibold 
-                                       text-slate-500 
-                                       hover:bg-slate-50 
-                                       transition"> 
- 
-                                Batal 
- 
-                            </button> 
- 
- 
-                            <button 
-                                type="submit" 
-                                class="px-4 
-                                       py-2.5 
-                                       rounded-lg 
-                                       bg-green-500 
-                                       hover:bg-green-600 
-                                       text-white 
-                                       text-[10px] 
-                                       font-semibold 
-                                       transition"> 
- 
-                                Simpan Perubahan 
- 
-                            </button> 
- 
-                        </div> 
- 
-                    </form> 
- 
-                </section> 
- 
-            </div> 
- 
- 
- 
-            <!-- ================================================= 
-                 KEAMANAN AKUN 
-            ================================================== --> 
- 
-            <section 
-                class="bg-white 
-                       border 
-                       border-slate-200 
-                       rounded-xl 
-                       p-5 
-                       soft-shadow"> 
- 
- 
-                <!-- TITLE --> 
- 
-                <div 
-                    class="flex 
-                           items-center 
-                           gap-3 
-                           mb-5"> 
- 
-                    <div 
-                        class="w-9 
-                               h-9 
-                               rounded-lg 
-                               bg-green-100 
-                               flex 
-                               items-center 
-                               justify-center"> 
- 
-                        <svg 
-                            class="w-4 h-4 text-green-600" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"> 
- 
-                            <path 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round" 
-                                stroke-width="1.8" 
-                                d="M12 15v2m-6 4h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2Zm3-9V7a3 3 0 1 1 6 0v3" /> 
- 
-                        </svg> 
- 
-                    </div> 
- 
- 
-                    <div> 
- 
-                        <h3 
-                            class="text-sm 
-                                   font-bold 
-                                   text-navy"> 
- 
-                            Keamanan Akun 
- 
-                        </h3> 
- 
- 
-                        <p 
-                            class="text-[10px] 
-                                   text-slate-400 
-                                   mt-0.5"> 
- 
-                            Ubah password akun administrator 
- 
-                        </p> 
- 
-                    </div> 
- 
-                </div> 
- 
- 
- 
-                <!-- PASSWORD --> 
- 
-                <form id="passwordForm"> 
- 
-                    <div 
-                        class="grid 
-                               grid-cols-3 
-                               gap-4"> 
- 
- 
-                        <!-- PASSWORD LAMA --> 
- 
-                        <div> 
- 
-                            <label 
-                                class="block 
-                                       text-[10px] 
-                                       font-semibold 
-                                       text-slate-500 
-                                       mb-1.5"> 
- 
-                                Password Lama 
- 
-                            </label> 
- 
- 
-                            <input 
-                                id="oldPassword" 
-                                type="password" 
-                                placeholder="Masukkan password lama" 
-                                class="form-input 
-                                       w-full 
-                                       px-3 
-                                       py-2.5 
-                                       rounded-lg 
-                                       border 
-                                       border-slate-200 
-                                       text-[11px]"> 
- 
-                        </div> 
- 
- 
- 
-                        <!-- PASSWORD BARU --> 
- 
-                        <div> 
- 
-                            <label 
-                                class="block 
-                                       text-[10px] 
-                                       font-semibold 
-                                       text-slate-500 
-                                       mb-1.5"> 
- 
-                                Password Baru 
- 
-                            </label> 
- 
- 
-                            <input 
-                                id="newPassword" 
-                                type="password" 
-                                placeholder="Masukkan password baru" 
-                                class="form-input 
-                                       w-full 
-                                       px-3 
-                                       py-2.5 
-                                       rounded-lg 
-                                       border 
-                                       border-slate-200 
-                                       text-[11px]"> 
- 
-                        </div> 
- 
- 
- 
-                        <!-- KONFIRMASI --> 
- 
-                        <div> 
- 
-                            <label 
-                                class="block 
-                                       text-[10px] 
-                                       font-semibold 
-                                       text-slate-500 
-                                       mb-1.5"> 
- 
-                                Konfirmasi Password 
- 
-                            </label> 
- 
- 
-                            <input 
-                                id="confirmPassword" 
-                                type="password" 
-                                placeholder="Ulangi password baru" 
-                                class="form-input 
-                                       w-full 
-                                       px-3 
-                                       py-2.5 
-                                       rounded-lg 
-                                       border 
-                                       border-slate-200 
-                                       text-[11px]"> 
- 
-                        </div> 
- 
-                    </div> 
- 
- 
- 
-                    <!-- BUTTON --> 
- 
-                    <div 
-                        class="flex 
-                               justify-end 
-                               mt-5"> 
- 
-                        <button 
-                            type="submit" 
-                            class="px-4 
-                                   py-2.5 
-                                   rounded-lg 
-                                   bg-purple-500 
-                                   hover:bg-purple-600 
-                                   text-white 
-                                   text-[10px] 
-                                   font-semibold 
-                                   transition"> 
- 
-                            Simpan Password 
- 
-                        </button> 
- 
-                    </div> 
- 
-                </form> 
- 
-            </section> 
- 
-        </div> 
- 
-    </main> 
- 
- 
- 
-    <!-- ===================================================== 
-         JAVASCRIPT 
-    ====================================================== --> 
- 
-    <script> 
- 
- 
-        /* ================================================= 
-           CEK LOGIN 
-        ================================================== */ 
- 
-        if ( 
-            localStorage.getItem("isLoggedIn") !== "true" 
-        ) { 
- 
-            window.location.href = "login.html"; 
- 
-        } 
- 
- 
- 
-        /* ================================================= 
-           TANGGAL OTOMATIS 
-        ================================================== */ 
- 
-        const currentDate = 
-            document.getElementById("currentDate"); 
- 
- 
-        const today = 
-            new Date(); 
- 
- 
-        currentDate.textContent = 
-            today.toLocaleDateString( 
-                "id-ID", 
-                { 
-                    day: "numeric", 
-                    month: "long", 
-                    year: "numeric" 
-                } 
-            ); 
- 
- 
- 
-        /* ================================================= 
-           DROPDOWN ADMINISTRATOR 
-           DIPERBAIKI
-        ================================================== */ 
- 
-        const profileToggle = 
-            document.getElementById("profileToggle"); 
- 
- 
-        const profileDropdown = 
-            document.getElementById("profileDropdown"); 
- 
- 
-        const profileChevron = 
-            document.getElementById("profileChevron"); 
- 
- 
-        profileToggle.addEventListener( 
-            "click", 
-            function(event) { 
- 
-                event.stopPropagation();
-
-                profileDropdown.classList.toggle("show"); 
- 
-                profileChevron.classList.toggle( 
-                    "rotate-180" 
-                ); 
- 
-            } 
-        ); 
-
-
-        /* =================================================
-           TUTUP DROPDOWN SAAT KLIK DI LUAR
-        ================================================== */
-
-        document.addEventListener(
-            "click",
-            function(event) {
-
-                if (
-                    !profileDropdown.contains(event.target) &&
-                    !profileToggle.contains(event.target)
-                ) {
-
-                    profileDropdown.classList.remove("show");
-
-                    profileChevron.classList.remove(
-                        "rotate-180"
-                    );
-
+    <!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            50: "#EFFAF4",
+                            100: "#DDF3E7",
+                            500: "#008A4B",
+                            600: "#007A43",
+                            700: "#006A3A",
+                        },
+                        purple: {
+                            50: "#FBF0F8",
+                            100: "#F1D9EB",
+                            400: "#A42B8E",
+                            500: "#8A1B78",
+                            600: "#761666",
+                        },
+                        navy: "#263750",
+                    }
                 }
-
             }
-        );
- 
- 
- 
-        /* ================================================= 
-           EDIT PROFILE 
-        ================================================== */ 
- 
-        const profileForm = 
-            document.getElementById("profileForm"); 
- 
- 
-        const nameInput = 
-            document.getElementById("nameInput"); 
- 
- 
-        const emailInput = 
-            document.getElementById("emailInput"); 
- 
- 
-        const companyInput = 
-            document.getElementById("companyInput"); 
- 
- 
-        profileForm.addEventListener( 
-            "submit", 
-            function(event) { 
- 
-                event.preventDefault(); 
- 
- 
-                if ( 
-                    nameInput.value.trim() === "" || 
-                    emailInput.value.trim() === "" || 
-                    companyInput.value.trim() === "" 
-                ) { 
- 
-                    alert( 
-                        "Data profil harus diisi." 
-                    ); 
- 
-                    return; 
- 
-                } 
- 
- 
-                alert( 
-                    "Profil berhasil diperbarui." 
-                ); 
- 
-            } 
-        ); 
- 
- 
- 
-        /* ================================================= 
-           BATAL 
-        ================================================== */ 
- 
-        document 
-            .getElementById("cancelButton") 
-            .addEventListener( 
-                "click", 
-                function() { 
- 
-                    nameInput.value = 
-                        "Administrator"; 
- 
-                    emailInput.value = 
-                        "admin@access.com"; 
- 
-                    companyInput.value = 
-                        "CV Access Media"; 
- 
-                } 
-            ); 
- 
- 
- 
-        /* ================================================= 
-           UBAH PASSWORD 
-        ================================================== */ 
- 
-        document 
-            .getElementById("passwordForm") 
-            .addEventListener( 
-                "submit", 
-                function(event) { 
- 
-                    event.preventDefault(); 
- 
- 
-                    const oldPassword = 
-                        document.getElementById( 
-                            "oldPassword" 
-                        ).value; 
- 
- 
-                    const newPassword = 
-                        document.getElementById( 
-                            "newPassword" 
-                        ).value; 
- 
- 
-                    const confirmPassword = 
-                        document.getElementById( 
-                            "confirmPassword" 
-                        ).value; 
- 
- 
-                    if ( 
-                        oldPassword === "" || 
-                        newPassword === "" || 
-                        confirmPassword === "" 
-                    ) { 
- 
-                        alert( 
-                            "Semua password harus diisi." 
-                        ); 
- 
-                        return; 
- 
-                    } 
- 
- 
-                    if ( 
-                        newPassword !== confirmPassword 
-                    ) { 
- 
-                        alert( 
-                            "Konfirmasi password tidak sesuai." 
-                        ); 
- 
-                        return; 
- 
-                    } 
- 
- 
-                    alert( 
-                        "Password berhasil diperbarui." 
-                    ); 
- 
- 
-                    document 
-                        .getElementById("passwordForm") 
-                        .reset(); 
- 
-                } 
-            ); 
- 
- 
- 
-        /* ================================================= 
-           LOGOUT 
-        ================================================== */ 
- 
-        document 
-            .getElementById("logoutButton") 
-            .addEventListener( 
-                "click", 
-                function() { 
- 
-                    const confirmLogout = 
-                        confirm( 
-                            "Apakah Anda yakin ingin logout?" 
-                        ); 
- 
- 
-                    if (confirmLogout) { 
- 
-                        localStorage.removeItem( 
-                            "isLoggedIn" 
-                        ); 
- 
- 
-                        window.location.href = 
-                            "login.html"; 
- 
-                    } 
- 
-                } 
-            ); 
- 
-    </script> 
- 
- 
-</body> 
- 
+        }
+    </script>
+
+    <!-- CUSTOM STYLE -->
+    <style>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #F8FAF9; }
+
+        .profile-bg {
+            background: radial-gradient(circle at 90% 5%, rgba(138, 27, 120, 0.08), transparent 25%),
+                        radial-gradient(circle at 5% 90%, rgba(0, 138, 75, 0.08), transparent 25%),
+                        #F8FAF9;
+        }
+
+        .soft-shadow { box-shadow: 0 2px 8px rgba(38, 55, 80, 0.04), 0 1px 2px rgba(38, 55, 80, 0.03); }
+        .menu-item { transition: all 0.2s ease; }
+        .menu-item:hover { background: #EFFAF4; color: #008A4B; }
+        .menu-active { background: linear-gradient(90deg, #DDF3E7, #F1D9EB); color: #006A3A; }
+
+        .profile-dropdown {
+            position: absolute; left: 12px; right: 12px; bottom: 68px; z-index: 100;
+            background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 8px;
+            box-shadow: 0 10px 25px rgba(38, 55, 80, 0.10);
+            opacity: 0; visibility: hidden; transform: translateY(5px);
+            transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+        }
+        .profile-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .form-input { transition: all 0.2s ease; }
+        .form-input:focus { outline: none; border-color: #008A4B; box-shadow: 0 0 0 3px rgba(0, 138, 75, 0.08); }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F8FAF9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5D0; border-radius: 10px; }
+    </style>
+</head>
+
+<body class="text-slate-600 overflow-x-hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-auto bottom-0 z-50 h-auto w-full bg-white border-t border-slate-200 flex flex-row md:top-0 md:bottom-auto md:h-screen md:w-[220px] md:flex-col md:border-t-0 md:border-r">
+        
+        <!-- LOGO -->
+        <div class="hidden md:h-[78px] md:px-5 md:flex md:items-center md:border-b md:border-slate-200 md:shrink-0">
+            <div class="flex items-center gap-3 min-w-0">
+                <img src="assets/images/logo.png" alt="Logo Access Media" class="w-11 h-11 object-contain shrink-0">
+                <div class="min-w-0">
+                    <h1 class="text-[13px] font-bold text-navy whitespace-nowrap">Access Internship</h1>
+                    <p class="text-[10px] text-slate-400 mt-1 whitespace-nowrap">CV Access Media</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU UTAMA -->
+        <nav class="flex w-full flex-1 px-2 py-2 overflow-x-auto md:block md:px-3 md:py-5 md:overflow-y-auto">
+            <p class="hidden md:block px-3 mb-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">Menu Utama</p>
+
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="menu-item flex flex-1 min-w-[70px] flex-col items-center justify-center gap-1 px-2 py-2 rounded-lg text-[9px] text-slate-500 md:flex-none md:flex-row md:items-center md:justify-start md:gap-3 md:px-3 md:py-2.5 md:text-xs md:mb-1">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" />
+                </svg>
+                <span class="whitespace-nowrap">Dashboard</span>
+            </a>
+
+            <!-- Project -->
+            <a href="project.html" class="menu-item flex flex-1 min-w-[70px] flex-col items-center justify-center gap-1 px-2 py-2 rounded-lg text-[9px] text-slate-500 md:flex-none md:flex-row md:items-center md:justify-start md:gap-3 md:px-3 md:py-2.5 md:text-xs md:mb-1">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+                </svg>
+                <span class="whitespace-nowrap">Project</span>
+            </a>
+
+            <!-- Dokumentasi -->
+            <a href="dokumentasi.html" class="menu-item flex flex-1 min-w-[70px] flex-col items-center justify-center gap-1 px-2 py-2 rounded-lg text-[9px] text-slate-500 md:flex-none md:flex-row md:items-center md:justify-start md:gap-3 md:px-3 md:py-2.5 md:text-xs md:mb-1">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
+                </svg>
+                <span class="whitespace-nowrap">Dokumentasi</span>
+            </a>
+
+            <!-- Instansi -->
+            <a href="instansi.html" class="menu-item flex flex-1 min-w-[70px] flex-col items-center justify-center gap-1 px-2 py-2 rounded-lg text-[9px] text-slate-500 md:flex-none md:flex-row md:items-center md:justify-start md:gap-3 md:px-3 md:py-2.5 md:text-xs">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+                </svg>
+                <span class="whitespace-nowrap">Instansi</span>
+            </a>
+
+            <!-- PROFILE khusus menu mobile (Diberi class menu-active karena kita sedang di halaman Profile) -->
+            <a href="profile.html" class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                </svg>
+                <span class="max-md:text-[8px]">Profile</span>
+            </a>
+
+        </nav>
+
+        <!-- PROFILE ADMIN -->
+        <div class="hidden md:block relative border-t border-slate-200 p-3 shrink-0">
+            <button id="profileToggle" type="button" class="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition text-left">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
+                    <span class="text-[11px] font-bold text-green-700">A</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <p class="text-[11px] font-semibold text-navy truncate">Administrator</p>
+                    <p class="text-[9px] text-slate-400">Admin</p>
+                </div>
+                <svg id="profileChevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m6 9 6 6 6-6" />
+                </svg>
+            </button>
+
+            <!-- DROPDOWN PROFILE + LOGOUT -->
+            <div id="profileDropdown" class="profile-dropdown">
+                <div>
+                    <a href="profile.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[10px] font-medium text-green-700 bg-green-50 mb-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                        </svg>
+                        Profile
+                    </a>
+                    <button id="logoutButton" type="button" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-red-50 hover:text-red-500 transition text-left">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
+                        </svg>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="ml-0 min-h-screen pb-[72px] md:ml-[220px] md:pb-0">
+        
+        <!-- HEADER -->
+        <header class="sticky top-0 z-40 min-h-[70px] bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-3 flex items-center justify-between gap-3 md:h-[78px] md:min-h-0 md:px-7 md:py-0">
+            <div class="min-w-0">
+                <h2 class="text-[15px] font-bold text-navy md:text-[17px]">Profile Admin</h2>
+                <p class="text-[9px] text-slate-400 mt-0.5 md:text-[11px]">Kelola informasi akun administrator</p>
+            </div>
+            
+            <div class="flex items-center gap-1.5 shrink-0 text-[9px] text-slate-400 md:gap-2 md:text-[11px]">
+                <svg class="w-3.5 h-3.5 text-green-600 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+                </svg>
+                <span id="currentDate" class="whitespace-nowrap">Memuat tanggal...</span>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="profile-bg min-h-[calc(100vh-70px)] p-4 md:min-h-[calc(100vh-78px)] md:p-6">
+            
+            <!-- PROFILE BANNER -->
+            <section class="relative overflow-hidden rounded-2xl border border-green-100 bg-gradient-to-r from-[#EFFAF4] via-white to-[#FBF0F8] px-4 py-5 mb-4 soft-shadow md:px-6 md:py-6 md:mb-6">
+                <div class="absolute -right-10 -top-16 w-40 h-40 rounded-full bg-purple-100/60"></div>
+                <div class="absolute -left-10 -bottom-20 w-36 h-36 rounded-full bg-green-100/60"></div>
+
+                <div class="relative flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-5">
+                    <div class="relative w-16 h-16 rounded-full bg-gradient-to-br from-green-100 to-purple-100 border-4 border-white shadow-sm flex items-center justify-center shrink-0 md:w-20 md:h-20">
+                        <span class="text-xl font-bold text-green-700 md:text-2xl">A</span>
+                        <span class="absolute right-0 bottom-1 w-4 h-4 rounded-full bg-green-500 border-2 border-white"></span>
+                    </div>
+
+                    <div class="min-w-0">
+                        <h1 class="text-lg font-bold text-navy md:text-xl">Administrator</h1>
+                        <div class="flex flex-wrap items-center gap-2 mt-1">
+                            <span class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-600 text-[9px] font-semibold">Admin</span>
+                            <span class="flex items-center gap-1 text-[10px] text-green-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Aktif
+                            </span>
+                        </div>
+                        <div class="flex flex-col gap-1 mt-3 md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-1">
+                            <span class="text-[10px] text-slate-500 break-all">✉ admin@access.com</span>
+                            <span class="text-[10px] text-slate-500">🏢 CV Access Media</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFILE CONTENT GRID -->
+            <div class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-5 md:mb-6">
+                
+                <!-- INFORMASI AKUN -->
+                <section class="col-span-1 bg-white border border-slate-200 rounded-xl p-4 soft-shadow md:col-span-2 md:p-5">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-9 h-9 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                            </svg>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="text-sm font-bold text-navy">Informasi Akun</h3>
+                            <p class="text-[10px] text-slate-400 mt-0.5">Informasi administrator</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex flex-col gap-1 border-b border-slate-100 pb-3 sm:flex-row sm:items-center sm:justify-between">
+                            <span class="text-[10px] text-slate-400">Nama</span>
+                            <span class="text-[11px] font-semibold text-navy break-all sm:text-right">Administrator</span>
+                        </div>
+                        <div class="flex flex-col gap-1 border-b border-slate-100 pb-3 sm:flex-row sm:items-center sm:justify-between">
+                            <span class="text-[10px] text-slate-400">Email</span>
+                            <span class="text-[11px] font-semibold text-navy break-all sm:text-right">admin@access.com</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <span class="text-[10px] text-slate-400">Role</span>
+                            <span class="px-2 py-1 rounded-md bg-purple-50 text-purple-600 text-[9px] font-semibold">Admin</span>
+                        </div>
+                        <div class="flex flex-col gap-1 border-b border-slate-100 pb-3 sm:flex-row sm:items-center sm:justify-between">
+                            <span class="text-[10px] text-slate-400">Instansi</span>
+                            <span class="text-[11px] font-semibold text-navy break-all sm:text-right">CV Access Media</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] text-slate-400">Status</span>
+                            <span class="flex items-center gap-1.5 text-[10px] font-semibold text-green-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Aktif
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- EDIT PROFIL -->
+                <section class="col-span-1 bg-white border border-slate-200 rounded-xl p-4 soft-shadow md:col-span-3 md:p-5">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m16.862 4.487 1.65-1.65a2.121 2.121 0 0 1 3 3l-9.193 9.193-4 1 1-4 7.543-7.543ZM5 20h14" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-navy">Edit Profil</h3>
+                            <p class="text-[10px] text-slate-400 mt-0.5">Ubah informasi profil</p>
+                        </div>
+                    </div>
+
+                    <form id="profileForm">
+                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div>
+                                <label class="block text-[10px] font-semibold text-slate-500 mb-1.5">Nama Lengkap</label>
+                                <input id="nameInput" type="text" value="Administrator" class="form-input w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px] text-navy">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-semibold text-slate-500 mb-1.5">Email</label>
+                                <input id="emailInput" type="email" value="admin@access.com" class="form-input w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px] text-navy">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-semibold text-slate-500 mb-1.5">Role</label>
+                                <input type="text" value="Admin" disabled class="w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px] text-slate-400 bg-slate-50">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-semibold text-slate-500 mb-1.5">Instansi</label>
+                                <input id="companyInput" type="text" value="CV Access Media" class="form-input w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px] text-navy">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 mt-5 sm:flex-row sm:justify-end">
+                            <button type="button" id="cancelButton" class="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-[10px] font-semibold text-slate-500 hover:bg-slate-50 transition sm:w-auto">Batal</button>
+                            <button type="submit" class="w-full px-4 py-2.5 rounded-lg bg-green-500 hover:bg-green-600 text-white text-[10px] font-semibold transition sm:w-auto">Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <!-- KEAMANAN AKUN -->
+            <section class="bg-white border border-slate-200 rounded-xl p-4 soft-shadow md:p-5">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-9 h-9 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
+                        <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2Zm3-9V7a3 3 0 1 1 6 0v3" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-navy">Keamanan Akun</h3>
+                        <p class="text-[10px] text-slate-400 mt-0.5">Ubah password akun administrator</p>
+                    </div>
+                </div>
+
+                <form id="passwordForm">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <div>
+                            <label class="block text-[10px] font-semibold text-slate-500 mb-1.5">Password Lama</label>
+                            <input id="oldPassword" type="password" placeholder="Masukkan password lama" class="form-input w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px]">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-semibold text-slate-500 mb-1.5">Password Baru</label>
+                            <input id="newPassword" type="password" placeholder="Masukkan password baru" class="form-input w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px]">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-semibold text-slate-500 mb-1.5">Konfirmasi Password</label>
+                            <input id="confirmPassword" type="password" placeholder="Ulangi password baru" class="form-input w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px]">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end mt-5">
+                        <button type="submit" class="w-full px-4 py-2.5 rounded-lg bg-purple-500 hover:bg-purple-600 text-white text-[10px] font-semibold transition sm:w-auto">Simpan Password</button>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Cek Login
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+
+        // Tanggal Otomatis
+        const currentDate = document.getElementById("currentDate");
+        const today = new Date();
+        currentDate.textContent = today.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+
+        // Dropdown Administrator
+        const profileToggle = document.getElementById("profileToggle");
+        const profileDropdown = document.getElementById("profileDropdown");
+        const profileChevron = document.getElementById("profileChevron");
+
+        profileToggle.addEventListener("click", function(event) {
+            event.stopPropagation();
+            profileDropdown.classList.toggle("show");
+            profileChevron.classList.toggle("rotate-180");
+        });
+
+        // Tutup Dropdown saat klik di luar
+        document.addEventListener("click", function(event) {
+            if (!profileDropdown.contains(event.target) && !profileToggle.contains(event.target)) {
+                profileDropdown.classList.remove("show");
+                profileChevron.classList.remove("rotate-180");
+            }
+        });
+
+        // Edit Profile
+        const profileForm = document.getElementById("profileForm");
+        const nameInput = document.getElementById("nameInput");
+        const emailInput = document.getElementById("emailInput");
+        const companyInput = document.getElementById("companyInput");
+
+        profileForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            if (nameInput.value.trim() === "" || emailInput.value.trim() === "" || companyInput.value.trim() === "") {
+                alert("Data profil harus diisi.");
+                return;
+            }
+            alert("Profil berhasil diperbarui.");
+        });
+
+        // Batal Edit
+        document.getElementById("cancelButton").addEventListener("click", function() {
+            nameInput.value = "Administrator";
+            emailInput.value = "admin@access.com";
+            companyInput.value = "CV Access Media";
+        });
+
+        // Ubah Password
+        document.getElementById("passwordForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const oldPassword = document.getElementById("oldPassword").value;
+            const newPassword = document.getElementById("newPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (oldPassword === "" || newPassword === "" || confirmPassword === "") {
+                alert("Semua password harus diisi.");
+                return;
+            }
+            if (newPassword !== confirmPassword) {
+                alert("Konfirmasi password tidak sesuai.");
+                return;
+            }
+            alert("Password berhasil diperbarui.");
+            document.getElementById("passwordForm").reset();
+        });
+
+        // Logout
+        document.getElementById("logoutButton").addEventListener("click", function() {
+            const confirmLogout = confirm("Apakah Anda yakin ingin logout?");
+            if (confirmLogout) {
+                localStorage.removeItem("isLoggedIn");
+                window.location.href = "login.html";
+            }
+        });
+
+        // Otomatis mendeteksi halaman yang sedang dibuka dan memberikan efek kotak (menu-active)
+            const currentPath = window.location.pathname.split("/").pop();
+            const navLinks = document.querySelectorAll("nav a");
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute("href");
+                if (href === currentPath) {
+                    link.classList.add("menu-active");
+                } else {
+                    link.classList.remove("menu-active");
+                }
+            });
+    </script>
+</body>
 </html>
