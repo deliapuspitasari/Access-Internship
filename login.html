@@ -25,20 +25,20 @@
     </script>
 </head>
 
-<body class="min-h-screen flex items-center justify-center bg-slate-50 relative overflow-hidden">
+<body class="min-h-screen flex items-center justify-center bg-slate-50 relative overflow-x-hidden px-4 py-6">
 
     <!-- Background Gradient -->
-    <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
 
         <div class="absolute -top-32 -left-32
-                    w-80 h-80
+                    w-72 h-72 sm:w-80 sm:h-80
                     bg-green-200/40
                     rounded-full
                     blur-3xl">
         </div>
 
         <div class="absolute -bottom-32 -right-32
-                    w-80 h-80
+                    w-72 h-72 sm:w-80 sm:h-80
                     bg-purple-200/40
                     rounded-full
                     blur-3xl">
@@ -48,13 +48,14 @@
 
 
     <!-- Login Card -->
-    <div class="relative z-10 w-full max-w-[380px] px-5">
+    <div class="relative z-10 w-full max-w-[380px]">
 
         <div class="bg-white
                     rounded-3xl
                     shadow-xl shadow-slate-200/60
                     border border-slate-100
-                    px-7 py-6">
+                    px-5 py-6
+                    sm:px-7 sm:py-6">
 
             <!-- Logo -->
             <div class="flex justify-center mb-4">
@@ -62,7 +63,7 @@
                 <img
                     src="assets/images/logo.png"
                     alt="Logo Access Media"
-                    class="w-16 h-16 object-contain">
+                    class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
 
             </div>
 
@@ -70,11 +71,11 @@
             <!-- Title -->
             <div class="text-center mb-6">
 
-                <h1 class="text-xl font-bold text-navy">
+                <h1 class="text-lg sm:text-xl font-bold text-navy">
                     Access Internship
                 </h1>
 
-                <p class="text-xs text-slate-400 mt-1">
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-1">
                     Masuk ke akun Anda
                 </p>
 
@@ -151,10 +152,12 @@
                         <button
                             type="button"
                             id="togglePassword"
+                            aria-label="Tampilkan password"
                             class="absolute
                                    right-3
                                    top-1/2
                                    -translate-y-1/2
+                                   p-1
                                    text-slate-400
                                    hover:text-accessPurple
                                    transition">
@@ -196,7 +199,7 @@
 
 
                 <!-- Remember & Forgot -->
-                <div class="flex items-center justify-between text-xs">
+                <div class="flex items-center justify-between gap-3 text-xs">
 
                     <label class="flex items-center gap-2 text-slate-500 cursor-pointer">
 
@@ -205,7 +208,7 @@
                             id="rememberMe"
                             class="w-3.5 h-3.5 accent-accessGreen">
 
-                        Ingat saya
+                        <span>Ingat saya</span>
 
                     </label>
 
@@ -215,7 +218,8 @@
                         onclick="return false;"
                         class="text-accessPurple
                                font-medium
-                               hover:underline">
+                               hover:underline
+                               whitespace-nowrap">
 
                         Lupa password?
 
@@ -225,24 +229,24 @@
 
 
                 <!-- Login Button -->
-<button 
-    type="submit" 
-    class="w-full 
-           py-3 
-           rounded-xl 
-           bg-[#7b116a]
-           text-white 
-           text-sm 
-           font-semibold 
-           shadow-md 
-           shadow-purple-200/30 
-           hover:bg-[#761666] 
-           active:scale-[0.98] 
-           transition">
+                <button
+                    type="submit"
+                    class="w-full
+                           py-3
+                           rounded-xl
+                           bg-[#7b116a]
+                           text-white
+                           text-sm
+                           font-semibold
+                           shadow-md
+                           shadow-purple-200/30
+                           hover:bg-[#761666]
+                           active:scale-[0.98]
+                           transition">
 
-    Masuk
+                    Masuk
 
-</button>
+                </button>
 
             </form>
 
@@ -296,7 +300,6 @@
         loginForm.addEventListener("submit", function(event) {
 
             event.preventDefault();
-
 
             const email = emailInput.value.trim();
 
@@ -369,7 +372,6 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             d="M6.228 6.228 3 3m3.228 3.228 4.114 4.114m3.058 3.058L21 21" />
-
                     `;
 
                 } else {
