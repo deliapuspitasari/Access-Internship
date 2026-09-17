@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login | Access Internship</title>
+    <title>Login - Access Internship</title>
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -16,91 +17,47 @@
                     colors: {
                         accessPurple: "#8A1B78",
                         accessGreen: "#008A4B",
-                        navy: "#263750",
+                        navy: "#263750"
                     }
                 }
             }
         }
     </script>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .login-bg {
-            background:
-                radial-gradient(
-                    circle at 10% 15%,
-                    rgba(138, 27, 120, 0.09),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 85%,
-                    rgba(0, 138, 75, 0.09),
-                    transparent 28%
-                ),
-                #f8faf9;
-        }
-
-        .login-card {
-            box-shadow:
-                0 10px 30px rgba(38, 55, 80, 0.07),
-                0 2px 8px rgba(38, 55, 80, 0.04);
-        }
-
-        .input-focus:focus {
-            border-color: #8A1B78;
-            box-shadow: 0 0 0 3px rgba(138, 27, 120, 0.08);
-            outline: none;
-        }
-
-        .login-button {
-            background: linear-gradient(
-                90deg,
-                #008A4B,
-                #8A1B78
-            );
-
-            transition: all 0.2s ease;
-        }
-
-        .login-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(138, 27, 120, 0.18);
-        }
-    </style>
 </head>
 
+<body class="min-h-screen flex items-center justify-center bg-slate-50 relative overflow-hidden">
 
-<body class="min-h-screen login-bg flex items-center justify-center px-4">
+    <!-- Background Gradient -->
+    <div class="absolute inset-0 pointer-events-none">
+
+        <div class="absolute -top-32 -left-32
+                    w-80 h-80
+                    bg-green-200/40
+                    rounded-full
+                    blur-3xl">
+        </div>
+
+        <div class="absolute -bottom-32 -right-32
+                    w-80 h-80
+                    bg-purple-200/40
+                    rounded-full
+                    blur-3xl">
+        </div>
+
+    </div>
 
 
-    <!-- LOGIN CARD -->
+    <!-- Login Card -->
+    <div class="relative z-10 w-full max-w-[380px] px-5">
 
-    <div
-        class="login-card
-               w-full
-               max-w-[380px]
-               bg-white
-               rounded-3xl
-               border border-slate-100
-               px-7
-               py-6">
+        <div class="bg-white
+                    rounded-3xl
+                    shadow-xl shadow-slate-200/60
+                    border border-slate-100
+                    px-7 py-6">
 
-
-        <!-- HEADER -->
-
-        <div class="text-center mb-5">
-
-
-            <!-- LOGO -->
-
-            <div class="flex justify-center mb-0">
+            <!-- Logo -->
+            <div class="flex justify-center mb-4">
 
                 <img
                     src="assets/images/logo.png"
@@ -110,108 +67,155 @@
             </div>
 
 
-            <!-- TITLE -->
+            <!-- Title -->
+            <div class="text-center mb-6">
 
-            <h1
-                class="text-lg
-                       font-bold
-                       text-navy
-                       -mt-1">
+                <h1 class="text-xl font-bold text-navy">
+                    Access Internship
+                </h1>
 
-                Access Internship
-
-            </h1>
-
-
-            <!-- SUBTITLE -->
-
-            <p
-                class="text-xs
-                       text-slate-400
-                       mt-1">
-
-                Masuk ke akun Anda
-
-            </p>
-
-        </div>
-
-
-        <!-- FORM -->
-
-        <form
-            action="dashboard.html"
-            method="GET"
-            class="space-y-4">
-
-
-            <!-- EMAIL -->
-
-            <div>
-
-                <label
-                    for="email"
-                    class="block
-                           text-xs
-                           font-semibold
-                           text-navy
-                           mb-1.5">
-
-                    Email
-
-                </label>
-
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Masukkan email Anda"
-                    required
-                    class="input-focus
-                           w-full
-                           h-10
-                           px-3
-                           rounded-lg
-                           border
-                           border-slate-200
-                           bg-white
-                           text-xs
-                           text-slate-700
-                           placeholder:text-slate-300
-                           transition">
+                <p class="text-xs text-slate-400 mt-1">
+                    Masuk ke akun Anda
+                </p>
 
             </div>
 
 
-            <!-- PASSWORD -->
+            <!-- Login Form -->
+            <form id="loginForm" class="space-y-4">
 
-            <div>
-
-                <div
-                    class="flex
-                           items-center
-                           justify-between
-                           mb-1.5">
+                <!-- Email -->
+                <div>
 
                     <label
-                        for="password"
-                        class="text-xs
-                               font-semibold
-                               text-navy">
+                        for="email"
+                        class="block text-xs font-semibold text-slate-700 mb-2">
+                        Email
+                    </label>
 
-                        Password
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Masukkan email"
+                        autocomplete="email"
+                        required
+                        class="w-full
+                               px-4 py-3
+                               rounded-xl
+                               border border-slate-200
+                               text-sm
+                               text-slate-700
+                               outline-none
+                               transition
+                               focus:border-accessGreen
+                               focus:ring-2
+                               focus:ring-green-100">
+
+                </div>
+
+
+                <!-- Password -->
+                <div>
+
+                    <div class="flex items-center justify-between mb-2">
+
+                        <label
+                            for="password"
+                            class="block text-xs font-semibold text-slate-700">
+                            Password
+                        </label>
+
+                    </div>
+
+                    <div class="relative">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Masukkan password"
+                            autocomplete="current-password"
+                            required
+                            class="w-full
+                                   px-4 py-3 pr-12
+                                   rounded-xl
+                                   border border-slate-200
+                                   text-sm
+                                   text-slate-700
+                                   outline-none
+                                   transition
+                                   focus:border-accessGreen
+                                   focus:ring-2
+                                   focus:ring-green-100">
+
+                        <!-- Show Password -->
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="absolute
+                                   right-3
+                                   top-1/2
+                                   -translate-y-1/2
+                                   text-slate-400
+                                   hover:text-accessPurple
+                                   transition">
+
+                            <svg
+                                id="eyeIcon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.8"
+                                stroke="currentColor"
+                                class="w-5 h-5">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12Z" />
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Error Message -->
+                    <p
+                        id="loginMessage"
+                        class="hidden text-xs text-red-500 mt-2">
+                        Email atau password salah.
+                    </p>
+
+                </div>
+
+
+                <!-- Remember & Forgot -->
+                <div class="flex items-center justify-between text-xs">
+
+                    <label class="flex items-center gap-2 text-slate-500 cursor-pointer">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                            class="w-3.5 h-3.5 accent-accessGreen">
+
+                        Ingat saya
 
                     </label>
 
 
                     <a
                         href="#"
-                        class="text-[10px]
+                        onclick="return false;"
+                        class="text-accessPurple
                                font-medium
-                               text-accessPurple
-                               hover:text-accessGreen
-                               transition">
+                               hover:underline">
 
                         Lupa password?
 
@@ -220,185 +224,211 @@
                 </div>
 
 
-                <div class="relative">
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="w-full
+                           py-3
+                           rounded-xl
+                           bg-gradient-to-r
+                           from-accessGreen
+                           to-accessPurple
+                           text-white
+                           text-sm
+                           font-semibold
+                           shadow-md
+                           shadow-purple-200/30
+                           hover:opacity-90
+                           active:scale-[0.98]
+                           transition">
 
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Masukkan password Anda"
-                        required
-                        class="input-focus
-                               w-full
-                               h-10
-                               px-3
-                               pr-10
-                               rounded-lg
-                               border
-                               border-slate-200
-                               bg-white
-                               text-xs
-                               text-slate-700
-                               placeholder:text-slate-300
-                               transition">
+                    Masuk
+
+                </button>
+
+            </form>
 
 
-                    <!-- SHOW PASSWORD -->
+            <!-- Footer -->
+            <div class="text-center mt-6">
 
-                    <button
-                        type="button"
-                        onclick="togglePassword()"
-                        class="absolute
-                               right-3
-                               top-1/2
-                               -translate-y-1/2
-                               text-slate-400
-                               hover:text-accessPurple
-                               transition">
-
-                        <svg
-                            id="eyeIcon"
-                            class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.7"
-                                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
-
-                            <circle
-                                cx="12"
-                                cy="12"
-                                r="2.5"
-                                stroke-width="1.7" />
-
-                        </svg>
-
-                    </button>
-
-                </div>
+                <p class="text-[10px] text-slate-400">
+                    © 2026 Access Internship
+                </p>
 
             </div>
-
-
-            <!-- REMEMBER ME -->
-
-            <div class="flex items-center gap-2">
-
-                <input
-                    type="checkbox"
-                    id="remember"
-                    name="remember"
-                    class="w-3.5 h-3.5
-                           rounded
-                           border-slate-300
-                           text-accessPurple
-                           focus:ring-accessPurple">
-
-                <label
-                    for="remember"
-                    class="text-[10px]
-                           text-slate-500">
-
-                    Ingat saya
-
-                </label>
-
-            </div>
-
-
-            <!-- LOGIN BUTTON -->
-
-            <button
-                type="submit"
-                class="login-button
-                       w-full
-                       h-10
-                       rounded-lg
-                       text-xs
-                       font-semibold
-                       text-white
-                       mt-2">
-
-                Masuk
-
-            </button>
-
-        </form>
-
-
-        <!-- FOOTER -->
-
-        <div class="text-center mt-5">
-
-            <p
-                class="text-[10px]
-                       text-slate-400">
-
-                © 2026 Access Internship
-
-            </p>
 
         </div>
 
     </div>
 
 
-    <!-- JAVASCRIPT -->
-
+    <!-- JavaScript -->
     <script>
 
-        function togglePassword() {
+        // ==========================================
+        // DATA LOGIN
+        // ==========================================
 
-            const password =
-                document.getElementById("password");
-
-            const eyeIcon =
-                document.getElementById("eyeIcon");
+        const emailBenar = "admin@access.com";
+        const passwordBenar = "admin123";
 
 
-            if (password.type === "password") {
+        // ==========================================
+        // ELEMENT
+        // ==========================================
 
-                password.type = "text";
+        const loginForm = document.getElementById("loginForm");
 
-                eyeIcon.innerHTML = `
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.7"
-                        d="M3 3l18 18M10.6 10.6a2 2 0 0 0 2.8 2.8M9.9 5.2A9.7 9.7 0 0 1 12 5c6 0 9.5 7 9.5 7a18 18 0 0 1-3.1 3.9M6.1 6.1C3.9 7.7 2.5 12 2.5 12s3.5 6 9.5 6c1.3 0 2.5-.3 3.6-.8"
-                    />
-                `;
+        const emailInput = document.getElementById("email");
+
+        const passwordInput = document.getElementById("password");
+
+        const loginMessage = document.getElementById("loginMessage");
+
+        const togglePassword = document.getElementById("togglePassword");
+
+        const eyeIcon = document.getElementById("eyeIcon");
+
+
+        // ==========================================
+        // LOGIN
+        // ==========================================
+
+        loginForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const email = emailInput.value.trim();
+
+            const password = passwordInput.value;
+
+
+            // Cek email dan password
+            if (
+                email === emailBenar &&
+                password === passwordBenar
+            ) {
+
+                // Simpan status login
+                localStorage.setItem(
+                    "isLoggedIn",
+                    "true"
+                );
+
+
+                // Masuk ke dashboard
+                window.location.href = "dashboard.html";
 
             } else {
 
-                password.type = "password";
+                // Tampilkan pesan error
+                loginMessage.classList.remove("hidden");
 
-                eyeIcon.innerHTML = `
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.7"
-                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
-                    />
 
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="2.5"
-                        stroke-width="1.7"
-                    />
-                `;
+                // Beri efek border merah
+                emailInput.classList.add(
+                    "border-red-400"
+                );
+
+                passwordInput.classList.add(
+                    "border-red-400"
+                );
 
             }
 
-        }
+        });
+
+
+        // ==========================================
+        // SHOW / HIDE PASSWORD
+        // ==========================================
+
+        togglePassword.addEventListener(
+            "click",
+            function() {
+
+                if (
+                    passwordInput.type === "password"
+                ) {
+
+                    passwordInput.type = "text";
+
+                    // Icon mata terbuka
+                    eyeIcon.innerHTML = `
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 0 0 2.25 12s3.75 6.75 9.75 6.75c1.69 0 3.25-.4 4.58-1.1" />
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6.228 6.228A10.45 10.45 0 0 1 12 5.25c6 0 9.75 6.75 9.75 6.75a18.8 18.8 0 0 1-2.184 2.91" />
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6.228 6.228 3 3m3.228 3.228 4.114 4.114m3.058 3.058L21 21" />
+
+                    `;
+
+                } else {
+
+                    passwordInput.type = "password";
+
+                    // Icon mata tertutup
+                    eyeIcon.innerHTML = `
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12Z" />
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    `;
+
+                }
+
+            }
+        );
+
+
+        // ==========================================
+        // HILANGKAN ERROR SAAT MENGETIK ULANG
+        // ==========================================
+
+        emailInput.addEventListener(
+            "input",
+            function() {
+
+                loginMessage.classList.add("hidden");
+
+                emailInput.classList.remove(
+                    "border-red-400"
+                );
+
+            }
+        );
+
+
+        passwordInput.addEventListener(
+            "input",
+            function() {
+
+                loginMessage.classList.add("hidden");
+
+                passwordInput.classList.remove(
+                    "border-red-400"
+                );
+
+            }
+        );
 
     </script>
 
 </body>
-
 </html>
