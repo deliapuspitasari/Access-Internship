@@ -205,31 +205,7 @@
            DATE PICKER
         ===================================================== */
 
-        .date-button {
-            transition: all 0.2s ease;
-        }
-
-        .date-button:hover {
-            background: #F8FAF9;
-        }
-
-        .calendar-popup {
-            animation: calendarShow 0.15s ease;
-        }
-
-        @keyframes calendarShow {
-
-            from {
-                opacity: 0;
-                transform: translateY(-4px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
+        
 
         /* =====================================================
            FORM INPUT
@@ -726,24 +702,7 @@
                 gap: 4px !important;
             }
 
-            .date-button span {
-                display: none;
-            }
-
-            .date-button svg:first-child {
-                width: 16px;
-                height: 16px;
-            }
-
-            .date-button svg:last-child {
-                display: none;
-            }
-
-            .calendar-popup {
-                right: -2px;
-
-                width: 220px;
-            }
+            
 
 
             /* =================================================
@@ -1645,11 +1604,7 @@
                                text-[11px]
                                text-slate-500">
 
-                        <svg
-                            class="w-4 h-4 text-green-600"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
+                        
 
                             <path
                                 stroke-linecap="round"
@@ -1657,18 +1612,7 @@
                                 stroke-width="1.7"
                                 d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
 
-                        </svg>
-
-                        <span id="currentDate">
-                            17 September 2026
-                        </span>
-
-                        <svg
-                            class="w-3 h-3 text-slate-300"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
+                       
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
@@ -2418,145 +2362,7 @@
 
     <script>
 
-        /* =====================================================
-           DATE PICKER
-        ===================================================== */
-
-        const dateButton =
-            document.getElementById("dateButton");
-
-        const calendarPopup =
-            document.getElementById("calendarPopup");
-
-        const datePicker =
-            document.getElementById("datePicker");
-
-        const currentDate =
-            document.getElementById("currentDate");
-
-        const todayButton =
-            document.getElementById("todayButton");
-
-
-        function formatDate(dateValue) {
-
-            const date =
-                new Date(dateValue + "T00:00:00");
-
-            return date.toLocaleDateString(
-                "id-ID",
-                {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                }
-            );
-
-        }
-
-
-        function getTodayValue() {
-
-            const today = new Date();
-
-            const year =
-                today.getFullYear();
-
-            const month =
-                String(today.getMonth() + 1)
-                    .padStart(2, "0");
-
-            const day =
-                String(today.getDate())
-                    .padStart(2, "0");
-
-            return `${year}-${month}-${day}`;
-
-        }
-
-
-        const todayValue =
-            getTodayValue();
-
-
-        datePicker.value =
-            todayValue;
-
-        currentDate.textContent =
-            formatDate(todayValue);
-
-
-        dateButton.addEventListener(
-            "click",
-            function (event) {
-
-                event.stopPropagation();
-
-                calendarPopup.classList.toggle(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        datePicker.addEventListener(
-            "change",
-            function () {
-
-                const selectedDate =
-                    datePicker.value;
-
-                if (!selectedDate) {
-                    return;
-                }
-
-                currentDate.textContent =
-                    formatDate(selectedDate);
-
-                calendarPopup.classList.add(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        todayButton.addEventListener(
-            "click",
-            function () {
-
-                datePicker.value =
-                    todayValue;
-
-                currentDate.textContent =
-                    formatDate(todayValue);
-
-                calendarPopup.classList.add(
-                    "hidden"
-                );
-
-            }
-        );
-
-
-        document.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    !calendarPopup.contains(event.target) &&
-                    !dateButton.contains(event.target)
-                ) {
-
-                    calendarPopup.classList.add(
-                        "hidden"
-                    );
-
-                }
-
-            }
-        );
+        
 
 
         /* =====================================================
