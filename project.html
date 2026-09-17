@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project | Access Internship</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            50: "#F0F7F3",
+                            100: "#DDEDE4",
+                            500: "#5B8A70",
+                            600: "#4C775F",
+                            700: "#3F624F"
+                        },
+
+                        purple: {
+                            50: "#F5F1FA",
+                            100: "#E9DFF4",
+                            400: "#9B7DB8",
+                            500: "#8868A8",
+                            600: "#745493"
+                        },
+
+                        navy: "#263750"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ================= GLOBAL ================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8faf9;
+        }
+
+
+        /* ================= DASHBOARD BACKGROUND ================= */
+
+        .dashboard-bg {
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(91, 138, 112, 0.08),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(136, 104, 168, 0.08),
+                    transparent 30%
+                ),
+                #f8faf9;
+        }
+
+
+        /* ================= SHADOW ================= */
+
+        .soft-shadow {
+            box-shadow: 0 4px 18px rgba(38, 55, 80, 0.05);
+        }
+
+
+        /* ================= MENU ================= */
+
+        .menu-item {
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background: #F0F7F3;
+            color: #3F624F;
+        }
+
+        .menu-active {
+            background: linear-gradient(
+                135deg,
+                #DDEDE4 0%,
+                #E9DFF4 100%
+            );
+            color: #3F624F;
+        }
+
+
+        /* ================= PROJECT CARD ================= */
+
+        .project-card {
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(38, 55, 80, 0.07);
+            border-color: #DDEDE4;
+        }
+
+
+        /* ================= PROJECT IMAGE ================= */
+
+        .project-preview {
+            transition: transform 0.25s ease;
+        }
+
+        .project-card:hover .project-preview {
+            transform: scale(1.02);
+        }
+
+
+        /* ================= SCROLLBAR ================= */
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f8faf9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #DDEDE4;
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9B7DB8;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            aside {
+                width: 200px !important;
+            }
+
+            main {
+                margin-left: 200px !important;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            aside {
+                width: 72px !important;
+            }
+
+            aside .brand-text,
+            aside .menu-text,
+            aside .user-text {
+                display: none;
+            }
+
+            aside .logo-wrapper {
+                justify-content: center;
+            }
+
+            aside nav {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            aside .menu-item {
+                justify-content: center;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            main {
+                margin-left: 72px !important;
+            }
+
+            header {
+                padding-left: 18px !important;
+                padding-right: 18px !important;
+            }
+
+            .content-wrapper {
+                padding: 18px !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="text-slate-700">
+
+
+    <!-- ========================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================================================= -->
+
+    <aside
+        class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col">
+
+
+        <!-- ================= LOGO ================= -->
+
+        <div class="px-5 py-5 border-b border-slate-200">
+
+            <div class="logo-wrapper flex items-center gap-3">
+
+                <!-- Logo -->
+                <div
+                    class="w-9 h-9 rounded-xl overflow-hidden flex-shrink-0 bg-white border border-slate-100 flex items-center justify-center">
+
+                    <img
+                        src="assets/images/logo.jpeg"
+                        alt="Logo Access Media"
+                        class="w-full h-full object-cover">
+                </div>
+
+
+                <!-- Brand -->
+                <div class="brand-text min-w-0">
+
+                    <h1 class="text-sm font-bold text-navy truncate">
+                        Access Internship
+                    </h1>
+
+                    <p class="text-[10px] text-slate-400 truncate">
+                        CV Access Media
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= MENU ================= -->
+
+        <nav class="flex-1 px-3 py-5 space-y-1">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="dashboard.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 text-sm">
+
+                <svg
+                    class="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 13h8V3H3v10Zm0 8h8v-5H3v5Zm10 0h8V11h-8v10Zm0-18v5h8V3h-8Z" />
+
+                </svg>
+
+                <span class="menu-text">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- KEGIATAN -->
+
+            <a
+                href="kegiatan.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 text-sm">
+
+                <svg
+                    class="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+
+                </svg>
+
+                <span class="menu-text">
+                    Kegiatan
+                </span>
+
+            </a>
+
+
+            <!-- PROJECT ACTIVE -->
+
+            <a
+                href="project.html"
+                class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold">
+
+                <svg
+                    class="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5ZM3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5" />
+
+                </svg>
+
+                <span class="menu-text">
+                    Project
+                </span>
+
+            </a>
+
+
+            <!-- DOKUMENTASI -->
+
+            <a
+                href="dokumentasi.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 text-sm">
+
+                <svg
+                    class="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 5h16v14H4V5Zm0 4h16M8 5v4m4-4v4m4-4v4" />
+
+                </svg>
+
+                <span class="menu-text">
+                    Dokumentasi
+                </span>
+
+            </a>
+
+
+            <!-- INSTANSI -->
+
+            <a
+                href="instansi.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 text-sm">
+
+                <svg
+                    class="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 12h.01M15 12h.01" />
+
+                </svg>
+
+                <span class="menu-text">
+                    Instansi
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- ================= USER ================= -->
+
+        <div class="px-4 py-4 border-t border-slate-200">
+
+            <div class="flex items-center gap-3">
+
+
+                <!-- Avatar -->
+
+                <div
+                    class="w-8 h-8 rounded-full bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center flex-shrink-0">
+
+                    <span class="text-xs font-bold text-green-700">
+                        A
+                    </span>
+
+                </div>
+
+
+                <!-- User info -->
+
+                <div class="user-text min-w-0">
+
+                    <p class="text-xs font-semibold text-navy truncate">
+                        Administrator
+                    </p>
+
+                    <div class="flex items-center gap-1.5">
+
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-green-500">
+                        </span>
+
+                        <p class="text-[10px] text-slate-400 truncate">
+                            Admin
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ========================================================= -->
+    <!-- MAIN -->
+    <!-- ========================================================= -->
+
+    <main class="ml-[220px] min-h-screen">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header
+            class="h-[64px] bg-white/95 backdrop-blur-md border-b border-slate-200 px-7 flex items-center justify-between sticky top-0 z-30">
+
+            <!-- Header Left -->
+
+            <div>
+
+                <h2 class="text-lg font-bold text-navy">
+                    Project
+                </h2>
+
+                <p class="text-xs text-slate-400 mt-0.5">
+                    Kumpulan project anak PKL Access Media
+                </p>
+
+            </div>
+
+
+            <!-- Header Right -->
+
+            <div class="flex items-center gap-2 text-slate-400">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+
+                </svg>
+
+                <span class="text-xs">
+                    September 2026
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ===================================================== -->
+        <!-- CONTENT -->
+        <!-- ===================================================== -->
+
+        <div
+            class="dashboard-bg min-h-[calc(100vh-64px)] p-6 content-wrapper">
+
+
+            <!-- ================= INTRO ================= -->
+
+            <div class="mb-6">
+
+                <p class="text-xs font-medium text-green-700 mb-1">
+                    Karya Anak Internship
+                </p>
+
+                <h1 class="text-2xl font-bold text-navy">
+                    Project Access Media
+                </h1>
+
+                <p class="text-xs text-slate-400 mt-1 max-w-2xl leading-relaxed">
+                    Kumpulan project yang telah dibuat dan dikembangkan
+                    oleh peserta PKL selama menjalani internship di Access Media.
+                </p>
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- PROJECT GRID -->
+            <!-- ================================================= -->
+
+            <div
+                class="project-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+
+
+                <!-- ================================================= -->
+                <!-- PROJECT CARD 1 -->
+                <!-- ================================================= -->
+
+                <div
+                    class="project-card bg-white rounded-xl border border-slate-200 overflow-hidden soft-shadow">
+
+
+                    <!-- PREVIEW -->
+
+                    <div
+                        class="project-preview h-36 bg-green-50 flex items-center justify-center">
+
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+
+                            <svg
+                                class="w-6 h-6 text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.7"
+                                    d="M4 5h16v14H4V5Zm0 4h16M8 5v4m4-4v4m4-4v4" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="p-4">
+
+                        <div class="flex items-center justify-between mb-2">
+
+                            <span
+                                class="text-[10px] font-medium px-2 py-1 rounded-full bg-green-50 text-green-700">
+
+                                Website
+
+                            </span>
+
+                            <span class="text-[10px] text-slate-400">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="text-sm font-bold text-navy">
+                            Nama Project
+                        </h3>
+
+
+                        <p
+                            class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+
+                            Deskripsi singkat mengenai project yang dibuat
+                            oleh peserta PKL.
+
+                        </p>
+
+
+                        <div
+                            class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+
+                            <span class="text-[10px] text-slate-400">
+                                Oleh: Nama Peserta
+                            </span>
+
+                            <button
+                                class="text-[10px] font-semibold text-green-700 hover:text-green-500 transition">
+
+                                Lihat detail →
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- PROJECT CARD 2 -->
+                <!-- ================================================= -->
+
+                <div
+                    class="project-card bg-white rounded-xl border border-slate-200 overflow-hidden soft-shadow">
+
+
+                    <div
+                        class="project-preview h-36 bg-purple-50 flex items-center justify-center">
+
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+
+                            <svg
+                                class="w-6 h-6 text-purple-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.7"
+                                    d="M3 7h18M5 7v13h14V7M8 7V4h8v3" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4">
+
+                        <div class="flex items-center justify-between mb-2">
+
+                            <span
+                                class="text-[10px] font-medium px-2 py-1 rounded-full bg-purple-50 text-purple-600">
+
+                                Aplikasi
+
+                            </span>
+
+                            <span class="text-[10px] text-slate-400">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="text-sm font-bold text-navy">
+                            Nama Project
+                        </h3>
+
+
+                        <p
+                            class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+
+                            Deskripsi singkat mengenai project yang dibuat
+                            oleh peserta PKL.
+
+                        </p>
+
+
+                        <div
+                            class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+
+                            <span class="text-[10px] text-slate-400">
+                                Oleh: Nama Peserta
+                            </span>
+
+                            <button
+                                class="text-[10px] font-semibold text-purple-600 hover:text-purple-500 transition">
+
+                                Lihat detail →
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- PROJECT CARD 3 -->
+                <!-- ================================================= -->
+
+                <div
+                    class="project-card bg-white rounded-xl border border-slate-200 overflow-hidden soft-shadow">
+
+
+                    <div
+                        class="project-preview h-36 bg-green-50 flex items-center justify-center">
+
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+
+                            <svg
+                                class="w-6 h-6 text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.7"
+                                    d="M12 3v18M3 12h18" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4">
+
+                        <div class="flex items-center justify-between mb-2">
+
+                            <span
+                                class="text-[10px] font-medium px-2 py-1 rounded-full bg-green-50 text-green-700">
+
+                                Sistem
+
+                            </span>
+
+                            <span class="text-[10px] text-slate-400">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="text-sm font-bold text-navy">
+                            Nama Project
+                        </h3>
+
+
+                        <p
+                            class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+
+                            Deskripsi singkat mengenai project yang dibuat
+                            oleh peserta PKL.
+
+                        </p>
+
+
+                        <div
+                            class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+
+                            <span class="text-[10px] text-slate-400">
+                                Oleh: Nama Peserta
+                            </span>
+
+                            <button
+                                class="text-[10px] font-semibold text-green-700 hover:text-green-500 transition">
+
+                                Lihat detail →
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- PROJECT CARD 4 -->
+                <!-- ================================================= -->
+
+                <div
+                    class="project-card bg-white rounded-xl border border-slate-200 overflow-hidden soft-shadow">
+
+
+                    <div
+                        class="project-preview h-36 bg-purple-50 flex items-center justify-center">
+
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+
+                            <svg
+                                class="w-6 h-6 text-purple-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.7"
+                                    d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4">
+
+                        <div class="flex items-center justify-between mb-2">
+
+                            <span
+                                class="text-[10px] font-medium px-2 py-1 rounded-full bg-purple-50 text-purple-600">
+
+                                Design
+
+                            </span>
+
+                            <span class="text-[10px] text-slate-400">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="text-sm font-bold text-navy">
+                            Nama Project
+                        </h3>
+
+
+                        <p
+                            class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+
+                            Deskripsi singkat mengenai project yang dibuat
+                            oleh peserta PKL.
+
+                        </p>
+
+
+                        <div
+                            class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+
+                            <span class="text-[10px] text-slate-400">
+                                Oleh: Nama Peserta
+                            </span>
+
+                            <button
+                                class="text-[10px] font-semibold text-purple-600 hover:text-purple-500 transition">
+
+                                Lihat detail →
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
