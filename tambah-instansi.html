@@ -129,7 +129,8 @@
                border-r
                border-slate-200
                flex
-               flex-col">
+               flex-col
+               max-md:hidden">
 
 
         <!-- LOGO -->
@@ -236,38 +237,7 @@
             </a>
 
 
-            <!-- KEGIATAN -->
 
-            <a
-                href="kegiatan.html"
-                class="menu-item
-                       flex
-                       items-center
-                       gap-3
-                       px-3
-                       py-2.5
-                       rounded-lg
-                       text-xs
-                       text-slate-500
-                       mb-1">
-
-                <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
-
-                </svg>
-
-                Kegiatan
-
-            </a>
 
 
             <!-- PROJECT -->
@@ -452,7 +422,9 @@
 
     <main
         class="ml-[220px]
-               min-h-screen">
+               min-h-screen
+               max-md:ml-0
+               max-md:pb-[76px]">
 
 
         <!-- =================================================
@@ -471,14 +443,20 @@
                    px-7
                    flex
                    items-center
-                   justify-between">
+                   justify-between
+                   max-md:h-auto
+                   max-md:min-h-[70px]
+                   max-md:px-4
+                   max-md:py-3
+                   max-md:gap-3">
 
             <div>
 
                 <h2
                     class="text-[17px]
                            font-bold
-                           text-navy">
+                           text-navy
+                           max-md:text-[15px]">
 
                     Tambah Instansi
 
@@ -487,7 +465,8 @@
                 <p
                     class="text-[11px]
                            text-slate-400
-                           mt-0.5">
+                           mt-0.5
+                           max-md:text-[9px]">
 
                     Tambahkan mitra baru Access Internship
 
@@ -506,7 +485,10 @@
                        text-white
                        text-[10px]
                        font-semibold
-                       transition">
+                       transition
+                       max-md:px-3
+                       max-md:py-2
+                       max-md:shrink-0">
 
                 ← Kembali
 
@@ -523,7 +505,9 @@
         <div
             class="dashboard-bg
                    min-h-[calc(100vh-78px)]
-                   p-5">
+                   p-5
+                   max-md:min-h-[calc(100vh-70px)]
+                   max-md:p-3">
 
 
             <!-- FORM CARD -->
@@ -536,7 +520,8 @@
                        border
                        border-slate-200
                        soft-shadow
-                       overflow-hidden">
+                       overflow-hidden
+                       max-md:rounded-xl">
 
 
                 <!-- FORM HEADER -->
@@ -545,7 +530,9 @@
                     class="px-6
                            py-5
                            border-b
-                           border-slate-200">
+                           border-slate-200
+                           max-md:px-4
+                           max-md:py-4">
 
                     <div
                         class="flex
@@ -562,7 +549,8 @@
                         <h2
                             class="text-[15px]
                                    font-bold
-                                   text-navy">
+                                   text-navy
+                                   max-md:text-[13px]">
 
                             Informasi Instansi
 
@@ -575,7 +563,9 @@
                         class="text-[10px]
                                text-slate-400
                                mt-1
-                               ml-[18px]">
+                               ml-[18px]
+                               max-md:text-[9px]
+                               max-md:ml-[18px]">
 
                         Isi data instansi yang akan menjadi mitra internship.
 
@@ -589,14 +579,15 @@
 
                 <form
                     id="formInstansi"
-                    class="p-7">
+                    class="p-7 max-md:p-4">
 
 
                     <div
                         class="grid
                                grid-cols-1
                                md:grid-cols-2
-                               gap-5">
+                               gap-5
+                               max-md:gap-4">
 
 
                         <!-- NAMA -->
@@ -812,7 +803,9 @@
                                mt-5
                                pt-4
                                border-t
-                               border-slate-100">
+                               border-slate-100
+                               max-md:grid
+                               max-md:grid-cols-2">
 
                         <a
                             href="instansi.html"
@@ -825,7 +818,9 @@
                                    font-semibold
                                    text-slate-500
                                    hover:bg-slate-50
-                                   transition">
+                                   transition
+                                   max-md:w-full
+                                   max-md:text-center">
 
                             Batal
 
@@ -842,7 +837,8 @@
                                    text-white
                                    text-[10px]
                                    font-semibold
-                                   transition">
+                                   transition
+                                   max-md:w-full">
 
                             Simpan Instansi
 
@@ -858,6 +854,72 @@
 
     </main>
 
+
+    <!-- =====================================================
+         MOBILE BOTTOM NAVIGATION
+    ====================================================== -->
+
+    <nav
+        class="hidden max-md:grid fixed bottom-0 left-0 right-0 z-[60]
+               grid-cols-5 h-[68px] bg-white border-t border-slate-200
+               shadow-[0_-4px_16px_rgba(38,55,80,0.08)]">
+
+        <a
+            href="dashboard.html"
+            class="flex flex-col items-center justify-center gap-1
+                   text-slate-400 text-[9px] font-medium transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                      d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/>
+            </svg>
+            Dashboard
+        </a>
+
+        <a
+            href="project.html"
+            class="flex flex-col items-center justify-center gap-1
+                   text-slate-400 text-[9px] font-medium transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                      d="M4 7h16v13H4V7Zm4 0V4h8v3"/>
+            </svg>
+            Project
+        </a>
+
+        <a
+            href="dokumentasi.html"
+            class="flex flex-col items-center justify-center gap-1
+                   text-slate-400 text-[9px] font-medium transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                      d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5"/>
+            </svg>
+            Dokumentasi
+        </a>
+
+        <a
+            href="instansi.html"
+            class="flex flex-col items-center justify-center gap-1
+                   text-green-600 text-[9px] font-semibold transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                      d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+            </svg>
+            Instansi
+        </a>
+
+        <a
+            href="#"
+            class="flex flex-col items-center justify-center gap-1
+                   text-slate-400 text-[9px] font-medium transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                      d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0"/>
+            </svg>
+            Profile
+        </a>
+
+    </nav>
 
 
     <!-- =====================================================
