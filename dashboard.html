@@ -72,11 +72,15 @@
             from { opacity: 0; transform: translateY(-4px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .profile-dropdown { animation: profileShow 0.15s ease; }
-        @keyframes profileShow {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .profile-dropdown {
+            position: absolute; left: 12px; right: 12px; bottom: 68px; z-index: 100;
+            background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 8px;
+            box-shadow: 0 10px 25px rgba(38, 55, 80, 0.10);
+            opacity: 0; visibility: hidden; transform: translateY(5px);
+            transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
         }
+        .profile-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
     </style>
 </head>
 
@@ -167,7 +171,7 @@
             </button>
 
             <!-- DROPDOWN PROFILE -->
-            <div id="profileDropdown" class="profile-dropdown hidden absolute left-3 right-3 bottom-[68px] z-50 bg-white border border-slate-200 rounded-xl shadow-xl p-2">
+            <div id="profileDropdown" class="profile-dropdown absolute left-3 right-3 bottom-[68px] z-50 bg-white border border-slate-200 rounded-xl shadow-xl p-2">
                 <a href="profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-green-50 hover:text-green-700 transition">
                     <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center">
                         <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -252,26 +256,9 @@
                 </div>
             </section>
 
-            <!-- STATISTICS -->
-            <div class="grid grid-cols-4 gap-4 mb-6 max-lg:grid-cols-2 max-md:gap-3 max-md:mb-4 max-sm:grid-cols-2">
+           <!-- STATISTICS -->
+            <div class="grid grid-cols-3 gap-4 mb-6 max-md:gap-3 max-md:mb-4">
                 
-                <!-- CARD 1 - KEGIATAN -->
-                <div class="stat-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow max-md:p-3">
-                    <div class="absolute left-0 top-0 w-full h-1 bg-green-500"></div>
-                    <div class="flex items-start justify-between gap-2">
-                        <div class="min-w-0">
-                            <p class="text-[10px] font-medium text-slate-400 truncate">Kegiatan</p>
-                            <p id="totalKegiatan" class="text-2xl font-bold text-navy mt-1 max-md:text-xl">8</p>
-                            <p class="text-[9px] text-green-600 mt-2 max-md:text-[8px]">Total kegiatan</p>
-                        </div>
-                        <div class="w-9 h-9 rounded-lg bg-green-100 flex items-center justify-center shrink-0 max-md:w-8 max-md:h-8">
-                            <svg class="w-4 h-4 text-green-600 max-md:w-3.5 max-md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M8 3v4m8-4v4M4 10h16M5 6h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- CARD 2 - PROJECT -->
                 <div class="stat-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow max-md:p-3">
                     <div class="absolute left-0 top-0 w-full h-1 bg-purple-500"></div>
@@ -325,106 +312,104 @@
             </div>
 
             <!-- BOTTOM SECTION -->
-            <div class="grid grid-cols-5 gap-4 max-lg:grid-cols-1 max-md:gap-4">
-                
-                <!-- AKSI CEPAT -->
-                <section class="col-span-3 bg-white border border-slate-200 rounded-xl p-5 soft-shadow max-md:p-4">
-                    <div class="mb-5">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                            <h3 class="text-sm font-bold text-navy">Aksi Cepat</h3>
-                        </div>
-                        <p class="text-[10px] text-slate-400 mt-1">Akses menu yang sering digunakan.</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
-                        <a href="kegiatan.html" class="group border border-slate-200 rounded-xl p-4 hover:border-green-200 hover:bg-green-50/40 transition max-md:p-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-semibold text-navy">Kegiatan</span>
-                                <span class="text-slate-300 group-hover:text-green-600 transition">→</span>
-                            </div>
-                            <p class="text-[10px] text-slate-400 mt-1">Kelola kegiatan internship</p>
-                        </a>
-
-                        <a href="project.html" class="group border border-slate-200 rounded-xl p-4 hover:border-purple-200 hover:bg-purple-50/40 transition max-md:p-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-semibold text-navy">Project</span>
-                                <span class="text-slate-300 group-hover:text-purple-600 transition">→</span>
-                            </div>
-                            <p class="text-[10px] text-slate-400 mt-1">Kelola project</p>
-                        </a>
-
-                        <a href="dokumentasi.html" class="group border border-slate-200 rounded-xl p-4 hover:border-green-200 hover:bg-green-50/40 transition max-md:p-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-semibold text-navy">Dokumentasi</span>
-                                <span class="text-slate-300 group-hover:text-green-600 transition">→</span>
-                            </div>
-                            <p class="text-[10px] text-slate-400 mt-1">Kelola dokumentasi</p>
-                        </a>
-
-                        <a href="instansi.html" class="group border border-slate-200 rounded-xl p-4 hover:border-purple-200 hover:bg-purple-50/40 transition max-md:p-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-semibold text-navy">Instansi</span>
-                                <span class="text-slate-300 group-hover:text-purple-600 transition">→</span>
-                            </div>
-                            <p class="text-[10px] text-slate-400 mt-1">Kelola informasi instansi</p>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- AKTIVITAS TERBARU -->
-                <section class="col-span-2 bg-white border border-slate-200 rounded-xl p-5 soft-shadow max-md:p-4">
-                    <div class="mb-5">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-purple-500"></span>
-                            <h3 class="text-sm font-bold text-navy">Aktivitas Terbaru</h3>
-                        </div>
-                        <p class="text-[10px] text-slate-400 mt-1">Aktivitas terbaru dalam sistem.</p>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="flex gap-3">
-                            <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
-                                <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
-                            </div>
-                            <div class="min-w-0">
-                                <p class="text-[11px] font-medium text-navy">Kegiatan internship diperbarui</p>
-                                <p class="text-[9px] text-slate-400 mt-1">Beberapa saat yang lalu</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3">
-                            <div class="w-7 h-7 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
-                                <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
-                            </div>
-                            <div class="min-w-0">
-                                <p class="text-[11px] font-medium text-navy">Project baru ditambahkan</p>
-                                <p class="text-[9px] text-slate-400 mt-1">Hari ini</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3">
-                            <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
-                                <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
-                            </div>
-                            <div class="min-w-0">
-                                <p class="text-[11px] font-medium text-navy">Dokumentasi diperbarui</p>
-                                <p class="text-[9px] text-slate-400 mt-1">Kemarin</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3">
-                            <div class="w-7 h-7 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
-                                <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
-                            </div>
-                            <div class="min-w-0">
-                                <p class="text-[11px] font-medium text-navy">Informasi instansi diperbarui</p>
-                                <p class="text-[9px] text-slate-400 mt-1">2 hari yang lalu</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+<div class="grid grid-cols-5 gap-4 max-lg:grid-cols-1 max-md:gap-4">
+    
+    <!-- AKSI CEPAT (col-span-3) -->
+    <section class="col-span-3 bg-white border border-slate-200 rounded-xl p-5 soft-shadow flex flex-col justify-between max-md:p-4">
+        <div>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <h3 class="text-sm font-bold text-navy">Aksi Cepat</h3>
             </div>
+            <p class="text-[10px] text-slate-400 mt-1">Akses menu yang sering digunakan.</p>
+        </div>
+
+        <!-- Menu di dalam Aksi Cepat dengan jarak rapat (space-y-3) -->
+        <div class="space-y-3 my-4">
+            <a href="project.html" class="group block border border-slate-200 rounded-xl p-4 hover:border-purple-200 hover:bg-purple-50/40 transition max-md:p-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-semibold text-navy">Project</span>
+                    <span class="text-slate-300 group-hover:text-purple-600 transition">→</span>
+                </div>
+                <p class="text-[10px] text-slate-400 mt-1">Kelola project</p>
+            </a>
+
+            <a href="dokumentasi.html" class="group block border border-slate-200 rounded-xl p-4 hover:border-green-200 hover:bg-green-50/40 transition max-md:p-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-semibold text-navy">Dokumentasi</span>
+                    <span class="text-slate-300 group-hover:text-green-600 transition">→</span>
+                </div>
+                <p class="text-[10px] text-slate-400 mt-1">Kelola dokumentasi</p>
+            </a>
+
+            <a href="instansi.html" class="group block border border-slate-200 rounded-xl p-4 hover:border-purple-200 hover:bg-purple-50/40 transition max-md:p-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-semibold text-navy">Instansi</span>
+                    <span class="text-slate-300 group-hover:text-purple-600 transition">→</span>
+                </div>
+                <p class="text-[10px] text-slate-400 mt-1">Kelola informasi instansi</p>
+            </a>
+        </div>
+        
+        <div></div> <!-- Spacer kosong penyeimbang bawah -->
+    </section>
+
+    <!-- AKTIVITAS TERBARU (col-span-2) -->
+    <section class="col-span-2 bg-white border border-slate-200 rounded-xl p-5 soft-shadow flex flex-col justify-between max-md:p-4">
+        <div>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                <h3 class="text-sm font-bold text-navy">Aktivitas Terbaru</h3>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-1">Aktivitas terbaru dalam sistem.</p>
+        </div>
+
+        <!-- List aktivitas dengan jarak yang pas -->
+        <div class="space-y-4 my-4">
+            <div class="flex gap-3 items-center">
+                <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-[11px] font-medium text-navy">Kegiatan internship diperbarui</p>
+                    <p class="text-[9px] text-slate-400 mt-0.5">Beberapa saat yang lalu</p>
+                </div>
+            </div>
+
+            <div class="flex gap-3 items-center">
+                <div class="w-7 h-7 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-[11px] font-medium text-navy">Project baru ditambahkan</p>
+                    <p class="text-[9px] text-slate-400 mt-0.5">Hari ini</p>
+                </div>
+            </div>
+
+            <div class="flex gap-3 items-center">
+                <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-[11px] font-medium text-navy">Dokumentasi diperbarui</p>
+                    <p class="text-[9px] text-slate-400 mt-0.5">Kemarin</p>
+                </div>
+            </div>
+
+            <div class="flex gap-3 items-center">
+                <div class="w-7 h-7 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-[11px] font-medium text-navy">Informasi instansi diperbarui</p>
+                    <p class="text-[9px] text-slate-400 mt-0.5">2 hari yang lalu</p>
+                </div>
+            </div>
+        </div>
+
+        <div></div> <!-- Spacer kosong penyeimbang bawah -->
+    </section>
+</div>
         </div>
     </main>
 
@@ -508,12 +493,14 @@
         function updateDashboard(selectedDate) {
             const data = dashboardData[selectedDate];
             if (data) {
-                document.getElementById("totalKegiatan").textContent = data.kegiatan;
+                const elKegiatan = document.getElementById("totalKegiatan");
+                if (elKegiatan) elKegiatan.textContent = data.kegiatan;
                 document.getElementById("totalProject").textContent = data.project;
                 document.getElementById("totalDokumentasi").textContent = data.dokumentasi;
                 document.getElementById("totalInstansi").textContent = data.instansi;
             } else {
-                document.getElementById("totalKegiatan").textContent = "0";
+                const elKegiatan = document.getElementById("totalKegiatan");
+                if (elKegiatan) elKegiatan.textContent = "0";
                 document.getElementById("totalProject").textContent = "0";
                 document.getElementById("totalDokumentasi").textContent = "0";
                 document.getElementById("totalInstansi").textContent = "0";
@@ -526,27 +513,31 @@
         const profileDropdown = document.getElementById("profileDropdown");
         const profileChevron = document.getElementById("profileChevron");
 
-        profileToggle.addEventListener("click", function(event) {
-            event.stopPropagation();
-            profileDropdown.classList.toggle("hidden");
-            profileChevron.classList.toggle("rotate-180");
-        });
+        if (profileToggle && profileDropdown) {
+            profileToggle.addEventListener("click", function(event) {
+                event.stopPropagation();
+                profileDropdown.classList.toggle("show");
+                if (profileChevron) profileChevron.classList.toggle("rotate-180");
+            });
+        }
 
         document.addEventListener("click", function(event) {
-            if (!profileDropdown.contains(event.target) && !profileToggle.contains(event.target)) {
-                profileDropdown.classList.add("hidden");
-                profileChevron.classList.remove("rotate-180");
+            if (profileDropdown && !profileDropdown.contains(event.target) && profileToggle && !profileToggle.contains(event.target)) {
+                profileDropdown.classList.remove("show");
+                if (profileChevron) profileChevron.classList.remove("rotate-180");
             }
         });
 
         const logoutButton = document.getElementById("logoutButton");
-        logoutButton.addEventListener("click", function() {
-            const confirmLogout = confirm("Apakah Anda yakin ingin logout?");
-            if (confirmLogout) {
-                localStorage.removeItem("isLoggedIn");
-                window.location.href = "login.html";
-            }
-        });
+        if (logoutButton) {
+            logoutButton.addEventListener("click", function() {
+                const confirmLogout = confirm("Apakah Anda yakin ingin logout?");
+                if (confirmLogout) {
+                    localStorage.removeItem("isLoggedIn");
+                    window.location.href = "login.html";
+                }
+            });
+        }
     </script>
 </body>
 </html>

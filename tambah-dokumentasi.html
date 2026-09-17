@@ -494,7 +494,7 @@
                 width: 100%;
                 height: 100%;
 
-                padding: 7px 8px !important;
+                padding: 6px 7px !important;
 
                 overflow-x: hidden;
                 overflow-y: hidden;
@@ -531,7 +531,7 @@
 
                 grid-template-columns: repeat(5, minmax(0, 1fr));
 
-                gap: 4px !important;
+                gap: 3px !important;
 
                 align-items: stretch;
             }
@@ -541,9 +541,9 @@
 
                 min-width: 0;
 
-                height: 52px;
+                height: 56px;
 
-                padding: 6px 3px !important;
+                padding: 6px 2px !important;
 
                 border-radius: 10px;
 
@@ -555,16 +555,16 @@
 
                 justify-content: center;
 
-                gap: 3px !important;
+                gap: 4px !important;
 
                 text-align: center;
 
-                font-size: 9px !important;
+                font-size: 8px !important;
             }
 
             .nav-links .menu-item svg {
-                width: 17px;
-                height: 17px;
+                width: 18px;
+                height: 18px;
             }
 
             /* PROFIL MOBILE */
@@ -816,19 +816,26 @@
                 width: 100%;
 
                 display: flex;
+                flex-direction: column;
 
                 justify-content: stretch;
+                align-items: stretch;
 
                 gap: 8px;
             }
 
             .action-buttons a,
             .action-buttons button {
-                flex: 1;
+                width: 100%;
+                flex: none;
 
                 justify-content: center;
 
                 min-width: 0;
+            }
+
+            .action-buttons .save-button {
+                order: -1;
             }
 
             .action-buttons a {
@@ -865,12 +872,13 @@
             }
 
             .nav-links .menu-item {
-                font-size: 8px !important;
+                font-size: 7.5px !important;
+                gap: 3px !important;
             }
 
             .nav-links .menu-item svg {
-                width: 16px;
-                height: 16px;
+                width: 17px;
+                height: 17px;
             }
 
             .content-area {
@@ -2218,20 +2226,6 @@
                                            rounded-lg
                                            text-[10px]
                                            font-semibold">
-
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24">
-
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.8"
-                                            d="M5 12l4 4L19 6" />
-
-                                    </svg>
 
                                     Simpan Dokumentasi
 

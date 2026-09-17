@@ -61,6 +61,16 @@
         }
         .profile-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
+        /* Dropdown khusus titik 3 mobile */
+        .mobile-menu-dropdown {
+            position: absolute; right: 16px; top: 60px; z-index: 100;
+            background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 6px;
+            box-shadow: 0 10px 20px rgba(38, 55, 80, 0.10);
+            opacity: 0; visibility: hidden; transform: translateY(-5px);
+            transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+        }
+        .mobile-menu-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
         .form-input { transition: all 0.2s ease; }
         .form-input:focus { outline: none; border-color: #008A4B; box-shadow: 0 0 0 3px rgba(0, 138, 75, 0.08); }
 
@@ -122,18 +132,17 @@
                 <span class="whitespace-nowrap">Instansi</span>
             </a>
 
-            <!-- PROFILE khusus menu mobile (Diberi class menu-active karena kita sedang di halaman Profile) -->
-            <a href="profile.html" class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
+            <!-- PROFILE khusus menu mobile -->
+            <a href="profile.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
                 <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
                 </svg>
                 <span class="max-md:text-[8px]">Profile</span>
             </a>
-
         </nav>
 
-        <!-- PROFILE ADMIN -->
-        <div class="hidden md:block relative border-t border-slate-200 p-3 shrink-0">
+        <!-- ADMINISTRATOR -->
+        <div class="relative p-3 border-t border-slate-200 shrink-0 max-md:hidden">
             <button id="profileToggle" type="button" class="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition text-left">
                 <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
                     <span class="text-[11px] font-bold text-green-700">A</span>
@@ -147,22 +156,31 @@
                 </svg>
             </button>
 
-            <!-- DROPDOWN PROFILE + LOGOUT -->
-            <div id="profileDropdown" class="profile-dropdown">
-                <div>
-                    <a href="profile.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[10px] font-medium text-green-700 bg-green-50 mb-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- DROPDOWN PROFILE -->
+            <div id="profileDropdown" class="profile-dropdown absolute left-3 right-3 bottom-[68px] z-50 bg-white border border-slate-200 rounded-xl shadow-xl p-2">
+                <a href="profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-green-50 hover:text-green-700 transition">
+                    <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
                         </svg>
-                        Profile
-                    </a>
-                    <button id="logoutButton" type="button" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-red-50 hover:text-red-500 transition text-left">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    </div>
+                    <div>
+                        <p class="font-semibold text-navy">Profile</p>
+                        <p class="text-[8px] text-slate-400 mt-0.5">Lihat profile admin</p>
+                    </div>
+                </a>
+
+                <button id="logoutButton" type="button" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-red-50 hover:text-red-500 transition text-left">
+                    <div class="w-7 h-7 rounded-lg bg-red-50 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
                         </svg>
-                        Logout
-                    </button>
-                </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-600">Logout</p>
+                        <p class="text-[8px] text-slate-400 mt-0.5">Keluar dari akun</p>
+                    </div>
+                </button>
             </div>
         </div>
     </aside>
@@ -177,11 +195,31 @@
                 <p class="text-[9px] text-slate-400 mt-0.5 md:text-[11px]">Kelola informasi akun administrator</p>
             </div>
             
-            <div class="flex items-center gap-1.5 shrink-0 text-[9px] text-slate-400 md:gap-2 md:text-[11px]">
-                <svg class="w-3.5 h-3.5 text-green-600 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- TAMPILAN DESKTOP: Tanggal Otomatis -->
+            <div class="hidden md:flex items-center gap-2 text-[11px] text-slate-400 shrink-0">
+                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
                 </svg>
                 <span id="currentDate" class="whitespace-nowrap">Memuat tanggal...</span>
+            </div>
+
+            <!-- TAMPILAN MOBILE: Tombol Titik 3 / Menu Logout -->
+            <div class="relative md:hidden">
+                <button id="mobileMenuToggle" type="button" class="w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                </button>
+
+                <!-- Dropdown Menu Titik 3 Mobile -->
+                <div id="mobileMenuDropdown" class="mobile-menu-dropdown w-36">
+                    <button id="mobileLogoutButton" type="button" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-[11px] font-medium text-slate-600 hover:bg-red-50 hover:text-red-500 transition text-left">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
+                        </svg>
+                        Logout
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -346,27 +384,45 @@
             window.location.href = "login.html";
         }
 
-        // Tanggal Otomatis
+        // Tanggal Otomatis (Desktop)
         const currentDate = document.getElementById("currentDate");
-        const today = new Date();
-        currentDate.textContent = today.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+        if (currentDate) {
+            const today = new Date();
+            currentDate.textContent = today.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+        }
 
-        // Dropdown Administrator
+        // Dropdown Administrator (Desktop Sidebar)
         const profileToggle = document.getElementById("profileToggle");
         const profileDropdown = document.getElementById("profileDropdown");
         const profileChevron = document.getElementById("profileChevron");
 
-        profileToggle.addEventListener("click", function(event) {
-            event.stopPropagation();
-            profileDropdown.classList.toggle("show");
-            profileChevron.classList.toggle("rotate-180");
-        });
+        if (profileToggle && profileDropdown) {
+            profileToggle.addEventListener("click", function(event) {
+                event.stopPropagation();
+                profileDropdown.classList.toggle("show");
+                profileChevron.classList.toggle("rotate-180");
+            });
+        }
+
+        // Dropdown Titik 3 (Header Mobile)
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        const mobileMenuDropdown = document.getElementById("mobileMenuDropdown");
+
+        if (mobileMenuToggle && mobileMenuDropdown) {
+            mobileMenuToggle.addEventListener("click", function(event) {
+                event.stopPropagation();
+                mobileMenuDropdown.classList.toggle("show");
+            });
+        }
 
         // Tutup Dropdown saat klik di luar
         document.addEventListener("click", function(event) {
-            if (!profileDropdown.contains(event.target) && !profileToggle.contains(event.target)) {
+            if (profileDropdown && !profileDropdown.contains(event.target) && profileToggle && !profileToggle.contains(event.target)) {
                 profileDropdown.classList.remove("show");
-                profileChevron.classList.remove("rotate-180");
+                if (profileChevron) profileChevron.classList.remove("rotate-180");
+            }
+            if (mobileMenuDropdown && !mobileMenuDropdown.contains(event.target) && mobileMenuToggle && !mobileMenuToggle.contains(event.target)) {
+                mobileMenuDropdown.classList.remove("show");
             }
         });
 
@@ -376,62 +432,76 @@
         const emailInput = document.getElementById("emailInput");
         const companyInput = document.getElementById("companyInput");
 
-        profileForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            if (nameInput.value.trim() === "" || emailInput.value.trim() === "" || companyInput.value.trim() === "") {
-                alert("Data profil harus diisi.");
-                return;
-            }
-            alert("Profil berhasil diperbarui.");
-        });
+        if (profileForm) {
+            profileForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                if (nameInput.value.trim() === "" || emailInput.value.trim() === "" || companyInput.value.trim() === "") {
+                    alert("Data profil harus diisi.");
+                    return;
+                }
+                alert("Profil berhasil diperbarui.");
+            });
+        }
 
         // Batal Edit
-        document.getElementById("cancelButton").addEventListener("click", function() {
-            nameInput.value = "Administrator";
-            emailInput.value = "admin@access.com";
-            companyInput.value = "CV Access Media";
-        });
+        const cancelButton = document.getElementById("cancelButton");
+        if (cancelButton) {
+            cancelButton.addEventListener("click", function() {
+                nameInput.value = "Administrator";
+                emailInput.value = "admin@access.com";
+                companyInput.value = "CV Access Media";
+            });
+        }
 
         // Ubah Password
-        document.getElementById("passwordForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const oldPassword = document.getElementById("oldPassword").value;
-            const newPassword = document.getElementById("newPassword").value;
-            const confirmPassword = document.getElementById("confirmPassword").value;
+        const passwordForm = document.getElementById("passwordForm");
+        if (passwordForm) {
+            passwordForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const oldPassword = document.getElementById("oldPassword").value;
+                const newPassword = document.getElementById("newPassword").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
 
-            if (oldPassword === "" || newPassword === "" || confirmPassword === "") {
-                alert("Semua password harus diisi.");
-                return;
-            }
-            if (newPassword !== confirmPassword) {
-                alert("Konfirmasi password tidak sesuai.");
-                return;
-            }
-            alert("Password berhasil diperbarui.");
-            document.getElementById("passwordForm").reset();
-        });
+                if (oldPassword === "" || newPassword === "" || confirmPassword === "") {
+                    alert("Semua password harus diisi.");
+                    return;
+                }
+                if (newPassword !== confirmPassword) {
+                    alert("Konfirmasi password tidak sesuai.");
+                    return;
+                }
+                alert("Password berhasil diperbarui.");
+                passwordForm.reset();
+            });
+        }
 
-        // Logout
-        document.getElementById("logoutButton").addEventListener("click", function() {
+        // Fungsi Logout
+        function handleLogout() {
             const confirmLogout = confirm("Apakah Anda yakin ingin logout?");
             if (confirmLogout) {
                 localStorage.removeItem("isLoggedIn");
                 window.location.href = "login.html";
             }
-        });
+        }
+
+        const logoutButton = document.getElementById("logoutButton");
+        const mobileLogoutButton = document.getElementById("mobileLogoutButton");
+
+        if (logoutButton) logoutButton.addEventListener("click", handleLogout);
+        if (mobileLogoutButton) mobileLogoutButton.addEventListener("click", handleLogout);
 
         // Otomatis mendeteksi halaman yang sedang dibuka dan memberikan efek kotak (menu-active)
-            const currentPath = window.location.pathname.split("/").pop();
-            const navLinks = document.querySelectorAll("nav a");
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("nav a");
 
-            navLinks.forEach(link => {
-                const href = link.getAttribute("href");
-                if (href === currentPath) {
-                    link.classList.add("menu-active");
-                } else {
-                    link.classList.remove("menu-active");
-                }
-            });
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === currentPath) {
+                link.classList.add("menu-active");
+            } else {
+                link.classList.remove("menu-active");
+            }
+        });
     </script>
 </body>
 </html>
