@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Instansi | Access Internship</title>
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            50: "#EFFAF4",
+                            100: "#DDF3E7",
+                            500: "#008A4B",
+                            600: "#007A43",
+                            700: "#006A3A",
+                        },
+
+                        purple: {
+                            50: "#FBF0F8",
+                            100: "#F1D9EB",
+                            400: "#A42B8E",
+                            500: "#8A1B78",
+                            600: "#761666",
+                        },
+
+                        navy: "#263750",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- STYLE -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F8FAF9;
+        }
+
+        .dashboard-bg {
+            background:
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(138, 27, 120, 0.08),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 5% 90%,
+                    rgba(0, 138, 75, 0.08),
+                    transparent 25%
+                ),
+                #F8FAF9;
+        }
+
+        .soft-shadow {
+            box-shadow:
+                0 2px 8px rgba(38, 55, 80, 0.04),
+                0 1px 2px rgba(38, 55, 80, 0.03);
+        }
+
+        .menu-item {
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background: #EFFAF4;
+            color: #008A4B;
+        }
+
+        .menu-active {
+            background:
+                linear-gradient(
+                    90deg,
+                    #DDF3E7,
+                    #F1D9EB
+                );
+
+            color: #006A3A;
+        }
+
+        .stat-card {
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(38, 55, 80, 0.08);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F8FAF9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5D0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+
+<body class="text-slate-600">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="fixed
+               left-0
+               top-0
+               z-50
+               h-screen
+               w-[220px]
+               bg-white
+               border-r
+               border-slate-200
+               flex
+               flex-col">
+
+        <!-- LOGO -->
+        <div
+            class="h-[78px]
+                   px-5
+                   flex
+                   items-center
+                   border-b
+                   border-slate-200
+                   shrink-0">
+
+            <div class="flex items-center gap-3 min-w-0">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Logo Access Media"
+                    class="w-11 h-11 object-contain shrink-0">
+
+                <div class="min-w-0">
+
+                    <h1
+                        class="text-[13px]
+                               font-bold
+                               text-navy
+                               whitespace-nowrap">
+
+                        Access Internship
+
+                    </h1>
+
+                    <p
+                        class="text-[10px]
+                               text-slate-400
+                               mt-1
+                               whitespace-nowrap">
+
+                        CV Access Media
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+        <nav
+            class="flex-1
+                   px-3
+                   py-5
+                   overflow-y-auto">
+
+            <p
+                class="px-3
+                       mb-3
+                       text-[9px]
+                       font-semibold
+                       uppercase
+                       tracking-[0.12em]
+                       text-slate-400">
+
+                Menu Utama
+
+            </p>
+
+
+            <!-- DASHBOARD -->
+            <a
+                href="dashboard.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       font-medium
+                       mb-1">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/>
+
+                </svg>
+
+                Dashboard
+
+            </a>
+
+
+            <!-- KEGIATAN -->
+            <a
+                href="kegiatan.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
+
+                </svg>
+
+                Kegiatan
+
+            </a>
+
+
+            <!-- PROJECT -->
+            <a
+                href="project.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 7h16v13H4V7Zm4 0V4h8v3"/>
+
+                </svg>
+
+                Project
+
+            </a>
+
+
+            <!-- DOKUMENTASI -->
+            <a
+                href="dokumentasi.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5"/>
+
+                </svg>
+
+                Dokumentasi
+
+            </a>
+
+
+            <!-- INSTANSI ACTIVE -->
+            <a
+                href="instansi.html"
+                class="menu-item
+                       menu-active
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       font-semibold">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                </svg>
+
+                Instansi
+
+            </a>
+
+        </nav>
+
+
+        <!-- USER -->
+        <div
+            class="p-4
+                   border-t
+                   border-slate-200
+                   shrink-0">
+
+            <div
+                class="flex
+                       items-center
+                       gap-3
+                       p-2
+                       rounded-lg
+                       hover:bg-slate-50
+                       transition">
+
+                <div
+                    class="w-8
+                           h-8
+                           rounded-full
+                           bg-gradient-to-br
+                           from-green-100
+                           to-purple-100
+                           flex
+                           items-center
+                           justify-center">
+
+                    <span
+                        class="text-[11px]
+                               font-bold
+                               text-green-700">
+
+                        A
+
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="min-w-0
+                           flex-1">
+
+                    <p
+                        class="text-[11px]
+                               font-semibold
+                               text-navy
+                               truncate">
+
+                        Administrator
+
+                    </p>
+
+                    <p
+                        class="text-[9px]
+                               text-slate-400">
+
+                        Admin
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main
+        class="ml-[220px]
+               min-h-screen">
+
+
+        <!-- =================================================
+             NAVBAR
+        ================================================== -->
+
+        <header
+            class="sticky
+                   top-0
+                   z-40
+                   h-[78px]
+                   bg-white/95
+                   backdrop-blur-md
+                   border-b
+                   border-slate-200
+                   px-7
+                   flex
+                   items-center
+                   justify-between">
+
+            <div>
+
+                <h2
+                    class="text-[17px]
+                           font-bold
+                           text-navy">
+
+                    Instansi
+
+                </h2>
+
+                <p
+                    class="text-[11px]
+                           text-slate-400
+                           mt-0.5">
+
+                    Ringkasan informasi Access Internship
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="flex
+                       items-center
+                       gap-2
+                       text-[11px]
+                       text-slate-400">
+
+                <svg
+                    class="w-4 h-4 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.7"
+                        d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
+
+                </svg>
+
+                September 2026
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div
+            class="dashboard-bg
+                   min-h-[calc(100vh-78px)]
+                   p-6">
+
+
+            <!-- =================================================
+                 HERO
+            ================================================== -->
+
+            <section
+                class="bg-white
+                       rounded-2xl
+                       border
+                       border-green-100
+                       soft-shadow
+                       relative
+                       overflow-hidden
+                       px-7
+                       py-5
+                       mb-5">
+
+                <!-- DEKORASI -->
+                <div
+                    class="absolute
+                           -right-10
+                           -top-10
+                           w-36
+                           h-36
+                           rounded-full
+                           bg-purple-100/70">
+                </div>
+
+                <div
+                    class="absolute
+                           -left-14
+                           -bottom-16
+                           w-40
+                           h-40
+                           rounded-full
+                           bg-green-100/70">
+                </div>
+
+
+                <div
+                    class="relative
+                           z-10">
+
+                    <span
+                        class="inline-flex
+                               items-center
+                               px-3
+                               py-1
+                               rounded-full
+                               bg-purple-100
+                               text-purple-600
+                               text-[10px]
+                               font-semibold
+                               mb-2">
+
+                        Data Instansi
+
+                    </span>
+
+
+                    <h1
+                        class="text-[20px]
+                               font-bold
+                               text-navy
+                               leading-tight">
+
+                        Instansi Mitra Access Media
+
+                    </h1>
+
+
+                    <p
+                        class="mt-1.5
+                               text-[11px]
+                               text-slate-500
+                               max-w-3xl">
+
+                        Informasi sekolah dan perguruan tinggi yang telah
+                        bekerja sama dalam program internship bersama Access Media.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STAT CARDS
+            ================================================== -->
+
+            <div
+                class="grid
+                       grid-cols-1
+                       md:grid-cols-3
+                       gap-4
+                       mb-5">
+
+
+                <!-- TOTAL INSTANSI -->
+                <div
+                    class="stat-card
+                           bg-white
+                           rounded-2xl
+                           border
+                           border-green-100
+                           border-t-4
+                           border-t-green-500
+                           p-4
+                           soft-shadow">
+
+                    <div
+                        class="flex
+                               items-start
+                               justify-between">
+
+                        <div>
+
+                            <p
+                                class="text-[11px]
+                                       text-slate-400">
+
+                                Total Instansi
+
+                            </p>
+
+                            <p
+                                id="totalInstansi"
+                                class="text-[24px]
+                                       font-bold
+                                       text-navy
+                                       mt-1">
+
+                                0
+
+                            </p>
+
+                            <p
+                                class="text-[10px]
+                                       text-green-600
+                                       mt-1.5">
+
+                                Mitra terdaftar
+
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="w-10
+                                   h-10
+                                   rounded-xl
+                                   bg-green-100
+                                   flex
+                                   items-center
+                                   justify-center">
+
+                            <svg
+                                class="w-[18px] h-[18px] text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SEKOLAH -->
+                <div
+                    class="stat-card
+                           bg-white
+                           rounded-2xl
+                           border
+                           border-purple-100
+                           border-t-4
+                           border-t-purple-500
+                           p-4
+                           soft-shadow">
+
+                    <div
+                        class="flex
+                               items-start
+                               justify-between">
+
+                        <div>
+
+                            <p
+                                class="text-[11px]
+                                       text-slate-400">
+
+                                Sekolah
+
+                            </p>
+
+                            <p
+                                id="totalSekolah"
+                                class="text-[24px]
+                                       font-bold
+                                       text-navy
+                                       mt-1">
+
+                                0
+
+                            </p>
+
+                            <p
+                                class="text-[10px]
+                                       text-purple-500
+                                       mt-1.5">
+
+                                SMK / SMA sederajat
+
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="w-10
+                                   h-10
+                                   rounded-xl
+                                   bg-purple-100
+                                   flex
+                                   items-center
+                                   justify-center">
+
+                            <svg
+                                class="w-[18px] h-[18px] text-purple-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-9h6v9"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PERGURUAN TINGGI -->
+                <div
+                    class="stat-card
+                           bg-white
+                           rounded-2xl
+                           border
+                           border-green-100
+                           border-t-4
+                           border-t-green-500
+                           p-4
+                           soft-shadow">
+
+                    <div
+                        class="flex
+                               items-start
+                               justify-between">
+
+                        <div>
+
+                            <p
+                                class="text-[11px]
+                                       text-slate-400">
+
+                                Perguruan Tinggi
+
+                            </p>
+
+                            <p
+                                id="totalKampus"
+                                class="text-[24px]
+                                       font-bold
+                                       text-navy
+                                       mt-1">
+
+                                0
+
+                            </p>
+
+                            <p
+                                class="text-[10px]
+                                       text-green-600
+                                       mt-1.5">
+
+                                Universitas / Politeknik
+
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="w-10
+                                   h-10
+                                   rounded-xl
+                                   bg-green-100
+                                   flex
+                                   items-center
+                                   justify-center">
+
+                            <svg
+                                class="w-[18px] h-[18px] text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M4 10l8-5 8 5-8 5-8-5Zm3 3v4l5 3 5-3v-4"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TABLE
+            ================================================== -->
+
+            <section
+                class="bg-white
+                       rounded-2xl
+                       border
+                       border-slate-200
+                       soft-shadow
+                       overflow-hidden">
+
+
+                <!-- TABLE HEADER -->
+                <div
+                    class="px-5
+                           py-4
+                           border-b
+                           border-slate-200
+                           flex
+                           flex-col
+                           md:flex-row
+                           md:items-center
+                           md:justify-between
+                           gap-3">
+
+
+                    <div>
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2">
+
+                            <span
+                                class="w-2.5
+                                       h-2.5
+                                       rounded-full
+                                       bg-green-500">
+                            </span>
+
+                            <h2
+                                class="text-[15px]
+                                       font-bold
+                                       text-navy">
+
+                                Daftar Instansi
+
+                            </h2>
+
+                        </div>
+
+
+                        <p
+                            class="text-[10px]
+                                   text-slate-400
+                                   mt-1
+                                   ml-[18px]">
+
+                            Instansi yang menjadi mitra program internship.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         ACTION : SEARCH + FILTER + TAMBAH
+                    ================================================== -->
+
+                    <div
+                        class="flex
+                               items-center
+                               gap-2.5
+                               flex-wrap">
+
+
+                        <!-- SEARCH -->
+                        <div
+                            class="relative">
+
+                            <svg
+                                class="absolute
+                                       left-3
+                                       top-1/2
+                                       -translate-y-1/2
+                                       w-3.5
+                                       h-3.5
+                                       text-slate-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/>
+
+                            </svg>
+
+
+                            <input
+                                id="searchInstansi"
+                                type="text"
+                                placeholder="Cari instansi..."
+                                class="w-[170px]
+                                       pl-9
+                                       pr-3
+                                       py-2
+                                       rounded-lg
+                                       border
+                                       border-slate-200
+                                       text-[10px]
+                                       text-slate-600
+                                       outline-none
+                                       focus:border-green-500
+                                       focus:ring-2
+                                       focus:ring-green-100">
+
+                        </div>
+
+
+
+                        <!-- FILTER JENIS INSTANSI -->
+                        <div
+                            class="relative">
+
+                            <!-- FILTER ICON -->
+                            <svg
+                                class="absolute
+                                       left-3
+                                       top-1/2
+                                       -translate-y-1/2
+                                       w-3.5
+                                       h-3.5
+                                       text-slate-400
+                                       pointer-events-none"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M4 6h16M7 12h10m-7 6h4"/>
+
+                            </svg>
+
+
+                            <select
+                                id="filterJenis"
+                                class="w-[145px]
+                                       h-[34px]
+                                       appearance-none
+                                       pl-9
+                                       pr-7
+                                       py-2
+                                       rounded-lg
+                                       border
+                                       border-slate-200
+                                       bg-white
+                                       text-[10px]
+                                       text-slate-600
+                                       outline-none
+                                       cursor-pointer
+                                       focus:border-green-500
+                                       focus:ring-2
+                                       focus:ring-green-100">
+
+                                <option value="all">
+                                    Semua Instansi
+                                </option>
+
+                                <option value="Sekolah">
+                                    Sekolah
+                                </option>
+
+                                <option value="Perguruan Tinggi">
+                                    Perguruan Tinggi
+                                </option>
+
+                            </select>
+
+
+                            <!-- ARROW -->
+                            <svg
+                                class="absolute
+                                       right-2.5
+                                       top-1/2
+                                       -translate-y-1/2
+                                       w-3
+                                       h-3
+                                       text-slate-400
+                                       pointer-events-none"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="m6 9 6 6 6-6"/>
+
+                            </svg>
+
+                        </div>
+
+
+
+                        <!-- TAMBAH INSTANSI -->
+                        <a
+                            href="tambah-instansi.html"
+                            class="inline-flex
+                                   items-center
+                                   gap-1.5
+                                   px-3
+                                   py-2
+                                   rounded-lg
+                                   bg-green-600
+                                   hover:bg-green-700
+                                   text-white
+                                   text-[10px]
+                                   font-semibold
+                                   transition
+                                   whitespace-nowrap">
+
+                            <svg
+                                class="w-3.5 h-3.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M12 5v14M5 12h14"/>
+
+                            </svg>
+
+                            Tambah Instansi
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TABLE
+                ================================================== -->
+
+                <div
+                    class="overflow-x-auto">
+
+                    <table
+                        class="w-full
+                               min-w-[700px]
+                               text-left">
+
+                        <thead>
+
+                            <tr
+                                class="bg-slate-50
+                                       border-b
+                                       border-slate-200">
+
+
+                                <th
+                                    class="px-5
+                                           py-2.5
+                                           text-[8px]
+                                           font-semibold
+                                           uppercase
+                                           tracking-wider
+                                           text-slate-400">
+
+                                    Instansi
+
+                                </th>
+
+
+                                <th
+                                    class="px-4
+                                           py-2.5
+                                           text-[8px]
+                                           font-semibold
+                                           uppercase
+                                           tracking-wider
+                                           text-slate-400">
+
+                                    Jenis
+
+                                </th>
+
+
+                                <th
+                                    class="px-4
+                                           py-2.5
+                                           text-[8px]
+                                           font-semibold
+                                           uppercase
+                                           tracking-wider
+                                           text-slate-400">
+
+                                    Periode
+
+                                </th>
+
+
+                                <th
+                                    class="px-4
+                                           py-2.5
+                                           text-[8px]
+                                           font-semibold
+                                           uppercase
+                                           tracking-wider
+                                           text-slate-400">
+
+                                    Status
+
+                                </th>
+
+
+                                <th
+                                    class="px-5
+                                           py-2.5
+                                           text-[8px]
+                                           font-semibold
+                                           uppercase
+                                           tracking-wider
+                                           text-slate-400
+                                           text-right">
+
+                                    Detail
+
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="instansiTable"
+                            class="divide-y
+                                   divide-slate-100">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- EMPTY STATE -->
+                <div
+                    id="emptyState"
+                    class="hidden
+                           px-6
+                           py-10
+                           text-center">
+
+                    <div
+                        class="w-10
+                               h-10
+                               mx-auto
+                               rounded-full
+                               bg-slate-100
+                               flex
+                               items-center
+                               justify-center
+                               mb-2">
+
+                        <svg
+                            class="w-4 h-4 text-slate-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M3 21h18M5 21V7l7-4 7 4v14"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <p
+                        class="text-xs
+                               font-semibold
+                               text-slate-500">
+
+                        Belum ada instansi
+
+                    </p>
+
+
+                    <p
+                        class="text-[10px]
+                               text-slate-400
+                               mt-1">
+
+                        Tambahkan instansi baru untuk menampilkannya di sini.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           DATA DEFAULT
+        ====================================================== */
+
+        const defaultInstansi = [
+
+            {
+                id: 1,
+                nama: "SMK Negeri 3 Banjar",
+                kota: "Kota Banjar",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif"
+            },
+
+            {
+                id: 2,
+                nama: "SMK Negeri 1 Banjar",
+                kota: "Kota Banjar",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif"
+            },
+
+            {
+                id: 3,
+                nama: "SMK Negeri 2 Banjar",
+                kota: "Kota Banjar",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif"
+            },
+
+            {
+                id: 4,
+                nama: "SMK Negeri 1 Ciamis",
+                kota: "Kabupaten Ciamis",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif"
+            },
+
+            {
+                id: 5,
+                nama: "SMK Negeri 1 Tasikmalaya",
+                kota: "Kota Tasikmalaya",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif"
+            },
+
+            {
+                id: 6,
+                nama: "Universitas Galuh",
+                kota: "Kabupaten Ciamis",
+                jenis: "Perguruan Tinggi",
+                periode: "2026",
+                status: "Aktif"
+            }
+
+        ];
+
+
+
+        /* =====================================================
+           GET DATA
+        ====================================================== */
+
+        function getInstansi() {
+
+            const data =
+                localStorage.getItem("accessInstansi");
+
+
+            if (!data) {
+
+                localStorage.setItem(
+                    "accessInstansi",
+                    JSON.stringify(defaultInstansi)
+                );
+
+                return defaultInstansi;
+
+            }
+
+
+            return JSON.parse(data);
+
+        }
+
+
+
+        /* =====================================================
+           RENDER TABLE
+        ====================================================== */
+
+        function renderInstansi(data = getInstansi()) {
+
+            const table =
+                document.getElementById("instansiTable");
+
+            const empty =
+                document.getElementById("emptyState");
+
+
+            table.innerHTML = "";
+
+
+            if (data.length === 0) {
+
+                empty.classList.remove("hidden");
+
+                return;
+
+            }
+
+
+            empty.classList.add("hidden");
+
+
+            data.forEach(instansi => {
+
+                const row =
+                    document.createElement("tr");
+
+
+                row.className =
+                    "hover:bg-slate-50 transition";
+
+
+                const iconBg =
+                    instansi.jenis === "Sekolah"
+                        ? "bg-green-100"
+                        : "bg-purple-100";
+
+
+                const iconColor =
+                    instansi.jenis === "Sekolah"
+                        ? "text-green-600"
+                        : "text-purple-600";
+
+
+                const badgeBg =
+                    instansi.jenis === "Sekolah"
+                        ? "bg-purple-50 text-purple-600"
+                        : "bg-green-50 text-green-600";
+
+
+                row.innerHTML = `
+
+                    <td class="px-5 py-3">
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2.5">
+
+                            <div
+                                class="w-8
+                                       h-8
+                                       rounded-lg
+                                       ${iconBg}
+                                       flex
+                                       items-center
+                                       justify-center
+                                       shrink-0">
+
+                                <svg
+                                    class="w-3.5 h-3.5 ${iconColor}"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div>
+
+                                <p
+                                    class="text-[11px]
+                                           font-semibold
+                                           text-navy">
+
+                                    ${instansi.nama}
+
+                                </p>
+
+
+                                <p
+                                    class="text-[9px]
+                                           text-slate-400
+                                           mt-0.5">
+
+                                    ${instansi.kota}
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <td class="px-4 py-3">
+
+                        <span
+                            class="inline-flex
+                                   px-2
+                                   py-0.5
+                                   rounded-full
+                                   text-[8px]
+                                   font-medium
+                                   ${badgeBg}">
+
+                            ${instansi.jenis}
+
+                        </span>
+
+                    </td>
+
+
+
+                    <td
+                        class="px-4
+                               py-3
+                               text-[10px]
+                               text-slate-500">
+
+                        ${instansi.periode}
+
+                    </td>
+
+
+
+                    <td class="px-4 py-3">
+
+                        <span
+                            class="inline-flex
+                                   items-center
+                                   gap-1.5
+                                   text-[9px]
+                                   text-green-600">
+
+                            <span
+                                class="w-1.5
+                                       h-1.5
+                                       rounded-full
+                                       bg-green-500">
+
+                            </span>
+
+                            ${instansi.status}
+
+                        </span>
+
+                    </td>
+
+
+
+                    <td
+                        class="px-5
+                               py-3
+                               text-right">
+
+                        <button
+                            onclick="lihatDetail(${instansi.id})"
+                            class="text-[9px]
+                                   font-medium
+                                   text-green-600
+                                   hover:text-green-700">
+
+                            Lihat detail →
+
+                        </button>
+
+                    </td>
+
+                `;
+
+
+                table.appendChild(row);
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           UPDATE STAT
+        ====================================================== */
+
+        function updateStats() {
+
+            const data =
+                getInstansi();
+
+
+            const sekolah =
+                data.filter(
+                    item => item.jenis === "Sekolah"
+                ).length;
+
+
+            const kampus =
+                data.filter(
+                    item => item.jenis === "Perguruan Tinggi"
+                ).length;
+
+
+            document.getElementById(
+                "totalInstansi"
+            ).textContent = data.length;
+
+
+            document.getElementById(
+                "totalSekolah"
+            ).textContent = sekolah;
+
+
+            document.getElementById(
+                "totalKampus"
+            ).textContent = kampus;
+
+        }
+
+
+
+        /* =====================================================
+           DETAIL
+        ====================================================== */
+
+        function lihatDetail(id) {
+
+            const data =
+                getInstansi();
+
+
+            const instansi =
+                data.find(
+                    item => item.id === id
+                );
+
+
+            if (!instansi) return;
+
+
+            alert(
+                "Instansi: " + instansi.nama +
+                "\nJenis: " + instansi.jenis +
+                "\nKota: " + instansi.kota +
+                "\nPeriode: " + instansi.periode +
+                "\nStatus: " + instansi.status
+            );
+
+        }
+
+
+
+        /* =====================================================
+           SEARCH + FILTER
+        ====================================================== */
+
+        function filterInstansi() {
+
+            const keyword =
+                document
+                    .getElementById("searchInstansi")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            const jenis =
+                document
+                    .getElementById("filterJenis")
+                    .value;
+
+
+            const data =
+                getInstansi().filter(item => {
+
+
+                    /* SEARCH */
+
+                    const cocokSearch =
+
+                        item.nama
+                            .toLowerCase()
+                            .includes(keyword)
+
+                        ||
+
+                        item.kota
+                            .toLowerCase()
+                            .includes(keyword)
+
+                        ||
+
+                        item.jenis
+                            .toLowerCase()
+                            .includes(keyword);
+
+
+
+                    /* FILTER JENIS */
+
+                    const cocokJenis =
+
+                        jenis === "all"
+
+                        ||
+
+                        item.jenis === jenis;
+
+
+
+                    return cocokSearch && cocokJenis;
+
+                });
+
+
+            renderInstansi(data);
+
+        }
+
+
+
+        /* =====================================================
+           EVENT SEARCH
+        ====================================================== */
+
+        document
+            .getElementById("searchInstansi")
+            .addEventListener(
+                "input",
+                filterInstansi
+            );
+
+
+
+        /* =====================================================
+           EVENT FILTER
+        ====================================================== */
+
+        document
+            .getElementById("filterJenis")
+            .addEventListener(
+                "change",
+                filterInstansi
+            );
+
+
+
+        /* =====================================================
+           INIT
+        ====================================================== */
+
+        renderInstansi();
+
+        updateStats();
+
+    </script>
+
+</body>
+
+</html>
