@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Access Internship | CV Access Media</title>
 
     <!-- Tailwind CSS -->
@@ -14,26 +15,62 @@
             theme: {
                 extend: {
                     colors: {
-                        /* HIJAU */
                         sage: '#B7D9C2',
                         mint: '#E4F2E8',
                         greenmain: '#76A987',
                         darkgreen: '#4F795D',
 
-                        /* UNGU */
                         lavender: '#D9CBEF',
                         purple: '#9A82C2',
                         darkpurple: '#705596',
 
-                        /* NETRAL */
                         cream: '#FAFAF8',
+                    },
+
+                    animation: {
+                        float: 'float 7s ease-in-out infinite',
+                        floatSlow: 'floatSlow 10s ease-in-out infinite',
+                        pulseSoft: 'pulseSoft 5s ease-in-out infinite',
+                    },
+
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0px)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-14px)'
+                            },
+                        },
+
+                        floatSlow: {
+                            '0%, 100%': {
+                                transform: 'translate(0, 0)'
+                            },
+                            '50%': {
+                                transform: 'translate(12px, -16px)'
+                            },
+                        },
+
+                        pulseSoft: {
+                            '0%, 100%': {
+                                opacity: '0.45',
+                                transform: 'scale(1)'
+                            },
+                            '50%': {
+                                opacity: '0.75',
+                                transform: 'scale(1.06)'
+                            },
+                        },
                     }
                 }
             }
         }
     </script>
 
+
     <style>
+
         html {
             scroll-behavior: smooth;
         }
@@ -42,31 +79,82 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .hero-pattern {
-            background:
+
+        /* =====================================================
+           PATTERN BACKGROUNDS
+        ====================================================== */
+
+        /* DOT PATTERN */
+        .dot-pattern {
+            background-image:
                 radial-gradient(
-                    circle at 15% 20%,
-                    rgba(183, 217, 194, 0.55),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(217, 203, 239, 0.55),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 20% 85%,
-                    rgba(217, 203, 239, 0.3),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 85% 85%,
-                    rgba(183, 217, 194, 0.3),
-                    transparent 25%
+                    rgba(112, 85, 150, 0.13) 1.2px,
+                    transparent 1.2px
                 );
+            background-size: 20px 20px;
         }
+
+
+        /* GRID PATTERN */
+        .grid-pattern {
+            background-image:
+                linear-gradient(
+                    rgba(118, 169, 135, 0.10) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(154, 130, 194, 0.10) 1px,
+                    transparent 1px
+                );
+            background-size: 34px 34px;
+        }
+
+
+        /* SMALL SQUARE PATTERN */
+        .square-pattern {
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(112, 85, 150, 0.08) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    rgba(118, 169, 135, 0.08) 1px,
+                    transparent 1px
+                );
+            background-size: 26px 26px;
+        }
+
+
+        /* BRAND TEXT */
+        .brand-gradient {
+            background: linear-gradient(
+                90deg,
+                #4F795D,
+                #705596
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+
+        /* HIDE SCROLLBAR */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
     </style>
+
 </head>
+
 
 
 <body class="bg-cream text-slate-700">
@@ -76,122 +164,147 @@
          NAVBAR
     ====================================================== -->
 
-    <header class="fixed top-0 left-0 right-0 z-50">
+    <header class="fixed left-0 right-0 top-0 z-50">
 
         <nav class="mx-auto mt-4 max-w-6xl px-4">
 
             <div
-                class="relative flex items-center justify-between rounded-2xl border border-white/70 bg-white/85 px-5 py-3 shadow-sm backdrop-blur-md">
+                class="relative flex items-center justify-between rounded-2xl border border-white/80 bg-white/90 px-5 py-3 shadow-sm backdrop-blur-md">
 
                 <!-- LOGO -->
-                <a href="#beranda" class="flex items-center gap-3">
+
+                <a
+                    href="#beranda"
+                    class="flex items-center gap-3">
 
                     <div
-                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sage to-lavender font-extrabold text-darkpurple">
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-darkpurple font-extrabold text-white shadow-sm">
+
                         A
+
                     </div>
 
+
                     <div>
-                        <h1 class="text-sm font-extrabold text-slate-800 sm:text-base">
+
+                        <h1
+                            class="text-sm font-extrabold text-slate-800 sm:text-base">
+
                             Access Internship
+
                         </h1>
 
+
                         <p class="text-[10px] text-slate-400 sm:text-xs">
+
                             CV Access Media
+
                         </p>
+
                     </div>
 
                 </a>
 
 
-                <!-- DESKTOP MENU -->
-                <div class="hidden items-center gap-5 text-sm font-semibold lg:flex">
 
-                    <a href="#beranda"
+                <!-- DESKTOP NAV -->
+
+                <div
+                    class="hidden items-center gap-5 text-sm font-semibold lg:flex">
+
+                    <a
+                        href="#beranda"
                         data-section="beranda"
-                        class="nav-link relative py-2 text-darkgreen transition hover:text-darkgreen">
+                        class="nav-link relative py-2 text-darkpurple">
 
                         Beranda
 
                         <span
-                            class="nav-line absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-darkgreen">
+                            class="nav-line absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-darkpurple">
                         </span>
 
                     </a>
 
 
-                    <a href="#tentang"
+                    <a
+                        href="#tentang"
                         data-section="tentang"
-                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkgreen">
+                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkpurple">
 
                         Tentang
 
                         <span
-                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                         </span>
 
                     </a>
 
 
-                    <a href="#arsip"
+                    <a
+                        href="#arsip"
                         data-section="arsip"
-                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkgreen">
+                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkpurple">
 
                         Arsip Project
 
-
                         <span
-                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                         </span>
 
                     </a>
 
 
-                    <a href="#kegiatan"
+                    <a
+                        href="#kegiatan"
                         data-section="kegiatan"
-                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkgreen">
+                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkpurple">
 
                         Kegiatan
 
                         <span
-                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                         </span>
 
                     </a>
 
 
-                    <a href="#instansi"
+                    <a
+                        href="#instansi"
                         data-section="instansi"
-                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkgreen">
+                        class="nav-link relative py-2 text-slate-600 transition hover:text-darkpurple">
 
                         Instansi
 
                         <span
-                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                            class="nav-line absolute bottom-0 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                         </span>
 
                     </a>
 
-
                 </div>
 
 
-                <!-- CTA -->
-                <a href="#kontak"
-                    class="hidden rounded-xl bg-darkpurple px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-purple lg:block">
+
+                <!-- CONTACT -->
+
+                <a
+                    href="#kontak"
+                    class="hidden rounded-xl bg-darkgreen px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-greenmain lg:block">
 
                     Kontak
 
                 </a>
 
 
+
                 <!-- MOBILE BUTTON -->
+
                 <button
                     id="menuButton"
                     type="button"
                     aria-label="Buka menu"
                     aria-expanded="false"
-                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-mint text-darkgreen transition hover:bg-sage lg:hidden">
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-lavender text-darkpurple lg:hidden">
 
                     <svg
                         id="menuIcon"
@@ -212,74 +325,80 @@
                 </button>
 
 
+
                 <!-- MOBILE MENU -->
+
                 <div
                     id="mobileMenu"
-                    class="absolute right-0 top-[calc(100%+10px)] hidden w-[230px] rounded-2xl border border-slate-100 bg-white p-3 shadow-xl lg:hidden">
+                    class="absolute right-0 top-[calc(100%+10px)] hidden w-[235px] rounded-2xl border border-slate-100 bg-white p-3 shadow-xl lg:hidden">
 
                     <div class="flex flex-col">
 
-
-                        <a href="#beranda"
+                        <a
+                            href="#beranda"
                             data-section="beranda"
-                            class="mobile-nav-link relative py-3 text-sm font-semibold text-darkgreen transition hover:text-darkgreen">
+                            class="mobile-nav-link relative py-3 text-sm font-semibold text-darkpurple">
 
                             Beranda
 
                             <span
-                                class="mobile-line absolute bottom-1 left-0 right-0 h-[2px] rounded-full bg-darkgreen">
+                                class="mobile-line absolute bottom-1 left-0 right-0 h-[2px] rounded-full bg-darkpurple">
                             </span>
 
                         </a>
 
 
-                        <a href="#tentang"
+                        <a
+                            href="#tentang"
                             data-section="tentang"
-                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600 transition hover:text-darkgreen">
+                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600">
 
                             Tentang
 
                             <span
-                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                             </span>
 
                         </a>
 
 
-                        <a href="#arsip"
+                        <a
+                            href="#arsip"
                             data-section="arsip"
-                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600 transition hover:text-darkgreen">
+                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600">
 
                             Arsip Project
 
                             <span
-                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                             </span>
 
                         </a>
 
 
-                        <a href="#kegiatan"
+                        <a
+                            href="#kegiatan"
                             data-section="kegiatan"
-                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600 transition hover:text-darkgreen">
+                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600">
 
                             Kegiatan
 
                             <span
-                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                             </span>
 
                         </a>
 
 
-                        <a href="#instansi"
+                        <a
+                            href="#instansi"
                             data-section="instansi"
-                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600 transition hover:text-darkgreen">
+                            class="mobile-nav-link relative py-3 text-sm font-semibold text-slate-600">
 
                             Instansi
 
                             <span
-                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkgreen">
+                                class="mobile-line absolute bottom-1 left-0 right-0 hidden h-[2px] rounded-full bg-darkpurple">
                             </span>
 
                         </a>
@@ -288,8 +407,9 @@
                         <div class="my-2 border-t border-slate-100"></div>
 
 
-                        <a href="#kontak"
-                            class="rounded-xl bg-darkpurple px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-purple">
+                        <a
+                            href="#kontak"
+                            class="rounded-xl bg-darkgreen px-4 py-3 text-center text-sm font-bold text-white">
 
                             Kontak
 
@@ -307,7 +427,6 @@
 
 
 
-
     <main>
 
 
@@ -315,28 +434,76 @@
              HERO
         ====================================================== -->
 
-        <section id="beranda" class="hero-pattern flex min-h-screen items-center pt-20">
+        <section
+            id="beranda"
+            class="relative flex min-h-screen items-center overflow-hidden bg-cream pt-20">
 
-            <div class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-8 lg:grid-cols-2">
+
+            <!-- BACKGROUND DOTS -->
+
+            <div
+                class="dot-pattern absolute inset-0 opacity-60">
+            </div>
+
+
+
+            <!-- DECORATIVE BUBBLES -->
+
+            <div
+                class="absolute -left-20 top-32 h-56 w-56 rounded-full bg-sage/45 blur-sm">
+            </div>
+
+
+            <div
+                class="absolute right-[8%] top-28 h-32 w-32 animate-float rounded-full bg-lavender/60">
+            </div>
+
+
+            <div
+                class="absolute bottom-10 left-[42%] h-16 w-16 animate-floatSlow rounded-full border-2 border-purple/30">
+            </div>
+
+
+            <!-- DECORATIVE SQUARE -->
+
+            <div
+                class="absolute right-[5%] top-[45%] hidden h-28 w-28 rotate-12 rounded-3xl border-2 border-greenmain/20 lg:block">
+            </div>
+
+
+            <div
+                class="absolute bottom-16 right-[20%] hidden h-12 w-12 -rotate-12 rounded-xl border border-darkpurple/20 lg:block">
+            </div>
+
+
+
+            <div
+                class="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-6 py-10 lg:grid-cols-2">
 
 
                 <!-- LEFT -->
 
                 <div>
 
-                    <span
-                        class="inline-flex rounded-full bg-mint px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkgreen">
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full border border-sage bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkgreen shadow-sm">
+
+                        <span
+                            class="h-2 w-2 rounded-full bg-greenmain">
+                        </span>
 
                         Program PKL & Magang
 
-                    </span>
+                    </div>
 
 
-                    <h2 class="mt-6 text-4xl font-extrabold leading-tight text-slate-800 sm:text-5xl">
+
+                    <h2
+                        class="mt-6 text-4xl font-extrabold leading-tight text-slate-800 sm:text-5xl">
 
                         Bangun Pengalaman,
 
-                        <span class="text-darkpurple">
+                        <span class="brand-gradient">
 
                             Kembangkan Potensi.
 
@@ -345,57 +512,102 @@
                     </h2>
 
 
-                    <p class="mt-5 max-w-xl text-base leading-7 text-slate-500">
 
-                        Access Media membuka kesempatan bagi siswa dan mahasiswa untuk mendapatkan pengalaman kerja,
-                        mengembangkan keterampilan, dan terlibat langsung dalam berbagai kegiatan serta project.
+                    <p
+                        class="mt-5 max-w-xl text-base leading-7 text-slate-500">
+
+                        Access Media membuka kesempatan bagi siswa dan mahasiswa
+                        untuk mendapatkan pengalaman kerja, mengembangkan
+                        keterampilan, dan terlibat langsung dalam berbagai
+                        kegiatan serta project.
 
                     </p>
 
 
+
                     <div class="mt-7 flex flex-wrap gap-3">
 
-                        <!-- HIJAU -->
-
-                        <a href="#arsip"
-                            class="rounded-xl bg-darkgreen px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-greenmain">
+                        <a
+                            href="#arsip"
+                            class="rounded-xl bg-darkgreen px-5 py-3 text-sm font-bold text-white shadow-md shadow-greenmain/20 transition hover:-translate-y-0.5 hover:bg-greenmain">
 
                             Jelajahi Arsip Project →
 
                         </a>
 
 
+                        <a
+                            href="#tentang"
+                            class="rounded-xl border border-lavender bg-white px-5 py-3 text-sm font-bold text-darkpurple transition hover:bg-lavender/30">
+
+                            Kenali Program
+
+                        </a>
+
                     </div>
 
 
-                    
+
+                    <!-- BRAND LINE -->
+
+                    <div class="mt-8 flex items-center gap-3">
+
+                        <div
+                            class="h-1 w-14 rounded-full bg-greenmain">
+                        </div>
+
+                        <div
+                            class="h-1 w-8 rounded-full bg-purple">
+                        </div>
+
+                        
+
+                    </div>
 
                 </div>
 
 
 
                 <!-- RIGHT -->
-            <div class="relative flex justify-center lg:justify-end">
 
-                <!-- Dekorasi background -->
-                <div
-                    class="absolute -right-5 -top-5 h-32 w-32 rounded-full bg-lavender/60 blur-3xl">
-                </div>
+                <div class="relative flex justify-center lg:justify-end">
 
-                <div
-                    class="absolute -bottom-5 -left-5 h-32 w-32 rounded-full bg-sage/60 blur-3xl">
-                </div>
 
-                <!-- FOTO -->
-                <div
-                    class="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/70 bg-white/90 p-4 shadow-xl">
+                    <!-- FLOATING SQUARE -->
 
-                    <div class="overflow-hidden rounded-2xl">
+                    <div
+                        class="absolute -left-6 top-12 z-20 hidden h-16 w-16 rotate-12 rounded-2xl border-2 border-greenmain/40 bg-white/60 backdrop-blur-sm lg:block">
+                    </div>
 
-                        <img
-                            src="assets/7.jpeg"
-                            alt="Foto Peserta PKL"
-                            class="h-[420px] w-full object-cover transition duration-500 hover:scale-105">
+
+                    <!-- PURPLE CIRCLE -->
+
+                    <div
+                        class="absolute -right-5 -top-8 z-20 h-20 w-20 animate-float rounded-full border-4 border-lavender bg-white/70 backdrop-blur-sm">
+                    </div>
+
+
+                    <!-- GREEN CIRCLE -->
+
+                    <div
+                        class="absolute -bottom-6 -left-5 z-20 h-12 w-12 animate-floatSlow rounded-full bg-sage">
+                    </div>
+
+
+                    <!-- IMAGE -->
+
+                    <div
+                        class="relative w-full max-w-md rounded-[2rem] border-2 border-purple/40 bg-white p-3 shadow-xl">
+
+                        <div
+                            class="overflow-hidden rounded-[1.6rem]">
+
+                            <img
+                                src="assets/7.jpeg"
+                                alt="Foto Peserta PKL"
+                                class="h-[420px] w-full object-cover transition duration-700 hover:scale-105">
+
+                        </div>
 
                     </div>
 
@@ -403,68 +615,102 @@
 
             </div>
 
-            </div>
-
         </section>
+
 
 
         <!-- =====================================================
              STATISTICS
         ====================================================== -->
 
-        <section class="border-y border-slate-100 bg-white">
+        <section
+            class="relative overflow-hidden border-y border-sage/50 bg-white">
+
+
+            <!-- PATTERN -->
 
             <div
-                class="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-y divide-slate-100 sm:grid-cols-4 sm:divide-y-0">
+                class="square-pattern absolute inset-0 opacity-50">
+            </div>
 
 
-                <div class="p-6 text-center">
+            <div
+                class="relative z-10 mx-auto grid max-w-6xl grid-cols-2 sm:grid-cols-4">
 
-                    <p class="text-2xl font-extrabold text-darkgreen">
+
+                <div
+                    class="border-r border-sage/40 p-6 text-center">
+
+                    <p
+                        class="text-3xl font-extrabold text-darkgreen">
+
                         100+
+
                     </p>
 
-                    <p class="mt-1 text-xs text-slate-500">
+                    <p class="mt-1 text-xs font-medium text-slate-500">
+
                         Peserta PKL & Magang
+
                     </p>
 
                 </div>
 
 
-                <div class="p-6 text-center">
 
-                    <p class="text-2xl font-extrabold text-darkpurple">
+                <div
+                    class="border-b border-purple/20 p-6 text-center sm:border-b-0 sm:border-r">
+
+                    <p
+                        class="text-3xl font-extrabold text-darkpurple">
+
                         10+
+
                     </p>
 
-                    <p class="mt-1 text-xs text-slate-500">
+                    <p class="mt-1 text-xs font-medium text-slate-500">
+
                         Instansi
+
                     </p>
 
                 </div>
 
 
-                <div class="p-6 text-center">
 
-                    <p class="text-2xl font-extrabold text-darkgreen">
+                <div
+                    class="border-r border-sage/40 p-6 text-center">
+
+                    <p
+                        class="text-3xl font-extrabold text-darkgreen">
+
                         5+
+
                     </p>
 
-                    <p class="mt-1 text-xs text-slate-500">
+                    <p class="mt-1 text-xs font-medium text-slate-500">
+
                         Tahun Program
+
                     </p>
 
                 </div>
 
 
+
                 <div class="p-6 text-center">
 
-                    <p class="text-2xl font-extrabold text-darkpurple">
+                    <p
+                        class="text-3xl font-extrabold text-darkpurple">
+
                         20+
+
                     </p>
 
-                    <p class="mt-1 text-xs text-slate-500">
+                    <p class="mt-1 text-xs font-medium text-slate-500">
+
                         Kegiatan
+
                     </p>
 
                 </div>
@@ -472,7 +718,6 @@
             </div>
 
         </section>
-
 
 
 
@@ -480,18 +725,34 @@
              TENTANG
         ====================================================== -->
 
-        <section id="tentang" class="px-6 py-24">
+        <section
+            id="tentang"
+            class="relative overflow-hidden px-6 py-24">
+
+
+            <!-- DOT PATTERN -->
 
             <div
-                class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+                class="dot-pattern absolute right-0 top-0 h-64 w-64 opacity-40">
+            </div>
 
 
-                <!-- LEFT -->
+            <!-- DECORATIVE CIRCLE -->
 
-                <div>
+            <div
+                class="absolute -left-20 bottom-10 h-40 w-40 rounded-full bg-lavender/35">
+            </div>
+
+
+            <div class="relative z-10 mx-auto max-w-6xl">
+
+
+                <!-- HEADER -->
+
+                <div class="mx-auto max-w-3xl text-center">
 
                     <span
-                        class="text-sm font-bold uppercase tracking-widest text-darkgreen">
+                        class="inline-flex rounded-full bg-lavender px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkpurple">
 
                         Tentang
 
@@ -499,186 +760,319 @@
 
 
                     <h2
-                        class="mt-3 text-3xl font-extrabold leading-tight text-slate-800 sm:text-4xl">
+                        class="mt-4 text-3xl font-extrabold leading-tight text-slate-800 sm:text-4xl">
 
                         Ruang untuk
 
                         <span class="text-darkpurple">
+
                             belajar dan berkembang.
+
                         </span>
 
                     </h2>
 
 
-                    <p class="mt-5 leading-7 text-slate-500">
+                    <p
+                        class="mt-4 leading-7 text-slate-500">
 
-                        Program PKL dan magang di Access Media memberikan kesempatan
-                        bagi peserta untuk mengenal lingkungan kerja sekaligus mengembangkan
-                        kemampuan melalui kegiatan dan project yang dikerjakan selama berada di perusahaan.
+                        Program PKL dan magang di Access Media memberikan
+                        kesempatan bagi peserta untuk mengenal lingkungan kerja
+                        sekaligus mengembangkan kemampuan melalui kegiatan
+                        dan project.
 
                     </p>
 
-                    
-                <!-- TOOLS & TEKNOLOGI -->
-                <div class="mt-3 border-t border-slate-100 pt-3">
-
-                    <h3 class="text-lg font-bold text-slate-800">
-                        Tools & Teknologi
-                    </h3>
-
-                    <div class="mt-4 grid w-fit grid-cols-[180px_180px] gap-x-8 gap-y-2">
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            HTML
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            Laravel
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            CSS
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            PHP
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            JavaScript
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            MySQL
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            VS Code
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            Figma
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            Canva
-                        </div>
-
-                        <div class="flex items-center gap-3 text-sm text-slate-600">
-                            <span class="font-bold text-green-600">✓</span>
-                            GitHub
-                        </div>
-
-                    </div>
-
                 </div>
-            </div>
 
 
 
+                <!-- CONTENT -->
 
-                <!-- RIGHT -->
+                <div
+                    class="mt-12 grid items-start gap-8 lg:grid-cols-[0.85fr_1.15fr]">
 
-                <div class="grid grid-cols-2 gap-4">
 
-
-                    <!-- CARD 1 -->
+                    <!-- TOOLS -->
 
                     <div
-                        class="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                        class="relative overflow-hidden rounded-3xl border border-sage/60 bg-white p-7 shadow-sm">
+
+
+                        <!-- DOT CORNER -->
 
                         <div
-                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
+                            class="dot-pattern absolute right-0 top-0 h-24 w-24 opacity-50">
+                        </div>
 
-                            💼
+
+                        <div class="relative flex items-center gap-3">
+
+                            <div
+                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
+
+                                💻
+
+                            </div>
+
+
+                            <div>
+
+                                <h3 class="font-bold text-slate-800">
+
+                                    Tools & Teknologi
+
+                                </h3>
+
+
+                                <p class="text-xs text-slate-400">
+
+                                    Yang digunakan dalam proses belajar
+
+                                </p>
+
+                            </div>
 
                         </div>
 
-                        <h3 class="mt-4 font-bold text-slate-800">
-                            Pengalaman Kerja
-                        </h3>
 
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
-                            Mengenal suasana dan proses kerja secara langsung.
-                        </p>
+
+                        <div
+                            class="relative mt-6 grid grid-cols-2 gap-3">
+
+
+                            <div
+                                class="rounded-xl bg-mint px-4 py-3 text-sm font-semibold text-darkgreen">
+
+                                ✓ HTML
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-lavender px-4 py-3 text-sm font-semibold text-darkpurple">
+
+                                ✓ Laravel
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-mint px-4 py-3 text-sm font-semibold text-darkgreen">
+
+                                ✓ CSS
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-lavender px-4 py-3 text-sm font-semibold text-darkpurple">
+
+                                ✓ PHP
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-mint px-4 py-3 text-sm font-semibold text-darkgreen">
+
+                                ✓ JavaScript
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-lavender px-4 py-3 text-sm font-semibold text-darkpurple">
+
+                                ✓ MySQL
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-mint px-4 py-3 text-sm font-semibold text-darkgreen">
+
+                                ✓ VS Code
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-lavender px-4 py-3 text-sm font-semibold text-darkpurple">
+
+                                ✓ Figma
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-mint px-4 py-3 text-sm font-semibold text-darkgreen">
+
+                                ✓ Canva
+
+                            </div>
+
+
+                            <div
+                                class="rounded-xl bg-lavender px-4 py-3 text-sm font-semibold text-darkpurple">
+
+                                ✓ GitHub
+
+                            </div>
+
+                        </div>
 
                     </div>
 
 
-                    <!-- CARD 2 -->
 
-                    <div
-                        class="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                    <!-- BENEFITS -->
+
+                    <div class="grid grid-cols-2 gap-4">
+
+
+                        <!-- CARD 1 -->
 
                         <div
-                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl">
+                            class="group relative overflow-hidden rounded-2xl border border-sage/50 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-                            👨‍🏫
+
+                            <div
+                                class="absolute left-0 top-0 h-1 w-full bg-greenmain">
+                            </div>
+
+
+                            <div
+                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
+
+                                💼
+
+                            </div>
+
+
+                            <h3 class="mt-4 font-bold text-slate-800">
+
+                                Pengalaman Kerja
+
+                            </h3>
+
+
+                            <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                                Mengenal suasana dan proses kerja secara langsung.
+
+                            </p>
 
                         </div>
 
-                        <h3 class="mt-4 font-bold text-slate-800">
-                            Bimbingan
-                        </h3>
-
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
-                            Mendapat arahan dan bimbingan langsung dari pimpinan Access Media.
-                        </p>
-
-                    </div>
 
 
-                    <!-- CARD 3 -->
-
-                    <div
-                        class="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                        <!-- CARD 2 -->
 
                         <div
-                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl">
+                            class="group relative overflow-hidden rounded-2xl border border-lavender/70 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-                            🚀
+
+                            <div
+                                class="absolute left-0 top-0 h-1 w-full bg-purple">
+                            </div>
+
+
+                            <div
+                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl">
+
+                                👨‍🏫
+
+                            </div>
+
+
+                            <h3 class="mt-4 font-bold text-slate-800">
+
+                                Bimbingan
+
+                            </h3>
+
+
+                            <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                                Mendapat arahan dan bimbingan langsung dari
+                                pimpinan Access Media.
+
+                            </p>
 
                         </div>
 
-                        <h3 class="mt-4 font-bold text-slate-800">
-                            Pengembangan Skill
-                        </h3>
-
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
-                            Mengasah kemampuan teknis maupun soft skill.
-                        </p>
-
-                    </div>
 
 
-                    <!-- CARD 4 -->
-
-                    <div
-                        class="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                        <!-- CARD 3 -->
 
                         <div
-                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
+                            class="group relative overflow-hidden rounded-2xl border border-lavender/70 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-                            🤝
+
+                            <div
+                                class="absolute left-0 top-0 h-1 w-full bg-purple">
+                            </div>
+
+
+                            <div
+                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl">
+
+                                🚀
+
+                            </div>
+
+
+                            <h3 class="mt-4 font-bold text-slate-800">
+
+                                Pengembangan Skill
+
+                            </h3>
+
+
+                            <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                                Mengasah kemampuan teknis maupun soft skill.
+
+                            </p>
 
                         </div>
 
-                        <h3 class="mt-4 font-bold text-slate-800">
-                            Kerja Sama
-                        </h3>
 
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
-                            Belajar berkomunikasi dan bekerja dalam tim.
-                        </p>
+
+                        <!-- CARD 4 -->
+
+                        <div
+                            class="group relative overflow-hidden rounded-2xl border border-sage/50 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+
+                            <div
+                                class="absolute left-0 top-0 h-1 w-full bg-greenmain">
+                            </div>
+
+
+                            <div
+                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
+
+                                🤝
+
+                            </div>
+
+
+                            <h3 class="mt-4 font-bold text-slate-800">
+
+                                Kerja Sama
+
+                            </h3>
+
+
+                            <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                                Belajar berkomunikasi dan bekerja dalam tim.
+
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -688,157 +1082,277 @@
 
         </section>
 
-<!-- =====================================================
-     ARSIP PROJECT ALUMNI
-====================================================== -->
-<section id="arsip" class="bg-white px-6 py-24">
-    <div class="mx-auto max-w-6xl">
-
-        <!-- HEADER -->
-        <div class="max-w-2xl">
-            <span
-                class="text-sm font-bold uppercase tracking-widest text-darkpurple">
-                Arsip Project 
-            </span>
-
-            <h2
-                class="mt-3 text-3xl font-extrabold text-slate-800 sm:text-4xl">
-                Karya yang pernah dibuat
-                <span class="text-darkgreen">
-                    bersama Access Media.
-                </span>
-            </h2>
-
-            <p class="mt-4 leading-7 text-slate-500">
-                Kumpulan project yang pernah dikerjakan oleh peserta PKL dan magang
-                selama mengikuti kegiatan di CV Access Media.
-            </p>
-        </div>
 
 
-        <!-- PROJECT LIST -->
-        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- =====================================================
+             ARSIP PROJECT
+        ====================================================== -->
 
-            <!-- PROJECT 01 -->
+        <section
+            id="arsip"
+            class="relative overflow-hidden bg-white px-6 py-24">
+
+
+            <!-- GRID -->
+
             <div
-                class="group overflow-hidden rounded-2xl border border-slate-100 bg-cream shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-
-                <!-- IMAGE -->
-                <div class="h-44 overflow-hidden bg-mint">
-                    <img
-                        src="assets/project1.png"
-                        alt="Project Alumni 1"
-                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                </div>
-
-                <!-- CONTENT -->
-                <div class="p-5">
-
-                    <div class="flex items-center justify-between">
-                        <span
-                            class="rounded-full bg-mint px-3 py-1 text-[11px] font-bold text-darkgreen">
-                            Website
-                        </span>
-
-                        <span class="text-xs text-slate-400">
-                            2026
-                        </span>
-                    </div>
-
-                    <h3 class="mt-4 font-bold text-slate-800">
-                        Website Company Profile
-                    </h3>
-
-                    <p class="mt-2 text-sm leading-6 text-slate-500">
-                        Project website yang dibuat sebagai media informasi
-                        dan profil perusahaan.
-                    </p>
-
-                </div>
+                class="grid-pattern absolute inset-0 opacity-50">
             </div>
 
 
-            <!-- PROJECT 02 -->
+            <!-- PURPLE DECORATION -->
+
             <div
-                class="group overflow-hidden rounded-2xl border border-slate-100 bg-cream shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-
-                <div class="h-44 overflow-hidden bg-lavender">
-                    <img
-                        src="assets/project2.png"
-                        alt="Project Alumni 2"
-                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                </div>
-
-                <div class="p-5">
-
-                    <div class="flex items-center justify-between">
-                        <span
-                            class="rounded-full bg-lavender px-3 py-1 text-[11px] font-bold text-darkpurple">
-                            Sistem Informasi
-                        </span>
-
-                        <span class="text-xs text-slate-400">
-                            2026
-                        </span>
-                    </div>
-
-                    <h3 class="mt-4 font-bold text-slate-800">
-                        Sistem Informasi Sekolah
-                    </h3>
-
-                    <p class="mt-2 text-sm leading-6 text-slate-500">
-                        Project aplikasi berbasis website untuk membantu
-                        pengelolaan informasi dan data sekolah.
-                    </p>
-
-                </div>
+                class="absolute -right-20 top-16 h-48 w-48 rounded-full bg-lavender/35">
             </div>
 
 
-            <!-- PROJECT 03 -->
             <div
-                class="group overflow-hidden rounded-2xl border border-slate-100 bg-cream shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-
-                <div class="h-44 overflow-hidden bg-mint">
-                    <img
-                        src="assets/project3.png"
-                        alt="Project Alumni 3"
-                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                </div>
-
-                <div class="p-5">
-
-                    <div class="flex items-center justify-between">
-                        <span
-                            class="rounded-full bg-mint px-3 py-1 text-[11px] font-bold text-darkgreen">
-                            UI/UX
-                        </span>
-
-                        <span class="text-xs text-slate-400">
-                            2026
-                        </span>
-                    </div>
-
-                    <h3 class="mt-4 font-bold text-slate-800">
-                        Perancangan UI/UX Website
-                    </h3>
-
-                    <p class="mt-2 text-sm leading-6 text-slate-500">
-                        Perancangan antarmuka dan pengalaman pengguna untuk
-                        kebutuhan aplikasi berbasis digital.
-                    </p>
-
-                </div>
+                class="absolute left-[45%] top-8 hidden h-10 w-10 rotate-45 rounded-lg border border-purple/20 lg:block">
             </div>
 
 
-        </div>
+
+            <div class="relative z-10 mx-auto max-w-6xl">
 
 
-        <div class="mt-8 text-center">
+                <!-- HEADER -->
 
-                    <a href="#kegiatan"
-                        class="inline-flex rounded-xl border border-lavender bg-white px-5 py-3 text-sm font-bold text-darkpurple transition hover:bg-lavender/20">
+                <div
+                    class="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+
+
+                    <div class="max-w-2xl">
+
+                        <span
+                            class="inline-flex rounded-full bg-mint px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkgreen">
+
+                            Arsip Project
+
+                        </span>
+
+
+                        <h2
+                            class="mt-4 text-3xl font-extrabold text-slate-800 sm:text-4xl">
+
+                            Karya yang pernah dibuat
+
+                            <span class="text-darkpurple">
+
+                                bersama Access Media.
+
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="mt-4 leading-7 text-slate-500">
+
+                            Kumpulan project yang pernah dikerjakan oleh peserta
+                            PKL dan magang selama mengikuti kegiatan di
+                            CV Access Media.
+
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="hidden h-16 w-16 items-center justify-center rounded-2xl bg-lavender text-2xl text-darkpurple shadow-sm lg:flex">
+
+                        ✦
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROJECT CARDS -->
+
+                <div
+                    class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <div
+                        class="group overflow-hidden rounded-2xl border border-sage/50 bg-cream shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+
+                        <div
+                            class="relative h-44 overflow-hidden bg-mint">
+
+
+                            <img
+                                src="assets/project1.png"
+                                alt="Project Alumni 1"
+                                class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+
+                            <div
+                                class="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-[11px] font-bold text-darkgreen shadow-sm">
+
+                                Website
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-5">
+
+                            <div
+                                class="text-xs font-bold text-darkgreen">
+
+                                PROJECT 01
+
+                            </div>
+
+
+                            <h3 class="mt-2 font-bold text-slate-800">
+
+                                Website Company Profile
+
+                            </h3>
+
+
+                            <p
+                                class="mt-2 text-sm leading-6 text-slate-500">
+
+                                Project website yang dibuat sebagai media
+                                informasi dan profil perusahaan.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PROJECT 2 -->
+
+                    <div
+                        class="group overflow-hidden rounded-2xl border border-lavender/70 bg-cream shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+
+                        <div
+                            class="relative h-44 overflow-hidden bg-lavender">
+
+
+                            <img
+                                src="assets/project2.png"
+                                alt="Project Alumni 2"
+                                class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+
+                            <div
+                                class="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-[11px] font-bold text-darkpurple shadow-sm">
+
+                                Sistem Informasi
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-5">
+
+                            <div
+                                class="text-xs font-bold text-darkpurple">
+
+                                PROJECT 02
+
+                            </div>
+
+
+                            <h3 class="mt-2 font-bold text-slate-800">
+
+                                Sistem Informasi Sekolah
+
+                            </h3>
+
+
+                            <p
+                                class="mt-2 text-sm leading-6 text-slate-500">
+
+                                Project aplikasi berbasis website untuk
+                                membantu pengelolaan informasi dan data sekolah.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PROJECT 3 -->
+
+                    <div
+                        class="group overflow-hidden rounded-2xl border border-sage/50 bg-cream shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+
+                        <div
+                            class="relative h-44 overflow-hidden bg-mint">
+
+
+                            <img
+                                src="assets/project3.png"
+                                alt="Project Alumni 3"
+                                class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+
+                            <div
+                                class="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-[11px] font-bold text-darkgreen shadow-sm">
+
+                                UI/UX
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-5">
+
+                            <div
+                                class="text-xs font-bold text-darkgreen">
+
+                                PROJECT 03
+
+                            </div>
+
+
+                            <h3 class="mt-2 font-bold text-slate-800">
+
+                                Perancangan UI/UX Website
+
+                            </h3>
+
+
+                            <p
+                                class="mt-2 text-sm leading-6 text-slate-500">
+
+                                Perancangan antarmuka dan pengalaman pengguna
+                                untuk kebutuhan aplikasi berbasis digital.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="mt-8 text-center">
+
+                    <a
+                        href="project.html"
+                        class="inline-flex items-center rounded-xl border border-lavender bg-white px-5 py-3 text-sm font-bold text-darkpurple transition hover:bg-lavender/30">
 
                         Lihat Semua Project →
 
@@ -846,24 +1360,48 @@
 
                 </div>
 
-    </div>
-</section>
+            </div>
+
+        </section>
 
 
 
-
-                <!-- =====================================================
-             KEGIATAN PKL
+        <!-- =====================================================
+             KEGIATAN
         ====================================================== -->
 
-        <section id="kegiatan" class="px-6 py-24">
+        <section
+            id="kegiatan"
+            class="relative overflow-hidden bg-mint/50 px-6 py-24">
 
-            <div class="mx-auto max-w-6xl">
 
-                <div class="max-w-2xl">
+            <!-- BUBBLES -->
+
+            <div
+                class="absolute -left-10 top-20 h-32 w-32 rounded-full border-2 border-greenmain/20">
+            </div>
+
+
+            <div
+                class="absolute right-10 top-12 h-20 w-20 rounded-full bg-lavender/50">
+            </div>
+
+
+            <div
+                class="absolute bottom-10 right-[30%] h-10 w-10 rotate-45 rounded-lg border border-purple/20">
+            </div>
+
+
+
+            <div class="relative z-10 mx-auto max-w-6xl">
+
+
+                <!-- HEADER -->
+
+                <div class="mx-auto max-w-3xl text-center">
 
                     <span
-                        class="text-sm font-bold uppercase tracking-widest text-darkgreen">
+                        class="inline-flex rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkgreen shadow-sm">
 
                         Kegiatan PKL dan Magang
 
@@ -871,20 +1409,23 @@
 
 
                     <h2
-                        class="mt-3 text-3xl font-extrabold text-slate-800 sm:text-4xl">
+                        class="mt-4 text-3xl font-extrabold text-slate-800 sm:text-4xl">
 
                         Selama PKL/Magang
 
                         <span class="text-darkpurple">
+
                             ngapain aja?
+
                         </span>
 
                     </h2>
 
 
-                    <p class="mt-4 leading-7 text-slate-500">
+                    <p
+                        class="mt-4 leading-7 text-slate-500">
 
-                        Berbagai kegiatan yang dilakukan peserta selama 
+                        Berbagai kegiatan yang dilakukan peserta selama
                         menjalani PKL maupun magang di lingkungan Access Media.
 
                     </p>
@@ -892,116 +1433,187 @@
                 </div>
 
 
-                <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+                <!-- CARDS -->
+
+                <div
+                    class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
 
                     <!-- 01 -->
 
                     <div
-                        class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        class="group rounded-2xl border border-white bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
 
-                        <div class="h-40 overflow-hidden rounded-xl">
+
+                        <div
+                            class="relative h-40 overflow-hidden rounded-xl">
+
+
                             <img
                                 src="assets/kegiatan1.jpeg"
                                 alt="Pengenalan Lingkungan Kerja"
-                                class="h-full w-full object-cover transition duration-500 hover:scale-105">
+                                class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+
+                            <span
+                                class="absolute left-3 top-3 rounded-lg bg-mint px-3 py-1 text-xs font-extrabold text-darkgreen">
+
+                                01
+
+                            </span>
+
                         </div>
 
-                        <div class="mt-5 text-xs font-bold text-darkgreen">
-                            01
-                        </div>
 
-                        <h3 class="mt-1 font-bold text-slate-800">
+                        <h3 class="mt-5 font-bold text-slate-800">
+
                             Pengenalan Lingkungan Kerja
+
                         </h3>
 
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-slate-500">
+
                             Mengenal lingkungan kerja, aturan, alur kegiatan,
                             serta pembagian tugas selama PKL.
+
                         </p>
 
                     </div>
+
 
 
                     <!-- 02 -->
 
                     <div
-                        class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        class="group rounded-2xl border border-white bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
 
-                        <div class="h-40 overflow-hidden rounded-xl">
+
+                        <div
+                            class="relative h-40 overflow-hidden rounded-xl">
+
+
                             <img
                                 src="assets/kita.jpeg"
                                 alt="Pengembangan Website"
-                                class="h-full w-full object-cover transition duration-500 hover:scale-105">
+                                class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+
+                            <span
+                                class="absolute left-3 top-3 rounded-lg bg-lavender px-3 py-1 text-xs font-extrabold text-darkpurple">
+
+                                02
+
+                            </span>
+
                         </div>
 
-                        <div class="mt-5 text-xs font-bold text-darkpurple">
-                            02
-                        </div>
 
-                        <h3 class="mt-1 font-bold text-slate-800">
+                        <h3 class="mt-5 font-bold text-slate-800">
+
                             Pengembangan Website
+
                         </h3>
 
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-slate-500">
+
                             Mengerjakan project website dan belajar proses
                             pengembangan aplikasi secara bertahap.
+
                         </p>
 
                     </div>
+
 
 
                     <!-- 03 -->
 
                     <div
-                        class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        class="group rounded-2xl border border-white bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
 
-                        <div class="h-40 overflow-hidden rounded-xl">
+
+                        <div
+                            class="relative h-40 overflow-hidden rounded-xl">
+
+
                             <img
                                 src="assets/kegiatan1.jpeg"
                                 alt="Desain UI/UX"
-                                class="h-full w-full object-cover transition duration-500 hover:scale-105">
+                                class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+
+                            <span
+                                class="absolute left-3 top-3 rounded-lg bg-lavender px-3 py-1 text-xs font-extrabold text-darkpurple">
+
+                                03
+
+                            </span>
+
                         </div>
 
-                        <div class="mt-5 text-xs font-bold text-darkpurple">
-                            03
-                        </div>
 
-                        <h3 class="mt-1 font-bold text-slate-800">
+                        <h3 class="mt-5 font-bold text-slate-800">
+
                             Desain UI/UX
+
                         </h3>
 
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-slate-500">
+
                             Membuat rancangan tampilan website yang menarik,
                             rapi, dan mudah digunakan.
+
                         </p>
 
                     </div>
 
 
+
                     <!-- 04 -->
 
                     <div
-                        class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        class="group rounded-2xl border border-white bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
 
-                        <div class="h-40 overflow-hidden rounded-xl">
+
+                        <div
+                            class="relative h-40 overflow-hidden rounded-xl">
+
+
                             <img
                                 src="assets/kita.jpeg"
                                 alt="Database & Backend"
-                                class="h-full w-full object-cover transition duration-500 hover:scale-105">
+                                class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+
+
+                            <span
+                                class="absolute left-3 top-3 rounded-lg bg-mint px-3 py-1 text-xs font-extrabold text-darkgreen">
+
+                                04
+
+                            </span>
+
                         </div>
 
-                        <div class="mt-5 text-xs font-bold text-darkgreen">
-                            04
-                        </div>
 
-                        <h3 class="mt-1 font-bold text-slate-800">
+                        <h3 class="mt-5 font-bold text-slate-800">
+
                             Database & Backend
+
                         </h3>
 
-                        <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-slate-500">
+
                             Mengenal database, pengelolaan data, serta proses
                             backend dalam sebuah aplikasi.
+
                         </p>
 
                     </div>
@@ -1010,12 +1622,11 @@
 
 
 
-
-
                 <div class="mt-8 text-center">
 
-                    <a href="#kegiatan"
-                        class="inline-flex rounded-xl border border-lavender bg-white px-5 py-3 text-sm font-bold text-darkpurple transition hover:bg-lavender/20">
+                    <a
+                        href="dokumentasi.html"
+                        class="inline-flex items-center rounded-xl bg-white px-5 py-3 text-sm font-bold text-darkpurple shadow-sm ring-1 ring-lavender transition hover:bg-lavender/20">
 
                         Lihat Semua Dokumentasi →
 
@@ -1029,366 +1640,452 @@
 
 
 
-<!-- ==================== INSTANSI ==================== -->
-<section id="instansi" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <!-- =====================================================
+             INSTANSI
+        ====================================================== -->
 
-        <!-- Heading -->
-        <div class="max-w-3xl mb-10">
-            <p class="text-sm font-bold tracking-[0.18em] text-[#527C62] uppercase mb-4">
-                Instansi
-            </p>
-
-            <h2 class="text-4xl md:text-4xl font-extrabold leading-tight text-[#1E293B]">
-                Instansi yang telah
-                <span class="text-[#7654A5]">bekerja sama.</span>
-            </h2>
-
-            <p class="mt-5 text-md leading-8 text-[#58708F]">
-                Access Media menjadi tempat belajar dan berkembang bagi peserta
-                dari berbagai sekolah maupun perguruan tinggi.
-            </p>
-        </div>
+        <section
+            id="instansi"
+            class="relative overflow-hidden bg-white py-20">
 
 
-        <!-- ==================== CAROUSEL ==================== -->
-        <div class="relative">
+            <!-- GEOMETRIC BACKGROUND -->
 
-            <!-- Tombol Previous -->
-            <button
-                id="prevInstansi"
-                type="button"
-                aria-label="Instansi sebelumnya"
-                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2
-                       z-10 w-11 h-11 rounded-full bg-white
-                       border border-slate-200 shadow-md
-                       flex items-center justify-center
-                       text-[#7654A5] hover:bg-[#7654A5] hover:text-white
-                       transition duration-200
-                       disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     class="w-5 h-5"
-                     fill="none"
-                     viewBox="0 0 24 24"
-                     stroke="currentColor"
-                     stroke-width="2">
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-
-
-            <!-- Area Carousel -->
-            <div class="overflow-hidden px-2">
-                <div
-                    id="instansiTrack"
-                    class="flex gap-6 transition-transform duration-500 ease-out"
-                >
-
-                    <!-- CARD 1 -->
-                    <div class="instansi-card shrink-0 w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
-                        <div class="h-full min-h-[245px] rounded-2xl border border-slate-200
-                                    bg-white p-7 shadow-sm
-                                    hover:-translate-y-1 hover:shadow-md
-                                    transition duration-300">
-
-                            <div class="h-full flex flex-col items-center text-center">
-
-                                <!-- Logo -->
-                                <div class="w-20 h-20 rounded-2xl bg-[#E5F2EA]
-                                            flex items-center justify-center mb-6">
-                                    <span class="text-2xl font-extrabold text-[#527C62]">
-                                        S
-                                    </span>
-                                </div>
-
-                                <!-- Nama -->
-                                <h3 class="text-xl font-bold text-[#17253A]">
-                                    SMKN 3 Banjar
-                                </h3>
-
-                                <p class="mt-2 text-sm text-[#71829A]">
-                                    Sekolah
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- CARD 2 -->
-                    <div class="instansi-card shrink-0 w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
-                        <div class="h-full min-h-[245px] rounded-2xl border border-slate-200
-                                    bg-white p-7 shadow-sm
-                                    hover:-translate-y-1 hover:shadow-md
-                                    transition duration-300">
-
-                            <div class="h-full flex flex-col items-center text-center">
-
-                                <!-- Logo -->
-                                <div class="w-20 h-20 rounded-2xl bg-[#E2D5F4]
-                                            flex items-center justify-center mb-6">
-                                    <span class="text-2xl font-extrabold text-[#7654A5]">
-                                        S
-                                    </span>
-                                </div>
-
-                                <!-- Nama -->
-                                <h3 class="text-xl font-bold text-[#17253A]">
-                                    SMK Negeri X
-                                </h3>
-
-                                <p class="mt-2 text-sm text-[#71829A]">
-                                    Sekolah
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- CARD 3 -->
-                    <div class="instansi-card shrink-0 w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
-                        <div class="h-full min-h-[245px] rounded-2xl border border-slate-200
-                                    bg-white p-7 shadow-sm
-                                    hover:-translate-y-1 hover:shadow-md
-                                    transition duration-300">
-
-                            <div class="h-full flex flex-col items-center text-center">
-
-                                <!-- Logo -->
-                                <div class="w-20 h-20 rounded-2xl bg-[#E5F2EA]
-                                            flex items-center justify-center mb-6">
-                                    <span class="text-2xl font-extrabold text-[#527C62]">
-                                        S
-                                    </span>
-                                </div>
-
-                                <!-- Nama -->
-                                <h3 class="text-xl font-bold text-[#17253A]">
-                                    SMK Negeri Y
-                                </h3>
-
-                                <p class="mt-2 text-sm text-[#71829A]">
-                                    Sekolah
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- CARD 4 -->
-                    <div class="instansi-card shrink-0 w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
-                        <div class="h-full min-h-[245px] rounded-2xl border border-slate-200
-                                    bg-white p-7 shadow-sm
-                                    hover:-translate-y-1 hover:shadow-md
-                                    transition duration-300">
-
-                            <div class="h-full flex flex-col items-center text-center">
-
-                                <div class="w-20 h-20 rounded-2xl bg-[#E2D5F4]
-                                            flex items-center justify-center mb-6">
-                                    <span class="text-2xl font-extrabold text-[#7654A5]">
-                                        S
-                                    </span>
-                                </div>
-
-                                <h3 class="text-xl font-bold text-[#17253A]">
-                                    SMK Negeri Z
-                                </h3>
-
-                                <p class="mt-2 text-sm text-[#71829A]">
-                                    Sekolah
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- CARD 5 -->
-                    <div class="instansi-card shrink-0 w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
-                        <div class="h-full min-h-[245px] rounded-2xl border border-slate-200
-                                    bg-white p-7 shadow-sm
-                                    hover:-translate-y-1 hover:shadow-md
-                                    transition duration-300">
-
-                            <div class="h-full flex flex-col items-center text-center">
-
-                                <div class="w-20 h-20 rounded-2xl bg-[#E5F2EA]
-                                            flex items-center justify-center mb-6">
-                                    <span class="text-2xl font-extrabold text-[#527C62]">
-                                        U
-                                    </span>
-                                </div>
-
-                                <h3 class="text-xl font-bold text-[#17253A]">
-                                    Universitas Contoh
-                                </h3>
-
-                                <p class="mt-2 text-sm text-[#71829A]">
-                                    Perguruan Tinggi
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- CARD 6 -->
-                    <div class="instansi-card shrink-0 w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
-                        <div class="h-full min-h-[245px] rounded-2xl border border-slate-200
-                                    bg-white p-7 shadow-sm
-                                    hover:-translate-y-1 hover:shadow-md
-                                    transition duration-300">
-
-                            <div class="h-full flex flex-col items-center text-center">
-
-                                <div class="w-20 h-20 rounded-2xl bg-[#E2D5F4]
-                                            flex items-center justify-center mb-6">
-                                    <span class="text-2xl font-extrabold text-[#7654A5]">
-                                        P
-                                    </span>
-                                </div>
-
-                                <h3 class="text-xl font-bold text-[#17253A]">
-                                    Politeknik Contoh
-                                </h3>
-
-                                <p class="mt-2 text-sm text-[#71829A]">
-                                    Perguruan Tinggi
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div
+                class="square-pattern absolute right-0 top-0 h-72 w-72 opacity-40">
             </div>
 
 
-            <!-- Tombol Next -->
-            <button
-                id="nextInstansi"
-                type="button"
-                aria-label="Instansi berikutnya"
-                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2
-                       z-10 w-11 h-11 rounded-full bg-white
-                       border border-slate-200 shadow-md
-                       flex items-center justify-center
-                       text-[#7654A5] hover:bg-[#7654A5] hover:text-white
-                       transition duration-200
-                       disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     class="w-5 h-5"
-                     fill="none"
-                     viewBox="0 0 24 24"
-                     stroke="currentColor"
-                     stroke-width="2">
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
-
-        </div>
+            <div
+                class="absolute -left-12 bottom-8 h-32 w-32 rounded-full border-2 border-lavender/50">
+            </div>
 
 
-        <!-- Indicator -->
-        <div class="flex items-center justify-center gap-4 mt-8">
-
-            <button
-                id="prevInstansiBottom"
-                type="button"
-                class="text-sm font-semibold text-[#7654A5]
-                       hover:underline disabled:opacity-40"
-            >
-                ← Previous
-            </button>
-
-            <span
-                id="instansiCounter"
-                class="text-sm font-semibold text-[#71829A]"
-            >
-                1 / 2
-            </span>
-
-            <button
-                id="nextInstansiBottom"
-                type="button"
-                class="text-sm font-semibold text-[#7654A5]
-                       hover:underline disabled:opacity-40"
-            >
-                Next →
-            </button>
-
-        </div>
-
-    </div>
-</section>
-
-
-
-
-        <!-- =====================================================
-             CTA
-        ====================================================== -->
-
-        <section id="kontak" class="px-6 py-24">
 
             <div
-                class="mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-mint via-white to-lavender p-8 sm:p-12">
+                class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
 
 
-                <div class="max-w-2xl">
+                <!-- HEADER -->
+
+                <div class="mb-10 max-w-3xl">
 
                     <span
-                        class="text-sm font-bold uppercase tracking-widest text-darkgreen">
+                        class="inline-flex rounded-full bg-lavender px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkpurple">
 
-                        Mulai Langkahmu
+                        Instansi
 
                     </span>
 
 
                     <h2
-                        class="mt-3 text-3xl font-extrabold text-slate-800 sm:text-4xl">
+                        class="mt-4 text-4xl font-extrabold leading-tight text-slate-800">
 
-                        Siap mendapatkan pengalaman
+                        Instansi yang telah
 
-                        <span class="text-darkpurple">
-                            di dunia kerja?
+                        <span class="brand-gradient">
+
+                            bekerja sama.
+
                         </span>
 
                     </h2>
 
 
-                    <p class="mt-4 leading-7 text-slate-500">
+                    <p
+                        class="mt-5 text-base leading-8 text-slate-500">
 
-                        Kenali lebih jauh kegiatan, project, dan 
-                        pengalaman peserta PKL maupun magang di Access Media.
+                        Access Media menjadi tempat belajar dan berkembang
+                        bagi peserta dari berbagai sekolah maupun perguruan tinggi.
 
                     </p>
 
-
-                    <div class="mt-7 flex flex-wrap gap-3">
-
-
-                        <!-- HIJAU -->
-
-                        <a href="#kontak"
-                            class="rounded-xl bg-darkgreen px-5 py-3 text-sm font-bold text-white transition hover:bg-greenmain">
-
-                            Hubungi Kami
-
-                        </a>
+                </div>
 
 
-                    
+
+                <!-- CAROUSEL -->
+
+                <div class="relative">
+
+
+                    <!-- PREV -->
+
+                    <button
+                        id="prevInstansi"
+                        type="button"
+                        aria-label="Instansi sebelumnya"
+                        class="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-darkpurple shadow-lg ring-1 ring-lavender transition hover:bg-darkpurple hover:text-white disabled:cursor-not-allowed disabled:opacity-40">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15 19l-7-7 7-7" />
+
+                        </svg>
+
+                    </button>
+
+
+
+                    <!-- TRACK -->
+
+                    <div class="overflow-hidden px-2">
+
+                        <div
+                            id="instansiTrack"
+                            class="flex gap-6 transition-transform duration-500 ease-out">
+
+
+                            <!-- CARD 1 -->
+
+                            <div
+                                class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+
+                                <div
+                                    class="min-h-[245px] rounded-2xl border border-sage/60 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                                    <div
+                                        class="flex h-full flex-col items-center text-center">
+
+                                        <div
+                                            class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-mint">
+
+                                            <span
+                                                class="text-2xl font-extrabold text-darkgreen">
+
+                                                S
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <h3
+                                            class="text-xl font-bold text-slate-800">
+
+                                            SMKN 3 Banjar
+
+                                        </h3>
+
+
+                                        <p class="mt-2 text-sm text-slate-500">
+
+                                            Sekolah
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- CARD 2 -->
+
+                            <div
+                                class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+
+                                <div
+                                    class="min-h-[245px] rounded-2xl border border-lavender/70 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                                    <div
+                                        class="flex h-full flex-col items-center text-center">
+
+                                        <div
+                                            class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-lavender">
+
+                                            <span
+                                                class="text-2xl font-extrabold text-darkpurple">
+
+                                                S
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <h3
+                                            class="text-xl font-bold text-slate-800">
+
+                                            SMK Negeri X
+
+                                        </h3>
+
+
+                                        <p class="mt-2 text-sm text-slate-500">
+
+                                            Sekolah
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- CARD 3 -->
+
+                            <div
+                                class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+
+                                <div
+                                    class="min-h-[245px] rounded-2xl border border-sage/60 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                                    <div
+                                        class="flex h-full flex-col items-center text-center">
+
+                                        <div
+                                            class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-mint">
+
+                                            <span
+                                                class="text-2xl font-extrabold text-darkgreen">
+
+                                                S
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <h3
+                                            class="text-xl font-bold text-slate-800">
+
+                                            SMK Negeri Y
+
+                                        </h3>
+
+
+                                        <p class="mt-2 text-sm text-slate-500">
+
+                                            Sekolah
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- CARD 4 -->
+
+                            <div
+                                class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+
+                                <div
+                                    class="min-h-[245px] rounded-2xl border border-lavender/70 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                                    <div
+                                        class="flex h-full flex-col items-center text-center">
+
+                                        <div
+                                            class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-lavender">
+
+                                            <span
+                                                class="text-2xl font-extrabold text-darkpurple">
+
+                                                S
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <h3
+                                            class="text-xl font-bold text-slate-800">
+
+                                            SMK Negeri Z
+
+                                        </h3>
+
+
+                                        <p class="mt-2 text-sm text-slate-500">
+
+                                            Sekolah
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- CARD 5 -->
+
+                            <div
+                                class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+
+                                <div
+                                    class="min-h-[245px] rounded-2xl border border-sage/60 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                                    <div
+                                        class="flex h-full flex-col items-center text-center">
+
+                                        <div
+                                            class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-mint">
+
+                                            <span
+                                                class="text-2xl font-extrabold text-darkgreen">
+
+                                                U
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <h3
+                                            class="text-xl font-bold text-slate-800">
+
+                                            Universitas Contoh
+
+                                        </h3>
+
+
+                                        <p class="mt-2 text-sm text-slate-500">
+
+                                            Perguruan Tinggi
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- CARD 6 -->
+
+                            <div
+                                class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+
+                                <div
+                                    class="min-h-[245px] rounded-2xl border border-lavender/70 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                                    <div
+                                        class="flex h-full flex-col items-center text-center">
+
+                                        <div
+                                            class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-lavender">
+
+                                            <span
+                                                class="text-2xl font-extrabold text-darkpurple">
+
+                                                P
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <h3
+                                            class="text-xl font-bold text-slate-800">
+
+                                            Politeknik Contoh
+
+                                        </h3>
+
+
+                                        <p class="mt-2 text-sm text-slate-500">
+
+                                            Perguruan Tinggi
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
+
+
+                    <!-- NEXT -->
+
+                    <button
+                        id="nextInstansi"
+                        type="button"
+                        aria-label="Instansi berikutnya"
+                        class="absolute right-0 top-1/2 z-20 flex h-11 w-11 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-darkpurple shadow-lg ring-1 ring-lavender transition hover:bg-darkpurple hover:text-white disabled:cursor-not-allowed disabled:opacity-40">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9 5l7 7-7 7" />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- COUNTER -->
+
+                <div
+                    class="mt-8 flex items-center justify-center gap-4">
+
+                    <button
+                        id="prevInstansiBottom"
+                        type="button"
+                        class="text-sm font-semibold text-darkpurple transition hover:text-purple disabled:opacity-40">
+
+                        ← Previous
+
+                    </button>
+
+
+                    <span
+                        id="instansiCounter"
+                        class="rounded-full bg-lavender/50 px-4 py-1.5 text-sm font-bold text-darkpurple">
+
+                        1 / 2
+
+                    </span>
+
+
+                    <button
+                        id="nextInstansiBottom"
+                        type="button"
+                        class="text-sm font-semibold text-darkpurple transition hover:text-purple disabled:opacity-40">
+
+                        Next →
+
+                    </button>
 
                 </div>
 
@@ -1397,8 +2094,140 @@
         </section>
 
 
-    </main>
 
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section
+            id="kontak"
+            class="relative overflow-hidden px-6 py-24">
+
+
+            <!-- BACKGROUND BUBBLES -->
+
+            <div
+                class="absolute left-[8%] top-10 h-36 w-36 rounded-full bg-sage/50">
+            </div>
+
+
+            <div
+                class="absolute right-[8%] bottom-8 h-48 w-48 rounded-full bg-lavender/60">
+            </div>
+
+
+            <div
+                class="absolute left-[25%] bottom-10 h-10 w-10 rounded-full border-2 border-purple/30">
+            </div>
+
+
+            <div
+                class="absolute right-[30%] top-8 h-12 w-12 rotate-45 rounded-lg border-2 border-greenmain/25">
+            </div>
+
+
+
+            <div
+                class="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white bg-gradient-to-r from-mint to-lavender p-1 shadow-xl">
+
+
+                <div
+                    class="relative overflow-hidden rounded-[1.85rem] bg-white px-8 py-12 text-center sm:px-12">
+
+
+                    <!-- PATTERN -->
+
+                    <div
+                        class="dot-pattern absolute inset-0 opacity-40">
+                    </div>
+
+
+                    <!-- DECORATIVE BUBBLES -->
+
+                    <div
+                        class="absolute -left-16 -top-16 h-40 w-40 rounded-full bg-sage/50">
+                    </div>
+
+
+                    <div
+                        class="absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-lavender/60">
+                    </div>
+
+
+                    <div
+                        class="relative z-10 mx-auto max-w-3xl">
+
+
+                        <span
+                            class="inline-flex rounded-full bg-mint px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkgreen">
+
+                            Mulai Langkahmu
+
+                        </span>
+
+
+                        <h2
+                            class="mt-4 text-3xl font-extrabold text-slate-800 sm:text-4xl">
+
+                            Siap mendapatkan pengalaman
+
+                            <span class="brand-gradient">
+
+                                di dunia kerja?
+
+                            </span>
+
+                        </h2>
+
+
+                        <p
+                            class="mx-auto mt-4 max-w-2xl leading-7 text-slate-500">
+
+                            Kenali lebih jauh kegiatan, project, dan pengalaman
+                            peserta PKL maupun magang di Access Media.
+
+                        </p>
+
+
+                        <div class="mt-7 flex justify-center">
+
+                            <a
+                                href="#kontak"
+                                class="rounded-xl bg-darkpurple px-6 py-3 text-sm font-bold text-white shadow-md shadow-purple/20 transition hover:-translate-y-0.5 hover:bg-purple">
+
+                                Hubungi Kami
+
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="mt-8 flex items-center justify-center gap-2">
+
+                            <span
+                                class="h-1 w-10 rounded-full bg-greenmain">
+                            </span>
+
+                            <span
+                                class="h-1 w-16 rounded-full bg-purple">
+                            </span>
+
+                            <span
+                                class="h-1 w-10 rounded-full bg-greenmain">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
 
 
 
@@ -1406,9 +2235,12 @@
          FOOTER
     ====================================================== -->
 
-    <footer class="border-t border-slate-100 bg-white">
+    <footer
+        class="border-t border-slate-100 bg-white">
 
-        <div class="mx-auto max-w-6xl px-6 py-10">
+        <div
+            class="mx-auto max-w-6xl px-6 py-10">
+
 
             <div class="grid gap-8 md:grid-cols-2">
 
@@ -1420,20 +2252,26 @@
                     <div class="flex items-center gap-3">
 
                         <div
-                            class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sage to-lavender font-extrabold text-darkpurple">
+                            class="flex h-10 w-10 items-center justify-center rounded-xl bg-darkpurple font-extrabold text-white">
 
                             A
 
                         </div>
 
+
                         <div>
 
                             <h3 class="font-extrabold text-slate-800">
+
                                 Access Internship
+
                             </h3>
 
+
                             <p class="text-xs text-slate-400">
+
                                 CV Access Media
+
                             </p>
 
                         </div>
@@ -1441,11 +2279,12 @@
                     </div>
 
 
-                    <p class="mt-4 max-w-md text-sm leading-6 text-slate-500">
+                    <p
+                        class="mt-4 max-w-md text-sm leading-6 text-slate-500">
 
-                        Portal informasi PKL dan magang bagi siswa serta mahasiswa.
-                        Access Media juga menyediakan les private sebagai
-                        layanan pembelajaran tambahan.
+                        Portal informasi PKL dan magang bagi siswa serta
+                        mahasiswa. Access Media juga menyediakan les private
+                        sebagai layanan pembelajaran tambahan.
 
                     </p>
 
@@ -1453,36 +2292,54 @@
 
 
 
-
-                <!-- LINKS -->
+                <!-- NAV -->
 
                 <div>
 
                     <h3 class="font-bold text-slate-800">
+
                         Navigasi
+
                     </h3>
 
 
-                    <div class="mt-4 grid grid-cols-2 gap-3 text-sm text-slate-500">
+                    <div
+                        class="mt-4 grid grid-cols-2 gap-3 text-sm text-slate-500">
 
-                        <a href="#tentang"
+
+                        <a
+                            href="#tentang"
                             class="transition hover:text-darkpurple">
+
                             Tentang
+
                         </a>
 
-                        <a href="#arsip"
+
+                        <a
+                            href="#arsip"
                             class="transition hover:text-darkgreen">
+
                             Arsip Project
+
                         </a>
 
-                        <a href="#kegiatan"
+
+                        <a
+                            href="#kegiatan"
                             class="transition hover:text-darkpurple">
+
                             Kegiatan
+
                         </a>
 
-                        <a href="#instansi"
-                            class="transition hover:text-darkpurple">
+
+                        <a
+                            href="#instansi"
+                            class="transition hover:text-darkgreen">
+
                             Instansi
+
                         </a>
 
                     </div>
@@ -1490,6 +2347,7 @@
                 </div>
 
             </div>
+
 
 
             <div
@@ -1505,30 +2363,39 @@
 
 
 
-
     <!-- =====================================================
-         JAVASCRIPT NAVBAR
+         JAVASCRIPT
     ====================================================== -->
 
     <script>
 
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
         document.addEventListener("DOMContentLoaded", function () {
 
-            const menuButton = document.getElementById("menuButton");
-            const mobileMenu = document.getElementById("mobileMenu");
-            const menuIcon = document.getElementById("menuIcon");
+            const menuButton =
+                document.getElementById("menuButton");
 
-            const navLinks = document.querySelectorAll(".nav-link");
-            const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+            const mobileMenu =
+                document.getElementById("mobileMenu");
 
-            const sections = document.querySelectorAll(
-                "#beranda, #tentang, #arsip, #kegiatan, #instansi"
-            );
+            const menuIcon =
+                document.getElementById("menuIcon");
 
+            const navLinks =
+                document.querySelectorAll(".nav-link");
 
-            /* =====================================================
-               SET ACTIVE NAVBAR
-            ====================================================== */
+            const mobileNavLinks =
+                document.querySelectorAll(".mobile-nav-link");
+
+            const sections =
+                document.querySelectorAll(
+                    "#beranda, #tentang, #arsip, #kegiatan, #instansi"
+                );
+
 
             function setActive(sectionId) {
 
@@ -1537,44 +2404,77 @@
 
                 navLinks.forEach(function (link) {
 
-                    const line = link.querySelector(".nav-line");
+                    const line =
+                        link.querySelector(".nav-line");
 
-                    link.classList.remove("text-darkgreen");
-                    link.classList.add("text-slate-600");
+
+                    link.classList.remove(
+                        "text-darkpurple"
+                    );
+
+                    link.classList.add(
+                        "text-slate-600"
+                    );
 
                     line.classList.add("hidden");
 
 
-                    if (link.dataset.section === sectionId) {
+                    if (
+                        link.dataset.section === sectionId
+                    ) {
 
-                        link.classList.remove("text-slate-600");
-                        link.classList.add("text-darkgreen");
+                        link.classList.remove(
+                            "text-slate-600"
+                        );
 
-                        line.classList.remove("hidden");
+                        link.classList.add(
+                            "text-darkpurple"
+                        );
+
+                        line.classList.remove(
+                            "hidden"
+                        );
 
                     }
 
                 });
 
 
+
                 /* MOBILE */
 
                 mobileNavLinks.forEach(function (link) {
 
-                    const line = link.querySelector(".mobile-line");
+                    const line =
+                        link.querySelector(".mobile-line");
 
-                    link.classList.remove("text-darkgreen");
-                    link.classList.add("text-slate-600");
+
+                    link.classList.remove(
+                        "text-darkpurple"
+                    );
+
+                    link.classList.add(
+                        "text-slate-600"
+                    );
 
                     line.classList.add("hidden");
 
 
-                    if (link.dataset.section === sectionId) {
+                    if (
+                        link.dataset.section === sectionId
+                    ) {
 
-                        link.classList.remove("text-slate-600");
-                        link.classList.add("text-darkgreen");
+                        link.classList.remove(
+                            "text-slate-600"
+                        );
 
-                        line.classList.remove("hidden");
+                        link.classList.add(
+                            "text-darkpurple"
+                        );
+
+                        line.classList.remove(
+                            "hidden"
+                        );
 
                     }
 
@@ -1584,279 +2484,412 @@
 
 
 
-            /* =====================================================
-               HAMBURGER
-            ====================================================== */
+            /* HAMBURGER */
 
-            menuButton.addEventListener("click", function () {
+            menuButton.addEventListener(
+                "click",
+                function () {
 
-                const menuIsClosed =
-                    mobileMenu.classList.contains("hidden");
+                    const isClosed =
+                        mobileMenu.classList.contains(
+                            "hidden"
+                        );
 
 
-                if (menuIsClosed) {
+                    if (isClosed) {
 
-                    /* BUKA */
+                        mobileMenu.classList.remove(
+                            "hidden"
+                        );
 
-                    mobileMenu.classList.remove("hidden");
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
 
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
 
-                    menuIcon.innerHTML = `
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M6 18L18 6M6 6l12 12" />
-                    `;
+                        menuIcon.innerHTML = `
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12" />
+                        `;
 
-                } else {
+                    } else {
 
-                    /* TUTUP */
+                        mobileMenu.classList.add(
+                            "hidden"
+                        );
 
-                    mobileMenu.classList.add("hidden");
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
 
-                    menuIcon.innerHTML = `
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    `;
+                        menuIcon.innerHTML = `
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        `;
+
+                    }
 
                 }
-
-            });
-
-
-
-            /* =====================================================
-               MOBILE MENU - KLIK LINK
-            ====================================================== */
-
-            mobileNavLinks.forEach(function (link) {
-
-                link.addEventListener("click", function () {
-
-                    /* Aktifkan */
-
-                    setActive(link.dataset.section);
-
-
-                    /* Tutup menu */
-
-                    mobileMenu.classList.add("hidden");
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                    /* Kembalikan icon */
-
-                    menuIcon.innerHTML = `
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    `;
-
-                });
-
-            });
-
-
-
-            /* =====================================================
-               DESKTOP MENU - KLIK
-            ====================================================== */
-
-            navLinks.forEach(function (link) {
-
-                link.addEventListener("click", function () {
-
-                    setActive(link.dataset.section);
-
-                });
-
-            });
-
-
-
-            /* =====================================================
-               ACTIVE SAAT SCROLL
-            ====================================================== */
-
-            const observer = new IntersectionObserver(
-
-                function (entries) {
-
-                    entries.forEach(function (entry) {
-
-                        if (entry.isIntersecting) {
-
-                            setActive(entry.target.id);
-
-                        }
-
-                    });
-
-                },
-
-                {
-                    rootMargin: "-30% 0px -55% 0px",
-                    threshold: 0
-                }
-
             );
 
 
-            sections.forEach(function (section) {
 
-                observer.observe(section);
+            /* MOBILE LINK */
 
-            });
+            mobileNavLinks.forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            setActive(
+                                link.dataset.section
+                            );
+
+
+                            mobileMenu.classList.add(
+                                "hidden"
+                            );
+
+
+                            menuButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                            menuIcon.innerHTML = `
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            `;
+
+                        }
+                    );
+
+                }
+            );
 
 
 
-            /* =====================================================
-               DEFAULT
-            ====================================================== */
+            /* DESKTOP LINK */
+
+            navLinks.forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            setActive(
+                                link.dataset.section
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+            /* INTERSECTION OBSERVER */
+
+            const observer =
+                new IntersectionObserver(
+                    function (entries) {
+
+                        entries.forEach(
+                            function (entry) {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    setActive(
+                                        entry.target.id
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    },
+                    {
+                        rootMargin:
+                            "-30% 0px -55% 0px",
+
+                        threshold: 0
+                    }
+                );
+
+
+            sections.forEach(
+                function (section) {
+
+                    observer.observe(section);
+
+                }
+            );
+
 
             setActive("beranda");
 
         });
 
-        <!-- ==================== CAROUSEL SCRIPT ==================== -->
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const track = document.getElementById("instansiTrack");
-    const cards = document.querySelectorAll(".instansi-card");
-
-    const prevButton = document.getElementById("prevInstansi");
-    const nextButton = document.getElementById("nextInstansi");
-
-    const prevBottom = document.getElementById("prevInstansiBottom");
-    const nextBottom = document.getElementById("nextInstansiBottom");
-
-    const counter = document.getElementById("instansiCounter");
-
-    let currentPage = 0;
 
 
-    function getItemsPerPage() {
+        /* =====================================================
+           CAROUSEL INSTANSI
+        ====================================================== */
 
-        if (window.innerWidth >= 1024) {
-            return 3; // Desktop
-        }
-
-        if (window.innerWidth >= 768) {
-            return 2; // Tablet
-        }
-
-        return 1; // Mobile
-    }
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
 
-    function getTotalPages() {
-
-        const itemsPerPage = getItemsPerPage();
-
-        return Math.ceil(cards.length / itemsPerPage);
-    }
+                const track =
+                    document.getElementById(
+                        "instansiTrack"
+                    );
 
 
-    function updateCarousel() {
-
-        const itemsPerPage = getItemsPerPage();
-        const totalPages = getTotalPages();
-
-        // Jika resize dan posisi terlalu jauh
-        if (currentPage >= totalPages) {
-            currentPage = totalPages - 1;
-        }
-
-        /*
-         * Karena ukuran card sudah responsive,
-         * kita hitung posisi berdasarkan card pertama
-         * dari setiap halaman.
-         */
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 24;
-
-        const moveDistance =
-            currentPage * itemsPerPage * (cardWidth + gap);
-
-        track.style.transform =
-            `translateX(-${moveDistance}px)`;
+                const cards =
+                    document.querySelectorAll(
+                        ".instansi-card"
+                    );
 
 
-        // Counter
-        counter.textContent =
-            `${currentPage + 1} / ${totalPages}`;
+                const prevButton =
+                    document.getElementById(
+                        "prevInstansi"
+                    );
 
 
-        // Disable tombol
-        const isFirst = currentPage === 0;
-        const isLast = currentPage === totalPages - 1;
-
-        prevButton.disabled = isFirst;
-        prevBottom.disabled = isFirst;
-
-        nextButton.disabled = isLast;
-        nextBottom.disabled = isLast;
-    }
+                const nextButton =
+                    document.getElementById(
+                        "nextInstansi"
+                    );
 
 
-    function nextSlide() {
-
-        const totalPages = getTotalPages();
-
-        if (currentPage < totalPages - 1) {
-            currentPage++;
-            updateCarousel();
-        }
-    }
+                const prevBottom =
+                    document.getElementById(
+                        "prevInstansiBottom"
+                    );
 
 
-    function prevSlide() {
-
-        if (currentPage > 0) {
-            currentPage--;
-            updateCarousel();
-        }
-    }
+                const nextBottom =
+                    document.getElementById(
+                        "nextInstansiBottom"
+                    );
 
 
-    // Tombol
-    nextButton.addEventListener("click", nextSlide);
-    nextBottom.addEventListener("click", nextSlide);
-
-    prevButton.addEventListener("click", prevSlide);
-    prevBottom.addEventListener("click", prevSlide);
+                const counter =
+                    document.getElementById(
+                        "instansiCounter"
+                    );
 
 
-    // Responsive saat ukuran browser berubah
-    window.addEventListener("resize", function () {
-        updateCarousel();
-    });
+                let currentPage = 0;
 
 
-    // Initial
-    updateCarousel();
 
-});
+                function getItemsPerPage() {
+
+                    if (
+                        window.innerWidth >= 1024
+                    ) {
+
+                        return 4;
+
+                    }
+
+
+                    if (
+                        window.innerWidth >= 768
+                    ) {
+
+                        return 2;
+
+                    }
+
+
+                    return 1;
+
+                }
+
+
+
+                function getTotalPages() {
+
+                    const itemsPerPage =
+                        getItemsPerPage();
+
+
+                    return Math.ceil(
+                        cards.length /
+                        itemsPerPage
+                    );
+
+                }
+
+
+
+                function updateCarousel() {
+
+                    const itemsPerPage =
+                        getItemsPerPage();
+
+
+                    const totalPages =
+                        getTotalPages();
+
+
+                    if (
+                        currentPage >= totalPages
+                    ) {
+
+                        currentPage =
+                            totalPages - 1;
+
+                    }
+
+
+                    if (currentPage < 0) {
+
+                        currentPage = 0;
+
+                    }
+
+
+                    const cardWidth =
+                        cards[0].offsetWidth;
+
+
+                    const gap = 24;
+
+
+                    const moveDistance =
+                        currentPage *
+                        itemsPerPage *
+                        (cardWidth + gap);
+
+
+                    track.style.transform =
+                        `translateX(-${moveDistance}px)`;
+
+
+                    counter.textContent =
+                        `${currentPage + 1} / ${totalPages}`;
+
+
+                    const isFirst =
+                        currentPage === 0;
+
+
+                    const isLast =
+                        currentPage === totalPages - 1;
+
+
+                    prevButton.disabled =
+                        isFirst;
+
+                    prevBottom.disabled =
+                        isFirst;
+
+                    nextButton.disabled =
+                        isLast;
+
+                    nextBottom.disabled =
+                        isLast;
+
+                }
+
+
+
+                function nextSlide() {
+
+                    const totalPages =
+                        getTotalPages();
+
+
+                    if (
+                        currentPage <
+                        totalPages - 1
+                    ) {
+
+                        currentPage++;
+
+                        updateCarousel();
+
+                    }
+
+                }
+
+
+
+                function prevSlide() {
+
+                    if (
+                        currentPage > 0
+                    ) {
+
+                        currentPage--;
+
+                        updateCarousel();
+
+                    }
+
+                }
+
+
+
+                nextButton.addEventListener(
+                    "click",
+                    nextSlide
+                );
+
+
+                nextBottom.addEventListener(
+                    "click",
+                    nextSlide
+                );
+
+
+                prevButton.addEventListener(
+                    "click",
+                    prevSlide
+                );
+
+
+                prevBottom.addEventListener(
+                    "click",
+                    prevSlide
+                );
+
+
+                window.addEventListener(
+                    "resize",
+                    updateCarousel
+                );
+
+
+                updateCarousel();
+
+            }
+        );
 
     </script>
-
 
 </body>
 

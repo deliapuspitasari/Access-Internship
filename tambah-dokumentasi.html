@@ -7,11 +7,10 @@
 
     <title>Tambah Dokumentasi | Access Internship</title>
 
-    <!-- =====================================================
-         TAILWIND CSS
-    ====================================================== -->
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    </script>
 
     <script>
         tailwind.config = {
@@ -41,11 +40,6 @@
         };
     </script>
 
-
-    <!-- =====================================================
-         CUSTOM CSS
-    ====================================================== -->
-
     <style>
 
         * {
@@ -62,10 +56,7 @@
             background: #F8FAF9;
         }
 
-
-        /* =================================================
-           BACKGROUND
-        ================================================== */
+        /* BACKGROUND */
 
         .dashboard-bg {
             background:
@@ -82,10 +73,7 @@
                 #F8FAF9;
         }
 
-
-        /* =================================================
-           SHADOW
-        ================================================== */
+        /* SHADOW */
 
         .soft-shadow {
             box-shadow:
@@ -93,10 +81,7 @@
                 0 1px 2px rgba(38, 55, 80, 0.03);
         }
 
-
-        /* =================================================
-           MENU
-        ================================================== */
+        /* MENU */
 
         .menu-item {
             transition: all 0.2s ease;
@@ -106,7 +91,6 @@
             background: #EFFAF4;
             color: #008A4B;
         }
-
 
         .menu-active {
             background:
@@ -119,10 +103,51 @@
             color: #006A3A;
         }
 
+        /* PROFILE */
 
-        /* =================================================
-           FORM INPUT
-        ================================================== */
+        .profile-dropdown {
+            animation: profileShow 0.15s ease;
+        }
+
+        @keyframes profileShow {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* DATE PICKER */
+
+        .date-button {
+            transition: all 0.2s ease;
+        }
+
+        .date-button:hover {
+            background: #F8FAF9;
+        }
+
+        .calendar-popup {
+            animation: calendarShow 0.15s ease;
+        }
+
+        @keyframes calendarShow {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* FORM INPUT */
 
         .form-input {
             width: 100%;
@@ -145,10 +170,10 @@
         }
 
         .form-input:focus {
-            border-color: #CDB8C9;
+            border-color: #A8D7BE;
 
             box-shadow:
-                0 0 0 3px rgba(138, 27, 120, 0.05);
+                0 0 0 3px rgba(0, 138, 75, 0.05);
         }
 
         textarea.form-input {
@@ -160,10 +185,7 @@
             cursor: pointer;
         }
 
-
-        /* =================================================
-           UPLOAD AREA
-        ================================================== */
+        /* UPLOAD */
 
         .upload-area {
             display: block;
@@ -184,31 +206,28 @@
         }
 
         .upload-area:hover {
-            border-color: #C9A8C2;
+            border-color: #A8D7BE;
 
             background:
                 linear-gradient(
                     135deg,
                     #FFFFFF 0%,
-                    #F8F3F7 100%
+                    #F3FAF6 100%
                 );
         }
 
         .upload-area.dragover {
-            border-color: #A42B8E;
+            border-color: #008A4B;
 
             background:
                 linear-gradient(
                     135deg,
-                    #FBF0F8 0%,
-                    #EFFAF4 100%
+                    #EFFAF4 0%,
+                    #FBF0F8 100%
                 );
         }
 
-
-        /* =================================================
-           IMAGE PREVIEW
-        ================================================== */
+        /* IMAGE */
 
         .image-preview {
             display: none;
@@ -218,10 +237,7 @@
             display: block;
         }
 
-
-        /* =================================================
-           BUTTONS
-        ================================================== */
+        /* BUTTON */
 
         .action-button {
             transition:
@@ -235,47 +251,68 @@
             transform: translateY(-1px);
         }
 
+        .back-button {
+            background: #EFFAF4;
+            border: 1px solid #DDF3E7;
+            color: #007A43;
 
-        /*
-         * Warna dibuat sama dengan tombol Kembali
-         */
+            box-shadow:
+                0 2px 7px rgba(0, 138, 75, 0.04);
+        }
+
+        .back-button:hover {
+            background: #DDF3E7;
+            border-color: #BDE4CC;
+            color: #006A3A;
+
+            box-shadow:
+                0 5px 12px rgba(0, 138, 75, 0.07);
+        }
 
         .save-button {
             background:
                 linear-gradient(
                     90deg,
-                    #FBF0F8,
-                    #EFFAF4
+                    #008A4B,
+                    #007A43
                 );
 
-            border: 1px solid #F1D9EB;
-
-            color: #263750;
+            border: 1px solid #008A4B;
+            color: white;
 
             box-shadow:
-                0 2px 7px rgba(38, 55, 80, 0.04);
+                0 2px 7px rgba(0, 138, 75, 0.10);
         }
 
         .save-button:hover {
             background:
                 linear-gradient(
                     90deg,
-                    #F1D9EB,
-                    #DDF3E7
+                    #007A43,
+                    #006A3A
                 );
 
-            border-color: #E2C9DC;
-
-            color: #263750;
+            border-color: #007A43;
 
             box-shadow:
-                0 5px 12px rgba(38, 55, 80, 0.07);
+                0 5px 12px rgba(0, 138, 75, 0.14);
         }
 
-
         /* =================================================
-           MOBILE
+           JARAK HEADER → KONTEN
+           HANYA BAGIAN INI YANG DIUBAH
         ================================================== */
+
+        .back-wrapper {
+            padding-top: 6px !important;
+            padding-bottom: 0 !important;
+        }
+
+        .content-area {
+            padding-top: 6px !important;
+        }
+
+        /* MOBILE */
 
         @media (max-width: 767px) {
 
@@ -326,16 +363,9 @@
                 gap: 12px;
             }
 
-            .header-button {
-                padding: 9px 11px !important;
-            }
-
-            .header-button span {
-                display: none;
-            }
-
             .content-mobile {
                 padding: 16px !important;
+                padding-top: 6px !important;
             }
 
             .form-card {
@@ -375,6 +405,10 @@
 
             .mobile-preview {
                 height: 210px !important;
+            }
+
+            .back-wrapper {
+                padding: 6px 16px 0 !important;
             }
         }
 
@@ -516,40 +550,6 @@
                 </a>
 
 
-                <!-- KEGIATAN -->
-
-                <a
-                    href="kegiatan.html"
-                    class="menu-item
-                           flex
-                           items-center
-                           gap-3
-                           px-3
-                           py-2.5
-                           rounded-lg
-                           text-xs
-                           text-slate-500
-                           mb-1">
-
-                    <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.8"
-                            d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
-
-                    </svg>
-
-                    Kegiatan
-
-                </a>
-
-
                 <!-- PROJECT -->
 
                 <a
@@ -656,23 +656,29 @@
         </nav>
 
 
-        <!-- ADMIN -->
+        <!-- =================================================
+             ADMIN PROFILE
+        ================================================== -->
 
         <div
-            class="p-4
+            class="relative
+                   p-3
                    border-t
                    border-slate-200
                    shrink-0">
 
-            <div
-                class="flex
+            <button
+                id="profileToggle"
+                type="button"
+                class="w-full
+                       flex
                        items-center
                        gap-3
                        p-2
                        rounded-lg
                        hover:bg-slate-50
-                       transition">
-
+                       transition
+                       text-left">
 
                 <div
                     class="w-8
@@ -683,7 +689,8 @@
                            to-purple-100
                            flex
                            items-center
-                           justify-center">
+                           justify-center
+                           shrink-0">
 
                     <span
                         class="text-[11px]
@@ -697,9 +704,7 @@
                 </div>
 
 
-                <div
-                    class="min-w-0
-                           flex-1">
+                <div class="min-w-0 flex-1">
 
                     <p
                         class="text-[11px]
@@ -720,6 +725,163 @@
                     </p>
 
                 </div>
+
+
+                <svg
+                    id="profileChevron"
+                    class="w-4 h-4
+                           text-slate-400
+                           transition-transform
+                           duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="m6 9 6 6 6-6" />
+
+                </svg>
+
+            </button>
+
+
+            <!-- PROFILE DROPDOWN -->
+
+            <div
+                id="profileDropdown"
+                class="profile-dropdown
+                       hidden
+                       absolute
+                       left-3
+                       right-3
+                       bottom-[68px]
+                       z-50
+                       bg-white
+                       border
+                       border-slate-200
+                       rounded-xl
+                       shadow-xl
+                       p-2">
+
+
+                <!-- PROFILE -->
+
+                <a
+                    href="profile.html"
+                    class="flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-green-50
+                           hover:text-green-700
+                           transition">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-green-100
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-green-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-navy">
+                            Profile
+                        </p>
+
+                        <p class="text-[8px] text-slate-400 mt-0.5">
+                            Lihat profile admin
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <button
+                    id="logoutButton"
+                    type="button"
+                    class="w-full
+                           flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-red-50
+                           hover:text-red-500
+                           transition
+                           text-left">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-red-50
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-red-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-slate-600">
+                            Logout
+                        </p>
+
+                        <p class="text-[8px] text-slate-400 mt-0.5">
+                            Keluar dari akun
+                        </p>
+
+                    </div>
+
+                </button>
 
             </div>
 
@@ -781,32 +943,156 @@
             </div>
 
 
-            <!-- KEMBALI -->
+            <!-- =================================================
+                 DATE PICKER
+            ================================================== -->
+
+            <div class="relative">
+
+                <button
+                    id="dateButton"
+                    type="button"
+                    class="date-button
+                           flex
+                           items-center
+                           gap-2.5
+                           px-2
+                           py-2
+                           rounded-lg
+                           text-[11px]
+                           text-slate-500">
+
+                    <svg
+                        class="w-4 h-4 text-green-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.7"
+                            d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+
+                    </svg>
+
+                    <span id="currentDate">
+                        17 September 2026
+                    </span>
+
+                    <svg
+                        class="w-3 h-3 text-slate-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.8"
+                            d="m7 10 5 5 5-5" />
+
+                    </svg>
+
+                </button>
+
+
+                <!-- CALENDAR -->
+
+                <div
+                    id="calendarPopup"
+                    class="calendar-popup
+                           hidden
+                           absolute
+                           right-0
+                           top-full
+                           mt-2
+                           z-50
+                           bg-white
+                           border
+                           border-slate-200
+                           rounded-xl
+                           shadow-xl
+                           p-3
+                           w-[230px]">
+
+                    <p
+                        class="text-[9px]
+                               font-semibold
+                               text-navy
+                               mb-2">
+
+                        Pilih tanggal
+
+                    </p>
+
+                    <input
+                        type="date"
+                        id="datePicker"
+                        class="w-full
+                               border
+                               border-slate-200
+                               rounded-lg
+                               px-3
+                               py-2
+                               text-[10px]
+                               text-slate-600
+                               outline-none
+                               focus:border-green-300">
+
+                    <button
+                        type="button"
+                        id="todayButton"
+                        class="mt-2
+                               w-full
+                               py-2
+                               rounded-lg
+                               bg-green-50
+                               text-green-700
+                               text-[9px]
+                               font-semibold
+                               hover:bg-green-100
+                               transition">
+
+                        Kembali ke Hari Ini
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             BUTTON KEMBALI
+        ================================================== -->
+
+        <div
+            class="back-wrapper
+                   px-6
+                   pt-2
+                   pb-0
+                   bg-[#F8FAF9]
+                   flex
+                   justify-end">
 
             <a
                 href="dokumentasi.html"
-                class="header-button
+                class="back-button
+                       action-button
                        inline-flex
                        items-center
                        gap-2
-                       px-3.5
+                       px-4
                        py-2.5
                        rounded-lg
-                       bg-gradient-to-r
-                       from-purple-50
-                       to-green-50
-                       border
-                       border-purple-100
                        text-[10px]
-                       font-semibold
-                       text-navy
-                       hover:from-purple-100
-                       hover:to-green-100
-                       hover:border-purple-200
-                       transition">
+                       font-semibold">
 
                 <svg
-                    class="w-4 h-4 text-purple-500"
+                    class="w-3.5 h-3.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -819,13 +1105,11 @@
 
                 </svg>
 
-                <span>
-                    Kembali
-                </span>
+                Kembali
 
             </a>
 
-        </header>
+        </div>
 
 
         <!-- =================================================
@@ -836,6 +1120,7 @@
             class="dashboard-bg
                    min-h-[calc(100vh-78px)]
                    content-mobile
+                   content-area
                    p-6">
 
 
@@ -847,7 +1132,6 @@
                     class="flex
                            items-start
                            gap-3">
-
 
                     <div
                         class="w-9
@@ -877,7 +1161,6 @@
 
                     </div>
 
-
                     <div>
 
                         <h1
@@ -885,7 +1168,7 @@
                                    font-bold
                                    text-navy">
 
-                            Tambahkan dokumentasi kegiatan
+                            Lengkapi dokumentasi
 
                         </h1>
 
@@ -894,8 +1177,7 @@
                                    text-slate-400
                                    mt-1">
 
-                            Lengkapi informasi untuk menyimpan
-                            dokumentasi kegiatan internship.
+                            Isi informasi yang diperlukan untuk menambahkan arsip kegiatan.
 
                         </p>
 
@@ -906,9 +1188,7 @@
             </section>
 
 
-            <!-- =================================================
-                 FORM CARD
-            ================================================== -->
+            <!-- FORM -->
 
             <section
                 class="form-card
@@ -919,9 +1199,7 @@
                        p-6
                        soft-shadow">
 
-
                 <form id="documentationForm">
-
 
                     <div
                         class="grid
@@ -930,12 +1208,9 @@
                                form-grid">
 
 
-                        <!-- =================================================
-                             FOTO
-                        ================================================== -->
+                        <!-- FOTO -->
 
                         <div class="col-span-1">
-
 
                             <label
                                 class="block
@@ -946,9 +1221,7 @@
 
                                 Foto Dokumentasi
 
-                                <span class="text-red-400">
-                                    *
-                                </span>
+                                <span class="text-red-400">*</span>
 
                             </label>
 
@@ -973,7 +1246,6 @@
                                            min-h-[210px]
                                            px-5
                                            text-center">
-
 
                                     <div
                                         class="w-10
@@ -1001,7 +1273,6 @@
 
                                     </div>
 
-
                                     <p
                                         class="text-[11px]
                                                font-semibold
@@ -1010,7 +1281,6 @@
                                         Pilih foto dokumentasi
 
                                     </p>
-
 
                                     <p
                                         class="text-[9px]
@@ -1022,7 +1292,6 @@
                                         dari perangkat
 
                                     </p>
-
 
                                     <span
                                         class="mt-3
@@ -1049,7 +1318,6 @@
                                     id="imagePreview"
                                     class="image-preview">
 
-
                                     <img
                                         id="previewImage"
                                         src=""
@@ -1059,14 +1327,12 @@
                                                h-[210px]
                                                object-cover">
 
-
                                     <div
                                         class="px-3
                                                py-2.5
                                                bg-white
                                                border-t
                                                border-slate-100">
-
 
                                         <p
                                             id="fileName"
@@ -1075,7 +1341,6 @@
                                                    text-navy
                                                    truncate">
                                         </p>
-
 
                                         <p
                                             class="text-[8px]
@@ -1088,9 +1353,7 @@
 
                                     </div>
 
-
                                 </div>
-
 
                             </label>
 
@@ -1101,7 +1364,6 @@
                                 name="photo"
                                 accept="image/jpeg,image/png,image/jpg"
                                 class="hidden">
-
 
                             <p
                                 class="text-[8px]
@@ -1115,12 +1377,9 @@
                         </div>
 
 
-                        <!-- =================================================
-                             INFORMASI
-                        ================================================== -->
+                        <!-- INFORMASI -->
 
                         <div class="col-span-2">
-
 
                             <div class="space-y-4">
 
@@ -1139,12 +1398,9 @@
 
                                         Judul Dokumentasi
 
-                                        <span class="text-red-400">
-                                            *
-                                        </span>
+                                        <span class="text-red-400">*</span>
 
                                     </label>
-
 
                                     <input
                                         type="text"
@@ -1165,9 +1421,6 @@
                                            gap-4
                                            category-date-grid">
 
-
-                                    <!-- KATEGORI -->
-
                                     <div>
 
                                         <label
@@ -1180,19 +1433,15 @@
 
                                             Kategori
 
-                                            <span class="text-red-400">
-                                                *
-                                            </span>
+                                            <span class="text-red-400">*</span>
 
                                         </label>
-
 
                                         <select
                                             id="category"
                                             name="category"
                                             class="form-input"
                                             required>
-
 
                                             <option
                                                 value=""
@@ -1203,33 +1452,26 @@
 
                                             </option>
 
-
                                             <option value="Briefing">
                                                 Briefing
                                             </option>
-
 
                                             <option value="Diskusi">
                                                 Diskusi
                                             </option>
 
-
                                             <option value="Pengerjaan Project">
                                                 Pengerjaan Project
                                             </option>
-
 
                                             <option value="Presentasi">
                                                 Presentasi
                                             </option>
 
-
                                         </select>
 
                                     </div>
 
-
-                                    <!-- TANGGAL -->
 
                                     <div>
 
@@ -1243,12 +1485,9 @@
 
                                             Tanggal Kegiatan
 
-                                            <span class="text-red-400">
-                                                *
-                                            </span>
+                                            <span class="text-red-400">*</span>
 
                                         </label>
-
 
                                         <input
                                             type="date"
@@ -1276,12 +1515,9 @@
 
                                         Deskripsi
 
-                                        <span class="text-red-400">
-                                            *
-                                        </span>
+                                        <span class="text-red-400">*</span>
 
                                     </label>
-
 
                                     <textarea
                                         id="description"
@@ -1290,12 +1526,10 @@
                                         placeholder="Tuliskan kegiatan yang terdapat pada dokumentasi..."
                                         required></textarea>
 
-
                                     <div
                                         class="flex
                                                justify-between
                                                mt-1.5">
-
 
                                         <span
                                             class="text-[8px]
@@ -1305,7 +1539,6 @@
                                             dan jelas.
 
                                         </span>
-
 
                                         <span
                                             id="charCount"
@@ -1331,12 +1564,10 @@
                                            px-4
                                            py-3">
 
-
                                     <div
                                         class="flex
                                                items-start
                                                gap-2.5">
-
 
                                         <div
                                             class="w-7
@@ -1347,7 +1578,6 @@
                                                    items-center
                                                    justify-center
                                                    shrink-0">
-
 
                                             <svg
                                                 class="w-3.5 h-3.5 text-purple-500"
@@ -1365,7 +1595,6 @@
 
                                         </div>
 
-
                                         <div>
 
                                             <p
@@ -1376,7 +1605,6 @@
                                                 Dokumentasi kegiatan
 
                                             </p>
-
 
                                             <p
                                                 class="text-[8px]
@@ -1396,7 +1624,6 @@
 
                                 </div>
 
-
                             </div>
 
                         </div>
@@ -1404,9 +1631,7 @@
                     </div>
 
 
-                    <!-- =================================================
-                         ACTION
-                    ================================================== -->
+                    <!-- ACTION -->
 
                     <div
                         class="action-area
@@ -1419,15 +1644,11 @@
                                border-t
                                border-slate-100">
 
-
                         <p
                             class="text-[8px]
                                    text-slate-400">
 
-                            <span class="text-red-400">
-                                *
-                            </span>
-
+                            <span class="text-red-400">*</span>
                             Wajib diisi
 
                         </p>
@@ -1481,9 +1702,8 @@
                                        text-[10px]
                                        font-semibold">
 
-
                                 <svg
-                                    class="w-3.5 h-3.5 text-purple-500"
+                                    class="w-3.5 h-3.5"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -1496,21 +1716,17 @@
 
                                 </svg>
 
-
                                 Simpan Dokumentasi
 
                             </button>
-
 
                         </div>
 
                     </div>
 
-
                 </form>
 
             </section>
-
 
         </div>
 
@@ -1524,53 +1740,291 @@
     <script>
 
         /* =================================================
-           ELEMENT
+           DATE PICKER
         ================================================== */
 
-        const photoInput =
-            document.getElementById("photoInput");
+        const dateButton =
+            document.getElementById("dateButton");
 
-        const uploadArea =
-            document.getElementById("uploadArea");
+        const calendarPopup =
+            document.getElementById("calendarPopup");
 
-        const uploadPlaceholder =
-            document.getElementById("uploadPlaceholder");
+        const datePicker =
+            document.getElementById("datePicker");
 
-        const imagePreview =
-            document.getElementById("imagePreview");
+        const currentDate =
+            document.getElementById("currentDate");
 
-        const previewImage =
-            document.getElementById("previewImage");
+        const todayButton =
+            document.getElementById("todayButton");
 
-        const fileName =
-            document.getElementById("fileName");
 
-        const description =
-            document.getElementById("description");
+        function formatDate(dateValue) {
 
-        const charCount =
-            document.getElementById("charCount");
+            const date =
+                new Date(dateValue + "T00:00:00");
 
-        const documentationForm =
-            document.getElementById("documentationForm");
+            return date.toLocaleDateString(
+                "id-ID",
+                {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+        }
+
+
+        function getTodayValue() {
+
+            const today = new Date();
+
+            const year =
+                today.getFullYear();
+
+            const month =
+                String(today.getMonth() + 1)
+                    .padStart(2, "0");
+
+            const day =
+                String(today.getDate())
+                    .padStart(2, "0");
+
+            return `${year}-${month}-${day}`;
+        }
+
+
+        const todayValue =
+            getTodayValue();
+
+
+        datePicker.value =
+            todayValue;
+
+        currentDate.textContent =
+            formatDate(todayValue);
+
+
+        dateButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                calendarPopup.classList.toggle(
+                    "hidden"
+                );
+
+            }
+        );
+
+
+        datePicker.addEventListener(
+            "change",
+            function () {
+
+                const selectedDate =
+                    datePicker.value;
+
+                if (!selectedDate) {
+                    return;
+                }
+
+                currentDate.textContent =
+                    formatDate(selectedDate);
+
+                calendarPopup.classList.add(
+                    "hidden"
+                );
+
+            }
+        );
+
+
+        todayButton.addEventListener(
+            "click",
+            function () {
+
+                datePicker.value =
+                    todayValue;
+
+                currentDate.textContent =
+                    formatDate(todayValue);
+
+                calendarPopup.classList.add(
+                    "hidden"
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !calendarPopup.contains(event.target) &&
+                    !dateButton.contains(event.target)
+                ) {
+
+                    calendarPopup.classList.add(
+                        "hidden"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           PROFILE DROPDOWN
+        ================================================== */
+
+        const profileToggle =
+            document.getElementById(
+                "profileToggle"
+            );
+
+        const profileDropdown =
+            document.getElementById(
+                "profileDropdown"
+            );
+
+        const profileChevron =
+            document.getElementById(
+                "profileChevron"
+            );
+
+
+        profileToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileDropdown.classList.toggle(
+                    "hidden"
+                );
+
+                profileChevron.classList.toggle(
+                    "rotate-180"
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !profileDropdown.contains(event.target) &&
+                    !profileToggle.contains(event.target)
+                ) {
+
+                    profileDropdown.classList.add(
+                        "hidden"
+                    );
+
+                    profileChevron.classList.remove(
+                        "rotate-180"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           LOGOUT
+        ================================================== */
+
+        const logoutButton =
+            document.getElementById(
+                "logoutButton"
+            );
+
+
+        logoutButton.addEventListener(
+            "click",
+            function () {
+
+                const confirmLogout =
+                    confirm(
+                        "Apakah Anda yakin ingin logout?"
+                    );
+
+                if (confirmLogout) {
+
+                    localStorage.removeItem(
+                        "isLoggedIn"
+                    );
+
+                    window.location.href =
+                        "login.html";
+
+                }
+
+            }
+        );
 
 
         /* =================================================
            FOTO PREVIEW
         ================================================== */
 
+        const photoInput =
+            document.getElementById(
+                "photoInput"
+            );
+
+        const uploadArea =
+            document.getElementById(
+                "uploadArea"
+            );
+
+        const uploadPlaceholder =
+            document.getElementById(
+                "uploadPlaceholder"
+            );
+
+        const imagePreview =
+            document.getElementById(
+                "imagePreview"
+            );
+
+        const previewImage =
+            document.getElementById(
+                "previewImage"
+            );
+
+        const fileName =
+            document.getElementById(
+                "fileName"
+            );
+
+
         photoInput.addEventListener(
             "change",
             function () {
 
-                const file = this.files[0];
+                const file =
+                    this.files[0];
 
                 if (!file) {
                     return;
                 }
 
 
-                if (!file.type.startsWith("image/")) {
+                if (
+                    !file.type.startsWith(
+                        "image/"
+                    )
+                ) {
 
                     alert(
                         "Silakan pilih file gambar."
@@ -1658,7 +2112,9 @@
 
                 if (
                     files.length > 0 &&
-                    files[0].type.startsWith("image/")
+                    files[0].type.startsWith(
+                        "image/"
+                    )
                 ) {
 
                     photoInput.files =
@@ -1684,6 +2140,17 @@
            CHARACTER COUNT
         ================================================== */
 
+        const description =
+            document.getElementById(
+                "description"
+            );
+
+        const charCount =
+            document.getElementById(
+                "charCount"
+            );
+
+
         description.addEventListener(
             "input",
             function () {
@@ -1698,6 +2165,12 @@
         /* =================================================
            FORM SUBMIT
         ================================================== */
+
+        const documentationForm =
+            document.getElementById(
+                "documentationForm"
+            );
+
 
         documentationForm.addEventListener(
             "submit",

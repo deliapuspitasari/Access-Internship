@@ -31,8 +31,6 @@
 
                     colors: {
 
-                        /* HIJAU ACCESS */
-
                         green: {
                             50: "#EFFAF4",
                             100: "#DDF3E7",
@@ -41,9 +39,6 @@
                             700: "#006A3A",
                         },
 
-
-                        /* UNGU ACCESS */
-
                         purple: {
                             50: "#FBF0F8",
                             100: "#F1D9EB",
@@ -51,9 +46,6 @@
                             500: "#8A1B78",
                             600: "#761666",
                         },
-
-
-                        /* WARNA TEKS */
 
                         navy: "#263750",
 
@@ -99,7 +91,7 @@
 
 
         /* =================================================
-           BACKGROUND DASHBOARD
+           BACKGROUND
         ================================================= */
 
         .dashboard-bg {
@@ -141,7 +133,7 @@
 
 
         /* =================================================
-           MENU HOVER
+           MENU
         ================================================= */
 
         .menu-item {
@@ -160,10 +152,6 @@
 
         }
 
-
-        /* =================================================
-           MENU ACTIVE
-        ================================================= */
 
         .menu-active {
 
@@ -208,10 +196,6 @@
 
         }
 
-
-        /* =================================================
-           IMAGE
-        ================================================= */
 
         .documentation-image {
 
@@ -259,6 +243,76 @@
 
                 transform:
                     translateY(-8px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =================================================
+           CALENDAR
+        ================================================= */
+
+        .calendar-popup {
+
+            animation:
+                calendarShow 0.15s ease;
+
+        }
+
+
+        @keyframes calendarShow {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-4px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =================================================
+           PROFILE DROPDOWN
+        ================================================= */
+
+        .profile-dropdown {
+
+            animation:
+                profileShow 0.15s ease;
+
+        }
+
+
+        @keyframes profileShow {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(5px);
 
             }
 
@@ -461,6 +515,14 @@
 
             }
 
+
+            .add-documentation-wrapper {
+
+                padding:
+                    12px 16px 0 !important;
+
+            }
+
         }
 
 
@@ -508,9 +570,7 @@
                flex-col">
 
 
-        <!-- =================================================
-             LOGO / BRAND
-        ================================================== -->
+        <!-- LOGO -->
 
         <div
             class="h-[78px]
@@ -523,12 +583,10 @@
 
             <div class="flex items-center gap-3 min-w-0">
 
-
                 <img
                     src="assets/images/logo.png"
                     alt="Logo Access Media"
                     class="w-11 h-11 object-contain shrink-0">
-
 
                 <div class="min-w-0">
 
@@ -541,7 +599,6 @@
                         Access Internship
 
                     </h1>
-
 
                     <p
                         class="text-[10px]
@@ -560,9 +617,7 @@
         </div>
 
 
-        <!-- =================================================
-             MENU UTAMA
-        ================================================== -->
+        <!-- MENU UTAMA -->
 
         <nav
             class="sidebar-nav-mobile
@@ -570,7 +625,6 @@
                    px-3
                    py-5
                    overflow-y-auto">
-
 
             <p
                 class="menu-title
@@ -590,9 +644,7 @@
             <div class="nav-links">
 
 
-                <!-- =================================================
-                     DASHBOARD
-                ================================================== -->
+                <!-- DASHBOARD -->
 
                 <a
                     href="dashboard.html"
@@ -626,45 +678,7 @@
                 </a>
 
 
-                <!-- =================================================
-                     KEGIATAN
-                ================================================== -->
-
-                <a
-                    href="kegiatan.html"
-                    class="menu-item
-                           flex
-                           items-center
-                           gap-3
-                           px-3
-                           py-2.5
-                           rounded-lg
-                           text-xs
-                           text-slate-500
-                           mb-1">
-
-                    <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.8"
-                            d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
-
-                    </svg>
-
-                    Kegiatan
-
-                </a>
-
-
-                <!-- =================================================
-                     PROJECT
-                ================================================== -->
+                <!-- PROJECT -->
 
                 <a
                     href="project.html"
@@ -698,9 +712,7 @@
                 </a>
 
 
-                <!-- =================================================
-                     DOKUMENTASI
-                ================================================== -->
+                <!-- DOKUMENTASI -->
 
                 <a
                     href="dokumentasi.html"
@@ -735,9 +747,7 @@
                 </a>
 
 
-                <!-- =================================================
-                     INSTANSI
-                ================================================== -->
+                <!-- INSTANSI -->
 
                 <a
                     href="instansi.html"
@@ -774,25 +784,27 @@
         </nav>
 
 
-        <!-- =================================================
-             USER
-        ================================================== -->
+        <!-- USER / PROFILE -->
 
         <div
-            class="p-4
+            class="relative
+                   p-3
                    border-t
                    border-slate-200
                    shrink-0">
 
-            <div
-                class="flex
+            <button
+                id="profileToggle"
+                type="button"
+                class="w-full
+                       flex
                        items-center
                        gap-3
                        p-2
                        rounded-lg
                        hover:bg-slate-50
-                       transition">
-
+                       transition
+                       text-left">
 
                 <div
                     class="w-8
@@ -803,7 +815,8 @@
                            to-purple-100
                            flex
                            items-center
-                           justify-center">
+                           justify-center
+                           shrink-0">
 
                     <span
                         class="text-[11px]
@@ -842,6 +855,162 @@
 
                 </div>
 
+
+                <svg
+                    id="profileChevron"
+                    class="w-4 h-4 text-slate-400 transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="m6 9 6 6 6-6" />
+
+                </svg>
+
+            </button>
+
+
+            <!-- PROFILE DROPDOWN -->
+
+            <div
+                id="profileDropdown"
+                class="profile-dropdown
+                       hidden
+                       absolute
+                       left-3
+                       right-3
+                       bottom-[68px]
+                       z-50
+                       bg-white
+                       border
+                       border-slate-200
+                       rounded-xl
+                       shadow-xl
+                       p-2">
+
+
+                <!-- PROFILE -->
+
+                <a
+                    href="profile.html"
+                    class="flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-green-50
+                           hover:text-green-700
+                           transition">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-green-100
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-green-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="font-semibold text-navy">
+                            Profile
+                        </p>
+
+                        <p class="text-[8px] text-slate-400 mt-0.5">
+                            Lihat profile admin
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <button
+                    id="logoutButton"
+                    type="button"
+                    class="w-full
+                           flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-red-50
+                           hover:text-red-500
+                           transition
+                           text-left">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-red-50
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-red-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="font-semibold text-slate-600">
+                            Logout
+                        </p>
+
+                        <p class="text-[8px] text-slate-400 mt-0.5">
+                            Keluar dari akun
+                        </p>
+
+                    </div>
+
+                </button>
+
             </div>
 
         </div>
@@ -878,7 +1047,6 @@
                    items-center
                    justify-between">
 
-
             <div>
 
                 <h2
@@ -889,7 +1057,6 @@
                     Dokumentasi
 
                 </h2>
-
 
                 <p
                     class="text-[11px]
@@ -903,35 +1070,198 @@
             </div>
 
 
-            <!-- =================================================
-                 TAMBAH DOKUMENTASI
-            ================================================== -->
+            <!-- DATE PICKER -->
+
+            <div class="relative">
+
+                <button
+                    id="dateButton"
+                    type="button"
+                    class="flex
+                           items-center
+                           gap-2
+                           text-[11px]
+                           text-slate-400
+                           hover:text-slate-600
+                           transition
+                           cursor-pointer">
+
+                    <svg
+                        class="w-4 h-4 text-green-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.7"
+                            d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+
+                    </svg>
+
+
+                    <span id="currentDate">
+                        Memuat tanggal...
+                    </span>
+
+
+                    <svg
+                        class="w-3 h-3 text-slate-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="m6 9 6 6 6-6" />
+
+                    </svg>
+
+                </button>
+
+
+                <!-- CALENDAR POPUP -->
+
+                <div
+                    id="calendarPopup"
+                    class="calendar-popup
+                           hidden
+                           absolute
+                           right-0
+                           top-9
+                           z-50
+                           w-[240px]
+                           bg-white
+                           border
+                           border-slate-200
+                           rounded-xl
+                           shadow-xl
+                           p-4">
+
+                    <div
+                        class="flex
+                               items-center
+                               justify-between
+                               mb-3">
+
+                        <div>
+
+                            <p
+                                class="text-[10px]
+                                       text-slate-400">
+
+                                Pilih tanggal
+
+                            </p>
+
+                            <p
+                                id="selectedDateLabel"
+                                class="text-xs
+                                       font-semibold
+                                       text-navy
+                                       mt-0.5">
+
+                                Hari ini
+
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            id="todayButton"
+                            type="button"
+                            class="text-[9px]
+                                   font-semibold
+                                   text-green-600
+                                   hover:text-green-700
+                                   hover:underline">
+
+                            Hari ini
+
+                        </button>
+
+                    </div>
+
+
+                    <input
+                        type="date"
+                        id="datePicker"
+                        class="w-full
+                               px-3
+                               py-2.5
+                               text-xs
+                               text-slate-600
+                               bg-slate-50
+                               border
+                               border-slate-200
+                               rounded-lg
+                               outline-none
+                               cursor-pointer
+                               focus:border-green-500
+                               focus:ring-2
+                               focus:ring-green-100">
+
+
+                    <div
+                        class="mt-3
+                               pt-3
+                               border-t
+                               border-slate-100">
+
+                        <p
+                            class="text-[9px]
+                                   text-slate-400
+                                   leading-relaxed">
+
+                            Pilih tanggal untuk melihat informasi
+                            dokumentasi pada tanggal tersebut.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             BUTTON TAMBAH DOKUMENTASI
+             DI LUAR NAVBAR - KANAN
+        ================================================== -->
+
+        <div
+            class="add-documentation-wrapper
+                   flex
+                   justify-end
+                   px-6
+                   pt-4
+                   pb-0
+                   bg-[#F8FAF9]">
 
             <a
                 href="tambah-dokumentasi.html"
-                class="header-button
-                       inline-flex
+                class="inline-flex
                        items-center
                        gap-2
                        px-3.5
                        py-2.5
                        rounded-lg
-                       bg-gradient-to-r
-                       from-green-50
-                       to-purple-50
-                       border
-                       border-green-100
-                       text-green-700
+                       bg-green-600
+                       text-white
                        text-[10px]
                        font-semibold
                        shadow-sm
-                       hover:from-green-100
-                       hover:to-purple-100
-                       hover:border-purple-100
+                       hover:bg-green-700
                        hover:shadow-md
                        hover:-translate-y-0.5
                        transition">
-
 
                 <svg
                     class="w-4 h-4"
@@ -947,14 +1277,13 @@
 
                 </svg>
 
-
                 <span>
                     Tambah Dokumentasi
                 </span>
 
             </a>
 
-        </header>
+        </div>
 
 
         <!-- =================================================
@@ -988,7 +1317,6 @@
                        mb-6
                        soft-shadow">
 
-
                 <div
                     class="absolute
                            -right-12
@@ -1018,7 +1346,6 @@
                            justify-between
                            gap-5">
 
-
                     <div class="max-w-3xl">
 
                         <div
@@ -1041,7 +1368,7 @@
                                        bg-green-600">
                             </span>
 
-                            Dokumentasi Kegiatan
+                            Dokumentasi Internship
 
                         </div>
 
@@ -1052,7 +1379,7 @@
                                    font-bold
                                    text-navy">
 
-                            Rekam kegiatan dalam satu ruang.
+                            Rekam setiap proses selama internship.
 
                         </h1>
 
@@ -1065,11 +1392,10 @@
                                    mt-2
                                    max-w-2xl">
 
-                            Halaman ini menyimpan dokumentasi visual
-                            dari berbagai aktivitas, proses kerja,
-                            pembelajaran, dan hasil kegiatan yang
-                            berlangsung selama program internship
-                            di Access Media.
+                            Simpan dokumentasi visual dari briefing,
+                            diskusi, pengerjaan project, hingga
+                            presentasi sebagai arsip perjalanan
+                            kegiatan internship di Access Media.
 
                         </p>
 
@@ -1129,7 +1455,6 @@
                            justify-between
                            gap-3">
 
-
                     <div>
 
                         <h3
@@ -1147,7 +1472,8 @@
                                    text-slate-400
                                    mt-1">
 
-                            Kumpulan dokumentasi kegiatan yang tersedia.
+                            Pilih dokumentasi berdasarkan proses kegiatan
+                            internship yang telah berlangsung.
 
                         </p>
 
@@ -1185,9 +1511,7 @@
                        gap-4">
 
 
-                <!-- =================================================
-                     CARD 1
-                ================================================== -->
+                <!-- CARD 1 -->
 
                 <article
                     class="documentation-card
@@ -1198,7 +1522,6 @@
                            overflow-hidden
                            soft-shadow">
 
-
                     <div
                         class="documentation-card-image
                                h-[165px]
@@ -1207,7 +1530,7 @@
 
                         <img
                             src="assets/dokumentasi/dokumentasi-01.jpg"
-                            alt="Aktivitas Harian"
+                            alt="Briefing Pagi"
                             class="documentation-image
                                    w-full
                                    h-full
@@ -1220,7 +1543,6 @@
                         class="documentation-card-content
                                p-4">
 
-
                         <span
                             class="inline-flex
                                    px-2
@@ -1231,7 +1553,7 @@
                                    text-[8px]
                                    font-semibold">
 
-                            Kegiatan
+                            Briefing
 
                         </span>
 
@@ -1243,7 +1565,7 @@
                                    text-navy
                                    mt-2">
 
-                            Aktivitas Harian
+                            Briefing Pagi
 
                         </h4>
 
@@ -1255,8 +1577,8 @@
                                    text-slate-400
                                    mt-1.5">
 
-                            Aktivitas siswa dalam mengikuti
-                            rutinitas kerja di lingkungan Access Media.
+                            Arahan awal untuk memahami agenda,
+                            pembagian tugas, dan target kegiatan.
 
                         </p>
 
@@ -1269,7 +1591,6 @@
                                    pt-3
                                    border-t
                                    border-slate-100">
-
 
                             <span
                                 class="text-[9px]
@@ -1295,9 +1616,7 @@
                 </article>
 
 
-                <!-- =================================================
-                     CARD 2
-                ================================================== -->
+                <!-- CARD 2 -->
 
                 <article
                     class="documentation-card
@@ -1307,7 +1626,6 @@
                            rounded-xl
                            overflow-hidden
                            soft-shadow">
-
 
                     <div
                         class="documentation-card-image
@@ -1317,7 +1635,7 @@
 
                         <img
                             src="assets/dokumentasi/dokumentasi-02.jpg"
-                            alt="Proses Pembelajaran"
+                            alt="Diskusi Kegiatan"
                             class="documentation-image
                                    w-full
                                    h-full
@@ -1329,456 +1647,6 @@
                     <div
                         class="documentation-card-content
                                p-4">
-
-
-                        <span
-                            class="inline-flex
-                                   px-2
-                                   py-1
-                                   rounded-md
-                                   bg-purple-50
-                                   text-purple-600
-                                   text-[8px]
-                                   font-semibold">
-
-                            Pembelajaran
-
-                        </span>
-
-
-                        <h4
-                            class="documentation-card-title
-                                   text-xs
-                                   font-bold
-                                   text-navy
-                                   mt-2">
-
-                            Proses Pembelajaran
-
-                        </h4>
-
-
-                        <p
-                            class="documentation-card-description
-                                   text-[10px]
-                                   leading-relaxed
-                                   text-slate-400
-                                   mt-1.5">
-
-                            Proses mengenal alur kerja dan
-                            menerapkan pengetahuan secara langsung.
-
-                        </p>
-
-
-                        <div
-                            class="flex
-                                   items-center
-                                   justify-between
-                                   mt-4
-                                   pt-3
-                                   border-t
-                                   border-slate-100">
-
-
-                            <span
-                                class="text-[9px]
-                                       text-slate-400">
-
-                                Dokumentasi 02
-
-                            </span>
-
-
-                            <span
-                                class="text-purple-600
-                                       text-xs">
-
-                                →
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =================================================
-                     CARD 3
-                ================================================== -->
-
-                <article
-                    class="documentation-card
-                           bg-white
-                           border
-                           border-slate-200
-                           rounded-xl
-                           overflow-hidden
-                           soft-shadow">
-
-
-                    <div
-                        class="documentation-card-image
-                               h-[165px]
-                               overflow-hidden
-                               bg-green-50">
-
-                        <img
-                            src="assets/dokumentasi/dokumentasi-03.jpg"
-                            alt="Pengerjaan Project"
-                            class="documentation-image
-                                   w-full
-                                   h-full
-                                   object-cover">
-
-                    </div>
-
-
-                    <div
-                        class="documentation-card-content
-                               p-4">
-
-
-                        <span
-                            class="inline-flex
-                                   px-2
-                                   py-1
-                                   rounded-md
-                                   bg-green-50
-                                   text-green-700
-                                   text-[8px]
-                                   font-semibold">
-
-                            Project
-
-                        </span>
-
-
-                        <h4
-                            class="documentation-card-title
-                                   text-xs
-                                   font-bold
-                                   text-navy
-                                   mt-2">
-
-                            Pengerjaan Project
-
-                        </h4>
-
-
-                        <p
-                            class="documentation-card-description
-                                   text-[10px]
-                                   leading-relaxed
-                                   text-slate-400
-                                   mt-1.5">
-
-                            Proses mengerjakan tugas dan project
-                            sesuai arahan selama kegiatan berlangsung.
-
-                        </p>
-
-
-                        <div
-                            class="flex
-                                   items-center
-                                   justify-between
-                                   mt-4
-                                   pt-3
-                                   border-t
-                                   border-slate-100">
-
-
-                            <span
-                                class="text-[9px]
-                                       text-slate-400">
-
-                                Dokumentasi 03
-
-                            </span>
-
-
-                            <span
-                                class="text-green-600
-                                       text-xs">
-
-                                →
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =================================================
-                     CARD 4
-                ================================================== -->
-
-                <article
-                    class="documentation-card
-                           bg-white
-                           border
-                           border-slate-200
-                           rounded-xl
-                           overflow-hidden
-                           soft-shadow">
-
-
-                    <div
-                        class="documentation-card-image
-                               h-[165px]
-                               overflow-hidden
-                               bg-purple-50">
-
-                        <img
-                            src="assets/dokumentasi/dokumentasi-04.jpg"
-                            alt="Presentasi Project"
-                            class="documentation-image
-                                   w-full
-                                   h-full
-                                   object-cover">
-
-                    </div>
-
-
-                    <div
-                        class="documentation-card-content
-                               p-4">
-
-
-                        <span
-                            class="inline-flex
-                                   px-2
-                                   py-1
-                                   rounded-md
-                                   bg-purple-50
-                                   text-purple-600
-                                   text-[8px]
-                                   font-semibold">
-
-                            Aktivitas
-
-                        </span>
-
-
-                        <h4
-                            class="documentation-card-title
-                                   text-xs
-                                   font-bold
-                                   text-navy
-                                   mt-2">
-
-                            Presentasi Project
-
-                        </h4>
-
-
-                        <p
-                            class="documentation-card-description
-                                   text-[10px]
-                                   leading-relaxed
-                                   text-slate-400
-                                   mt-1.5">
-
-                            Penyampaian hasil pekerjaan dan
-                            perkembangan project yang telah dibuat.
-
-                        </p>
-
-
-                        <div
-                            class="flex
-                                   items-center
-                                   justify-between
-                                   mt-4
-                                   pt-3
-                                   border-t
-                                   border-slate-100">
-
-
-                            <span
-                                class="text-[9px]
-                                       text-slate-400">
-
-                                Dokumentasi 04
-
-                            </span>
-
-
-                            <span
-                                class="text-purple-600
-                                       text-xs">
-
-                                →
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </section>
-
-
-            <!-- =================================================
-                 DOKUMENTASI TAMBAHAN
-                 BENAR-BENAR TERSEMBUNYI DI AWAL
-            ================================================== -->
-
-            <section
-                id="additionalDocumentation"
-                class="additional-documentation
-                       documentation-grid
-                       grid
-                       grid-cols-4
-                       gap-4
-                       mt-4">
-
-
-                <!-- =================================================
-                     CARD 5
-                ================================================== -->
-
-                <article
-                    class="documentation-card
-                           bg-white
-                           border
-                           border-slate-200
-                           rounded-xl
-                           overflow-hidden
-                           soft-shadow">
-
-
-                    <div
-                        class="documentation-card-image
-                               h-[165px]
-                               overflow-hidden
-                               bg-green-50">
-
-                        <img
-                            src="assets/dokumentasi/dokumentasi-05.jpg"
-                            alt="Kegiatan Tim"
-                            class="documentation-image
-                                   w-full
-                                   h-full
-                                   object-cover">
-
-                    </div>
-
-
-                    <div class="documentation-card-content p-4">
-
-
-                        <span
-                            class="inline-flex
-                                   px-2
-                                   py-1
-                                   rounded-md
-                                   bg-green-50
-                                   text-green-700
-                                   text-[8px]
-                                   font-semibold">
-
-                            Kegiatan
-
-                        </span>
-
-
-                        <h4
-                            class="documentation-card-title
-                                   text-xs
-                                   font-bold
-                                   text-navy
-                                   mt-2">
-
-                            Kegiatan Tim
-
-                        </h4>
-
-
-                        <p
-                            class="documentation-card-description
-                                   text-[10px]
-                                   leading-relaxed
-                                   text-slate-400
-                                   mt-1.5">
-
-                            Aktivitas bersama dalam menyelesaikan
-                            kegiatan selama internship.
-
-                        </p>
-
-
-                        <div
-                            class="flex
-                                   items-center
-                                   justify-between
-                                   mt-4
-                                   pt-3
-                                   border-t
-                                   border-slate-100">
-
-
-                            <span class="text-[9px] text-slate-400">
-
-                                Dokumentasi 05
-
-                            </span>
-
-
-                            <span class="text-green-600 text-xs">
-
-                                →
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =================================================
-                     CARD 6
-                ================================================== -->
-
-                <article
-                    class="documentation-card
-                           bg-white
-                           border
-                           border-slate-200
-                           rounded-xl
-                           overflow-hidden
-                           soft-shadow">
-
-
-                    <div
-                        class="documentation-card-image
-                               h-[165px]
-                               overflow-hidden
-                               bg-purple-50">
-
-                        <img
-                            src="assets/dokumentasi/dokumentasi-06.jpg"
-                            alt="Diskusi"
-                            class="documentation-image
-                                   w-full
-                                   h-full
-                                   object-cover">
-
-                    </div>
-
-
-                    <div class="documentation-card-content p-4">
-
 
                         <span
                             class="inline-flex
@@ -1814,8 +1682,8 @@
                                    text-slate-400
                                    mt-1.5">
 
-                            Diskusi untuk memahami tugas dan
-                            alur pekerjaan yang diberikan.
+                            Pembahasan tugas dan penyamaan pemahaman
+                            sebelum proses pekerjaan dilakukan.
 
                         </p>
 
@@ -1829,15 +1697,18 @@
                                    border-t
                                    border-slate-100">
 
+                            <span
+                                class="text-[9px]
+                                       text-slate-400">
 
-                            <span class="text-[9px] text-slate-400">
-
-                                Dokumentasi 06
+                                Dokumentasi 02
 
                             </span>
 
 
-                            <span class="text-purple-600 text-xs">
+                            <span
+                                class="text-purple-600
+                                       text-xs">
 
                                 →
 
@@ -1850,9 +1721,7 @@
                 </article>
 
 
-                <!-- =================================================
-                     CARD 7
-                ================================================== -->
+                <!-- CARD 3 -->
 
                 <article
                     class="documentation-card
@@ -1863,7 +1732,6 @@
                            overflow-hidden
                            soft-shadow">
 
-
                     <div
                         class="documentation-card-image
                                h-[165px]
@@ -1871,8 +1739,8 @@
                                bg-green-50">
 
                         <img
-                            src="assets/dokumentasi/dokumentasi-07.jpg"
-                            alt="Aktivitas Project"
+                            src="assets/dokumentasi/dokumentasi-03.jpg"
+                            alt="Pengerjaan Project"
                             class="documentation-image
                                    w-full
                                    h-full
@@ -1881,8 +1749,9 @@
                     </div>
 
 
-                    <div class="documentation-card-content p-4">
-
+                    <div
+                        class="documentation-card-content
+                               p-4">
 
                         <span
                             class="inline-flex
@@ -1894,7 +1763,7 @@
                                    text-[8px]
                                    font-semibold">
 
-                            Project
+                            Pengerjaan Project
 
                         </span>
 
@@ -1906,7 +1775,7 @@
                                    text-navy
                                    mt-2">
 
-                            Aktivitas Project
+                            Pengerjaan Project
 
                         </h4>
 
@@ -1918,8 +1787,8 @@
                                    text-slate-400
                                    mt-1.5">
 
-                            Dokumentasi proses pengembangan project
-                            selama kegiatan berlangsung.
+                            Proses mengembangkan project berdasarkan
+                            tugas dan arahan yang telah diberikan.
 
                         </p>
 
@@ -1933,15 +1802,18 @@
                                    border-t
                                    border-slate-100">
 
+                            <span
+                                class="text-[9px]
+                                       text-slate-400">
 
-                            <span class="text-[9px] text-slate-400">
-
-                                Dokumentasi 07
+                                Dokumentasi 03
 
                             </span>
 
 
-                            <span class="text-green-600 text-xs">
+                            <span
+                                class="text-green-600
+                                       text-xs">
 
                                 →
 
@@ -1954,9 +1826,7 @@
                 </article>
 
 
-                <!-- =================================================
-                     CARD 8
-                ================================================== -->
+                <!-- CARD 4 -->
 
                 <article
                     class="documentation-card
@@ -1967,7 +1837,6 @@
                            overflow-hidden
                            soft-shadow">
 
-
                     <div
                         class="documentation-card-image
                                h-[165px]
@@ -1975,8 +1844,8 @@
                                bg-purple-50">
 
                         <img
-                            src="assets/dokumentasi/dokumentasi-08.jpg"
-                            alt="Hasil Kegiatan"
+                            src="assets/dokumentasi/dokumentasi-04.jpg"
+                            alt="Presentasi Project"
                             class="documentation-image
                                    w-full
                                    h-full
@@ -1985,8 +1854,9 @@
                     </div>
 
 
-                    <div class="documentation-card-content p-4">
-
+                    <div
+                        class="documentation-card-content
+                               p-4">
 
                         <span
                             class="inline-flex
@@ -1998,7 +1868,7 @@
                                    text-[8px]
                                    font-semibold">
 
-                            Hasil
+                            Presentasi
 
                         </span>
 
@@ -2010,7 +1880,7 @@
                                    text-navy
                                    mt-2">
 
-                            Hasil Kegiatan
+                            Presentasi Project
 
                         </h4>
 
@@ -2022,8 +1892,8 @@
                                    text-slate-400
                                    mt-1.5">
 
-                            Hasil pekerjaan yang telah diselesaikan
-                            selama mengikuti program internship.
+                            Penyampaian hasil pekerjaan dan perkembangan
+                            project kepada pembimbing.
 
                         </p>
 
@@ -2037,15 +1907,446 @@
                                    border-t
                                    border-slate-100">
 
+                            <span
+                                class="text-[9px]
+                                       text-slate-400">
 
-                            <span class="text-[9px] text-slate-400">
+                                Dokumentasi 04
+
+                            </span>
+
+
+                            <span
+                                class="text-purple-600
+                                       text-xs">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 DOKUMENTASI TAMBAHAN
+            ================================================== -->
+
+            <section
+                id="additionalDocumentation"
+                class="additional-documentation
+                       documentation-grid
+                       grid
+                       grid-cols-4
+                       gap-4
+                       mt-4">
+
+
+                <!-- CARD 5 -->
+
+                <article
+                    class="documentation-card
+                           bg-white
+                           border
+                           border-slate-200
+                           rounded-xl
+                           overflow-hidden
+                           soft-shadow">
+
+                    <div
+                        class="documentation-card-image
+                               h-[165px]
+                               overflow-hidden
+                               bg-green-50">
+
+                        <img
+                            src="assets/dokumentasi/dokumentasi-05.jpg"
+                            alt="Briefing Sore"
+                            class="documentation-image
+                                   w-full
+                                   h-full
+                                   object-cover">
+
+                    </div>
+
+
+                    <div class="documentation-card-content p-4">
+
+                        <span
+                            class="inline-flex
+                                   px-2
+                                   py-1
+                                   rounded-md
+                                   bg-green-50
+                                   text-green-700
+                                   text-[8px]
+                                   font-semibold">
+
+                            Briefing
+
+                        </span>
+
+
+                        <h4
+                            class="documentation-card-title
+                                   text-xs
+                                   font-bold
+                                   text-navy
+                                   mt-2">
+
+                            Briefing Sore
+
+                        </h4>
+
+
+                        <p
+                            class="documentation-card-description
+                                   text-[10px]
+                                   leading-relaxed
+                                   text-slate-400
+                                   mt-1.5">
+
+                            Evaluasi singkat untuk memastikan kegiatan
+                            berjalan sesuai rencana.
+
+                        </p>
+
+
+                        <div
+                            class="flex
+                                   items-center
+                                   justify-between
+                                   mt-4
+                                   pt-3
+                                   border-t
+                                   border-slate-100">
+
+                            <span
+                                class="text-[9px]
+                                       text-slate-400">
+
+                                Dokumentasi 05
+
+                            </span>
+
+
+                            <span
+                                class="text-green-600
+                                       text-xs">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 6 -->
+
+                <article
+                    class="documentation-card
+                           bg-white
+                           border
+                           border-slate-200
+                           rounded-xl
+                           overflow-hidden
+                           soft-shadow">
+
+                    <div
+                        class="documentation-card-image
+                               h-[165px]
+                               overflow-hidden
+                               bg-purple-50">
+
+                        <img
+                            src="assets/dokumentasi/dokumentasi-06.jpg"
+                            alt="Diskusi Project"
+                            class="documentation-image
+                                   w-full
+                                   h-full
+                                   object-cover">
+
+                    </div>
+
+
+                    <div class="documentation-card-content p-4">
+
+                        <span
+                            class="inline-flex
+                                   px-2
+                                   py-1
+                                   rounded-md
+                                   bg-purple-50
+                                   text-purple-600
+                                   text-[8px]
+                                   font-semibold">
+
+                            Diskusi
+
+                        </span>
+
+
+                        <h4
+                            class="documentation-card-title
+                                   text-xs
+                                   font-bold
+                                   text-navy
+                                   mt-2">
+
+                            Diskusi Project
+
+                        </h4>
+
+
+                        <p
+                            class="documentation-card-description
+                                   text-[10px]
+                                   leading-relaxed
+                                   text-slate-400
+                                   mt-1.5">
+
+                            Pembahasan perkembangan project dan
+                            penyesuaian pekerjaan yang diperlukan.
+
+                        </p>
+
+
+                        <div
+                            class="flex
+                                   items-center
+                                   justify-between
+                                   mt-4
+                                   pt-3
+                                   border-t
+                                   border-slate-100">
+
+                            <span
+                                class="text-[9px]
+                                       text-slate-400">
+
+                                Dokumentasi 06
+
+                            </span>
+
+
+                            <span
+                                class="text-purple-600
+                                       text-xs">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 7 -->
+
+                <article
+                    class="documentation-card
+                           bg-white
+                           border
+                           border-slate-200
+                           rounded-xl
+                           overflow-hidden
+                           soft-shadow">
+
+                    <div
+                        class="documentation-card-image
+                               h-[165px]
+                               overflow-hidden
+                               bg-green-50">
+
+                        <img
+                            src="assets/dokumentasi/dokumentasi-07.jpg"
+                            alt="Pengerjaan Project Lanjutan"
+                            class="documentation-image
+                                   w-full
+                                   h-full
+                                   object-cover">
+
+                    </div>
+
+
+                    <div class="documentation-card-content p-4">
+
+                        <span
+                            class="inline-flex
+                                   px-2
+                                   py-1
+                                   rounded-md
+                                   bg-green-50
+                                   text-green-700
+                                   text-[8px]
+                                   font-semibold">
+
+                            Pengerjaan Project
+
+                        </span>
+
+
+                        <h4
+                            class="documentation-card-title
+                                   text-xs
+                                   font-bold
+                                   text-navy
+                                   mt-2">
+
+                            Pengerjaan Project Lanjutan
+
+                        </h4>
+
+
+                        <p
+                            class="documentation-card-description
+                                   text-[10px]
+                                   leading-relaxed
+                                   text-slate-400
+                                   mt-1.5">
+
+                            Kelanjutan proses pengembangan dan
+                            penyelesaian bagian project.
+
+                        </p>
+
+
+                        <div
+                            class="flex
+                                   items-center
+                                   justify-between
+                                   mt-4
+                                   pt-3
+                                   border-t
+                                   border-slate-100">
+
+                            <span
+                                class="text-[9px]
+                                       text-slate-400">
+
+                                Dokumentasi 07
+
+                            </span>
+
+
+                            <span
+                                class="text-green-600
+                                       text-xs">
+
+                                →
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 8 -->
+
+                <article
+                    class="documentation-card
+                           bg-white
+                           border
+                           border-slate-200
+                           rounded-xl
+                           overflow-hidden
+                           soft-shadow">
+
+                    <div
+                        class="documentation-card-image
+                               h-[165px]
+                               overflow-hidden
+                               bg-purple-50">
+
+                        <img
+                            src="assets/dokumentasi/dokumentasi-08.jpg"
+                            alt="Presentasi Project Lanjutan"
+                            class="documentation-image
+                                   w-full
+                                   h-full
+                                   object-cover">
+
+                    </div>
+
+
+                    <div class="documentation-card-content p-4">
+
+                        <span
+                            class="inline-flex
+                                   px-2
+                                   py-1
+                                   rounded-md
+                                   bg-purple-50
+                                   text-purple-600
+                                   text-[8px]
+                                   font-semibold">
+
+                            Presentasi
+
+                        </span>
+
+
+                        <h4
+                            class="documentation-card-title
+                                   text-xs
+                                   font-bold
+                                   text-navy
+                                   mt-2">
+
+                            Presentasi Project Lanjutan
+
+                        </h4>
+
+
+                        <p
+                            class="documentation-card-description
+                                   text-[10px]
+                                   leading-relaxed
+                                   text-slate-400
+                                   mt-1.5">
+
+                            Penyampaian perkembangan dan hasil
+                            penyelesaian project kepada pembimbing.
+
+                        </p>
+
+
+                        <div
+                            class="flex
+                                   items-center
+                                   justify-between
+                                   mt-4
+                                   pt-3
+                                   border-t
+                                   border-slate-100">
+
+                            <span
+                                class="text-[9px]
+                                       text-slate-400">
 
                                 Dokumentasi 08
 
                             </span>
 
 
-                            <span class="text-purple-600 text-xs">
+                            <span
+                                class="text-purple-600
+                                       text-xs">
 
                                 →
 
@@ -2069,7 +2370,6 @@
                        justify-center
                        mt-6">
 
-
                 <button
                     type="button"
                     id="documentationToggle"
@@ -2090,7 +2390,6 @@
                            hover:text-green-700
                            hover:bg-green-50/40
                            transition">
-
 
                     <span id="documentationToggleText">
 
@@ -2136,12 +2435,10 @@
                        py-4
                        soft-shadow">
 
-
                 <div
                     class="flex
                            items-center
                            gap-3">
-
 
                     <div
                         class="w-8
@@ -2154,7 +2451,6 @@
                                items-center
                                justify-center
                                shrink-0">
-
 
                         <svg
                             class="w-4 h-4 text-green-700"
@@ -2190,8 +2486,8 @@
                                    text-slate-400
                                    mt-0.5">
 
-                            Gunakan menu Tambah Dokumentasi untuk
-                            memasukkan dokumentasi baru.
+                            Gunakan tombol Tambah Dokumentasi untuk
+                            memasukkan arsip kegiatan baru.
 
                         </p>
 
@@ -2208,10 +2504,293 @@
 
     <!-- =====================================================
          JAVASCRIPT
-         SHOW / HIDE DOKUMENTASI TAMBAHAN
     ====================================================== -->
 
     <script>
+
+
+        /* =================================================
+           DATE PICKER
+        ================================================== */
+
+        const dateButton =
+            document.getElementById("dateButton");
+
+        const calendarPopup =
+            document.getElementById("calendarPopup");
+
+        const datePicker =
+            document.getElementById("datePicker");
+
+        const currentDate =
+            document.getElementById("currentDate");
+
+        const selectedDateLabel =
+            document.getElementById("selectedDateLabel");
+
+        const todayButton =
+            document.getElementById("todayButton");
+
+
+        function formatDate(dateValue) {
+
+            const date =
+                new Date(
+                    dateValue + "T00:00:00"
+                );
+
+            return date.toLocaleDateString(
+                "id-ID",
+                {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+
+        function getTodayValue() {
+
+            const today =
+                new Date();
+
+            const year =
+                today.getFullYear();
+
+            const month =
+                String(
+                    today.getMonth() + 1
+                ).padStart(2, "0");
+
+            const day =
+                String(
+                    today.getDate()
+                ).padStart(2, "0");
+
+            return `${year}-${month}-${day}`;
+
+        }
+
+
+        const todayValue =
+            getTodayValue();
+
+
+        datePicker.value =
+            todayValue;
+
+
+        currentDate.textContent =
+            formatDate(todayValue);
+
+
+        selectedDateLabel.textContent =
+            "Hari ini";
+
+
+        dateButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                calendarPopup.classList.toggle(
+                    "hidden"
+                );
+
+            }
+        );
+
+
+        datePicker.addEventListener(
+            "change",
+            function () {
+
+                const selectedDate =
+                    datePicker.value;
+
+                if (!selectedDate) return;
+
+
+                currentDate.textContent =
+                    formatDate(selectedDate);
+
+
+                if (
+                    selectedDate ===
+                    todayValue
+                ) {
+
+                    selectedDateLabel.textContent =
+                        "Hari ini";
+
+                } else {
+
+                    selectedDateLabel.textContent =
+                        formatDate(selectedDate);
+
+                }
+
+
+                calendarPopup.classList.add(
+                    "hidden"
+                );
+
+            }
+        );
+
+
+        todayButton.addEventListener(
+            "click",
+            function () {
+
+                datePicker.value =
+                    todayValue;
+
+                currentDate.textContent =
+                    formatDate(todayValue);
+
+                selectedDateLabel.textContent =
+                    "Hari ini";
+
+                calendarPopup.classList.add(
+                    "hidden"
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !calendarPopup.contains(
+                        event.target
+                    ) &&
+                    !dateButton.contains(
+                        event.target
+                    )
+                ) {
+
+                    calendarPopup.classList.add(
+                        "hidden"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           PROFILE DROPDOWN
+        ================================================== */
+
+        const profileToggle =
+            document.getElementById(
+                "profileToggle"
+            );
+
+
+        const profileDropdown =
+            document.getElementById(
+                "profileDropdown"
+            );
+
+
+        const profileChevron =
+            document.getElementById(
+                "profileChevron"
+            );
+
+
+        profileToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileDropdown.classList.toggle(
+                    "hidden"
+                );
+
+                profileChevron.classList.toggle(
+                    "rotate-180"
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !profileDropdown.contains(
+                        event.target
+                    ) &&
+                    !profileToggle.contains(
+                        event.target
+                    )
+                ) {
+
+                    profileDropdown.classList.add(
+                        "hidden"
+                    );
+
+                    profileChevron.classList.remove(
+                        "rotate-180"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           LOGOUT
+        ================================================== */
+
+        const logoutButton =
+            document.getElementById(
+                "logoutButton"
+            );
+
+
+        logoutButton.addEventListener(
+            "click",
+            function () {
+
+                const confirmLogout =
+                    confirm(
+                        "Apakah Anda yakin ingin logout?"
+                    );
+
+
+                if (confirmLogout) {
+
+                    localStorage.removeItem(
+                        "isLoggedIn"
+                    );
+
+                    window.location.href =
+                        "login.html";
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           SHOW / HIDE DOKUMENTASI
+        ================================================== */
 
         const documentationToggle =
             document.getElementById(
@@ -2241,7 +2820,6 @@
             "click",
             function () {
 
-
                 const isShown =
                     additionalDocumentation.classList.toggle(
                         "show"
@@ -2255,7 +2833,6 @@
 
 
                 if (isShown) {
-
 
                     documentationToggleText.textContent =
                         "Sembunyikan Dokumentasi";
@@ -2283,14 +2860,12 @@
 
                 } else {
 
-
                     documentationToggleText.textContent =
                         "Lihat Dokumentasi Lainnya";
 
 
                     documentationToggleIcon.style.transform =
                         "rotate(0deg)";
-
 
                 }
 
