@@ -2,126 +2,239 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard | Access Internship</title>
 
-    <!-- Tailwind CSS -->
+
+    <!-- =====================================================
+         TAILWIND CSS
+    ====================================================== -->
+
     <script src="https://cdn.tailwindcss.com"></script>
 
+
+    <!-- =====================================================
+         TAILWIND CONFIG
+    ====================================================== -->
+
     <script>
+
         tailwind.config = {
+
             theme: {
+
                 extend: {
+
                     colors: {
+
+                        /* HIJAU ACCESS */
+
                         green: {
-                            50: "#F0F7F3",
-                            100: "#DDEDE4",
-                            500: "#5B8A70",
-                            600: "#4C775F",
-                            700: "#3F624F",
+                            50: "#EFFAF4",
+                            100: "#DDF3E7",
+                            500: "#008A4B",
+                            600: "#007A43",
+                            700: "#006A3A",
                         },
+
+
+                        /* UNGU ACCESS */
 
                         purple: {
-                            50: "#F5F1FA",
-                            100: "#E9DFF4",
-                            400: "#9B7DB8",
-                            500: "#8868A8",
-                            600: "#745493",
+                            50: "#FBF0F8",
+                            100: "#F1D9EB",
+                            400: "#A42B8E",
+                            500: "#8A1B78",
+                            600: "#761666",
                         },
 
+
+                        /* WARNA TEKS */
+
                         navy: "#263750",
+
                     }
+
                 }
+
             }
+
         }
+
     </script>
 
+
+    <!-- =====================================================
+         CUSTOM STYLE
+    ====================================================== -->
+
     <style>
+
         * {
             box-sizing: border-box;
         }
+
 
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f8faf9;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #F8FAF9;
+
         }
 
-        /* background dashboard */
+
+        /* =================================================
+           BACKGROUND DASHBOARD
+        ================================================= */
+
         .dashboard-bg {
+
             background:
+
                 radial-gradient(
-                    circle at 85% 8%,
-                    rgba(136, 104, 168, 0.12),
+                    circle at 90% 5%,
+                    rgba(138, 27, 120, 0.08),
                     transparent 25%
                 ),
+
                 radial-gradient(
-                    circle at 10% 90%,
-                    rgba(91, 138, 112, 0.12),
+                    circle at 5% 90%,
+                    rgba(0, 138, 75, 0.08),
                     transparent 25%
                 ),
-                #f8faf9;
+
+                #F8FAF9;
+
         }
 
-        /* card shadow */
+
+        /* =================================================
+           SHADOW
+        ================================================= */
+
         .soft-shadow {
+
             box-shadow:
-                0 2px 8px rgba(38, 55, 80, 0.04),
-                0 1px 2px rgba(38, 55, 80, 0.03);
+
+                0 2px 8px
+                rgba(38, 55, 80, 0.04),
+
+                0 1px 2px
+                rgba(38, 55, 80, 0.03);
+
         }
 
-        /* menu hover */
+
+        /* =================================================
+           MENU HOVER
+        ================================================= */
+
         .menu-item {
-            transition: all 0.2s ease;
+
+            transition:
+                all 0.2s ease;
+
         }
+
 
         .menu-item:hover {
-            background: #f0f7f3;
-            color: #4c775f;
+
+            background: #EFFAF4;
+
+            color: #008A4B;
+
         }
 
-        /* active menu */
+
+        /* =================================================
+           MENU ACTIVE
+        ================================================= */
+
         .menu-active {
-            background: linear-gradient(
-                90deg,
-                #e1f0e7,
-                #eee6f5
-            );
-            color: #3f624f;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #DDF3E7,
+                    #F1D9EB
+                );
+
+            color: #006A3A;
+
         }
 
-        /* stat card */
+
+        /* =================================================
+           STAT CARD
+        ================================================= */
+
         .stat-card {
-            transition: all 0.2s ease;
+
+            transition:
+                all 0.2s ease;
+
         }
+
 
         .stat-card:hover {
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
+
             box-shadow:
-                0 8px 20px rgba(38, 55, 80, 0.07);
+
+                0 8px 20px
+                rgba(38, 55, 80, 0.08);
+
         }
 
-        /* scrollbar */
+
+        /* =================================================
+           SCROLLBAR
+        ================================================= */
+
         ::-webkit-scrollbar {
+
             width: 6px;
+
         }
+
 
         ::-webkit-scrollbar-track {
-            background: #f8faf9;
+
+            background: #F8FAF9;
+
         }
 
+
         ::-webkit-scrollbar-thumb {
-            background: #cbd5d0;
+
+            background: #CBD5D0;
+
             border-radius: 10px;
+
         }
+
     </style>
+
 </head>
+
 
 
 <body class="text-slate-600">
@@ -132,61 +245,117 @@
     ====================================================== -->
 
     <aside
-        class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col">
-
-
+        class="fixed
+               left-0
+               top-0
+               z-50
+               h-screen
+               w-[220px]
+               bg-white
+               border-r
+               border-slate-200
+               flex
+               flex-col">
+               
         <!-- LOGO / BRAND -->
-        <!-- Tinggi sama dengan navbar -->
 
-        <div class="flex items-center gap-3 w-[220px] shrink-0">
+        <div
+            class="h-[78px]
+                px-5
+                flex
+                items-center
+                border-b
+                border-slate-200
+                shrink-0">
 
-            <div class="w-10 h-10 flex items-center justify-center shrink-0">
+            <div class="flex items-center gap-3 min-w-0">
+
+                <!-- LOGO -->
+
                 <img
-                    src="assets/images/logo.jpeg"
+                    src="assets/images/logo.png"
                     alt="Logo Access Media"
-                    class="w-full h-full object-contain">
-            </div>
+                    class="w-11 h-11 object-contain shrink-0">
 
-            <div>
+                <!-- TEXT -->
 
-                <h1 class="text-[13px] font-bold text-navy">
-                    Access Internship
-                </h1>
+                <div class="min-w-0">
 
-                <p class="text-[10px] text-slate-400 mt-0.5">
-                    CV Access Media
-                </p>
+                    <h1
+                        class="text-[13px]
+                            font-bold
+                            text-navy
+                            whitespace-nowrap">
+
+                        Access Internship
+
+                    </h1>
+
+                    <p
+                        class="text-[10px]
+                            text-slate-400
+                            mt-1
+                            whitespace-nowrap">
+
+                        CV Access Media
+
+                    </p>
+
+                </div>
 
             </div>
 
         </div>
 
 
+        <!-- =================================================
+             MENU UTAMA
+        ================================================== -->
 
-        <!-- =====================================================
-             MENU
-        ====================================================== -->
+        <nav
+            class="flex-1
+                   px-3
+                   py-5
+                   overflow-y-auto">
 
-        <nav class="flex-1 px-3 py-5 overflow-y-auto">
 
+            <!-- TITLE MENU -->
 
             <p
-                class="px-3 mb-3 text-[9px] font-semibold
-                       uppercase tracking-[0.12em] text-slate-400">
+                class="px-3
+                       mb-3
+                       text-[9px]
+                       font-semibold
+                       uppercase
+                       tracking-[0.12em]
+                       text-slate-400">
 
-                Menu utama
+                Menu Utama
 
             </p>
 
 
-            <!-- DASHBOARD -->
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
 
             <a
                 href="dashboard.html"
-                class="menu-item menu-active
-                       flex items-center gap-3
-                       px-3 py-2.5 rounded-lg
-                       text-xs font-semibold mb-1">
+                class="menu-item
+                       menu-active
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       font-semibold
+                       mb-1">
+
+
+                <!-- ICON -->
 
                 <svg
                     class="w-4 h-4"
@@ -202,20 +371,30 @@
 
                 </svg>
 
+
                 Dashboard
 
             </a>
 
 
 
-            <!-- KEGIATAN -->
+            <!-- =================================================
+                 KEGIATAN
+            ================================================== -->
 
             <a
                 href="kegiatan.html"
                 class="menu-item
-                       flex items-center gap-3
-                       px-3 py-2.5 rounded-lg
-                       text-xs text-slate-500 mb-1">
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1">
+
 
                 <svg
                     class="w-4 h-4"
@@ -231,20 +410,30 @@
 
                 </svg>
 
+
                 Kegiatan
 
             </a>
 
 
 
-            <!-- PROJECT -->
+            <!-- =================================================
+                 PROJECT
+            ================================================== -->
 
             <a
                 href="project.html"
                 class="menu-item
-                       flex items-center gap-3
-                       px-3 py-2.5 rounded-lg
-                       text-xs text-slate-500 mb-1">
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1">
+
 
                 <svg
                     class="w-4 h-4"
@@ -260,20 +449,30 @@
 
                 </svg>
 
+
                 Project
 
             </a>
 
 
 
-            <!-- DOKUMENTASI -->
+            <!-- =================================================
+                 DOKUMENTASI
+            ================================================== -->
 
             <a
                 href="dokumentasi.html"
                 class="menu-item
-                       flex items-center gap-3
-                       px-3 py-2.5 rounded-lg
-                       text-xs text-slate-500 mb-1">
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1">
+
 
                 <svg
                     class="w-4 h-4"
@@ -289,20 +488,29 @@
 
                 </svg>
 
+
                 Dokumentasi
 
             </a>
 
 
 
-            <!-- INSTANSI -->
+            <!-- =================================================
+                 INSTANSI
+            ================================================== -->
 
             <a
                 href="instansi.html"
                 class="menu-item
-                       flex items-center gap-3
-                       px-3 py-2.5 rounded-lg
-                       text-xs text-slate-500">
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500">
+
 
                 <svg
                     class="w-4 h-4"
@@ -318,6 +526,7 @@
 
                 </svg>
 
+
                 Instansi
 
             </a>
@@ -326,24 +535,45 @@
 
 
 
-        <!-- =====================================================
+        <!-- =================================================
              USER
-        ====================================================== -->
+        ================================================== -->
 
-        <div class="p-4 border-t border-slate-200 shrink-0">
+        <div
+            class="p-4
+                   border-t
+                   border-slate-200
+                   shrink-0">
+
 
             <div
-                class="flex items-center gap-3
-                       p-2 rounded-lg hover:bg-slate-50 transition">
+                class="flex
+                       items-center
+                       gap-3
+                       p-2
+                       rounded-lg
+                       hover:bg-slate-50
+                       transition">
+
+
+                <!-- USER ICON -->
 
                 <div
-                    class="w-8 h-8 rounded-full
+                    class="w-8
+                           h-8
+                           rounded-full
                            bg-gradient-to-br
-                           from-green-100 to-purple-100
-                           flex items-center justify-center">
+                           from-green-100
+                           to-purple-100
+                           flex
+                           items-center
+                           justify-center">
+
 
                     <span
-                        class="text-[11px] font-bold text-green-700">
+                        class="text-[11px]
+                               font-bold
+                               text-green-700">
 
                         A
 
@@ -352,30 +582,33 @@
                 </div>
 
 
-                <div class="min-w-0 flex-1">
+                <!-- USER INFO -->
+
+                <div
+                    class="min-w-0
+                           flex-1">
+
 
                     <p
-                        class="text-[11px] font-semibold
-                               text-navy truncate">
+                        class="text-[11px]
+                               font-semibold
+                               text-navy
+                               truncate">
 
                         Administrator
 
                     </p>
 
-                    <p class="text-[9px] text-slate-400">
+
+                    <p
+                        class="text-[9px]
+                               text-slate-400">
 
                         Admin
 
                     </p>
 
                 </div>
-
-
-                <span
-                    class="w-1.5 h-1.5 rounded-full
-                           bg-green-500">
-
-                </span>
 
             </div>
 
@@ -389,21 +622,28 @@
          MAIN
     ====================================================== -->
 
-    <main class="ml-[220px] min-h-screen">
+    <main
+        class="ml-[220px]
+               min-h-screen">
 
 
-        <!-- =====================================================
+        <!-- =================================================
              NAVBAR
-             STICKY = TETAP SAAT SCROLL
-        ====================================================== -->
+        ================================================== -->
 
         <header
-            class="sticky top-0 z-40
-                   h-[64px]
-                   bg-white/95 backdrop-blur-md
-                   border-b border-slate-200
+            class="sticky
+                   top-0
+                   z-40
+                   h-[78px]
+                   bg-white/95
+                   backdrop-blur-md
+                   border-b
+                   border-slate-200
                    px-7
-                   flex items-center justify-between">
+                   flex
+                   items-center
+                   justify-between">
 
 
             <!-- TITLE -->
@@ -411,14 +651,19 @@
             <div>
 
                 <h2
-                    class="text-[17px] font-bold text-navy">
+                    class="text-[17px]
+                           font-bold
+                           text-navy">
 
                     Dashboard
 
                 </h2>
 
+
                 <p
-                    class="text-[11px] text-slate-400 mt-0.5">
+                    class="text-[11px]
+                           text-slate-400
+                           mt-0.5">
 
                     Ringkasan informasi Access Internship
 
@@ -431,8 +676,12 @@
             <!-- DATE -->
 
             <div
-                class="flex items-center gap-2
-                       text-[11px] text-slate-400">
+                class="flex
+                       items-center
+                       gap-2
+                       text-[11px]
+                       text-slate-400">
+
 
                 <svg
                     class="w-4 h-4 text-green-600"
@@ -448,6 +697,7 @@
 
                 </svg>
 
+
                 September 2026
 
             </div>
@@ -456,13 +706,13 @@
 
 
 
-        <!-- =====================================================
+        <!-- =================================================
              CONTENT
-        ====================================================== -->
+        ================================================== -->
 
         <div
             class="dashboard-bg
-                   min-h-[calc(100vh-64px)]
+                   min-h-[calc(100vh-78px)]
                    p-6">
 
 
@@ -471,88 +721,98 @@
             ================================================== -->
 
             <section
-                class="relative overflow-hidden
+                class="relative
+                       overflow-hidden
                        rounded-2xl
-                       border border-slate-200
+                       border
+                       border-green-100
                        bg-gradient-to-r
-                       from-green-600
-                       via-green-500
-                       to-purple-500
-                       p-[1px]
+                       from-[#EFFAF4]
+                       via-white
+                       to-[#FBF0F8]
+                       px-6
+                       py-5
                        mb-6
                        soft-shadow">
 
 
+                <!-- DECORATION UNGU -->
+
                 <div
-                    class="relative overflow-hidden
-                           rounded-[15px]
-                           bg-gradient-to-r
-                           from-[#f4faf6]
-                           via-white
-                           to-[#f7f3fb]
-                           px-6 py-5">
+                    class="absolute
+                           -right-10
+                           -top-16
+                           w-40
+                           h-40
+                           rounded-full
+                           bg-purple-100/60">
+
+                </div>
 
 
-                    <!-- DECORATION -->
+                <!-- DECORATION HIJAU -->
+
+                <div
+                    class="absolute
+                           -left-10
+                           -bottom-20
+                           w-36
+                           h-36
+                           rounded-full
+                           bg-green-100/60">
+
+                </div>
+
+
+
+                <div
+                    class="relative">
+
+
+                    <!-- LABEL -->
 
                     <div
-                        class="absolute
-                               -right-10 -top-16
-                               w-40 h-40
+                        class="inline-flex
+                               items-center
+                               px-2.5
+                               py-1
                                rounded-full
-                               bg-purple-100/60">
+                               bg-green-100
+                               text-green-700
+                               text-[9px]
+                               font-semibold
+                               mb-2">
+
+                        Access Internship
 
                     </div>
 
 
-                    <div
-                        class="absolute
-                               -left-10 -bottom-20
-                               w-36 h-36
-                               rounded-full
-                               bg-green-100/60">
+                    <!-- TITLE -->
 
-                    </div>
+                    <h1
+                        class="text-xl
+                               font-bold
+                               text-navy">
 
+                        Selamat datang kembali 👋
 
-                    <div class="relative">
-
-                        <div
-                            class="inline-flex items-center
-                                   px-2.5 py-1
-                                   rounded-full
-                                   bg-green-100
-                                   text-green-700
-                                   text-[9px]
-                                   font-semibold
-                                   mb-2">
-
-                            Access Internship
-
-                        </div>
+                    </h1>
 
 
-                        <h1
-                            class="text-xl font-bold text-navy">
+                    <!-- DESCRIPTION -->
 
-                            Selamat datang kembali 👋
+                    <p
+                        class="text-[11px]
+                               text-slate-500
+                               mt-1
+                               max-w-xl">
 
-                        </h1>
+                        Pantau kegiatan, project,
+                        dokumentasi, dan informasi
+                        internship melalui satu dashboard.
 
-
-                        <p
-                            class="text-[11px]
-                                   text-slate-500
-                                   mt-1
-                                   max-w-xl">
-
-                            Pantau kegiatan, project,
-                            dokumentasi, dan informasi
-                            internship melalui satu dashboard.
-
-                        </p>
-
-                    </div>
+                    </p>
 
                 </div>
 
@@ -566,18 +826,23 @@
             ================================================== -->
 
             <div
-                class="grid grid-cols-4 gap-4 mb-6">
+                class="grid
+                       grid-cols-4
+                       gap-4
+                       mb-6">
 
 
                 <!-- =================================================
-                     CARD 1
+                     CARD 1 - KEGIATAN
                 ================================================== -->
 
                 <div
                     class="stat-card
-                           relative overflow-hidden
+                           relative
+                           overflow-hidden
                            bg-white
-                           border border-green-100
+                           border
+                           border-green-100
                            rounded-xl
                            p-4
                            soft-shadow">
@@ -587,15 +852,18 @@
 
                     <div
                         class="absolute
-                               left-0 top-0
-                               w-full h-1
+                               left-0
+                               top-0
+                               w-full
+                               h-1
                                bg-green-500">
 
                     </div>
 
 
                     <div
-                        class="flex items-start
+                        class="flex
+                               items-start
                                justify-between">
 
 
@@ -635,11 +903,14 @@
 
 
                         <div
-                            class="w-9 h-9
-                                   rounded-xl
+                            class="w-9
+                                   h-9
+                                   rounded-lg
                                    bg-green-100
-                                   flex items-center
+                                   flex
+                                   items-center
                                    justify-center">
+
 
                             <svg
                                 class="w-4 h-4 text-green-600"
@@ -664,30 +935,37 @@
 
 
                 <!-- =================================================
-                     CARD 2
+                     CARD 2 - PROJECT
                 ================================================== -->
 
                 <div
                     class="stat-card
-                           relative overflow-hidden
+                           relative
+                           overflow-hidden
                            bg-white
-                           border border-purple-100
+                           border
+                           border-purple-100
                            rounded-xl
                            p-4
                            soft-shadow">
 
 
+                    <!-- TOP ACCENT -->
+
                     <div
                         class="absolute
-                               left-0 top-0
-                               w-full h-1
+                               left-0
+                               top-0
+                               w-full
+                               h-1
                                bg-purple-500">
 
                     </div>
 
 
                     <div
-                        class="flex items-start
+                        class="flex
+                               items-start
                                justify-between">
 
 
@@ -727,11 +1005,14 @@
 
 
                         <div
-                            class="w-9 h-9
-                                   rounded-xl
+                            class="w-9
+                                   h-9
+                                   rounded-lg
                                    bg-purple-100
-                                   flex items-center
+                                   flex
+                                   items-center
                                    justify-center">
+
 
                             <svg
                                 class="w-4 h-4 text-purple-600"
@@ -756,23 +1037,29 @@
 
 
                 <!-- =================================================
-                     CARD 3
+                     CARD 3 - DOKUMENTASI
                 ================================================== -->
 
                 <div
                     class="stat-card
-                           relative overflow-hidden
+                           relative
+                           overflow-hidden
                            bg-white
-                           border border-green-100
+                           border
+                           border-green-100
                            rounded-xl
                            p-4
                            soft-shadow">
 
 
+                    <!-- TOP ACCENT -->
+
                     <div
                         class="absolute
-                               left-0 top-0
-                               w-full h-1
+                               left-0
+                               top-0
+                               w-full
+                               h-1
                                bg-gradient-to-r
                                from-green-500
                                to-purple-500">
@@ -781,7 +1068,8 @@
 
 
                     <div
-                        class="flex items-start
+                        class="flex
+                               items-start
                                justify-between">
 
 
@@ -821,13 +1109,16 @@
 
 
                         <div
-                            class="w-9 h-9
-                                   rounded-xl
+                            class="w-9
+                                   h-9
+                                   rounded-lg
                                    bg-gradient-to-br
                                    from-green-100
                                    to-purple-100
-                                   flex items-center
+                                   flex
+                                   items-center
                                    justify-center">
+
 
                             <svg
                                 class="w-4 h-4 text-green-700"
@@ -852,30 +1143,37 @@
 
 
                 <!-- =================================================
-                     CARD 4
+                     CARD 4 - INSTANSI
                 ================================================== -->
 
                 <div
                     class="stat-card
-                           relative overflow-hidden
+                           relative
+                           overflow-hidden
                            bg-white
-                           border border-purple-100
+                           border
+                           border-purple-100
                            rounded-xl
                            p-4
                            soft-shadow">
 
 
+                    <!-- TOP ACCENT -->
+
                     <div
                         class="absolute
-                               left-0 top-0
-                               w-full h-1
+                               left-0
+                               top-0
+                               w-full
+                               h-1
                                bg-purple-500">
 
                     </div>
 
 
                     <div
-                        class="flex items-start
+                        class="flex
+                               items-start
                                justify-between">
 
 
@@ -915,11 +1213,14 @@
 
 
                         <div
-                            class="w-9 h-9
-                                   rounded-xl
+                            class="w-9
+                                   h-9
+                                   rounded-lg
                                    bg-purple-100
-                                   flex items-center
+                                   flex
+                                   items-center
                                    justify-center">
+
 
                             <svg
                                 class="w-4 h-4 text-purple-600"
@@ -950,7 +1251,9 @@
             ================================================== -->
 
             <div
-                class="grid grid-cols-5 gap-4">
+                class="grid
+                       grid-cols-5
+                       gap-4">
 
 
                 <!-- =================================================
@@ -960,22 +1263,33 @@
                 <section
                     class="col-span-3
                            bg-white
-                           border border-slate-200
+                           border
+                           border-slate-200
                            rounded-xl
                            p-5
                            soft-shadow">
 
 
-                    <div class="mb-5">
+                    <!-- TITLE -->
 
-                        <div class="flex items-center gap-2">
+                    <div
+                        class="mb-5">
+
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2">
+
 
                             <span
-                                class="w-2 h-2
+                                class="w-2
+                                       h-2
                                        rounded-full
                                        bg-green-500">
 
                             </span>
+
 
                             <h3
                                 class="text-sm
@@ -1002,8 +1316,12 @@
 
 
 
+                    <!-- QUICK MENU -->
+
                     <div
-                        class="grid grid-cols-2 gap-3">
+                        class="grid
+                               grid-cols-2
+                               gap-3">
 
 
                         <!-- KEGIATAN -->
@@ -1011,16 +1329,20 @@
                         <a
                             href="kegiatan.html"
                             class="group
-                                   border border-slate-200
+                                   border
+                                   border-slate-200
                                    rounded-xl
                                    p-4
                                    hover:border-green-200
                                    hover:bg-green-50/40
                                    transition">
 
+
                             <div
-                                class="flex items-center
+                                class="flex
+                                       items-center
                                        justify-between">
+
 
                                 <span
                                     class="text-xs
@@ -1030,6 +1352,7 @@
                                     Kegiatan
 
                                 </span>
+
 
                                 <span
                                     class="text-slate-300
@@ -1061,16 +1384,20 @@
                         <a
                             href="project.html"
                             class="group
-                                   border border-slate-200
+                                   border
+                                   border-slate-200
                                    rounded-xl
                                    p-4
                                    hover:border-purple-200
                                    hover:bg-purple-50/40
                                    transition">
 
+
                             <div
-                                class="flex items-center
+                                class="flex
+                                       items-center
                                        justify-between">
+
 
                                 <span
                                     class="text-xs
@@ -1080,6 +1407,7 @@
                                     Project
 
                                 </span>
+
 
                                 <span
                                     class="text-slate-300
@@ -1111,16 +1439,20 @@
                         <a
                             href="dokumentasi.html"
                             class="group
-                                   border border-slate-200
+                                   border
+                                   border-slate-200
                                    rounded-xl
                                    p-4
                                    hover:border-green-200
                                    hover:bg-green-50/40
                                    transition">
 
+
                             <div
-                                class="flex items-center
+                                class="flex
+                                       items-center
                                        justify-between">
+
 
                                 <span
                                     class="text-xs
@@ -1130,6 +1462,7 @@
                                     Dokumentasi
 
                                 </span>
+
 
                                 <span
                                     class="text-slate-300
@@ -1161,16 +1494,20 @@
                         <a
                             href="instansi.html"
                             class="group
-                                   border border-slate-200
+                                   border
+                                   border-slate-200
                                    rounded-xl
                                    p-4
                                    hover:border-purple-200
                                    hover:bg-purple-50/40
                                    transition">
 
+
                             <div
-                                class="flex items-center
+                                class="flex
+                                       items-center
                                        justify-between">
+
 
                                 <span
                                     class="text-xs
@@ -1180,6 +1517,7 @@
                                     Instansi
 
                                 </span>
+
 
                                 <span
                                     class="text-slate-300
@@ -1211,28 +1549,39 @@
 
 
                 <!-- =================================================
-                     AKTIVITAS
+                     AKTIVITAS TERBARU
                 ================================================== -->
 
                 <section
                     class="col-span-2
                            bg-white
-                           border border-slate-200
+                           border
+                           border-slate-200
                            rounded-xl
                            p-5
                            soft-shadow">
 
 
-                    <div class="mb-5">
+                    <!-- TITLE -->
 
-                        <div class="flex items-center gap-2">
+                    <div
+                        class="mb-5">
+
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2">
+
 
                             <span
-                                class="w-2 h-2
+                                class="w-2
+                                       h-2
                                        rounded-full
                                        bg-purple-500">
 
                             </span>
+
 
                             <h3
                                 class="text-sm
@@ -1259,23 +1608,33 @@
 
 
 
-                    <div class="space-y-4">
+                    <!-- ACTIVITY LIST -->
+
+                    <div
+                        class="space-y-4">
 
 
                         <!-- ACTIVITY 1 -->
 
-                        <div class="flex gap-3">
+                        <div
+                            class="flex
+                                   gap-3">
+
 
                             <div
-                                class="w-7 h-7
+                                class="w-7
+                                       h-7
                                        rounded-lg
                                        bg-green-100
-                                       flex items-center
+                                       flex
+                                       items-center
                                        justify-center
                                        shrink-0">
 
+
                                 <span
-                                    class="w-1.5 h-1.5
+                                    class="w-1.5
+                                           h-1.5
                                            rounded-full
                                            bg-green-600">
 
@@ -1313,18 +1672,25 @@
 
                         <!-- ACTIVITY 2 -->
 
-                        <div class="flex gap-3">
+                        <div
+                            class="flex
+                                   gap-3">
+
 
                             <div
-                                class="w-7 h-7
+                                class="w-7
+                                       h-7
                                        rounded-lg
                                        bg-purple-100
-                                       flex items-center
+                                       flex
+                                       items-center
                                        justify-center
                                        shrink-0">
 
+
                                 <span
-                                    class="w-1.5 h-1.5
+                                    class="w-1.5
+                                           h-1.5
                                            rounded-full
                                            bg-purple-600">
 
@@ -1362,18 +1728,25 @@
 
                         <!-- ACTIVITY 3 -->
 
-                        <div class="flex gap-3">
+                        <div
+                            class="flex
+                                   gap-3">
+
 
                             <div
-                                class="w-7 h-7
+                                class="w-7
+                                       h-7
                                        rounded-lg
                                        bg-green-100
-                                       flex items-center
+                                       flex
+                                       items-center
                                        justify-center
                                        shrink-0">
 
+
                                 <span
-                                    class="w-1.5 h-1.5
+                                    class="w-1.5
+                                           h-1.5
                                            rounded-full
                                            bg-green-600">
 
@@ -1411,18 +1784,25 @@
 
                         <!-- ACTIVITY 4 -->
 
-                        <div class="flex gap-3">
+                        <div
+                            class="flex
+                                   gap-3">
+
 
                             <div
-                                class="w-7 h-7
+                                class="w-7
+                                       h-7
                                        rounded-lg
                                        bg-purple-100
-                                       flex items-center
+                                       flex
+                                       items-center
                                        justify-center
                                        shrink-0">
 
+
                                 <span
-                                    class="w-1.5 h-1.5
+                                    class="w-1.5
+                                           h-1.5
                                            rounded-full
                                            bg-purple-600">
 

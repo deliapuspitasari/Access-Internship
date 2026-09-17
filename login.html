@@ -7,7 +7,6 @@
 
     <title>Login | Access Internship</title>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -15,15 +14,9 @@
             theme: {
                 extend: {
                     colors: {
-                        greenmain: "#76A987",
-                        darkgreen: "#4F795D",
-                        lightgreen: "#E4F2E8",
-
-                        purple: "#9A82C2",
-                        darkpurple: "#705596",
-                        lightpurple: "#D9CBEF",
-
-                        navy: "#26354D"
+                        accessPurple: "#8A1B78",
+                        accessGreen: "#008A4B",
+                        navy: "#263750",
                     }
                 }
             }
@@ -31,63 +24,120 @@
     </script>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .page-bg {
+        .login-bg {
             background:
                 radial-gradient(
-                    circle at 15% 15%,
-                    rgba(118, 169, 135, 0.16),
-                    transparent 25%
+                    circle at 10% 15%,
+                    rgba(138, 27, 120, 0.09),
+                    transparent 28%
                 ),
                 radial-gradient(
-                    circle at 85% 85%,
-                    rgba(154, 130, 194, 0.18),
-                    transparent 25%
+                    circle at 90% 85%,
+                    rgba(0, 138, 75, 0.09),
+                    transparent 28%
                 ),
-                #FAFAF8;
+                #f8faf9;
+        }
+
+        .login-card {
+            box-shadow:
+                0 10px 30px rgba(38, 55, 80, 0.07),
+                0 2px 8px rgba(38, 55, 80, 0.04);
+        }
+
+        .input-focus:focus {
+            border-color: #8A1B78;
+            box-shadow: 0 0 0 3px rgba(138, 27, 120, 0.08);
+            outline: none;
+        }
+
+        .login-button {
+            background: linear-gradient(
+                90deg,
+                #008A4B,
+                #8A1B78
+            );
+
+            transition: all 0.2s ease;
+        }
+
+        .login-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(138, 27, 120, 0.18);
         }
     </style>
 </head>
 
 
-<body class="page-bg min-h-screen flex items-center justify-center px-4 py-6">
+<body class="min-h-screen login-bg flex items-center justify-center px-4">
 
 
     <!-- LOGIN CARD -->
 
     <div
-        class="w-full max-w-[360px] bg-white rounded-2xl border border-slate-100 shadow-sm px-6 py-7">
+        class="login-card
+               w-full
+               max-w-[380px]
+               bg-white
+               rounded-3xl
+               border border-slate-100
+               px-7
+               py-6">
 
 
-        <!-- ================= LOGO ================= -->
+        <!-- HEADER -->
 
-        <div class="text-center mb-6">
+        <div class="text-center mb-5">
 
-            <div class="flex justify-center mb-5">
+
+            <!-- LOGO -->
+
+            <div class="flex justify-center mb-0">
 
                 <img
                     src="assets/images/logo.png"
                     alt="Logo Access Media"
-                    class="w-24 h-24 object-contain">
+                    class="w-16 h-16 object-contain">
 
             </div>
 
-            <h1 class="text-lg font-bold text-navy">
+
+            <!-- TITLE -->
+
+            <h1
+                class="text-lg
+                       font-bold
+                       text-navy
+                       -mt-1">
+
                 Access Internship
+
             </h1>
 
-            <p class="text-xs text-slate-400 mt-1">
+
+            <!-- SUBTITLE -->
+
+            <p
+                class="text-xs
+                       text-slate-400
+                       mt-1">
+
                 Masuk ke akun Anda
+
             </p>
 
         </div>
 
 
-
-        <!-- ================= FORM ================= -->
+        <!-- FORM -->
 
         <form
             action="dashboard.html"
@@ -101,38 +151,70 @@
 
                 <label
                     for="email"
-                    class="block text-xs font-semibold text-navy mb-1.5">
+                    class="block
+                           text-xs
+                           font-semibold
+                           text-navy
+                           mb-1.5">
+
                     Email
+
                 </label>
+
 
                 <input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="nama@email.com"
+                    placeholder="Masukkan email Anda"
                     required
-                    class="w-full h-10 px-3.5 rounded-lg border border-slate-200 bg-white text-xs text-slate-700 placeholder-slate-300 outline-none transition focus:border-greenmain focus:ring-2 focus:ring-greenmain/10">
+                    class="input-focus
+                           w-full
+                           h-10
+                           px-3
+                           rounded-lg
+                           border
+                           border-slate-200
+                           bg-white
+                           text-xs
+                           text-slate-700
+                           placeholder:text-slate-300
+                           transition">
 
             </div>
-
 
 
             <!-- PASSWORD -->
 
             <div>
 
-                <div class="flex items-center justify-between mb-1.5">
+                <div
+                    class="flex
+                           items-center
+                           justify-between
+                           mb-1.5">
 
                     <label
                         for="password"
-                        class="text-xs font-semibold text-navy">
-                        Kata sandi
+                        class="text-xs
+                               font-semibold
+                               text-navy">
+
+                        Password
+
                     </label>
+
 
                     <a
                         href="#"
-                        class="text-[10px] text-darkpurple hover:underline">
+                        class="text-[10px]
+                               font-medium
+                               text-accessPurple
+                               hover:text-accessGreen
+                               transition">
+
                         Lupa password?
+
                     </a>
 
                 </div>
@@ -144,35 +226,54 @@
                         type="password"
                         id="password"
                         name="password"
-                        placeholder="Masukkan kata sandi"
+                        placeholder="Masukkan password Anda"
                         required
-                        class="w-full h-10 px-3.5 pr-10 rounded-lg border border-slate-200 bg-white text-xs text-slate-700 placeholder-slate-300 outline-none transition focus:border-purple focus:ring-2 focus:ring-purple/10">
+                        class="input-focus
+                               w-full
+                               h-10
+                               px-3
+                               pr-10
+                               rounded-lg
+                               border
+                               border-slate-200
+                               bg-white
+                               text-xs
+                               text-slate-700
+                               placeholder:text-slate-300
+                               transition">
 
 
-                    <!-- EYE -->
+                    <!-- SHOW PASSWORD -->
 
                     <button
                         type="button"
                         onclick="togglePassword()"
-                        class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-300 hover:text-darkpurple transition">
+                        class="absolute
+                               right-3
+                               top-1/2
+                               -translate-y-1/2
+                               text-slate-400
+                               hover:text-accessPurple
+                               transition">
 
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
+                            id="eyeIcon"
+                            class="w-4 h-4"
                             fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.6"
                             stroke="currentColor"
-                            class="w-4 h-4">
+                            viewBox="0 0 24 24">
 
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12 18 18.75 12 18.75 2.25 12 2.25 12Z" />
+                                stroke-width="1.7"
+                                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
 
                             <circle
                                 cx="12"
                                 cy="12"
-                                r="2.5" />
+                                r="2.5"
+                                stroke-width="1.7" />
 
                         </svg>
 
@@ -183,8 +284,7 @@
             </div>
 
 
-
-            <!-- ================= REMEMBER ================= -->
+            <!-- REMEMBER ME -->
 
             <div class="flex items-center gap-2">
 
@@ -192,115 +292,112 @@
                     type="checkbox"
                     id="remember"
                     name="remember"
-                    class="w-3.5 h-3.5 rounded border-slate-300 text-darkgreen focus:ring-greenmain">
+                    class="w-3.5 h-3.5
+                           rounded
+                           border-slate-300
+                           text-accessPurple
+                           focus:ring-accessPurple">
 
                 <label
                     for="remember"
-                    class="text-[11px] text-slate-500">
+                    class="text-[10px]
+                           text-slate-500">
+
                     Ingat saya
+
                 </label>
 
             </div>
 
 
-
-            <!-- ================= LOGIN ================= -->
+            <!-- LOGIN BUTTON -->
 
             <button
                 type="submit"
-                class="w-full h-10 rounded-lg bg-gradient-to-r from-darkgreen to-purple text-white text-xs font-semibold hover:opacity-90 transition">
+                class="login-button
+                       w-full
+                       h-10
+                       rounded-lg
+                       text-xs
+                       font-semibold
+                       text-white
+                       mt-2">
 
                 Masuk
 
             </button>
 
-
         </form>
 
 
+        <!-- FOOTER -->
 
-        <!-- ================= DIVIDER ================= -->
+        <div class="text-center mt-5">
 
-        <div class="flex items-center gap-3 my-5">
+            <p
+                class="text-[10px]
+                       text-slate-400">
 
-            <div class="flex-1 h-px bg-slate-100"></div>
+                © 2026 Access Internship
 
-            <span class="text-[10px] text-slate-400">
-                atau
-            </span>
-
-            <div class="flex-1 h-px bg-slate-100"></div>
+            </p>
 
         </div>
-
-
-
-        <!-- ================= GOOGLE ================= -->
-
-        <button
-            type="button"
-            class="w-full h-10 rounded-lg border border-slate-200 bg-white flex items-center justify-center gap-2.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 transition">
-
-
-            <!-- GOOGLE ICON -->
-
-            <svg
-                class="w-4 h-4"
-                viewBox="0 0 24 24">
-
-                <path
-                    fill="#4285F4"
-                    d="M21.35 12.27c0-.78-.07-1.53-.22-2.25H12v4.26h5.23a4.47 4.47 0 0 1-1.94 2.93v2.44h3.14c1.84-1.69 2.92-4.18 2.92-7.38Z" />
-
-                <path
-                    fill="#34A853"
-                    d="M12 21.5c2.63 0 4.84-.87 6.45-2.35l-3.14-2.44c-.87.58-1.98.92-3.31.92-2.54 0-4.69-1.72-5.46-4.03H3.3v2.52A9.74 9.74 0 0 0 12 21.5Z" />
-
-                <path
-                    fill="#FBBC05"
-                    d="M6.54 13.6a5.86 5.86 0 0 1 0-3.72V7.36H3.3a9.75 9.75 0 0 0 0 8.76l3.24-2.52Z" />
-
-                <path
-                    fill="#EA4335"
-                    d="M12 5.85c1.43 0 2.71.49 3.72 1.46l2.79-2.79C16.84 2.94 14.63 2.5 12 2.5a9.74 9.74 0 0 0-8.7 5.36l3.24 2.52C7.31 7.57 9.46 5.85 12 5.85Z" />
-
-            </svg>
-
-            Lanjutkan dengan Google
-
-        </button>
-
-
-
-        <!-- ================= FOOTER ================= -->
-
-        <p class="text-center text-[10px] text-slate-400 mt-5">
-            © 2026 Access Internship · CV Access Media
-        </p>
-
 
     </div>
 
 
-
-    <!-- ================= JAVASCRIPT ================= -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
         function togglePassword() {
 
-            const password = document.getElementById("password");
+            const password =
+                document.getElementById("password");
+
+            const eyeIcon =
+                document.getElementById("eyeIcon");
+
 
             if (password.type === "password") {
+
                 password.type = "text";
+
+                eyeIcon.innerHTML = `
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.7"
+                        d="M3 3l18 18M10.6 10.6a2 2 0 0 0 2.8 2.8M9.9 5.2A9.7 9.7 0 0 1 12 5c6 0 9.5 7 9.5 7a18 18 0 0 1-3.1 3.9M6.1 6.1C3.9 7.7 2.5 12 2.5 12s3.5 6 9.5 6c1.3 0 2.5-.3 3.6-.8"
+                    />
+                `;
+
             } else {
+
                 password.type = "password";
+
+                eyeIcon.innerHTML = `
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.7"
+                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="2.5"
+                        stroke-width="1.7"
+                    />
+                `;
+
             }
 
         }
 
     </script>
-
 
 </body>
 
