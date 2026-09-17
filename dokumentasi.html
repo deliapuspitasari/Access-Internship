@@ -248,7 +248,7 @@
                 width: 100% !important;
                 height: 68px !important;
 
-                padding: 6px 7px !important;
+                padding: 7px 8px !important;
 
                 overflow: hidden !important;
 
@@ -271,7 +271,7 @@
                 grid-template-columns:
                     repeat(5, minmax(0, 1fr)) !important;
 
-                gap: 3px !important;
+                gap: 4px !important;
 
                 align-items: stretch !important;
             }
@@ -281,9 +281,9 @@
                 margin: 0 !important;
 
                 width: 100% !important;
-                height: 56px !important;
+                height: 52px !important;
 
-                padding: 6px 2px !important;
+                padding: 6px 3px !important;
 
                 border-radius: 10px !important;
 
@@ -293,11 +293,11 @@
                 justify-content: center !important;
                 align-items: center !important;
 
-                gap: 4px !important;
+                gap: 3px !important;
 
                 flex-shrink: 1 !important;
 
-                font-size: 8px !important;
+                font-size: 9px !important;
 
                 white-space: nowrap !important;
 
@@ -313,8 +313,8 @@
 
 
             .sidebar-nav-mobile .menu-item svg {
-                width: 18px !important;
-                height: 18px !important;
+                width: 17px !important;
+                height: 17px !important;
 
                 flex-shrink: 0 !important;
             }
@@ -514,8 +514,8 @@
 
 
             .sidebar-nav-mobile .menu-item {
-                height: 56px !important;
-                font-size: 7.5px !important;
+                height: 52px !important;
+                font-size: 9px !important;
                 gap: 3px !important;
             }
 
@@ -525,7 +525,23 @@
                 height: 17px !important;
             }
         }
-    </style>
+    
+        @media (max-width: 380px) {
+            .sidebar-nav-mobile .nav-links {
+                gap: 3px !important;
+            }
+
+            .sidebar-nav-mobile .menu-item {
+                font-size: 8px !important;
+            }
+
+            .sidebar-nav-mobile .menu-item svg {
+                width: 16px !important;
+                height: 16px !important;
+            }
+        }
+
+</style>
 
 </head>
 
