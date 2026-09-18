@@ -9,6 +9,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script>
         tailwind.config = {
@@ -809,12 +810,11 @@
                         <div class="relative flex items-center gap-3">
 
                             <div
-                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
+    class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl text-greenmain">
 
-                                💻
+    <i class="bi bi-laptop"></i>
 
-                            </div>
-
+</div>
 
                             <div>
 
@@ -930,151 +930,91 @@
 
                     <div class="grid grid-cols-2 gap-4">
 
+                    <!-- CARD 1 -->
+                    <div 
+                        class="group relative overflow-hidden rounded-2xl border border-sage/50 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-                        <!-- CARD 1 -->
+                        <div class="absolute left-0 top-0 h-1 w-full bg-greenmain"></div>
 
-                        <div
-                            class="group relative overflow-hidden rounded-2xl border border-sage/50 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-
-
-                            <div
-                                class="absolute left-0 top-0 h-1 w-full bg-greenmain">
-                            </div>
-
-
-                            <div
-                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
-
-                                💼
-
-                            </div>
-
-
-                            <h3 class="mt-4 font-bold text-slate-800">
-
-                                Pengalaman Kerja
-
-                            </h3>
-
-
-                            <p class="mt-2 text-sm leading-6 text-slate-500">
-
-                                Mengenal suasana dan proses kerja secara langsung.
-
-                            </p>
-
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl text-greenmain">
+                            <i class="bi bi-briefcase-fill"></i>
                         </div>
 
+                        <h3 class="mt-4 font-bold text-slate-800">
+                            Pengalaman Kerja
+                        </h3>
 
-
-                        <!-- CARD 2 -->
-
-                        <div
-                            class="group relative overflow-hidden rounded-2xl border border-lavender/70 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-
-
-                            <div
-                                class="absolute left-0 top-0 h-1 w-full bg-purple">
-                            </div>
-
-
-                            <div
-                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl">
-
-                                👨‍🏫
-
-                            </div>
-
-
-                            <h3 class="mt-4 font-bold text-slate-800">
-
-                                Bimbingan
-
-                            </h3>
-
-
-                            <p class="mt-2 text-sm leading-6 text-slate-500">
-
-                                Mendapat arahan dan bimbingan langsung dari
-                                pimpinan Access Media.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <!-- CARD 3 -->
-
-                        <div
-                            class="group relative overflow-hidden rounded-2xl border border-lavender/70 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-
-
-                            <div
-                                class="absolute left-0 top-0 h-1 w-full bg-purple">
-                            </div>
-
-
-                            <div
-                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl">
-
-                                🚀
-
-                            </div>
-
-
-                            <h3 class="mt-4 font-bold text-slate-800">
-
-                                Pengembangan Skill
-
-                            </h3>
-
-
-                            <p class="mt-2 text-sm leading-6 text-slate-500">
-
-                                Mengasah kemampuan teknis maupun soft skill.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <!-- CARD 4 -->
-
-                        <div
-                            class="group relative overflow-hidden rounded-2xl border border-sage/50 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-
-
-                            <div
-                                class="absolute left-0 top-0 h-1 w-full bg-greenmain">
-                            </div>
-
-
-                            <div
-                                class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl">
-
-                                🤝
-
-                            </div>
-
-
-                            <h3 class="mt-4 font-bold text-slate-800">
-
-                                Kerja Sama
-
-                            </h3>
-
-
-                            <p class="mt-2 text-sm leading-6 text-slate-500">
-
-                                Belajar berkomunikasi dan bekerja dalam tim.
-
-                            </p>
-
-                        </div>
+                        <p class="mt-2 text-sm leading-6 text-slate-500">
+                            Mengenal suasana dan proses kerja secara langsung.
+                        </p>
 
                     </div>
+
+
+    <!-- CARD 2 -->
+    <div 
+        class="group relative overflow-hidden rounded-2xl border border-lavender/70 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+        <div class="absolute left-0 top-0 h-1 w-full bg-purple"></div>
+
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl text-purple">
+            <i class="bi bi-person-workspace"></i>
+        </div>
+
+        <h3 class="mt-4 font-bold text-slate-800">
+            Bimbingan
+        </h3>
+
+        <p class="mt-2 text-sm leading-6 text-slate-500">
+            Mendapat arahan dan bimbingan langsung dari
+            pimpinan Access Media.
+        </p>
+
+    </div>
+
+
+    <!-- CARD 3 -->
+    <div 
+        class="group relative overflow-hidden rounded-2xl border border-lavender/70 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+        <div class="absolute left-0 top-0 h-1 w-full bg-purple"></div>
+
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-xl text-purple">
+            <i class="bi bi-rocket-takeoff-fill"></i>
+        </div>
+
+        <h3 class="mt-4 font-bold text-slate-800">
+            Pengembangan Skill
+        </h3>
+
+        <p class="mt-2 text-sm leading-6 text-slate-500">
+            Mengasah kemampuan teknis maupun soft skill.
+        </p>
+
+    </div>
+
+
+    <!-- CARD 4 -->
+    <div 
+        class="group relative overflow-hidden rounded-2xl border border-sage/50 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+        <div class="absolute left-0 top-0 h-1 w-full bg-greenmain"></div>
+
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-mint text-xl text-greenmain">
+            <i class="bi bi-people-fill"></i>
+        </div>
+
+        <h3 class="mt-4 font-bold text-slate-800">
+            Kerja Sama
+        </h3>
+
+        <p class="mt-2 text-sm leading-6 text-slate-500">
+            Belajar berkomunikasi dan bekerja dalam tim.
+        </p>
+
+    </div>
+
+</div>
 
                 </div>
 
@@ -2355,7 +2295,7 @@
 
             <span class="text-base text-slate-500
                          group-hover:text-green-600 transition">
-                WhatsApp
+                whatsapp
             </span>
         </a>
 
@@ -2382,13 +2322,13 @@
 
             <span class="text-base text-slate-500
                          group-hover:text-blue-600 transition">
-                Website Access Media
+                accessmedia.co.id
             </span>
         </a>
 
 
         <!-- Instagram -->
-        <a href="LINK_INSTAGRAM_PKL_ACM"
+        <a href="https://www.instagram.com/acm.pkl/"
            target="_blank"
            class="group flex items-center gap-2.5 py-1.5">
 
@@ -2411,13 +2351,13 @@
 
             <span class="text-base text-slate-500
                          group-hover:text-pink-600 transition">
-                Instagram PKL ACM
+                acm.pkl
             </span>
         </a>
 
 
         <!-- YouTube -->
-        <a href="LINK_YOUTUBE_ACCESS_MEDIA"
+        <a href="https://www.youtube.com/@accessmedia3331"
            target="_blank"
            class="group flex items-center gap-2.5 py-1.5">
 
@@ -2441,7 +2381,7 @@
 
             <span class="text-base text-slate-500
                          group-hover:text-red-600 transition">
-                YouTube Access Media
+                Access Media
             </span>
         </a>
 
