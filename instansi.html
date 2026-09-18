@@ -109,6 +109,7 @@
 
         ::-webkit-scrollbar {
             width: 6px;
+            height: 6px;
         }
 
         ::-webkit-scrollbar-track {
@@ -118,6 +119,483 @@
         ::-webkit-scrollbar-thumb {
             background: #CBD5D0;
             border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           MOBILE RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 767px) {
+
+            /* =================================================
+               SIDEBAR -> BOTTOM NAVIGATION
+            ================================================== */
+
+            aside {
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                top: auto !important;
+
+                width: 100% !important;
+                height: 64px !important;
+
+                z-index: 50;
+
+                display: flex !important;
+                flex-direction: row !important;
+
+                border-right: none !important;
+                border-top: 1px solid #E2E8F0;
+
+                background: rgba(255, 255, 255, 0.97);
+
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+
+                box-shadow:
+                    0 -4px 15px rgba(38, 55, 80, 0.06);
+            }
+
+
+            /* LOGO DISEMBUNYIKAN */
+
+            aside > div:first-child {
+                display: none !important;
+            }
+
+
+            /* NAV */
+
+            aside nav {
+                width: 100%;
+                height: 64px;
+
+                padding: 5px 7px !important;
+
+                display: grid !important;
+
+                grid-template-columns:
+                    repeat(5, minmax(0, 1fr));
+
+                overflow: visible !important;
+            }
+
+
+            /* MENU UTAMA DISEMBUNYIKAN */
+
+            aside nav > p {
+                display: none !important;
+            }
+
+
+            /* MENU ITEM */
+
+            aside nav a {
+                min-width: 0;
+
+                margin: 0 !important;
+
+                padding:
+                    5px
+                    2px !important;
+
+                border-radius: 9px;
+
+                display: flex !important;
+
+                flex-direction: column !important;
+
+                align-items: center !important;
+
+                justify-content: center !important;
+
+                gap: 3px !important;
+
+                font-size: 8px !important;
+
+                line-height: 1 !important;
+
+                text-align: center;
+            }
+
+
+            aside nav a svg {
+                width: 16px !important;
+                height: 16px !important;
+            }
+
+
+            /* ACTIVE */
+
+            aside nav a.menu-active {
+                background:
+                    linear-gradient(
+                        135deg,
+                        #DDF3E7,
+                        #F1D9EB
+                    );
+            }
+
+
+            /* PROFILE KHUSUS MOBILE */
+
+            .mobile-profile-menu {
+                display: flex !important;
+            }
+
+
+            /* USER DESKTOP DISEMBUNYIKAN */
+
+            aside > div:last-child {
+                display: none !important;
+            }
+
+
+            /* =================================================
+               MAIN
+            ================================================== */
+
+            main {
+                margin-left: 0 !important;
+
+                padding-bottom: 72px;
+            }
+
+
+            /* =================================================
+               NAVBAR
+            ================================================== */
+
+            main header {
+                height: 68px !important;
+
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+
+            main header h2 {
+                font-size: 16px !important;
+            }
+
+
+            main header p {
+                font-size: 9px !important;
+
+                max-width: 270px;
+
+                white-space: nowrap;
+
+                overflow: hidden;
+
+                text-overflow: ellipsis;
+            }
+
+
+            /* =================================================
+               CONTENT
+            ================================================== */
+
+            .dashboard-bg {
+                min-height: calc(100vh - 68px) !important;
+
+                padding: 10px !important;
+            }
+
+
+            /* =================================================
+               HERO
+            ================================================== */
+
+            .dashboard-bg > section:first-child {
+                padding: 16px !important;
+
+                margin-bottom: 12px !important;
+
+                border-radius: 15px !important;
+            }
+
+
+            .dashboard-bg > section:first-child h1 {
+                font-size: 17px !important;
+            }
+
+
+            .dashboard-bg > section:first-child p {
+                font-size: 9px !important;
+
+                line-height: 1.55;
+            }
+
+
+            .dashboard-bg > section:first-child span {
+                font-size: 9px !important;
+
+                padding:
+                    5px
+                    10px !important;
+            }
+
+
+            /* =================================================
+               STAT CARD
+               TETAP 1 BARIS
+            ================================================== */
+
+            .dashboard-bg > div.grid {
+                display: grid !important;
+
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr)) !important;
+
+                gap: 7px !important;
+
+                margin-bottom: 13px !important;
+            }
+
+
+            .stat-card {
+                min-width: 0 !important;
+
+                padding: 9px !important;
+
+                border-radius: 12px !important;
+            }
+
+
+            .stat-card:hover {
+                transform: none;
+            }
+
+
+            .stat-card > div {
+                gap: 4px !important;
+            }
+
+
+            .stat-card p:first-child {
+                font-size: 7px !important;
+
+                line-height: 1.2;
+            }
+
+
+            .stat-card p[id] {
+                font-size: 18px !important;
+
+                line-height: 1;
+
+                margin-top: 4px !important;
+            }
+
+
+            .stat-card p:last-child {
+                font-size: 6.5px !important;
+
+                line-height: 1.3;
+
+                margin-top: 5px !important;
+            }
+
+
+            .stat-card > div > div:last-child {
+                width: 25px !important;
+
+                height: 25px !important;
+
+                border-radius: 8px !important;
+
+                flex-shrink: 0;
+            }
+
+
+            .stat-card > div > div:last-child svg {
+                width: 12px !important;
+
+                height: 12px !important;
+            }
+
+
+            /* =================================================
+               DAFTAR INSTANSI
+            ================================================== */
+
+            .dashboard-bg section:last-child {
+                border-radius: 14px !important;
+            }
+
+
+            /* =================================================
+               TABLE
+            ================================================== */
+
+            .dashboard-bg section:last-child .overflow-x-auto {
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                -webkit-overflow-scrolling: touch;
+            }
+
+
+            .dashboard-bg table {
+
+                min-width: 650px !important;
+            }
+
+
+            .dashboard-bg table th {
+
+                padding:
+                    9px
+                    14px !important;
+
+                font-size: 7px !important;
+            }
+
+
+            .dashboard-bg table td {
+
+                padding:
+                    9px
+                    14px !important;
+            }
+
+
+            /* NAMA INSTANSI */
+
+            .dashboard-bg table td p.text-navy {
+
+                font-size: 9px !important;
+            }
+
+
+            /* KOTA */
+
+            .dashboard-bg table td p.text-slate-400 {
+
+                font-size: 7px !important;
+            }
+
+
+            /* ICON */
+
+            .dashboard-bg table td .w-8 {
+
+                width: 27px !important;
+
+                height: 27px !important;
+            }
+
+
+            .dashboard-bg table td .w-8 svg {
+
+                width: 12px !important;
+
+                height: 12px !important;
+            }
+
+
+            /* BADGE */
+
+            .dashboard-bg table td span {
+
+                font-size: 7px !important;
+            }
+
+
+            /* =================================================
+               EMPTY STATE
+            ================================================== */
+
+            #emptyState {
+
+                padding:
+                    28px
+                    15px !important;
+            }
+        }
+
+
+        /* =====================================================
+           EXTRA SMALL
+        ====================================================== */
+
+        @media (max-width: 380px) {
+
+            .dashboard-bg {
+                padding: 8px !important;
+            }
+
+
+            .dashboard-bg > section:first-child {
+                padding: 14px !important;
+            }
+
+
+            .stat-card {
+                padding: 8px !important;
+            }
+
+
+            .stat-card p[id] {
+                font-size: 16px !important;
+            }
+
+
+            .stat-card > div > div:last-child {
+                display: none !important;
+            }
+
+
+            .dashboard-bg section:last-child
+            > div:first-child
+            > div:last-child {
+
+                gap: 5px !important;
+            }
+
+
+            #searchInstansi,
+            #filterJenis {
+
+                font-size: 7.5px !important;
+            }
+
+
+            .dashboard-bg section:last-child
+            > div:first-child
+            > div:first-child
+            h2 {
+
+                font-size: 12px !important;
+            }
+
+
+            .dashboard-bg section:last-child
+            > div:first-child
+            > div:last-child
+            > a {
+
+                font-size: 7px !important;
+
+                padding:
+                    0
+                    7px !important;
+            }
+        }
+
+
+        /* =====================================================
+           PROFILE MOBILE DEFAULT
+        ====================================================== */
+
+        .mobile-profile-menu {
+            display: none;
         }
     </style>
 </head>
@@ -143,7 +621,9 @@
                flex
                flex-col">
 
+
         <!-- LOGO -->
+
         <div
             class="h-[78px]
                    px-5
@@ -190,6 +670,7 @@
 
 
         <!-- MENU -->
+
         <nav
             class="flex-1
                    px-3
@@ -211,6 +692,7 @@
 
 
             <!-- DASHBOARD -->
+
             <a
                 href="dashboard.html"
                 class="menu-item
@@ -245,6 +727,7 @@
 
 
             <!-- PROJECT -->
+
             <a
                 href="project.html"
                 class="menu-item
@@ -278,6 +761,7 @@
 
 
             <!-- DOKUMENTASI -->
+
             <a
                 href="dokumentasi.html"
                 class="menu-item
@@ -311,6 +795,7 @@
 
 
             <!-- INSTANSI ACTIVE -->
+
             <a
                 href="instansi.html"
                 class="menu-item
@@ -342,10 +827,46 @@
 
             </a>
 
+
+            <!-- PROFILE
+                 HANYA MUNCUL DI MOBILE -->
+
+            <a
+                href="profile.html"
+                class="mobile-profile-menu
+                       menu-item
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1">
+
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+
+                </svg>
+
+                Profile
+
+            </a>
+
         </nav>
 
 
-        <!-- USER -->
+        <!-- USER DESKTOP -->
+
         <div
             class="p-4
                    border-t
@@ -415,7 +936,6 @@
     </aside>
 
 
-
     <!-- =====================================================
          MAIN
     ====================================================== -->
@@ -425,9 +945,7 @@
                min-h-screen">
 
 
-        <!-- =================================================
-             NAVBAR
-        ================================================== -->
+        <!-- NAVBAR -->
 
         <header
             class="sticky
@@ -438,7 +956,7 @@
                    backdrop-blur-md
                    border-b
                    border-slate-200
-                   px-7
+                   px-6
                    flex
                    items-center
                    justify-between">
@@ -459,7 +977,7 @@
                            text-slate-400
                            mt-0.5">
 
-                    Ringkasan informasi Access Internship
+                    Beberapa instansi yang telah bekerja sama
 
                 </p>
 
@@ -473,26 +991,9 @@
                        text-[11px]
                        text-slate-400">
 
-                <svg
-                    class="w-4 h-4 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.7"
-                        d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
-
-                </svg>
-
-                September 2026
-
             </div>
 
         </header>
-
 
 
         <!-- =================================================
@@ -510,58 +1011,50 @@
             ================================================== -->
 
             <section
-                class="bg-white
+                class="relative
+                       overflow-hidden
                        rounded-2xl
                        border
                        border-green-100
-                       soft-shadow
-                       relative
-                       overflow-hidden
+                       bg-gradient-to-r
+                       from-[#EFFAF4]
+                       via-white
+                       to-[#FBF0F8]
                        px-7
                        py-5
-                       mb-5">
+                       mb-5
+                       soft-shadow">
 
-                <!-- DEKORASI -->
+
+                <!-- DECORATION UNGU -->
+
                 <div
                     class="absolute
                            -right-10
-                           -top-10
-                           w-36
-                           h-36
-                           rounded-full
-                           bg-purple-100/70">
-                </div>
-
-                <div
-                    class="absolute
-                           -left-14
-                           -bottom-16
+                           -top-16
                            w-40
                            h-40
                            rounded-full
-                           bg-green-100/70">
+                           bg-purple-100/60">
                 </div>
 
 
+                <!-- DECORATION HIJAU -->
+
                 <div
-                    class="relative
-                           z-10">
+                    class="absolute
+                           -left-10
+                           -bottom-20
+                           w-36
+                           h-36
+                           rounded-full
+                           bg-green-100/60">
+                </div>
 
-                    <span
-                        class="inline-flex
-                               items-center
-                               px-3
-                               py-1
-                               rounded-full
-                               bg-purple-100
-                               text-purple-600
-                               text-[10px]
-                               font-semibold
-                               mb-2">
 
-                        Data Instansi
+                <div class="relative z-10">
 
-                    </span>
+                    
 
 
                     <h1
@@ -591,7 +1084,6 @@
             </section>
 
 
-
             <!-- =================================================
                  STAT CARDS
             ================================================== -->
@@ -605,6 +1097,7 @@
 
 
                 <!-- TOTAL INSTANSI -->
+
                 <div
                     class="stat-card
                            bg-white
@@ -684,8 +1177,8 @@
                 </div>
 
 
-
                 <!-- SEKOLAH -->
+
                 <div
                     class="stat-card
                            bg-white
@@ -765,8 +1258,8 @@
                 </div>
 
 
-
                 <!-- PERGURUAN TINGGI -->
+
                 <div
                     class="stat-card
                            bg-white
@@ -848,7 +1341,6 @@
             </div>
 
 
-
             <!-- =================================================
                  TABLE
             ================================================== -->
@@ -863,20 +1355,31 @@
 
 
                 <!-- TABLE HEADER -->
+
                 <div
                     class="px-5
                            py-4
                            border-b
                            border-slate-200
-                           flex
-                           flex-col
+                           grid
+                           grid-cols-2
+                           gap-2.5
+                           items-center
+                           md:flex
                            md:flex-row
                            md:items-center
                            md:justify-between
-                           gap-3">
+                           md:gap-3">
 
 
-                    <div>
+                    <!-- TITLE -->
+
+                    <div
+                        class="min-w-0
+                               col-start-1
+                               row-start-1
+                               md:col-auto
+                               md:row-auto">
 
                         <div
                             class="flex
@@ -884,14 +1387,18 @@
                                    gap-2">
 
                             <span
-                                class="w-2.5
-                                       h-2.5
+                                class="w-[9px]
+                                       h-[9px]
+                                       md:w-2.5
+                                       md:h-2.5
                                        rounded-full
-                                       bg-green-500">
+                                       bg-green-500
+                                       shrink-0">
                             </span>
 
                             <h2
-                                class="text-[15px]
+                                class="text-[13px]
+                                       md:text-[15px]
                                        font-bold
                                        text-navy">
 
@@ -903,7 +1410,9 @@
 
 
                         <p
-                            class="text-[10px]
+                            class="hidden
+                                   md:block
+                                   text-[10px]
                                    text-slate-400
                                    mt-1
                                    ml-[18px]">
@@ -915,21 +1424,29 @@
                     </div>
 
 
-
                     <!-- =================================================
                          ACTION : SEARCH + FILTER + TAMBAH
                     ================================================== -->
 
                     <div
-                        class="flex
-                               items-center
-                               gap-2.5
-                               flex-wrap">
+                        class="contents
+                               md:flex
+                               md:items-center
+                               md:gap-2.5
+                               md:flex-wrap">
 
 
                         <!-- SEARCH -->
+
                         <div
-                            class="relative">
+                            class="relative
+                                   min-w-0
+                                   col-start-1
+                                   row-start-2
+                                   w-full
+                                   md:col-auto
+                                   md:row-auto
+                                   md:w-auto">
 
                             <svg
                                 class="absolute
@@ -956,7 +1473,10 @@
                                 id="searchInstansi"
                                 type="text"
                                 placeholder="Cari instansi..."
-                                class="w-[170px]
+                                class="w-full
+                                       md:w-[170px]
+                                       h-[31px]
+                                       md:h-auto
                                        pl-9
                                        pr-3
                                        py-2
@@ -973,12 +1493,18 @@
                         </div>
 
 
+                        <!-- FILTER -->
 
-                        <!-- FILTER JENIS INSTANSI -->
                         <div
-                            class="relative">
+                            class="relative
+                                   min-w-0
+                                   col-start-2
+                                   row-start-2
+                                   w-full
+                                   md:col-auto
+                                   md:row-auto
+                                   md:w-auto">
 
-                            <!-- FILTER ICON -->
                             <svg
                                 class="absolute
                                        left-3
@@ -1003,8 +1529,10 @@
 
                             <select
                                 id="filterJenis"
-                                class="w-[145px]
-                                       h-[34px]
+                                class="w-full
+                                       md:w-[145px]
+                                       h-[31px]
+                                       md:h-[34px]
                                        appearance-none
                                        pl-9
                                        pr-7
@@ -1036,7 +1564,6 @@
                             </select>
 
 
-                            <!-- ARROW -->
                             <svg
                                 class="absolute
                                        right-2.5
@@ -1061,23 +1588,35 @@
                         </div>
 
 
-
                         <!-- TAMBAH INSTANSI -->
+
                         <a
                             href="tambah-instansi.html"
-                            class="inline-flex
+                            class="col-start-2
+                                   row-start-1
+                                   min-w-0
+                                   inline-flex
                                    items-center
+                                   justify-center
                                    gap-1.5
-                                   px-3
-                                   py-2
+                                   w-full
+                                   h-[30px]
+                                   px-2
                                    rounded-lg
                                    bg-green-600
                                    hover:bg-green-700
                                    text-white
-                                   text-[10px]
+                                   text-[8px]
                                    font-semibold
                                    transition
-                                   whitespace-nowrap">
+                                   whitespace-nowrap
+                                   md:col-auto
+                                   md:row-auto
+                                   md:w-auto
+                                   md:h-auto
+                                   md:px-3
+                                   md:py-2
+                                   md:text-[10px]">
 
                             <svg
                                 class="w-3.5 h-3.5"
@@ -1102,7 +1641,6 @@
                 </div>
 
 
-
                 <!-- =================================================
                      TABLE
                 ================================================== -->
@@ -1121,7 +1659,6 @@
                                 class="bg-slate-50
                                        border-b
                                        border-slate-200">
-
 
                                 <th
                                     class="px-5
@@ -1210,8 +1747,8 @@
                 </div>
 
 
-
                 <!-- EMPTY STATE -->
+
                 <div
                     id="emptyState"
                     class="hidden
@@ -1273,7 +1810,6 @@
         </div>
 
     </main>
-
 
 
     <!-- =====================================================
@@ -1345,7 +1881,6 @@
         ];
 
 
-
         /* =====================================================
            GET DATA
         ====================================================== */
@@ -1354,7 +1889,6 @@
 
             const data =
                 localStorage.getItem("accessInstansi");
-
 
             if (!data) {
 
@@ -1367,11 +1901,9 @@
 
             }
 
-
             return JSON.parse(data);
 
         }
-
 
 
         /* =====================================================
@@ -1386,9 +1918,7 @@
             const empty =
                 document.getElementById("emptyState");
 
-
             table.innerHTML = "";
-
 
             if (data.length === 0) {
 
@@ -1398,37 +1928,30 @@
 
             }
 
-
             empty.classList.add("hidden");
-
 
             data.forEach(instansi => {
 
                 const row =
                     document.createElement("tr");
 
-
                 row.className =
                     "hover:bg-slate-50 transition";
-
 
                 const iconBg =
                     instansi.jenis === "Sekolah"
                         ? "bg-green-100"
                         : "bg-purple-100";
 
-
                 const iconColor =
                     instansi.jenis === "Sekolah"
                         ? "text-green-600"
                         : "text-purple-600";
 
-
                 const badgeBg =
                     instansi.jenis === "Sekolah"
                         ? "bg-purple-50 text-purple-600"
                         : "bg-green-50 text-green-600";
-
 
                 row.innerHTML = `
 
@@ -1494,7 +2017,6 @@
                     </td>
 
 
-
                     <td class="px-4 py-3">
 
                         <span
@@ -1513,7 +2035,6 @@
                     </td>
 
 
-
                     <td
                         class="px-4
                                py-3
@@ -1523,7 +2044,6 @@
                         ${instansi.periode}
 
                     </td>
-
 
 
                     <td class="px-4 py-3">
@@ -1550,7 +2070,6 @@
                     </td>
 
 
-
                     <td
                         class="px-5
                                py-3
@@ -1571,13 +2090,11 @@
 
                 `;
 
-
                 table.appendChild(row);
 
             });
 
         }
-
 
 
         /* =====================================================
@@ -1589,35 +2106,29 @@
             const data =
                 getInstansi();
 
-
             const sekolah =
                 data.filter(
                     item => item.jenis === "Sekolah"
                 ).length;
-
 
             const kampus =
                 data.filter(
                     item => item.jenis === "Perguruan Tinggi"
                 ).length;
 
-
             document.getElementById(
                 "totalInstansi"
             ).textContent = data.length;
 
-
             document.getElementById(
                 "totalSekolah"
             ).textContent = sekolah;
-
 
             document.getElementById(
                 "totalKampus"
             ).textContent = kampus;
 
         }
-
 
 
         /* =====================================================
@@ -1629,15 +2140,12 @@
             const data =
                 getInstansi();
 
-
             const instansi =
                 data.find(
                     item => item.id === id
                 );
 
-
             if (!instansi) return;
-
 
             alert(
                 "Instansi: " + instansi.nama +
@@ -1648,7 +2156,6 @@
             );
 
         }
-
 
 
         /* =====================================================
@@ -1664,18 +2171,13 @@
                     .toLowerCase()
                     .trim();
 
-
             const jenis =
                 document
                     .getElementById("filterJenis")
                     .value;
 
-
             const data =
                 getInstansi().filter(item => {
-
-
-                    /* SEARCH */
 
                     const cocokSearch =
 
@@ -1695,10 +2197,6 @@
                             .toLowerCase()
                             .includes(keyword);
 
-
-
-                    /* FILTER JENIS */
-
                     const cocokJenis =
 
                         jenis === "all"
@@ -1707,17 +2205,13 @@
 
                         item.jenis === jenis;
 
-
-
                     return cocokSearch && cocokJenis;
 
                 });
 
-
             renderInstansi(data);
 
         }
-
 
 
         /* =====================================================
@@ -1732,7 +2226,6 @@
             );
 
 
-
         /* =====================================================
            EVENT FILTER
         ====================================================== */
@@ -1743,7 +2236,6 @@
                 "change",
                 filterInstansi
             );
-
 
 
         /* =====================================================
