@@ -202,6 +202,12 @@
         }
 
         /* =====================================================
+           DATE PICKER
+        ===================================================== */
+
+        
+
+        /* =====================================================
            FORM INPUT
         ===================================================== */
 
@@ -325,25 +331,25 @@
         ===================================================== */
 
         .back-button {
-            background: #008A4B;
+            background: #EFFAF4;
 
-            border: 1px solid #008A4B;
+            border: 1px solid #DDF3E7;
 
-            color: #FFFFFF;
+            color: #007A43;
 
             box-shadow:
-                0 2px 7px rgba(0, 138, 75, 0.10);
+                0 2px 7px rgba(0, 138, 75, 0.04);
         }
 
         .back-button:hover {
-            background: #007A43;
+            background: #DDF3E7;
 
-            border-color: #007A43;
+            border-color: #BDE4CC;
 
-            color: #FFFFFF;
+            color: #006A3A;
 
             box-shadow:
-                0 5px 12px rgba(0, 138, 75, 0.14);
+                0 5px 12px rgba(0, 138, 75, 0.07);
         }
 
         .back-button-wrapper {
@@ -385,6 +391,7 @@
                 0 5px 12px rgba(0, 138, 75, 0.14);
         }
 
+
         /* =====================================================
            MOBILE
         ===================================================== */
@@ -393,14 +400,19 @@
 
             body {
                 padding-bottom: 72px;
+                overflow-x: hidden;
             }
 
             .page-layout {
                 display: block;
                 min-height: 100vh;
+                width: 100%;
             }
 
-            /* SIDEBAR MENJADI BOTTOM NAV */
+
+            /* =================================================
+               SIDEBAR MENJADI BOTTOM NAV
+            ================================================= */
 
             .desktop-sidebar {
                 position: fixed;
@@ -428,13 +440,19 @@
                 z-index: 100;
             }
 
-            /* BRAND MOBILE DIHILANGKAN */
+
+            /* =================================================
+               BRAND HILANG
+            ================================================= */
 
             .sidebar-brand {
                 display: none !important;
             }
 
-            /* PROFILE MOBILE */
+
+            /* =================================================
+               PROFILE DESKTOP HILANG
+            ================================================= */
 
             .sidebar-profile {
                 display: block !important;
@@ -454,55 +472,63 @@
                 display: none !important;
             }
 
-            /* NAV MOBILE */
+
+            /* =================================================
+               NAV MOBILE
+            ================================================= */
 
             .sidebar-nav {
                 width: 100%;
-                height: 100%;
+                height: 68px;
 
                 padding: 6px 7px !important;
 
-                overflow-x: hidden;
-                overflow-y: hidden;
+                overflow: hidden !important;
 
                 display: flex;
+
                 align-items: center;
+                justify-content: center;
             }
 
-            .sidebar-nav::-webkit-scrollbar {
-                display: none;
-            }
 
-            .sidebar-nav {
-                scrollbar-width: none;
-            }
+            /* =================================================
+               MENU TITLE HILANG
+            ================================================= */
 
             .menu-title {
                 display: none !important;
             }
 
-            /* 5 MENU */
+
+            /* =================================================
+               5 MENU MOBILE
+            ================================================= */
 
             .nav-links {
                 width: 100%;
+                height: 56px;
 
                 display: grid !important;
 
-                grid-template-columns: repeat(5, minmax(0, 1fr));
+                grid-template-columns:
+                    repeat(5, minmax(0, 1fr));
 
                 gap: 3px !important;
 
                 align-items: stretch;
             }
 
-            .nav-links .menu-item {
-                margin-bottom: 0 !important;
 
+            .nav-links .menu-item {
                 min-width: 0;
+                width: 100%;
 
                 height: 56px;
 
-                padding: 6px 2px !important;
+                margin: 0 !important;
+
+                padding: 5px 2px !important;
 
                 border-radius: 10px;
 
@@ -519,38 +545,136 @@
                 text-align: center;
 
                 font-size: 8px !important;
+
+                line-height: 1.2 !important;
+
+                text-decoration: none;
             }
+
 
             .nav-links .menu-item svg {
                 width: 18px;
                 height: 18px;
+
+                flex-shrink: 0;
             }
 
-            /* PROFIL MOBILE */
+
+            .nav-links .menu-item span {
+                display: block;
+
+                max-width: 100%;
+
+                white-space: nowrap;
+
+                overflow: hidden;
+
+                text-overflow: ellipsis;
+            }
+
+
+            /* =================================================
+               DOKUMENTASI AKTIF
+            ================================================= */
+
+            .nav-links .menu-active {
+                background:
+                    linear-gradient(
+                        90deg,
+                        #DDF3E7 0%,
+                        #F1D9EB 100%
+                    ) !important;
+
+                color: #006A3A !important;
+
+                font-weight: 600;
+
+                border: 1px solid #CBE6D7;
+
+                box-shadow:
+                    0 2px 7px rgba(38, 55, 80, 0.05);
+            }
+
+            .nav-links .menu-active svg {
+                color: #008A4B !important;
+            }
+
+
+            /* =================================================
+               PROFIL MOBILE
+            ================================================= */
 
             #mobileProfileToggle {
                 display: flex !important;
+
+                border: 0 !important;
+
+                background: transparent;
+
+                color: #64748B;
+
+                font-family: inherit;
+
+                cursor: pointer;
+
+                appearance: none;
             }
 
-            /* MAIN */
+
+            /* =================================================
+               PROFILE DROPDOWN MOBILE
+            ================================================= */
+
+            #profileDropdown {
+                position: fixed !important;
+
+                left: 12px !important;
+                right: 12px !important;
+
+                bottom: 76px !important;
+
+                width: auto !important;
+
+                max-width:
+                    calc(100vw - 24px) !important;
+
+                margin: 0 !important;
+
+                z-index: 9999 !important;
+
+                box-sizing: border-box !important;
+
+                border-radius: 14px !important;
+            }
+
+
+            /* =================================================
+               MAIN
+            ================================================= */
 
             .main-area {
                 width: 100%;
+
                 min-height: 100vh;
 
                 padding-bottom: 0;
             }
 
-            /* HEADER */
+
+            /* =================================================
+               HEADER
+            ================================================= */
 
             .main-header {
                 position: sticky;
 
                 top: 0;
 
-                height: auto;
+                width: 100%;
 
                 min-height: 68px;
+
+                height: auto;
 
                 padding: 12px 15px;
 
@@ -567,30 +691,53 @@
                 font-size: 9px !important;
             }
 
-            /* CONTENT */
+
+            /* =================================================
+               DATE
+            ================================================= */
+
+            .date-button {
+                padding: 7px !important;
+
+                gap: 4px !important;
+            }
+
+            
+
+
+            /* =================================================
+               CONTENT
+            ================================================= */
 
             .content-area {
-                min-height: calc(100vh - 68px);
+                min-height:
+                    calc(100vh - 68px);
+
+                width: 100%;
 
                 padding: 14px !important;
 
                 padding-bottom: 24px !important;
             }
 
+
             /* =================================================
-               INTRO MOBILE
+               INTRO
             ================================================= */
 
             .intro-header {
+                width: 100%;
+
+                display: flex;
+
                 flex-direction: row !important;
 
                 align-items: center !important;
 
-                justify-content: space-between !important;
+                justify-content:
+                    space-between !important;
 
                 gap: 10px !important;
-
-                width: 100%;
             }
 
             .intro-header > div:first-child {
@@ -605,8 +752,11 @@
                 gap: 9px !important;
             }
 
-            .intro-header > div:first-child > div:first-child {
+            .intro-header > div:first-child
+                > div:first-child {
+
                 width: 32px !important;
+
                 height: 32px !important;
 
                 min-width: 32px !important;
@@ -614,13 +764,19 @@
                 border-radius: 10px !important;
             }
 
-            .intro-header > div:first-child > div:first-child svg {
+            .intro-header > div:first-child
+                > div:first-child svg {
+
                 width: 14px !important;
+
                 height: 14px !important;
             }
 
-            .intro-header > div:first-child > div:last-child {
+            .intro-header > div:first-child
+                > div:last-child {
+
                 min-width: 0;
+
                 flex: 1;
             }
 
@@ -640,6 +796,11 @@
                 margin-top: 3px !important;
             }
 
+
+            /* =================================================
+               BUTTON KEMBALI
+            ================================================= */
+
             .back-button-wrapper {
                 width: auto !important;
 
@@ -651,9 +812,11 @@
 
                 justify-content: flex-end !important;
 
-                background: transparent !important;
+                background:
+                    transparent !important;
 
-                background-image: none !important;
+                background-image:
+                    none !important;
             }
 
             .back-button {
@@ -668,50 +831,70 @@
 
             .back-button svg {
                 width: 12px !important;
+
                 height: 12px !important;
             }
 
-            /* FORM */
+
+            /* =================================================
+               FORM
+            ================================================= */
 
             .form-card {
+                width: 100%;
+
                 padding: 17px !important;
 
                 border-radius: 16px;
             }
 
             .form-grid {
-                grid-template-columns: 1fr !important;
+                grid-template-columns:
+                    1fr !important;
 
                 gap: 20px !important;
             }
 
             .form-grid > .col-span-1,
             .form-grid > .col-span-2 {
-                grid-column: span 1 !important;
+                grid-column:
+                    span 1 !important;
             }
 
             .category-date-grid {
-                grid-template-columns: 1fr !important;
+                grid-template-columns:
+                    1fr !important;
 
                 gap: 14px !important;
             }
 
-            /* FOTO */
+
+            /* =================================================
+               FOTO
+            ================================================= */
 
             .mobile-preview {
+                width: 100%;
+
                 height: 210px !important;
+
+                object-fit: cover;
             }
 
             .upload-area {
                 width: 100%;
             }
 
-            /* ACTION */
+
+            /* =================================================
+               ACTION
+            ================================================= */
 
             .action-area {
                 flex-direction: column;
 
-                align-items: stretch !important;
+                align-items:
+                    stretch !important;
 
                 gap: 12px;
 
@@ -724,9 +907,11 @@
                 width: 100%;
 
                 display: flex;
+
                 flex-direction: column;
 
                 justify-content: stretch;
+
                 align-items: stretch;
 
                 gap: 8px;
@@ -735,6 +920,7 @@
             .action-buttons a,
             .action-buttons button {
                 width: 100%;
+
                 flex: none;
 
                 justify-content: center;
@@ -748,6 +934,7 @@
 
             .action-buttons a {
                 padding-left: 12px !important;
+
                 padding-right: 12px !important;
             }
 
@@ -755,6 +942,7 @@
                 flex: 1;
 
                 padding-left: 10px !important;
+
                 padding-right: 10px !important;
 
                 font-size: 9px !important;
@@ -764,10 +952,11 @@
 
             .save-button svg {
                 width: 12px !important;
+
                 height: 12px !important;
             }
-
         }
+
 
         /* =====================================================
            MOBILE SANGAT KECIL
@@ -775,22 +964,37 @@
 
         @media (max-width: 380px) {
 
+            .desktop-sidebar {
+                height: 68px;
+            }
+
+            .sidebar-nav {
+                padding: 6px 5px !important;
+            }
+
             .nav-links {
-                gap: 3px !important;
+                gap: 2px !important;
             }
 
             .nav-links .menu-item {
+                height: 56px;
+
+                padding: 5px 1px !important;
+
                 font-size: 7.5px !important;
+
                 gap: 3px !important;
             }
 
             .nav-links .menu-item svg {
                 width: 17px;
+
                 height: 17px;
             }
 
             .content-area {
                 padding-left: 11px !important;
+
                 padding-right: 11px !important;
             }
 
@@ -806,8 +1010,11 @@
                 gap: 7px !important;
             }
 
-            .intro-header > div:first-child > div:first-child {
+            .intro-header > div:first-child
+                > div:first-child {
+
                 width: 30px !important;
+
                 height: 30px !important;
 
                 min-width: 30px !important;
@@ -831,13 +1038,13 @@
                 font-size: 8px !important;
 
                 padding-left: 8px !important;
+
                 padding-right: 8px !important;
             }
 
             .action-buttons {
                 gap: 7px !important;
             }
-
         }
 
     </style>
@@ -850,7 +1057,9 @@
     <div class="page-layout">
 
 
-        <!-- SIDEBAR -->
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
 
         <aside class="desktop-sidebar">
 
@@ -1071,8 +1280,9 @@
 
                     <!-- PROFIL MOBILE -->
 
-                    <a
-                        href="profile.html"
+                    <button
+                        id="mobileProfileToggle"
+                        type="button"
                         class="menu-item
                                md:hidden
                                flex
@@ -1095,20 +1305,22 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="1.8"
-                                d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
 
                         </svg>
 
                         <span>Profil</span>
 
-                    </a>
+                    </button>
 
                 </div>
 
             </nav>
 
 
-            <!-- ADMIN PROFILE DESKTOP -->
+            <!-- =================================================
+                 ADMIN PROFILE DESKTOP
+            ================================================= -->
 
             <div
                 class="sidebar-profile
@@ -1254,7 +1466,7 @@
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     stroke-width="1.8"
-                                    d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                                    d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0-0-8 4 4 0 0 0 0 8Z" />
 
                             </svg>
 
@@ -1341,7 +1553,9 @@
         </aside>
 
 
-        <!-- MAIN -->
+        <!-- =====================================================
+             MAIN
+        ===================================================== -->
 
         <main class="main-area">
 
@@ -1369,6 +1583,109 @@
                         Tambahkan dokumentasi kegiatan baru
 
                     </p>
+
+                </div>
+
+
+                <!-- DATE PICKER -->
+
+                <div class="relative">
+
+                    <button
+                        id="dateButton"
+                        type="button"
+                        class="date-button
+                               flex
+                               items-center
+                               gap-2.5
+                               px-2
+                               py-2
+                               rounded-lg
+                               text-[11px]
+                               text-slate-500">
+
+                        
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.7"
+                                d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+
+                       
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="m7 10 5 5 5-5" />
+
+                        </svg>
+
+                    </button>
+
+
+                    <!-- CALENDAR -->
+
+                    <div
+                        id="calendarPopup"
+                        class="calendar-popup
+                               hidden
+                               absolute
+                               right-0
+                               top-full
+                               mt-2
+                               z-50
+                               bg-white
+                               border
+                               border-slate-200
+                               rounded-xl
+                               shadow-xl
+                               p-3
+                               w-[230px]">
+
+                        <p
+                            class="text-[9px]
+                                   font-semibold
+                                   text-navy
+                                   mb-2">
+
+                            Pilih tanggal
+
+                        </p>
+
+                        <input
+                            type="date"
+                            id="datePicker"
+                            class="w-full
+                                   border
+                                   border-slate-200
+                                   rounded-lg
+                                   px-3
+                                   py-2
+                                   text-[10px]
+                                   text-slate-600
+                                   outline-none
+                                   focus:border-green-300">
+
+                        <button
+                            type="button"
+                            id="todayButton"
+                            class="mt-2
+                                   w-full
+                                   py-2
+                                   rounded-lg
+                                   bg-green-50
+                                   text-green-700
+                                   text-[9px]
+                                   font-semibold
+                                   hover:bg-green-100
+                                   transition">
+
+                            Kembali ke Hari Ini
+
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -1503,7 +1820,9 @@
                 </section>
 
 
-                <!-- FORM -->
+                <!-- =================================================
+                     FORM
+                ================================================= -->
 
                 <section
                     class="form-card
@@ -1580,7 +1899,7 @@
                                                     stroke-linecap="round"
                                                     stroke-linejoin="round"
                                                     stroke-width="1.7"
-                                                    d="M4 16l4-4a2 2 0 0 1 3 0l3 3m0 0 2-2a2 2 0 0 1 3 0l1 1M14 8h.01M5 20h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1Z" />
+                                                    d="M4 16l4-4a2 2 0 0 1 3 0l3 3m0 0 2-2a2 2 0 0 1 3 0l1 1M14 8h.01M5 20h14a1 1 0 0 1 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1Z" />
 
                                             </svg>
 
@@ -1944,7 +2263,9 @@
                         </div>
 
 
-                        <!-- ACTION -->
+                        <!-- =================================================
+                             ACTION
+                        ================================================= -->
 
                         <div
                             class="action-area
@@ -2035,17 +2356,27 @@
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
 
     <script>
 
+        
+
+
         /* =====================================================
-           PROFILE DROPDOWN DESKTOP
+           PROFILE DROPDOWN
         ===================================================== */
 
         const profileToggle =
             document.getElementById(
                 "profileToggle"
+            );
+
+        const mobileProfileToggle =
+            document.getElementById(
+                "mobileProfileToggle"
             );
 
         const profileDropdown =
@@ -2079,6 +2410,22 @@
         );
 
 
+        /* PROFILE MOBILE */
+
+        mobileProfileToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileDropdown.classList.toggle(
+                    "hidden"
+                );
+
+            }
+        );
+
+
         /* CLOSE PROFILE */
 
         document.addEventListener(
@@ -2087,7 +2434,8 @@
 
                 if (
                     !profileDropdown.contains(event.target) &&
-                    !profileToggle.contains(event.target)
+                    !profileToggle.contains(event.target) &&
+                    !mobileProfileToggle.contains(event.target)
                 ) {
 
                     profileDropdown.classList.add(

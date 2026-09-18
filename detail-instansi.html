@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detail Instansi | Access Internship</title>
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            50: "#EFFAF4",
+                            100: "#DDF3E7",
+                            500: "#008A4B",
+                            600: "#007A43",
+                            700: "#006A3A",
+                        },
+
+                        purple: {
+                            50: "#FBF0F8",
+                            100: "#F1D9EB",
+                            400: "#A42B8E",
+                            500: "#8A1B78",
+                            600: "#761666",
+                        },
+
+                        navy: "#263750",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- STYLE -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F8FAF9;
+        }
+
+        .dashboard-bg {
+            background:
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(138, 27, 120, 0.08),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 5% 90%,
+                    rgba(0, 138, 75, 0.08),
+                    transparent 25%
+                ),
+                #F8FAF9;
+        }
+
+        .soft-shadow {
+            box-shadow:
+                0 2px 8px rgba(38, 55, 80, 0.04),
+                0 1px 2px rgba(38, 55, 80, 0.03);
+        }
+
+        .menu-item {
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background: #EFFAF4;
+            color: #008A4B;
+        }
+
+        .menu-active {
+            background:
+                linear-gradient(
+                    90deg,
+                    #DDF3E7,
+                    #F1D9EB
+                );
+
+            color: #006A3A;
+        }
+
+        .profile-dropdown {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(5px);
+            transition:
+                opacity 0.15s ease,
+                transform 0.15s ease,
+                visibility 0.15s ease;
+        }
+
+        .profile-dropdown.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .detail-card {
+            transition: all 0.2s ease;
+        }
+
+        .detail-card:hover {
+            box-shadow:
+                0 8px 20px rgba(38, 55, 80, 0.06);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F8FAF9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5D0;
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           MOBILE RESPONSIVE
+           MENGIKUTI HALAMAN INSTANSI
+        ====================================================== */
+
+        @media (max-width: 767px) {
+
+            /* MAIN */
+
+            main {
+                margin-left: 0 !important;
+                padding-bottom: 68px;
+            }
+
+
+            /* NAVBAR */
+
+            main header {
+                height: 68px !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            main header h2 {
+                font-size: 16px !important;
+            }
+
+            main header p {
+                font-size: 9px !important;
+                max-width: 270px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+
+            /* CONTENT */
+
+            .dashboard-bg {
+                min-height: calc(100vh - 68px) !important;
+                padding: 10px !important;
+            }
+
+
+            /* BREADCRUMB */
+
+            .breadcrumb {
+                margin-bottom: 10px !important;
+            }
+
+            .breadcrumb span,
+            .breadcrumb a {
+                font-size: 8px !important;
+            }
+
+
+            /* HERO DETAIL */
+
+            .detail-hero {
+                padding: 16px !important;
+                margin-bottom: 12px !important;
+                border-radius: 15px !important;
+            }
+
+            .detail-hero h1 {
+                font-size: 17px !important;
+            }
+
+            .detail-hero p {
+                font-size: 9px !important;
+                line-height: 1.55;
+            }
+
+            .detail-hero .badge {
+                font-size: 8px !important;
+                padding: 5px 9px !important;
+            }
+
+
+            /* ACTION BUTTON */
+
+            .hero-actions {
+                margin-top: 12px !important;
+                gap: 6px !important;
+            }
+
+            .hero-actions a {
+                font-size: 8px !important;
+                padding: 7px 9px !important;
+            }
+
+            .hero-actions svg {
+                width: 12px !important;
+                height: 12px !important;
+            }
+
+
+            /* PROFILE CARD */
+
+            .profile-card {
+                padding: 14px !important;
+                border-radius: 14px !important;
+            }
+
+            .profile-card .logo-box {
+                width: 48px !important;
+                height: 48px !important;
+            }
+
+            .profile-card .logo-box svg {
+                width: 22px !important;
+                height: 22px !important;
+            }
+
+            .profile-card h2 {
+                font-size: 13px !important;
+            }
+
+            .profile-card p {
+                font-size: 8px !important;
+            }
+
+
+            /* INFORMATION GRID */
+
+            .information-grid {
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
+            }
+
+            .info-item {
+                padding: 10px !important;
+            }
+
+            .info-item p:first-child {
+                font-size: 7px !important;
+            }
+
+            .info-item p:last-child {
+                font-size: 9px !important;
+            }
+
+
+            /* SECTION CARD */
+
+            .section-card {
+                border-radius: 14px !important;
+                margin-bottom: 12px !important;
+            }
+
+            .section-card-header {
+                padding: 12px 14px !important;
+            }
+
+            .section-card-header h2 {
+                font-size: 12px !important;
+            }
+
+            .section-card-header p {
+                font-size: 7px !important;
+            }
+
+            .section-card-body {
+                padding: 12px !important;
+            }
+
+
+            /* DOCUMENTATION */
+
+            .documentation-grid {
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
+            }
+
+            .documentation-box {
+                min-height: 100px !important;
+            }
+
+
+            /* FOOTER */
+
+            .page-footer {
+                padding: 12px !important;
+            }
+
+            .page-footer p {
+                font-size: 7px !important;
+            }
+
+        }
+
+
+        /* =====================================================
+           EXTRA SMALL
+        ====================================================== */
+
+        @media (max-width: 380px) {
+
+            .dashboard-bg {
+                padding: 8px !important;
+            }
+
+            .detail-hero {
+                padding: 14px !important;
+            }
+
+            .detail-hero h1 {
+                font-size: 16px !important;
+            }
+
+            .profile-card {
+                padding: 12px !important;
+            }
+
+            .hero-actions a {
+                font-size: 7px !important;
+                padding: 6px 8px !important;
+            }
+
+            .section-card-header h2 {
+                font-size: 11px !important;
+            }
+
+            .section-card-body {
+                padding: 10px !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="text-slate-600">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="fixed
+                  left-0
+                  top-0
+                  z-50
+                  h-screen
+                  w-[220px]
+                  bg-white
+                  border-r
+                  border-slate-200
+                  flex
+                  flex-col
+                  max-md:top-auto
+                  max-md:bottom-0
+                  max-md:w-full
+                  max-md:h-[68px]
+                  max-md:flex-row
+                  max-md:border-r-0
+                  max-md:border-t
+                  max-md:border-slate-200">
+
+
+        <!-- LOGO / BRAND -->
+
+        <div class="h-[78px]
+                    px-5
+                    flex
+                    items-center
+                    border-b
+                    border-slate-200
+                    shrink-0
+                    max-md:hidden">
+
+            <div class="flex items-center gap-3 min-w-0">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Logo Access Media"
+                    class="w-11 h-11 object-contain shrink-0">
+
+                <div class="min-w-0">
+
+                    <h1 class="text-[13px]
+                               font-bold
+                               text-navy
+                               whitespace-nowrap">
+
+                        Access Internship
+
+                    </h1>
+
+                    <p class="text-[10px]
+                              text-slate-400
+                              mt-1
+                              whitespace-nowrap">
+
+                        CV Access Media
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU UTAMA -->
+
+        <nav class="flex-1
+                    px-3
+                    py-5
+                    overflow-y-auto
+                    max-md:flex
+                    max-md:flex-row
+                    max-md:items-center
+                    max-md:justify-around
+                    max-md:w-full
+                    max-md:p-1.5
+                    max-md:overflow-x-auto
+                    max-md:overflow-y-hidden">
+
+            <p class="px-3
+                      mb-3
+                      text-[9px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.12em]
+                      text-slate-400
+                      max-md:hidden">
+
+                Menu Utama
+
+            </p>
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="dashboard.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- PROJECT -->
+
+            <a
+                href="project.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 7h16v13H4V7Zm4 0V4h8v3"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Project
+                </span>
+
+            </a>
+
+
+            <!-- DOKUMENTASI -->
+
+            <a
+                href="dokumentasi.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Dokumentasi
+                </span>
+
+            </a>
+
+
+            <!-- INSTANSI ACTIVE -->
+
+            <a
+                href="instansi.html"
+                class="menu-item
+                       menu-active
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       font-semibold
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Instansi
+                </span>
+
+            </a>
+
+
+            <!-- PROFILE MOBILE -->
+
+            <a
+                href="profile.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       md:hidden">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Profile
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- ADMINISTRATOR -->
+
+        <div class="relative
+                    p-3
+                    border-t
+                    border-slate-200
+                    shrink-0
+                    max-md:hidden">
+
+            <button
+                id="profileToggle"
+                type="button"
+                class="w-full
+                       flex
+                       items-center
+                       gap-3
+                       p-2
+                       rounded-lg
+                       hover:bg-slate-50
+                       transition
+                       text-left">
+
+                <div class="w-8
+                            h-8
+                            rounded-full
+                            bg-gradient-to-br
+                            from-green-100
+                            to-purple-100
+                            flex
+                            items-center
+                            justify-center
+                            shrink-0">
+
+                    <span class="text-[11px]
+                                 font-bold
+                                 text-green-700">
+
+                        A
+
+                    </span>
+
+                </div>
+
+                <div class="min-w-0 flex-1">
+
+                    <p class="text-[11px]
+                              font-semibold
+                              text-navy
+                              truncate">
+
+                        Administrator
+
+                    </p>
+
+                    <p class="text-[9px]
+                              text-slate-400">
+
+                        Admin
+
+                    </p>
+
+                </div>
+
+                <svg
+                    id="profileChevron"
+                    class="w-4 h-4
+                           text-slate-400
+                           transition-transform
+                           duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="m6 9 6 6 6-6"/>
+
+                </svg>
+
+            </button>
+
+
+            <!-- DROPDOWN PROFILE -->
+
+            <div
+                id="profileDropdown"
+                class="profile-dropdown
+                       absolute
+                       left-3
+                       right-3
+                       bottom-[68px]
+                       z-50
+                       bg-white
+                       border
+                       border-slate-200
+                       rounded-xl
+                       shadow-xl
+                       p-2">
+
+                <!-- PROFILE -->
+
+                <a
+                    href="profile.html"
+                    class="flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-green-50
+                           hover:text-green-700
+                           transition">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-green-100
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-green-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-navy">
+                            Profile
+                        </p>
+
+                        <p class="text-[8px]
+                                  text-slate-400
+                                  mt-0.5">
+
+                            Lihat profile admin
+
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <button
+                    id="logoutButton"
+                    type="button"
+                    class="w-full
+                           flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-red-50
+                           hover:text-red-500
+                           transition
+                           text-left">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-red-50
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-red-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-slate-600">
+                            Logout
+                        </p>
+
+                        <p class="text-[8px]
+                                  text-slate-400
+                                  mt-0.5">
+
+                            Keluar dari akun
+
+                        </p>
+
+                    </div>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="ml-[220px] min-h-screen">
+
+
+        <!-- =================================================
+             NAVBAR
+        ================================================== -->
+
+        <header
+            class="sticky
+                   top-0
+                   z-40
+                   h-[78px]
+                   bg-white/95
+                   backdrop-blur-md
+                   border-b
+                   border-slate-200
+                   px-6
+                   flex
+                   items-center
+                   justify-between">
+
+            <div>
+
+                <h2
+                    class="text-[17px]
+                           font-bold
+                           text-navy">
+
+                    Detail Instansi
+
+                </h2>
+
+                <p
+                    class="text-[11px]
+                           text-slate-400
+                           mt-0.5">
+
+                    Informasi lengkap instansi mitra Access Media
+
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div
+            class="dashboard-bg
+                   min-h-[calc(100vh-78px)]
+                   p-6">
+
+
+            <!-- =================================================
+                 BREADCRUMB
+            ================================================== -->
+
+            <div
+                class="breadcrumb
+                       flex
+                       items-center
+                       gap-2
+                       mb-4">
+
+                <a
+                    href="instansi.html"
+                    class="text-[10px]
+                           text-green-600
+                           hover:text-green-700
+                           transition">
+
+                    Instansi
+
+                </a>
+
+                <svg
+                    class="w-3 h-3 text-slate-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="m9 18 6-6-6-6"/>
+
+                </svg>
+
+                <span
+                    class="text-[10px]
+                           text-slate-400">
+
+                    Detail Instansi
+
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 HERO
+            ================================================== -->
+
+            <section
+                class="detail-hero
+                       relative
+                       overflow-hidden
+                       rounded-2xl
+                       border
+                       border-green-100
+                       bg-gradient-to-r
+                       from-[#EFFAF4]
+                       via-white
+                       to-[#FBF0F8]
+                       px-7
+                       py-5
+                       mb-5
+                       soft-shadow">
+
+
+                <!-- DECORATION UNGU -->
+
+                <div
+                    class="absolute
+                           -right-10
+                           -top-16
+                           w-40
+                           h-40
+                           rounded-full
+                           bg-purple-100/60">
+                </div>
+
+
+                <!-- DECORATION HIJAU -->
+
+                <div
+                    class="absolute
+                           -left-10
+                           -bottom-20
+                           w-36
+                           h-36
+                           rounded-full
+                           bg-green-100/60">
+                </div>
+
+
+                <div
+                    class="relative
+                           z-10
+                           flex
+                           items-center
+                           justify-between
+                           gap-4
+                           flex-wrap">
+
+
+                    <div>
+
+                        <!-- BADGE -->
+
+                        <span
+                            class="badge
+                                   inline-flex
+                                   items-center
+                                   rounded-full
+                                   bg-green-100
+                                   text-green-700
+                                   px-2.5
+                                   py-1
+                                   text-[9px]
+                                   font-semibold
+                                   mb-2">
+
+                            Instansi Mitra
+
+                        </span>
+
+
+                        <h1
+                            class="text-[20px]
+                                   font-bold
+                                   text-navy
+                                   leading-tight">
+
+                            SMK Negeri 3 Banjar
+
+                        </h1>
+
+
+                        <p
+                            class="mt-1.5
+                                   text-[11px]
+                                   text-slate-500
+                                   max-w-2xl">
+
+                            Informasi lengkap mengenai instansi yang menjadi
+                            mitra program internship bersama Access Media.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- ACTION -->
+
+                    <div
+                        class="hero-actions
+                               flex
+                               items-center
+                               gap-2">
+
+                        <a
+                            href="instansi.html"
+                            class="inline-flex
+                                   items-center
+                                   gap-1.5
+                                   px-3
+                                   py-2
+                                   rounded-lg
+                                   border
+                                   border-slate-200
+                                   bg-white
+                                   text-[10px]
+                                   font-semibold
+                                   text-slate-500
+                                   hover:bg-slate-50
+                                   transition">
+
+                            <svg
+                                class="w-3.5 h-3.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M15 18l-6-6 6-6"/>
+
+                            </svg>
+
+                            Kembali
+
+                        </a>
+
+
+                        <a
+                            href="edit-instansi.html"
+                            class="inline-flex
+                                   items-center
+                                   gap-1.5
+                                   px-3
+                                   py-2
+                                   rounded-lg
+                                   bg-purple-500
+                                   hover:bg-purple-600
+                                   text-white
+                                   text-[10px]
+                                   font-semibold
+                                   transition">
+
+                            <svg
+                                class="w-3.5 h-3.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M12 20h9"/>
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                            </svg>
+
+                            Edit Instansi
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE INSTANSI
+            ================================================== -->
+
+            <section
+                class="profile-card
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-slate-200
+                       soft-shadow
+                       p-5
+                       mb-5">
+
+
+                <div
+                    class="flex
+                           items-center
+                           gap-4">
+
+
+                    <!-- LOGO -->
+
+                    <div
+                        class="logo-box
+                               w-16
+                               h-16
+                               rounded-2xl
+                               bg-green-50
+                               border
+                               border-green-100
+                               flex
+                               items-center
+                               justify-center
+                               shrink-0">
+
+                        <svg
+                            class="w-8 h-8 text-green-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <!-- DATA -->
+
+                    <div class="min-w-0 flex-1">
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2
+                                   flex-wrap">
+
+                            <h2
+                                class="text-[16px]
+                                       font-bold
+                                       text-navy">
+
+                                SMK Negeri 3 Banjar
+
+                            </h2>
+
+                            <span
+                                class="inline-flex
+                                       items-center
+                                       gap-1
+                                       px-2
+                                       py-0.5
+                                       rounded-full
+                                       bg-green-50
+                                       text-green-600
+                                       text-[8px]
+                                       font-semibold">
+
+                                <span
+                                    class="w-1.5
+                                           h-1.5
+                                           rounded-full
+                                           bg-green-500">
+
+                                </span>
+
+                                Aktif
+
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="text-[10px]
+                                   text-slate-400
+                                   mt-1">
+
+                            SMK Negeri • Kota Banjar • Jawa Barat
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 INFORMASI INSTANSI
+            ================================================== -->
+
+            <section
+                class="section-card
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-slate-200
+                       soft-shadow
+                       overflow-hidden
+                       mb-5">
+
+
+                <!-- HEADER -->
+
+                <div
+                    class="section-card-header
+                           px-5
+                           py-4
+                           border-b
+                           border-slate-200">
+
+                    <div
+                        class="flex
+                               items-center
+                               gap-2">
+
+                        <span
+                            class="w-2.5
+                                   h-2.5
+                                   rounded-full
+                                   bg-green-500">
+
+                        </span>
+
+                        <h2
+                            class="text-[15px]
+                                   font-bold
+                                   text-navy">
+
+                            Informasi Instansi
+
+                        </h2>
+
+                    </div>
+
+                    <p
+                        class="text-[10px]
+                               text-slate-400
+                               mt-1
+                               ml-[18px]">
+
+                        Data utama mengenai instansi mitra.
+
+                    </p>
+
+                </div>
+
+
+                <!-- BODY -->
+
+                <div
+                    class="section-card-body
+                           p-5">
+
+
+                    <div
+                        class="information-grid
+                               grid
+                               grid-cols-2
+                               md:grid-cols-3
+                               gap-3">
+
+
+                        <!-- NAMA -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Nama Instansi
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                SMK Negeri 3 Banjar
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- KODE -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Kode Instansi
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                INS-001
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- JENIS -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Jenis Instansi
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                Sekolah
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- TELEPON -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                No. Telepon
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                (0265) 741000
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Email
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5
+                                       break-all">
+
+                                info@smkn3banjar.sch.id
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- WEBSITE -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Website
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-green-600
+                                       mt-1.5">
+
+                                smkn3banjar.sch.id
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- ALAMAT -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100
+                                   md:col-span-3">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Alamat
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                Jl. Raya Banjar No. 123, Kota Banjar, Jawa Barat
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 INFORMASI KERJA SAMA
+            ================================================== -->
+
+            <section
+                class="section-card
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-slate-200
+                       soft-shadow
+                       overflow-hidden
+                       mb-5">
+
+
+                <!-- HEADER -->
+
+                <div
+                    class="section-card-header
+                           px-5
+                           py-4
+                           border-b
+                           border-slate-200">
+
+                    <div
+                        class="flex
+                               items-center
+                               gap-2">
+
+                        <span
+                            class="w-2.5
+                                   h-2.5
+                                   rounded-full
+                                   bg-purple-500">
+
+                        </span>
+
+                        <h2
+                            class="text-[15px]
+                                   font-bold
+                                   text-navy">
+
+                            Informasi Kerja Sama
+
+                        </h2>
+
+                    </div>
+
+                    <p
+                        class="text-[10px]
+                               text-slate-400
+                               mt-1
+                               ml-[18px]">
+
+                        Informasi mengenai kerja sama internship.
+
+                    </p>
+
+                </div>
+
+
+                <!-- BODY -->
+
+                <div
+                    class="section-card-body
+                           p-5">
+
+
+                    <div
+                        class="information-grid
+                               grid
+                               grid-cols-2
+                               md:grid-cols-3
+                               gap-3">
+
+
+                        <!-- STATUS -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-purple-50
+                                   border
+                                   border-purple-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Status Kerja Sama
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-purple-600
+                                       mt-1.5">
+
+                                Aktif
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- PERIODE -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Periode Kerja Sama
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                2026
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- KAPASITAS -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Kapasitas Peserta Magang
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                20 Peserta
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- PENANGGUNG JAWAB -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Penanggung Jawab
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                Bapak Ahmad
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- KONTAK -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Kontak Penanggung Jawab
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5">
+
+                                0812-3456-7890
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- EMAIL PJ -->
+
+                        <div
+                            class="info-item
+                                   p-3
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+                            <p
+                                class="text-[8px]
+                                       uppercase
+                                       tracking-wider
+                                       text-slate-400
+                                       font-semibold">
+
+                                Email Penanggung Jawab
+
+                            </p>
+
+                            <p
+                                class="text-[11px]
+                                       font-semibold
+                                       text-navy
+                                       mt-1.5
+                                       break-all">
+
+                                ahmad@smkn3banjar.sch.id
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DOKUMENTASI
+            ================================================== -->
+
+            <section
+                class="section-card
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-slate-200
+                       soft-shadow
+                       overflow-hidden
+                       mb-5">
+
+
+                <!-- HEADER -->
+
+                <div
+                    class="section-card-header
+                           px-5
+                           py-4
+                           border-b
+                           border-slate-200">
+
+                    <div
+                        class="flex
+                               items-center
+                               gap-2">
+
+                        <span
+                            class="w-2.5
+                                   h-2.5
+                                   rounded-full
+                                   bg-green-500">
+
+                        </span>
+
+                        <h2
+                            class="text-[15px]
+                                   font-bold
+                                   text-navy">
+
+                            Dokumentasi
+
+                        </h2>
+
+                    </div>
+
+                    <p
+                        class="text-[10px]
+                               text-slate-400
+                               mt-1
+                               ml-[18px]">
+
+                        Dokumentasi visual instansi mitra.
+
+                    </p>
+
+                </div>
+
+
+                <!-- BODY -->
+
+                <div
+                    class="section-card-body
+                           p-5">
+
+
+                    <div
+                        class="documentation-grid
+                               grid
+                               grid-cols-2
+                               gap-4">
+
+
+                        <!-- LOGO -->
+
+                        <div
+                            class="documentation-box
+                                   border
+                                   border-slate-200
+                                   rounded-xl
+                                   overflow-hidden
+                                   bg-slate-50">
+
+                            <div
+                                class="h-[150px]
+                                       flex
+                                       items-center
+                                       justify-center">
+
+                                <div
+                                    class="w-16
+                                           h-16
+                                           rounded-2xl
+                                           bg-green-100
+                                           flex
+                                           items-center
+                                           justify-center">
+
+                                    <svg
+                                        class="w-8 h-8 text-green-600"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="px-4
+                                       py-3
+                                       bg-white
+                                       border-t
+                                       border-slate-200">
+
+                                <p
+                                    class="text-[10px]
+                                           font-semibold
+                                           text-navy">
+
+                                    Logo Instansi
+
+                                </p>
+
+                                <p
+                                    class="text-[8px]
+                                           text-slate-400
+                                           mt-0.5">
+
+                                    Logo resmi SMK Negeri 3 Banjar
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FOTO INSTANSI -->
+
+                        <div
+                            class="documentation-box
+                                   border
+                                   border-slate-200
+                                   rounded-xl
+                                   overflow-hidden
+                                   bg-slate-50">
+
+                            <div
+                                class="h-[150px]
+                                       flex
+                                       items-center
+                                       justify-center">
+
+                                <div
+                                    class="w-16
+                                           h-16
+                                           rounded-2xl
+                                           bg-purple-100
+                                           flex
+                                           items-center
+                                           justify-center">
+
+                                    <svg
+                                        class="w-8 h-8 text-purple-500"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z"/>
+
+                                        <circle
+                                            cx="9"
+                                            cy="9"
+                                            r="1.5"
+                                            stroke-width="1.8"/>
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="m4 17 4-4 3 3 3-3 6 6"/>
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="px-4
+                                       py-3
+                                       bg-white
+                                       border-t
+                                       border-slate-200">
+
+                                <p
+                                    class="text-[10px]
+                                           font-semibold
+                                           text-navy">
+
+                                    Foto Instansi
+
+                                </p>
+
+                                <p
+                                    class="text-[8px]
+                                           text-slate-400
+                                           mt-0.5">
+
+                                    Dokumentasi gedung instansi
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FOOTER ACTION
+            ================================================== -->
+
+            <div
+                class="page-footer
+                       flex
+                       items-center
+                       justify-between
+                       gap-3
+                       bg-white
+                       rounded-xl
+                       border
+                       border-slate-200
+                       px-5
+                       py-3
+                       soft-shadow">
+
+
+                <div>
+
+                    <p
+                        class="text-[9px]
+                               text-slate-400">
+
+                        Terakhir diperbarui
+
+                    </p>
+
+                    <p
+                        class="text-[10px]
+                               font-semibold
+                               text-navy
+                               mt-0.5">
+
+                        18 September 2026
+
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="instansi.html"
+                    class="inline-flex
+                           items-center
+                           gap-1.5
+                           px-3
+                           py-2
+                           rounded-lg
+                           bg-green-600
+                           hover:bg-green-700
+                           text-white
+                           text-[9px]
+                           font-semibold
+                           transition">
+
+                    <svg
+                        class="w-3 h-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.8"
+                            d="M15 18l-6-6 6-6"/>
+
+                    </svg>
+
+                    Kembali ke Instansi
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           PROFILE DROPDOWN
+        ====================================================== */
+
+        const profileToggle =
+            document.getElementById("profileToggle");
+
+        const profileDropdown =
+            document.getElementById("profileDropdown");
+
+        const profileChevron =
+            document.getElementById("profileChevron");
+
+
+        if (profileToggle && profileDropdown) {
+
+            profileToggle.addEventListener(
+                "click",
+                function (event) {
+
+                    event.stopPropagation();
+
+                    profileDropdown.classList.toggle("show");
+
+                    if (profileChevron) {
+
+                        profileChevron.classList.toggle(
+                            "rotate-180"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        !profileDropdown.contains(event.target) &&
+                        !profileToggle.contains(event.target)
+                    ) {
+
+                        profileDropdown.classList.remove("show");
+
+                        if (profileChevron) {
+
+                            profileChevron.classList.remove(
+                                "rotate-180"
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           LOGOUT
+        ====================================================== */
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                function () {
+
+                    const yakin =
+                        confirm(
+                            "Apakah kamu yakin ingin logout?"
+                        );
+
+                    if (yakin) {
+
+                        window.location.href =
+                            "index.html";
+
+                    }
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
