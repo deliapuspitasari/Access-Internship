@@ -1098,6 +1098,250 @@
     </main>
 
     <!-- =====================================================
+         MODAL DETAIL INSTANSI
+    ====================================================== -->
+    <div id="detailModal"
+         class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4">
+
+        <div class="w-full max-w-[560px] bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+            <!-- HEADER -->
+            <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
+                <div>
+                    <h2 class="text-[17px] font-bold text-navy">
+                        Detail Instansi
+                    </h2>
+                    <p class="text-[10px] text-slate-400 mt-1">
+                        Informasi lengkap instansi mitra Access Media
+                    </p>
+                </div>
+
+                <button type="button"
+                        onclick="tutupDetailModal()"
+                        class="w-8 h-8 rounded-lg flex items-center justify-center
+                               text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                              d="M6 6l12 12M18 6L6 18"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="p-6">
+
+                <div class="flex items-center gap-3 mb-5">
+                    <div id="detailIcon"
+                         class="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                  d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                        </svg>
+                    </div>
+
+                    <div class="min-w-0">
+                        <h3 id="detailNama"
+                            class="text-[15px] font-bold text-navy truncate">
+                            -
+                        </h3>
+                        <p id="detailKota"
+                           class="text-[10px] text-slate-400 mt-0.5">
+                            -
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                        <p class="text-[9px] text-slate-400 mb-1.5">
+                            Jenis Instansi
+                        </p>
+                        <p id="detailJenis"
+                           class="text-[11px] font-semibold text-navy">
+                            -
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                        <p class="text-[9px] text-slate-400 mb-1.5">
+                            Periode
+                        </p>
+                        <p id="detailPeriode"
+                           class="text-[11px] font-semibold text-navy">
+                            -
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                        <p class="text-[9px] text-slate-400 mb-1.5">
+                            Status
+                        </p>
+                        <p id="detailStatus"
+                           class="text-[11px] font-semibold text-green-600">
+                            -
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                        <p class="text-[9px] text-slate-400 mb-1.5">
+                            ID Instansi
+                        </p>
+                        <p id="detailId"
+                           class="text-[11px] font-semibold text-navy">
+                            -
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- BUTTON -->
+                <div class="flex justify-end gap-2 mt-6 pt-4 border-t border-slate-100">
+
+                    <button type="button"
+                            onclick="tutupDetailModal()"
+                            class="px-4 py-2.5 rounded-lg bg-slate-100
+                                   hover:bg-slate-200 text-slate-500
+                                   text-[10px] font-semibold transition">
+                        Tutup
+                    </button>
+
+                    <button type="button"
+                            onclick="editDariDetail()"
+                            class="px-4 py-2.5 rounded-lg bg-green-600
+                                   hover:bg-green-700 text-white
+                                   text-[10px] font-semibold transition">
+                        Edit Instansi
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         MODAL EDIT INSTANSI
+    ====================================================== -->
+    <div id="editModal"
+         class="fixed inset-0 z-[110] hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4">
+
+        <div class="w-full max-w-[580px] bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+            <!-- HEADER MODAL -->
+            <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
+                <div>
+                    <h2 class="text-[17px] font-bold text-navy">
+                        Edit Instansi
+                    </h2>
+                    <p class="text-[10px] text-slate-400 mt-1">
+                        Perbarui informasi instansi yang dipilih
+                    </p>
+                </div>
+
+                <button type="button"
+                        onclick="tutupEditModal()"
+                        class="w-8 h-8 rounded-lg flex items-center justify-center
+                               text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                              d="M6 6l12 12M18 6L6 18"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- FORM -->
+            <form id="editInstansiForm" class="p-6">
+
+                <div class="mb-4">
+                    <label class="block text-[10px] font-semibold text-navy mb-2">
+                        Nama Instansi
+                    </label>
+                    <input type="text"
+                           id="editNama"
+                           required
+                           class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200
+                                  text-[11px] text-slate-600 outline-none
+                                  focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-[10px] font-semibold text-navy mb-2">
+                        Kota / Kabupaten
+                    </label>
+                    <input type="text"
+                           id="editKota"
+                           required
+                           class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200
+                                  text-[11px] text-slate-600 outline-none
+                                  focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-[10px] font-semibold text-navy mb-2">
+                        Jenis Instansi
+                    </label>
+                    <select id="editJenis"
+                            required
+                            class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200
+                                   bg-white text-[11px] text-slate-600 outline-none
+                                   focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                        <option value="Sekolah">Sekolah</option>
+                        <option value="Perguruan Tinggi">Perguruan Tinggi</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-semibold text-navy mb-2">
+                            Periode
+                        </label>
+                        <input type="text"
+                               id="editPeriode"
+                               required
+                               class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200
+                                      text-[11px] text-slate-600 outline-none
+                                      focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-semibold text-navy mb-2">
+                            Status
+                        </label>
+                        <select id="editStatus"
+                                required
+                                class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200
+                                       bg-white text-[11px] text-slate-600 outline-none
+                                       focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Aktif">Tidak Aktif</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-2 mt-6 pt-4 border-t border-slate-100">
+                    <button type="button"
+                            onclick="tutupEditModal()"
+                            class="px-4 py-2.5 rounded-lg bg-slate-100
+                                   hover:bg-slate-200 text-slate-500
+                                   text-[10px] font-semibold transition">
+                        Batal
+                    </button>
+
+                    <button type="submit"
+                            class="px-4 py-2.5 rounded-lg bg-green-600
+                                   hover:bg-green-700 text-white
+                                   text-[10px] font-semibold transition">
+                        Simpan Perubahan
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <!-- =====================================================
          JAVASCRIPT
     ====================================================== -->
     <script>
@@ -1485,23 +1729,120 @@
            DETAIL
         ====================================================== */
 
+        let detailInstansiId = null;
+        let editInstansiId = null;
+
+        /* =====================================================
+           DETAIL INSTANSI - MODAL
+        ====================================================== */
+
         function lihatDetail(id) {
+
             const data = getInstansi();
 
-            const instansi =
-                data.find(
-                    item => item.id === id
-                );
+            const instansi = data.find(
+                item => item.id === id
+            );
 
             if (!instansi) return;
 
-            alert(
-                "Instansi: " + instansi.nama +
-                "\nJenis: " + instansi.jenis +
-                "\nKota: " + instansi.kota +
-                "\nPeriode: " + instansi.periode +
-                "\nStatus: " + instansi.status
-            );
+            detailInstansiId = id;
+
+            document.getElementById("detailNama").textContent =
+                instansi.nama || "-";
+
+            document.getElementById("detailKota").textContent =
+                instansi.kota || "-";
+
+            document.getElementById("detailJenis").textContent =
+                instansi.jenis || "-";
+
+            document.getElementById("detailPeriode").textContent =
+                instansi.periode || "-";
+
+            document.getElementById("detailStatus").textContent =
+                instansi.status || "-";
+
+            document.getElementById("detailId").textContent =
+                "INS-" + String(instansi.id).padStart(3, "0");
+
+            // Warna icon mengikuti jenis instansi
+            const icon = document.getElementById("detailIcon");
+
+            if (instansi.jenis === "Perguruan Tinggi") {
+                icon.className =
+                    "w-11 h-11 rounded-xl bg-purple-100 flex items-center justify-center shrink-0";
+
+                icon.querySelector("svg").className =
+                    "w-5 h-5 text-purple-600";
+            } else {
+                icon.className =
+                    "w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center shrink-0";
+
+                icon.querySelector("svg").className =
+                    "w-5 h-5 text-green-600";
+            }
+
+            // Warna status
+            const statusElement =
+                document.getElementById("detailStatus");
+
+            if (instansi.status === "Aktif") {
+                statusElement.className =
+                    "text-[11px] font-semibold text-green-600";
+            } else {
+                statusElement.className =
+                    "text-[11px] font-semibold text-red-500";
+            }
+
+            // Tutup dropdown
+            document.querySelectorAll(".action-menu").forEach(menu => {
+                menu.classList.add("hidden");
+            });
+
+            // Tampilkan modal
+            const modal = document.getElementById("detailModal");
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+            document.body.classList.add("overflow-hidden");
+        }
+
+
+        /* =====================================================
+           TUTUP DETAIL MODAL
+        ====================================================== */
+
+        function tutupDetailModal() {
+
+            const modal = document.getElementById("detailModal");
+
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+
+            document.body.classList.remove("overflow-hidden");
+
+            detailInstansiId = null;
+        }
+
+
+        /* =====================================================
+           EDIT DARI DETAIL
+        ====================================================== */
+
+        function editDariDetail() {
+
+            if (detailInstansiId === null) return;
+
+            const id = detailInstansiId;
+
+            tutupDetailModal();
+
+            // Beri sedikit jeda supaya perpindahan modal terasa smooth
+            setTimeout(() => {
+                editInstansi(id);
+            }, 100);
         }
 
         /* =====================================================
@@ -1542,6 +1883,7 @@
         ====================================================== */
 
         function editInstansi(id) {
+
             const data = getInstansi();
 
             const instansi = data.find(
@@ -1550,20 +1892,148 @@
 
             if (!instansi) return;
 
-            // Tutup menu
+            editInstansiId = id;
+
+            // Tutup dropdown
             document.querySelectorAll(".action-menu").forEach(menu => {
                 menu.classList.add("hidden");
             });
 
-            alert(
-                "Edit Instansi:\n\n" +
-                "Nama: " + instansi.nama +
-                "\nJenis: " + instansi.jenis +
-                "\nKota: " + instansi.kota +
-                "\nPeriode: " + instansi.periode +
-                "\nStatus: " + instansi.status
-            );
+            // Isi form
+            document.getElementById("editNama").value =
+                instansi.nama || "";
+
+            document.getElementById("editKota").value =
+                instansi.kota || "";
+
+            document.getElementById("editJenis").value =
+                instansi.jenis || "Sekolah";
+
+            document.getElementById("editPeriode").value =
+                instansi.periode || "";
+
+            document.getElementById("editStatus").value =
+                instansi.status || "Aktif";
+
+            // Tampilkan modal
+            const modal = document.getElementById("editModal");
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+            document.body.classList.add("overflow-hidden");
         }
+
+
+        /* =====================================================
+           TUTUP EDIT MODAL
+        ====================================================== */
+
+        function tutupEditModal() {
+
+            const modal = document.getElementById("editModal");
+
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+
+            document.body.classList.remove("overflow-hidden");
+
+            editInstansiId = null;
+        }
+
+
+        /* =====================================================
+           SIMPAN EDIT INSTANSI
+        ====================================================== */
+
+        document.getElementById("editInstansiForm").addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                if (editInstansiId === null) return;
+
+                const data = getInstansi();
+
+                const index = data.findIndex(
+                    item => item.id === editInstansiId
+                );
+
+                if (index === -1) return;
+
+                data[index].nama =
+                    document.getElementById("editNama").value.trim();
+
+                data[index].kota =
+                    document.getElementById("editKota").value.trim();
+
+                data[index].jenis =
+                    document.getElementById("editJenis").value;
+
+                data[index].periode =
+                    document.getElementById("editPeriode").value.trim();
+
+                data[index].status =
+                    document.getElementById("editStatus").value;
+
+                localStorage.setItem(
+                    "accessInstansi",
+                    JSON.stringify(data)
+                );
+
+                tutupEditModal();
+
+                filterInstansi();
+                updateStats();
+            }
+        );
+
+
+        /* =====================================================
+           TUTUP MODAL SAAT KLIK BACKDROP
+        ====================================================== */
+
+        document.getElementById("detailModal").addEventListener(
+            "click",
+            function(event) {
+                if (event.target === this) {
+                    tutupDetailModal();
+                }
+            }
+        );
+
+        document.getElementById("editModal").addEventListener(
+            "click",
+            function(event) {
+                if (event.target === this) {
+                    tutupEditModal();
+                }
+            }
+        );
+
+        /* =====================================================
+           ESC UNTUK MENUTUP MODAL
+        ====================================================== */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key !== "Escape") return;
+
+            const detailModal =
+                document.getElementById("detailModal");
+
+            const editModal =
+                document.getElementById("editModal");
+
+            if (!detailModal.classList.contains("hidden")) {
+                tutupDetailModal();
+            }
+
+            if (!editModal.classList.contains("hidden")) {
+                tutupEditModal();
+            }
+        });
 
         /* =====================================================
            HAPUS INSTANSI
