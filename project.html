@@ -1045,334 +1045,429 @@
 
 
 
-        /* =========================
-           RENDER PROJECT
-        ========================= */
+      /* =========================
+   RENDER PROJECT
+========================= */
 
-        function renderProjects() {
+function renderProjects() {
 
-            const projects =
-                JSON.parse(
-                    localStorage.getItem(
-                        "projects"
-                    )
-                ) || [];
+    const projects =
+        JSON.parse(
+            localStorage.getItem("projects")
+        ) || [];
 
 
-            projectGrid.innerHTML = "";
+    projectGrid.innerHTML = "";
 
 
-            if (projects.length === 0) {
+    if (projects.length === 0) {
 
-                emptyProject.classList.remove(
-                    "hidden"
+        emptyProject.classList.remove(
+            "hidden"
+        );
+
+        return;
+
+    }
+
+
+    emptyProject.classList.add(
+        "hidden"
+    );
+
+
+    projects.forEach(
+        function (project) {
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "project-card relative overflow-visible bg-white border border-slate-200 rounded-xl soft-shadow";
+
+
+            const namaProject =
+                escapeHTML(
+                    project.namaProject
                 );
 
-                return;
+
+            const jenisProject =
+                escapeHTML(
+                    project.jenisProject
+                );
+
+
+            const namaPeserta =
+                escapeHTML(
+                    project.namaPeserta
+                );
+
+
+            const jenisPeserta =
+                escapeHTML(
+                    project.jenisPeserta ||
+                    "Peserta"
+                );
+
+
+            const deskripsi =
+                escapeHTML(
+                    project.deskripsi
+                );
+
+
+            let thumbnailHTML = "";
+
+
+            if (project.thumbnail) {
+
+                thumbnailHTML = `
+
+                    <img
+                        src="${project.thumbnail}"
+                        alt="${namaProject}"
+                        class="w-full h-full object-cover">
+
+                `;
+
+            } else {
+
+                thumbnailHTML = `
+
+                    <div
+                        class="w-full h-full
+                        flex items-center justify-center
+                        bg-gradient-to-br
+                        from-green-50
+                        via-white
+                        to-purple-50">
+
+                        <svg
+                            class="w-10 h-10 text-slate-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                stroke-width="1.5"/>
+
+                            <path
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m7 15 3-3 2 2 2-2 3 3"/>
+
+                        </svg>
+
+                    </div>
+
+                `;
 
             }
 
 
-            emptyProject.classList.add(
-                "hidden"
-            );
+            card.innerHTML = `
+
+                <!-- THUMBNAIL -->
+
+                <div
+                    class="w-full h-[180px]
+                    overflow-hidden
+                    rounded-t-xl
+                    bg-slate-50">
+
+                    ${thumbnailHTML}
+
+                </div>
 
 
-            projects.forEach(
-                function (project) {
+                <!-- CONTENT -->
+
+                <div class="p-4">
 
 
-                    const card =
-                        document.createElement(
-                            "div"
-                        );
+                    <!-- TITLE + MENU -->
 
+                    <div
+                        class="flex items-start
+                        justify-between gap-3">
 
-                    card.className =
-                        "project-card relative overflow-visible bg-white border border-slate-200 rounded-xl soft-shadow";
-
-
-                    const namaProject =
-                        escapeHTML(
-                            project.namaProject
-                        );
-
-
-                    const jenisProject =
-                        escapeHTML(
-                            project.jenisProject
-                        );
-
-
-                    const namaPeserta =
-                        escapeHTML(
-                            project.namaPeserta
-                        );
-
-
-                    const jenisPeserta =
-                        escapeHTML(
-                            project.jenisPeserta ||
-                            "Peserta"
-                        );
-
-
-                    const deskripsi =
-                        escapeHTML(
-                            project.deskripsi
-                        );
-
-
-                    let thumbnailHTML = "";
-
-
-                    if (project.thumbnail) {
-
-                        thumbnailHTML = `
-
-                            <img
-                                src="${project.thumbnail}"
-                                alt="${namaProject}"
-                                class="w-full h-full object-cover">
-
-                        `;
-
-                    } else {
-
-                        thumbnailHTML = `
-
-                            <div
-                                class="w-full h-full
-                                flex items-center
-                                justify-center
-                                bg-gradient-to-br
-                                from-green-50
-                                to-purple-50">
-
-                                <svg
-                                    class="w-10 h-10
-                                    text-slate-300"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24">
-
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M4 5h16v14H4V5Zm3 10 3-3 3 3 2-2 3 3" />
-
-                                </svg>
-
-                            </div>
-
-                        `;
-
-                    }
-
-
-
-                    card.innerHTML = `
-
-
-                        <!-- THUMBNAIL -->
 
                         <div
-                            class="relative w-full h-[180px]
-                            overflow-hidden rounded-t-xl
-                            bg-slate-50">
+                            class="min-w-0 flex-1">
 
-                            ${thumbnailHTML}
+                            <h4
+                                class="text-sm font-bold
+                                text-navy leading-snug">
+
+                                ${namaProject}
+
+                            </h4>
 
                         </div>
 
 
+                        <!-- TOMBOL TITIK TIGA -->
+                        <div class="relative shrink-0">
 
-                        <!-- CONTENT -->
+                            <button
+                                type="button"
+                                class="project-menu-button
+                                       w-8
+                                       h-8
+                                       rounded-lg
+                                       flex
+                                       items-center
+                                       justify-center
+                                       text-slate-400
+                                       hover:bg-slate-100
+                                       hover:text-navy
+                                       transition"
+                                data-id="${project.id}">
 
-                        <div class="p-4">
+                               <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24">
 
+                                    <circle cx="12" cy="5" r="1.6"/>
+                                    <circle cx="12" cy="12" r="1.6"/>
+                                    <circle cx="12" cy="19" r="1.6"/>
 
-                            <!-- TITLE + MENU -->
+                                </svg>
+                            </button>
 
+                            <!-- DROPDOWN AKSI -->
                             <div
-                                class="flex items-start
-                                justify-between gap-3">
+                                class="project-menu
+                                       hidden
+                                       absolute
+                                       right-0
+                                       top-full
+                                       mt-1
+                                       w-[125px]
+                                       bg-white
+                                       border
+                                       border-slate-200
+                                       rounded-xl
+                                       shadow-lg
+                                       z-50
+                                       p-1.5
+                                       text-left">
 
+                                <!-- DETAIL -->
+                                <button
+                                    type="button"
+                                    class="detail-project
+                                           w-full
+                                           flex
+                                           items-center
+                                           gap-2
+                                           px-2.5
+                                           py-2
+                                           rounded-lg
+                                           text-[9px]
+                                           text-slate-600
+                                           hover:bg-green-50
+                                           hover:text-green-600
+                                           transition"
+                                    data-id="${project.id}">
 
-                                <div class="min-w-0">
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
 
-                                    <h4
-                                        class="text-sm font-bold
-                                        text-navy leading-snug">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="M2.5 12s3.5-5.5 9.5-5.5
+                                               9.5 5.5 9.5 5.5
+                                               -3.5 5.5-9.5 5.5
+                                               -9.5-5.5-9.5-5.5Z"/>
 
-                                        ${namaProject}
+                                        <circle
+                                            cx="12"
+                                            cy="12"
+                                            r="2.5"
+                                            stroke-width="1.8"/>
+                                    </svg>
 
-                                    </h4>
+                                    Detail
+                                </button>
 
-                                </div>
+                                <!-- EDIT -->
+                                <button
+                                    type="button"
+                                    class="edit-project
+                                           w-full
+                                           flex
+                                           items-center
+                                           gap-2
+                                           px-2.5
+                                           py-2
+                                           rounded-lg
+                                           text-[9px]
+                                           text-slate-600
+                                           hover:bg-purple-50
+                                           hover:text-purple-600
+                                           transition"
+                                    data-id="${project.id}">
 
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
 
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="M12 20h9"/>
 
-                                <!-- THREE DOT -->
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                                    </svg>
 
-                                <div
-                                    class="relative shrink-0">
+                                    Edit
+                                </button>
 
+                                <!-- HAPUS -->
+                                <button
+                                    type="button"
+                                    class="delete-project
+                                           w-full
+                                           flex
+                                           items-center
+                                           gap-2
+                                           px-2.5
+                                           py-2
+                                           rounded-lg
+                                           text-[9px]
+                                           text-red-500
+                                           hover:bg-red-50
+                                           transition"
+                                    data-id="${project.id}">
 
-                                    <button
-                                        type="button"
-                                        class="project-menu-button
-                                        w-7 h-7 rounded-lg
-                                        flex items-center
-                                        justify-center
-                                        text-slate-400
-                                        hover:bg-slate-50
-                                        hover:text-navy
-                                        transition"
-                                        data-id="${project.id}">
+                                    <svg
+                                        class="w-3.5 h-3.5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
 
-                                        <span
-                                            class="text-lg
-                                            leading-none">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>
+                                    </svg>
 
-                                            ⋮
-
-                                        </span>
-
-                                    </button>
-
-
-
-                                    <!-- MENU -->
-
-                                    <div
-                                        class="project-menu
-                                        hidden absolute
-                                        right-0 top-8 z-50
-                                        w-28 bg-white
-                                        border border-slate-200
-                                        rounded-lg shadow-lg p-1">
-
-
-                                        <button
-                                            type="button"
-                                            class="edit-project
-                                            w-full text-left
-                                            px-3 py-2 rounded-md
-                                            text-[9px]
-                                            text-slate-600
-                                            hover:bg-green-50
-                                            hover:text-green-700"
-                                            data-id="${project.id}">
-
-                                            Edit
-
-                                        </button>
-
-
-                                        <button
-                                            type="button"
-                                            class="delete-project
-                                            w-full text-left
-                                            px-3 py-2 rounded-md
-                                            text-[9px]
-                                            text-slate-600
-                                            hover:bg-red-50
-                                            hover:text-red-500"
-                                            data-id="${project.id}">
-
-                                            Hapus
-
-                                        </button>
-
-                                    </div>
-
-                                </div>
+                                    Hapus
+                                </button>
 
                             </div>
-
-
-
-                            <!-- JENIS PROJECT -->
-
-                            <span
-                                class="inline-block mt-2
-                                px-2.5 py-1 rounded-full
-                                bg-green-50 text-green-600
-                                text-[8px] font-semibold">
-
-                                ${jenisProject}
-
-                            </span>
-
-
-
-                            <!-- DESKRIPSI -->
-
-                            <p
-                                class="text-[10px]
-                                text-slate-400 mt-3
-                                leading-relaxed">
-
-                                ${deskripsi}
-
-                            </p>
-
-
-
-                            <!-- PESERTA -->
-
-                            <p
-                                class="text-[9px]
-                                text-slate-500 mt-4">
-
-                                ${namaPeserta}
-
-                                <span
-                                    class="text-slate-300">
-
-                                    ·
-
-                                </span>
-
-                                ${jenisPeserta}
-
-                            </p>
-
-
-
-                            <!-- TANGGAL DIBUAT -->
-
-                            <p
-                                class="text-[9px]
-                                text-slate-400 mt-1">
-
-                                ${formatTanggal(
-                                    project.tanggalDibuat
-                                )}
-
-                            </p>
-
-
                         </div>
 
-                    `;
+                    </div>
 
 
-                    projectGrid.appendChild(
-                        card
-                    );
+                    <!-- JENIS PROJECT -->
 
-                }
+                    <div class="mt-2">
+
+                        <span
+                            class="inline-flex
+                            px-2.5 py-1
+                            rounded-full
+                            bg-green-50
+                            text-green-600
+                            text-[8px]
+                            font-semibold">
+
+                            ${jenisProject}
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- DESKRIPSI -->
+
+                    <p
+                        class="text-[10px]
+                        text-slate-400
+                        mt-3
+                        leading-relaxed">
+
+                        ${deskripsi}
+
+                    </p>
+
+
+                    <!-- PESERTA -->
+
+                    <p
+                        class="text-[9px]
+                        text-slate-500
+                        mt-4">
+
+                        ${namaPeserta}
+
+                        <span
+                            class="text-slate-300">
+
+                            ·
+
+                        </span>
+
+                        ${jenisPeserta}
+
+                    </p>
+
+
+                    <!-- TANGGAL -->
+
+                    <p
+                        class="text-[9px]
+                        text-slate-400
+                        mt-1">
+
+                        ${formatTanggal(
+                            project.tanggalDibuat
+                        )}
+
+                    </p>
+
+
+                </div>
+
+            `;
+
+
+            projectGrid.appendChild(
+                card
             );
 
-
-            setupProjectMenu();
-
         }
+    );
 
 
+    setupProjectMenu();
+
+}
 
         /* =========================
            PROJECT MENU
@@ -1440,6 +1535,58 @@
                     }
                 );
 
+
+
+            /* DETAIL */
+
+            document
+                .querySelectorAll(
+                    ".detail-project"
+                )
+                .forEach(
+                    function (button) {
+
+                        button.addEventListener(
+                            "click",
+                            function (event) {
+
+                                event.stopPropagation();
+
+                                const id =
+                                    Number(
+                                        button.dataset.id
+                                    );
+
+                                const projects =
+                                    JSON.parse(
+                                        localStorage.getItem(
+                                            "projects"
+                                        )
+                                    ) || [];
+
+                                const project =
+                                    projects.find(
+                                        function (item) {
+                                            return item.id === id;
+                                        }
+                                    );
+
+                                if (!project) {
+                                    return;
+                                }
+
+                                alert(
+                                    "Project: " + project.namaProject +
+                                    "\nJenis: " + project.jenisProject +
+                                    "\nPeserta: " + project.namaPeserta +
+                                    "\nJenis Peserta: " + (project.jenisPeserta || "Peserta") +
+                                    "\nTanggal dibuat: " + formatTanggal(project.tanggalDibuat)
+                                );
+                            }
+                        );
+
+                    }
+                );
 
 
             /* EDIT */
