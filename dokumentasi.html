@@ -164,6 +164,31 @@
             }
         }
 
+        .action-button {
+            position: relative;
+            z-index: 120;
+        }
+
+        .action-menu {
+            animation: actionMenuShow 0.15s ease;
+        }
+
+        @keyframes actionMenuShow {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .action-menu button {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -982,7 +1007,7 @@
                            text-slate-400
                            mt-1">
 
-                    Arsip dokumentasi kegiatan
+                    Arsip dokumentasi kegiatany
 
                 </p>
 
@@ -1176,12 +1201,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(1, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 1"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-1"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(1, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(1, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(1, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -1276,12 +1408,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(2, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 2"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-2"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(2, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(2, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(2, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -1376,12 +1615,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(3, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 3"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-3"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(3, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(3, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(3, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -1476,12 +1822,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(4, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 4"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-4"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(4, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(4, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(4, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -1590,12 +2043,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(5, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 5"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-5"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(5, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(5, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(5, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -1688,12 +2248,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(6, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 6"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-6"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(6, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(6, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(6, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -1786,12 +2453,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(7, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 7"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-7"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(7, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(7, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(7, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -1884,12 +2658,119 @@
 
                 <article
                     class="documentation-card
+                           relative
                            bg-white
                            border
                            border-slate-200
                            rounded-xl
-                           overflow-hidden
+                           overflow-visible
                            soft-shadow">
+                    <!-- ACTION MENU -->
+
+                    <div class="absolute top-3 right-3 z-[110]">
+
+                        <button
+                            type="button"
+                            onclick="toggleActionMenu(8, event)"
+                            class="action-button w-8 h-8 rounded-lg flex items-center justify-center bg-white/95 text-slate-400 hover:bg-white hover:text-navy shadow-sm transition"
+                            aria-label="Menu dokumentasi 8"
+                        >
+
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6.5h.01M12 12h.01M12 17.5h.01"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                        <div
+                            id="actionMenu-8"
+                            class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-[120] p-1.5 text-left">
+
+                            <button
+                                type="button"
+                                onclick="lihatDetail(8, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-slate-50 hover:text-navy transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke-width="1.8" />
+                                </svg>
+
+                                <span>Detail</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="editDokumentasi(8, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-slate-600 hover:bg-green-50 hover:text-green-700 transition">
+
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m4 16.5-.8 3.3 3.3-.8L18.2 7.3a2.1 2.1 0 0 0-3-3L3.5 15.7Z" />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="m13.8 5.2 3 3" />
+                                </svg>
+
+                                <span>Edit</span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                onclick="hapusDokumentasi(8, event)"
+                                class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] text-red-500 hover:bg-red-50 transition">
+                                <svg
+                                    class="w-3.5 h-3.5 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" />
+                                </svg>
+                                <span>Hapus</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
 
                     <div
                         class="documentation-card-image
@@ -2259,6 +3140,276 @@
 
             }
         );
+
+
+        /* =====================================================
+           ACTION MENU DOKUMENTASI
+           ===================================================== */
+
+        function toggleActionMenu(id, event) {
+
+            event.stopPropagation();
+
+            const currentMenu =
+                document.getElementById(`actionMenu-${id}`);
+
+            document.querySelectorAll(".action-menu").forEach(function (menu) {
+                if (menu !== currentMenu) {
+                    menu.classList.add("hidden");
+                }
+            });
+
+            currentMenu.classList.toggle("hidden");
+
+        }
+
+
+        function lihatDetail(id, event) {
+
+            event.stopPropagation();
+
+            document.querySelectorAll(".action-menu").forEach(function (menu) {
+                menu.classList.add("hidden");
+            });
+
+            const menu = document.getElementById(`actionMenu-${id}`);
+            const card = menu ? menu.closest(".documentation-card") : null;
+
+            if (!card) return;
+
+            const image = card.querySelector(".documentation-image");
+            const category = card.querySelector("span.inline-flex");
+            const title = card.querySelector(".documentation-card-title");
+            const description = card.querySelector(".documentation-card-description");
+            const number = card.querySelector(".documentation-card-content > div:last-child span");
+
+            showDocumentationModal("Detail Dokumentasi", `
+                <div class="space-y-4">
+                    ${image ? `
+                        <img
+                            src="${image.getAttribute("src") || ""}"
+                            alt="${image.getAttribute("alt") || "Dokumentasi"}"
+                            class="w-full h-52 object-cover rounded-xl border border-slate-200">
+                    ` : ""}
+
+                    <div>
+                        <span class="inline-flex px-2 py-1 rounded-md bg-green-50 text-green-700 text-[9px] font-semibold">
+                            ${category ? category.textContent.trim() : "Dokumentasi"}
+                        </span>
+
+                        <h3 class="text-base font-bold text-navy mt-2">
+                            ${title ? title.textContent.trim() : "-"}
+                        </h3>
+
+                        <p class="text-[11px] leading-relaxed text-slate-500 mt-2">
+                            ${description ? description.textContent.trim() : "-"}
+                        </p>
+
+                        <p class="text-[9px] text-slate-400 mt-4">
+                            ${number ? number.textContent.trim() : ""}
+                        </p>
+                    </div>
+                </div>
+            `);
+
+        }
+
+
+        function editDokumentasi(id, event) {
+
+            event.stopPropagation();
+
+            document.querySelectorAll(".action-menu").forEach(function (menu) {
+                menu.classList.add("hidden");
+            });
+
+            const menu = document.getElementById(`actionMenu-${id}`);
+            const card = menu ? menu.closest(".documentation-card") : null;
+
+            if (!card) return;
+
+            const category = card.querySelector("span.inline-flex");
+            const title = card.querySelector(".documentation-card-title");
+            const description = card.querySelector(".documentation-card-description");
+
+            const currentCategory = category ? category.textContent.trim() : "";
+            const currentTitle = title ? title.textContent.trim() : "";
+            const currentDescription = description ? description.textContent.trim() : "";
+
+            showDocumentationModal("Edit Dokumentasi", `
+                <form id="editDocumentationForm" class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] font-semibold text-slate-600 mb-1.5">
+                            Kategori
+                        </label>
+                        <input
+                            id="editCategory"
+                            type="text"
+                            value="${escapeHtml(currentCategory)}"
+                            class="w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px] text-slate-600 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-100">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-semibold text-slate-600 mb-1.5">
+                            Judul
+                        </label>
+                        <input
+                            id="editTitle"
+                            type="text"
+                            value="${escapeHtml(currentTitle)}"
+                            class="w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px] text-slate-600 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-100">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-semibold text-slate-600 mb-1.5">
+                            Deskripsi
+                        </label>
+                        <textarea
+                            id="editDescription"
+                            rows="4"
+                            class="w-full px-3 py-2.5 rounded-lg border border-slate-200 text-[11px] text-slate-600 outline-none resize-none focus:border-green-500 focus:ring-1 focus:ring-green-100">${escapeHtml(currentDescription)}</textarea>
+                    </div>
+
+                    <div class="flex justify-end gap-2 pt-1">
+                        <button
+                            type="button"
+                            onclick="closeDocumentationModal()"
+                            class="px-4 py-2 rounded-lg bg-slate-100 text-slate-500 text-[10px] font-semibold hover:bg-slate-200 transition">
+                            Batal
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="px-4 py-2 rounded-lg bg-green-500 text-white text-[10px] font-semibold hover:bg-green-600 transition">
+                            Simpan Perubahan
+                        </button>
+                    </div>
+                </form>
+            `);
+
+            const form = document.getElementById("editDocumentationForm");
+
+            form.addEventListener("submit", function (submitEvent) {
+
+                submitEvent.preventDefault();
+
+                const newCategory = document.getElementById("editCategory").value.trim();
+                const newTitle = document.getElementById("editTitle").value.trim();
+                const newDescription = document.getElementById("editDescription").value.trim();
+
+                if (category && newCategory) {
+                    category.textContent = newCategory;
+                }
+
+                if (title && newTitle) {
+                    title.textContent = newTitle;
+                }
+
+                if (description && newDescription) {
+                    description.textContent = newDescription;
+                }
+
+                closeDocumentationModal();
+
+            });
+
+        }
+
+
+        function escapeHtml(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        function showDocumentationModal(title, content) {
+
+            closeDocumentationModal();
+
+            const modal = document.createElement("div");
+
+            modal.id = "documentationModal";
+            modal.className = "fixed inset-0 z-[300] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm";
+
+            modal.innerHTML = `
+                <div class="w-full max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border border-slate-200">
+                    <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                        <h3 class="text-sm font-bold text-navy">
+                            ${title}
+                        </h3>
+
+                        <button
+                            type="button"
+                            onclick="closeDocumentationModal()"
+                            class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6 6 18" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="p-5">
+                        ${content}
+                    </div>
+                </div>
+            `;
+
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    closeDocumentationModal();
+                }
+            });
+
+            document.body.appendChild(modal);
+
+        }
+
+
+        function closeDocumentationModal() {
+
+            const modal = document.getElementById("documentationModal");
+
+            if (modal) {
+                modal.remove();
+            }
+
+        }
+
+
+        function hapusDokumentasi(id, event) {
+
+            event.stopPropagation();
+
+            const menu = document.getElementById(`actionMenu-${id}`);
+            const card = menu ? menu.closest(".documentation-card") : null;
+
+            if (card) {
+                card.remove();
+            }
+
+        }
+
+
+        document.addEventListener("click", function (event) {
+
+            if (
+                !event.target.closest(".action-menu") &&
+                !event.target.closest(".action-button")
+            ) {
+
+                document.querySelectorAll(".action-menu").forEach(function (menu) {
+                    menu.classList.add("hidden");
+                });
+
+            }
+
+        });
 
     </script>
 
