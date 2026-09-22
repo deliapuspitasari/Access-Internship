@@ -122,16 +122,6 @@
                     </a>
                 </div>
 
-                <!-- RIGHT NAVBAR (CONTACT & LANGUAGE SWITCHER) -->
-                <div class="hidden items-center gap-3 lg:flex">
-                    <!-- LANGUAGE SWITCHER (EN / ID) -->
-                    <div class="flex items-center rounded-full border border-sage/60 bg-cream p-1 shadow-inner">
-                        <button type="button" id="langEn" onclick="switchLang('en')" class="rounded-full px-3 py-1 text-xs font-bold text-slate-500 transition">EN</button>
-                        <button type="button" id="langId" onclick="switchLang('id')" class="rounded-full bg-darkgreen px-3 py-1 text-xs font-bold text-white shadow-sm transition">ID</button>
-                    </div>
-
-                </div>
-
                 <!-- MOBILE BUTTON -->
                 <button id="menuButton" type="button" aria-label="Buka menu" aria-expanded="false" class="flex h-10 w-10 items-center justify-center rounded-xl bg-lavender text-darkpurple lg:hidden">
                     <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -164,18 +154,6 @@
                         </a>
                         
                         <div class="my-2 border-t border-slate-100"></div>
-
-                        <!-- MOBILE LANGUAGE SWITCHER -->
-                        <div class="flex items-center justify-center gap-2 py-2">
-                            <div class="flex items-center rounded-full border border-sage/60 bg-cream p-1 shadow-inner">
-                                <button type="button" id="langEnMobile" onclick="switchLang('en')" class="rounded-full px-3 py-1 text-xs font-bold text-slate-500 transition">EN</button>
-                                <button type="button" id="langIdMobile" onclick="switchLang('id')" class="rounded-full bg-darkgreen px-3 py-1 text-xs font-bold text-white shadow-sm transition">ID</button>
-                            </div>
-                        </div>
-
-                        <a href="https://wa.me/6285220419992" target="_blank" data-translate="btn-kontak" class="rounded-xl bg-darkgreen px-4 py-3 text-center text-sm font-bold text-white">
-                            Kontak
-                        </a>
                     </div>
                 </div>
             </div>
@@ -469,8 +447,8 @@
                     <span class="inline-flex rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkgreen shadow-sm" data-translate="activity-badge">
                         Kegiatan PKL dan Magang
                     </span>
-                    <h2 class="mt-4 text-3xl font-extrabold text-slate-800 sm:text-4xl">
-                        <span data-translate="activity-title-1">Selama PKL/Magang</span> <span class="text-darkpurple" data-translate="activity-title-2">ngapain aja?</span>
+                    <h2 class="mt-4 text-3xl font-extrabold text-slate-800 sm:text-4xl"><span data-translate="activity-title-1">Kira-kira PKL/Magang</span>
+                        <span class="text-darkpurple" data-translate="activity-title-2">ngapain aja, ya?</span>
                     </h2>
                     <p class="mt-4 leading-7 text-slate-500" data-translate="activity-desc">
                         Berbagai kegiatan yang dilakukan peserta selama menjalani PKL maupun magang di lingkungan Access Media.
@@ -577,6 +555,7 @@
 
         <!-- INSTANSI -->
         <section id="instansi" class="relative overflow-hidden bg-white py-20">
+            <!-- DECORATION -->
             <div class="square-pattern absolute right-0 top-0 h-72 w-72 opacity-40"></div>
             <div class="absolute -left-12 bottom-8 h-32 w-32 rounded-full border-2 border-lavender/50"></div>
 
@@ -586,9 +565,16 @@
                     <span class="inline-flex rounded-full bg-lavender px-4 py-2 text-xs font-bold uppercase tracking-widest text-darkpurple" data-translate="instansi-badge">
                         Instansi
                     </span>
+
                     <h2 class="mt-4 text-4xl font-extrabold leading-tight text-slate-800">
-                        <span data-translate="instansi-title-1">Instansi yang telah</span> <span class="brand-gradient" data-translate="instansi-title-2">bekerja sama.</span>
+                        <span data-translate="instansi-title-1">
+                            Instansi yang telah
+                        </span>
+                        <span class="brand-gradient" data-translate="instansi-title-2">
+                            bekerja sama.
+                        </span>
                     </h2>
+
                     <p class="mt-5 text-base leading-8 text-slate-500" data-translate="instansi-desc">
                         Access Media menjadi tempat belajar dan berkembang bagi peserta dari berbagai sekolah maupun perguruan tinggi.
                     </p>
@@ -599,97 +585,123 @@
                     <!-- TRACK -->
                     <div class="overflow-hidden px-2">
                         <div id="instansiTrack" class="flex gap-6 transition-transform duration-500 ease-out">
+
                             <!-- CARD 1 -->
                             <div class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
                                 <div class="min-h-[245px] rounded-2xl border border-sage/60 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                                     <div class="flex h-full flex-col items-center text-center">
                                         <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-mint">
-                                            <span class="text-2xl font-extrabold text-darkgreen">S</span>
+                                            <span class="text-2xl font-extrabold text-darkgreen">
+                                                S
+                                            </span>
                                         </div>
-                                        <h3 class="text-xl font-bold text-slate-800">SMKN 3 Banjar</h3>
-                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">Sekolah</p>
+                                        <h3 class="text-xl font-bold text-slate-800">
+                                            SMKN 3 Banjar
+                                        </h3>
+                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">
+                                            Sekolah
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- CARD 2 -->
                             <div class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
                                 <div class="min-h-[245px] rounded-2xl border border-lavender/70 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                                     <div class="flex h-full flex-col items-center text-center">
                                         <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-lavender">
-                                            <span class="text-2xl font-extrabold text-darkpurple">S</span>
+                                            <span class="text-2xl font-extrabold text-darkpurple">
+                                                S
+                                            </span>
                                         </div>
-                                        <h3 class="text-xl font-bold text-slate-800">SMK Negeri X</h3>
-                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">Sekolah</p>
+                                        <h3 class="text-xl font-bold text-slate-800">
+                                            SMK Negeri X
+                                        </h3>
+                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">
+                                            Sekolah
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- CARD 3 -->
                             <div class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
                                 <div class="min-h-[245px] rounded-2xl border border-sage/60 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                                     <div class="flex h-full flex-col items-center text-center">
                                         <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-mint">
-                                            <span class="text-2xl font-extrabold text-darkgreen">S</span>
+                                            <span class="text-2xl font-extrabold text-darkgreen">
+                                                S
+                                            </span>
                                         </div>
-                                        <h3 class="text-xl font-bold text-slate-800">SMK Negeri Y</h3>
-                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">Sekolah</p>
+                                        <h3 class="text-xl font-bold text-slate-800">
+                                            SMK Negeri Y
+                                        </h3>
+                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">
+                                            Sekolah
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- CARD 4 -->
                             <div class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
                                 <div class="min-h-[245px] rounded-2xl border border-lavender/70 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                                     <div class="flex h-full flex-col items-center text-center">
                                         <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-lavender">
-                                            <span class="text-2xl font-extrabold text-darkpurple">S</span>
+                                            <span class="text-2xl font-extrabold text-darkpurple">
+                                                S
+                                            </span>
                                         </div>
-                                        <h3 class="text-xl font-bold text-slate-800">SMK Negeri Z</h3>
-                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">Sekolah</p>
+                                        <h3 class="text-xl font-bold text-slate-800">
+                                            SMK Negeri Z
+                                        </h3>
+                                        <p class="mt-2 text-sm text-slate-500" data-translate="school-type">
+                                            Sekolah
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- CARD 5 -->
                             <div class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
                                 <div class="min-h-[245px] rounded-2xl border border-sage/60 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                                     <div class="flex h-full flex-col items-center text-center">
                                         <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-mint">
-                                            <span class="text-2xl font-extrabold text-darkgreen">U</span>
+                                            <span class="text-2xl font-extrabold text-darkgreen">
+                                                U
+                                            </span>
                                         </div>
-                                        <h3 class="text-xl font-bold text-slate-800">Universitas Contoh</h3>
-                                        <p class="mt-2 text-sm text-slate-500" data-translate="uni-type">Perguruan Tinggi</p>
+                                        <h3 class="text-xl font-bold text-slate-800">
+                                            Universitas Contoh
+                                        </h3>
+                                        <p class="mt-2 text-sm text-slate-500" data-translate="uni-type">
+                                            Perguruan Tinggi
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- CARD 6 -->
                             <div class="instansi-card w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
                                 <div class="min-h-[245px] rounded-2xl border border-lavender/70 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                                     <div class="flex h-full flex-col items-center text-center">
                                         <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-lavender">
-                                            <span class="text-2xl font-extrabold text-darkpurple">P</span>
+                                            <span class="text-2xl font-extrabold text-darkpurple">
+                                                P
+                                            </span>
                                         </div>
-                                        <h3 class="text-xl font-bold text-slate-800">Politeknik Contoh</h3>
-                                        <p class="mt-2 text-sm text-slate-500" data-translate="uni-type">Perguruan Tinggi</p>
+                                        <h3 class="text-xl font-bold text-slate-800">
+                                            Politeknik Contoh
+                                        </h3>
+                                        <p class="mt-2 text-sm text-slate-500" data-translate="uni-type">
+                                            Perguruan Tinggi
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-                </div>
-
-                <!-- COUNTER + NAVIGATION -->
-                <div class="mt-8 flex items-center justify-center gap-4">
-                    <button id="prevInstansiBottom" type="button" aria-label="Instansi sebelumnya" class="inline-flex items-center gap-1.5 text-sm font-semibold text-darkpurple transition hover:text-purple disabled:cursor-not-allowed disabled:opacity-40">
-                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 18-6-6 6-6" />
-                        </svg>
-                        <span>Previous</span>
-                    </button>
-                    <span id="instansiCounter" class="rounded-full bg-lavender/50 px-4 py-1.5 text-sm font-bold text-darkpurple">1 / 2</span>
-                    <button id="nextInstansiBottom" type="button" aria-label="Instansi berikutnya" class="inline-flex items-center gap-1.5 text-sm font-semibold text-darkpurple transition hover:text-purple disabled:cursor-not-allowed disabled:opacity-40">
-                        <span>Next</span>
-                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18 6-6-6-6" />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </section>
@@ -1110,11 +1122,9 @@
             // CAROUSEL INSTANSI
             const instansiTrack = document.getElementById("instansiTrack");
             const instansiCards = document.querySelectorAll(".instansi-card");
-            const prevInstansiBottom = document.getElementById("prevInstansiBottom");
-            const nextInstansiBottom = document.getElementById("nextInstansiBottom");
-            const instansiCounter = document.getElementById("instansiCounter");
 
             let instansiPage = 0;
+            let instansiAutoSlide = null;
 
             function getCardsPerPage() {
                 if (window.innerWidth >= 1024) return 4;
@@ -1123,46 +1133,50 @@
             }
 
             function updateInstansiCarousel() {
+                if (!instansiTrack || instansiCards.length === 0) return;
+
                 const cardsPerPage = getCardsPerPage();
                 const totalPages = Math.ceil(instansiCards.length / cardsPerPage);
 
-                if (instansiPage >= totalPages) instansiPage = totalPages - 1;
-                if (instansiPage < 0) instansiPage = 0;
+                if (instansiPage >= totalPages) instansiPage = 0;
+                if (instansiPage < 0) instansiPage = totalPages - 1;
 
                 const cardWidth = instansiCards[0].offsetWidth;
                 const gap = 24;
                 const moveDistance = instansiPage * (cardWidth + gap) * cardsPerPage;
 
                 instansiTrack.style.transform = `translateX(-${moveDistance}px)`;
-                instansiCounter.textContent = `${instansiPage + 1} / ${totalPages}`;
-
-                prevInstansiBottom.disabled = instansiPage === 0;
-                nextInstansiBottom.disabled = instansiPage === totalPages - 1;
             }
 
-            prevInstansiBottom.addEventListener("click", function () {
-                if (instansiPage > 0) {
-                    instansiPage--;
-                    updateInstansiCarousel();
-                }
-            });
-
-            nextInstansiBottom.addEventListener("click", function () {
+            function nextInstansi() {
+                if (!instansiCards.length) return;
                 const cardsPerPage = getCardsPerPage();
                 const totalPages = Math.ceil(instansiCards.length / cardsPerPage);
+
                 if (instansiPage < totalPages - 1) {
                     instansiPage++;
-                    updateInstansiCarousel();
+                } else {
+                    instansiPage = 0;
                 }
-            });
+                updateInstansiCarousel();
+            }
+
+            function startInstansiAutoSlide() {
+                clearInterval(instansiAutoSlide);
+                instansiAutoSlide = setInterval(function () {
+                    nextInstansi();
+                }, 3500);
+            }
 
             window.addEventListener("resize", function () {
                 instansiPage = 0;
                 updateInstansiCarousel();
+                startInstansiAutoSlide();
             });
 
             if (instansiTrack && instansiCards.length > 0) {
                 updateInstansiCarousel();
+                startInstansiAutoSlide();
             }
         });
 
