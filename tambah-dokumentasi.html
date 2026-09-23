@@ -1,0 +1,2442 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tambah Dokumentasi | Access Internship</title>
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script> 
+ 
+    <script> 
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        green: { 
+                            50: "#EFFAF4", 
+                            100: "#DDF3E7", 
+                            500: "#008A4B", 
+                            600: "#007A43", 
+                            700: "#006A3A", 
+                        }, 
+ 
+                        purple: { 
+                            50: "#FBF0F8", 
+                            100: "#F1D9EB", 
+                            400: "#A42B8E", 
+                            500: "#8A1B78", 
+                            600: "#761666", 
+                        }, 
+ 
+                        navy: "#263750", 
+                    } 
+                } 
+            } 
+        }; 
+    </script> 
+ 
+    <style> 
+ 
+        * { 
+            box-sizing: border-box; 
+        } 
+ 
+        html { 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            margin: 0; 
+            font-family: Arial, Helvetica, sans-serif; 
+            background: #F8FAF9; 
+        } 
+ 
+        /* ===================================================== 
+           DESKTOP LAYOUT 
+        ===================================================== */ 
+ 
+        .page-layout { 
+            display: flex; 
+            min-height: 100vh; 
+            width: 100%; 
+        } 
+ 
+        .desktop-sidebar { 
+            width: 220px; 
+            min-width: 220px; 
+            height: 100vh; 
+            position: sticky; 
+            top: 0; 
+            align-self: flex-start; 
+            background: #FFFFFF; 
+            border-right: 1px solid #E2E8F0; 
+            display: flex; 
+            flex-direction: column; 
+            z-index: 50; 
+        } 
+ 
+        .main-area { 
+            flex: 1; 
+            min-width: 0; 
+            min-height: 100vh; 
+        } 
+ 
+        /* ===================================================== 
+           BACKGROUND 
+        ===================================================== */ 
+ 
+        .dashboard-bg { 
+            background: 
+                radial-gradient( 
+                    circle at 92% 5%, 
+                    rgba(138, 27, 120, 0.07), 
+                    transparent 27% 
+                ), 
+                radial-gradient( 
+                    circle at 5% 92%, 
+                    rgba(0, 138, 75, 0.07), 
+                    transparent 27% 
+                ), 
+                #F8FAF9; 
+        } 
+ 
+        /* ===================================================== 
+           SHADOW 
+        ===================================================== */ 
+ 
+        .soft-shadow { 
+            box-shadow: 
+                0 2px 8px rgba(38, 55, 80, 0.04), 
+                0 1px 2px rgba(38, 55, 80, 0.03); 
+        } 
+ 
+        /* ===================================================== 
+           MENU 
+        ===================================================== */ 
+ 
+        .menu-item { 
+            transition: 
+                background 0.2s ease, 
+                color 0.2s ease, 
+                border-color 0.2s ease; 
+        } 
+ 
+        .menu-item:hover { 
+            background: #EFFAF4; 
+            color: #008A4B; 
+        } 
+ 
+        /* ===================================================== 
+           MENU AKTIF 
+        ===================================================== */ 
+ 
+        .menu-active { 
+            background: 
+                linear-gradient( 
+                    135deg, 
+                    #DDF3E7 0%, 
+                    #F1D9EB 100% 
+                ) !important; 
+ 
+            color: #006A3A !important; 
+ 
+            font-weight: 600; 
+ 
+            border: 1px solid #CBE6D7; 
+ 
+            box-shadow: 
+                0 2px 7px rgba(38, 55, 80, 0.05); 
+        } 
+ 
+        .menu-active svg { 
+            color: #008A4B !important; 
+        } 
+ 
+        /* ===================================================== 
+           PROFILE 
+        ===================================================== */ 
+ 
+        .profile-dropdown { 
+            animation: profileShow 0.15s ease; 
+        } 
+ 
+        @keyframes profileShow { 
+ 
+            from { 
+                opacity: 0; 
+                transform: translateY(5px); 
+            } 
+ 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+ 
+        } 
+ 
+        /* ===================================================== 
+           HEADER 
+        ===================================================== */ 
+ 
+        .main-header { 
+            position: sticky; 
+            top: 0; 
+            z-index: 40; 
+            height: 78px; 
+ 
+            background: rgba(255, 255, 255, 0.95); 
+ 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+ 
+            border-bottom: 1px solid #E2E8F0; 
+ 
+            padding: 0 28px; 
+ 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        } 
+ 
+        /* ===================================================== 
+           FORM INPUT 
+        ===================================================== */ 
+ 
+        .form-input { 
+            width: 100%; 
+ 
+            border: 1px solid #E2E8F0; 
+ 
+            background: #FFFFFF; 
+ 
+            border-radius: 9px; 
+ 
+            padding: 10px 12px; 
+ 
+            font-size: 11px; 
+ 
+            color: #263750; 
+ 
+            outline: none; 
+ 
+            transition: 
+                border-color 0.2s ease, 
+                box-shadow 0.2s ease, 
+                background 0.2s ease; 
+        } 
+ 
+        .form-input::placeholder { 
+            color: #94A3B8; 
+        } 
+ 
+        .form-input:focus { 
+            border-color: #A8D7BE; 
+ 
+            box-shadow: 
+                0 0 0 3px rgba(0, 138, 75, 0.05); 
+        } 
+ 
+        textarea.form-input { 
+            resize: vertical; 
+            min-height: 112px; 
+        } 
+ 
+        select.form-input { 
+            cursor: pointer; 
+        } 
+ 
+        /* ===================================================== 
+           UPLOAD 
+        ===================================================== */ 
+ 
+        .upload-area { 
+            display: block; 
+ 
+            border: 1px dashed #CBD5E1; 
+ 
+            background: 
+                linear-gradient( 
+                    135deg, 
+                    #FFFFFF 0%, 
+                    #FBF0F8 100% 
+                ); 
+ 
+            transition: 
+                border-color 0.2s ease, 
+                background 0.2s ease, 
+                transform 0.2s ease; 
+        } 
+ 
+        .upload-area:hover { 
+            border-color: #A8D7BE; 
+ 
+            background: 
+                linear-gradient( 
+                    135deg, 
+                    #FFFFFF 0%, 
+                    #F3FAF6 100% 
+                ); 
+        } 
+ 
+        .upload-area.dragover { 
+            border-color: #008A4B; 
+ 
+            background: 
+                linear-gradient( 
+                    135deg, 
+                    #EFFAF4 0%, 
+                    #FBF0F8 100% 
+                ); 
+        } 
+ 
+        /* ===================================================== 
+           IMAGE 
+        ===================================================== */ 
+ 
+        .image-preview { 
+            display: none; 
+        } 
+ 
+        .image-preview.show { 
+            display: block; 
+        } 
+ 
+        /* ===================================================== 
+           BUTTON 
+        ===================================================== */ 
+ 
+        .action-button { 
+            transition: 
+                transform 0.2s ease, 
+                background 0.2s ease, 
+                border-color 0.2s ease, 
+                box-shadow 0.2s ease; 
+        } 
+ 
+        .action-button:hover { 
+            transform: translateY(-1px); 
+        } 
+ 
+        /* ===================================================== 
+           KEMBALI 
+        ===================================================== */ 
+ 
+        .back-button { 
+            background: #008A4B; 
+ 
+            border: 1px solid #008A4B; 
+ 
+            color: #FFFFFF; 
+ 
+            box-shadow: 
+                0 2px 7px rgba(0, 138, 75, 0.10); 
+        } 
+ 
+        .back-button:hover { 
+            background: #007A43; 
+ 
+            border-color: #007A43; 
+ 
+            color: #FFFFFF; 
+ 
+            box-shadow: 
+                0 5px 12px rgba(0, 138, 75, 0.14); 
+        } 
+ 
+        .back-button-wrapper { 
+            background: transparent !important; 
+            background-image: none !important; 
+        } 
+ 
+        /* ===================================================== 
+           SIMPAN 
+        ===================================================== */ 
+ 
+        .save-button { 
+            background: 
+                linear-gradient( 
+                    90deg, 
+                    #008A4B, 
+                    #007A43 
+                ); 
+ 
+            border: 1px solid #008A4B; 
+ 
+            color: white; 
+ 
+            box-shadow: 
+                0 2px 7px rgba(0, 138, 75, 0.10); 
+        } 
+ 
+        .save-button:hover { 
+            background: 
+                linear-gradient( 
+                    90deg, 
+                    #007A43, 
+                    #006A3A 
+                ); 
+ 
+            border-color: #007A43; 
+ 
+            box-shadow: 
+                0 5px 12px rgba(0, 138, 75, 0.14); 
+        } 
+ 
+        /* ===================================================== 
+           MOBILE 
+        ===================================================== */ 
+ 
+        @media (max-width: 767px) { 
+ 
+            body { 
+                padding-bottom: 68px; 
+            } 
+ 
+            .page-layout { 
+                display: block; 
+                min-height: 100vh; 
+            } 
+ 
+            /* ================================================= 
+               SIDEBAR MOBILE
+               SAMA DENGAN HALAMAN DOKUMENTASI
+            ================================================= */ 
+ 
+            .desktop-sidebar { 
+                position: fixed !important; 
+ 
+                left: 0 !important; 
+                right: auto !important; 
+                top: auto !important; 
+                bottom: 0 !important; 
+ 
+                width: 100% !important; 
+                min-width: 0 !important; 
+ 
+                height: 68px !important; 
+ 
+                border-right: 0 !important; 
+                border-top: 1px solid #E2E8F0 !important; 
+ 
+                background: rgba(255, 255, 255, 0.98) !important; 
+ 
+                backdrop-filter: blur(14px); 
+                -webkit-backdrop-filter: blur(14px); 
+ 
+                display: flex !important; 
+                flex-direction: row !important; 
+ 
+                z-index: 100 !important; 
+            } 
+ 
+            .sidebar-brand { 
+                display: none !important; 
+            } 
+ 
+            .sidebar-profile { 
+                display: none !important; 
+            } 
+ 
+            /* ================================================= 
+               NAV MOBILE
+            ================================================= */ 
+ 
+            .sidebar-nav { 
+                width: 100% !important; 
+                height: 100% !important; 
+ 
+                padding: 6px !important; 
+ 
+                overflow-x: auto !important; 
+                overflow-y: hidden !important; 
+ 
+                display: flex !important; 
+                flex-direction: row !important; 
+ 
+                align-items: center !important; 
+                justify-content: space-around !important; 
+ 
+                scrollbar-width: none; 
+            } 
+ 
+            .sidebar-nav::-webkit-scrollbar { 
+                display: none; 
+            } 
+ 
+            .menu-title { 
+                display: none !important; 
+            } 
+ 
+            .nav-links { 
+                width: 100% !important; 
+                height: 100% !important; 
+ 
+                display: flex !important; 
+                flex-direction: row !important; 
+ 
+                align-items: center !important; 
+                justify-content: space-around !important; 
+ 
+                gap: 0 !important; 
+            } 
+ 
+            .nav-links .menu-item { 
+                margin-bottom: 0 !important; 
+ 
+                min-width: 62px !important; 
+                width: auto !important; 
+ 
+                padding: 8px !important; 
+ 
+                border-radius: 8px !important; 
+ 
+                display: flex !important; 
+                flex-direction: column !important; 
+ 
+                align-items: center !important; 
+                justify-content: center !important; 
+ 
+                gap: 4px !important; 
+ 
+                text-align: center !important; 
+ 
+                font-size: 8px !important; 
+ 
+                flex-shrink: 0 !important; 
+ 
+                border: 0 !important; 
+            } 
+ 
+            .nav-links .menu-item svg { 
+                width: 18px !important; 
+                height: 18px !important; 
+ 
+                flex-shrink: 0 !important; 
+            } 
+ 
+            .nav-links .menu-item span { 
+                font-size: 8px !important; 
+                line-height: 1 !important; 
+ 
+                white-space: nowrap !important; 
+            } 
+ 
+            /* ================================================= 
+               DOKUMENTASI AKTIF
+               SAMA DENGAN HALAMAN DOKUMENTASI
+            ================================================= */ 
+ 
+            .nav-links .menu-item.menu-active { 
+                background: 
+                    linear-gradient( 
+                        90deg, 
+                        #DDF3E7, 
+                        #F1D9EB 
+                    ) !important; 
+ 
+                color: #006A3A !important; 
+ 
+                border: 0 !important; 
+ 
+                box-shadow: none !important; 
+ 
+                font-weight: 600 !important; 
+            } 
+ 
+            .nav-links .menu-item.menu-active svg { 
+                color: #008A4B !important; 
+            } 
+ 
+            /* ================================================= 
+               MAIN
+            ================================================= */ 
+ 
+            .main-area { 
+                width: 100%; 
+                min-height: 100vh; 
+ 
+                padding-bottom: 0; 
+            } 
+ 
+            /* ================================================= 
+               HEADER
+            ================================================= */ 
+ 
+            .main-header { 
+                position: sticky; 
+ 
+                top: 0; 
+ 
+                height: auto; 
+ 
+                min-height: 68px; 
+ 
+                padding: 12px 15px; 
+ 
+                gap: 10px; 
+ 
+                align-items: center; 
+            } 
+ 
+            .main-header h2 { 
+                font-size: 15px !important; 
+            } 
+ 
+            .main-header p { 
+                font-size: 9px !important; 
+            } 
+ 
+            /* ================================================= 
+               CONTENT
+            ================================================= */ 
+ 
+            .content-area { 
+                min-height: calc(100vh - 68px); 
+ 
+                padding: 14px !important; 
+ 
+                padding-bottom: 24px !important; 
+            } 
+ 
+            /* ================================================= 
+               INTRO MOBILE 
+                
+               HANYA MOBILE YANG DIUBAH: 
+               BUTTON KEMBALI DI ATAS JUDUL 
+            ================================================= */ 
+ 
+            .intro-header { 
+                display: flex !important; 
+ 
+                flex-direction: column !important; 
+ 
+                align-items: stretch !important; 
+ 
+                justify-content: flex-start !important; 
+ 
+                gap: 10px !important; 
+ 
+                width: 100%; 
+            } 
+ 
+            /* BUTTON KEMBALI DI ATAS */ 
+ 
+            .intro-header .back-button-wrapper { 
+                order: -1 !important; 
+ 
+                width: 100% !important; 
+ 
+                flex-shrink: 0 !important; 
+ 
+                display: flex !important; 
+ 
+                align-items: center !important; 
+ 
+                justify-content: flex-start !important; 
+ 
+                background: transparent !important; 
+ 
+                background-image: none !important; 
+            } 
+ 
+            .back-button { 
+                white-space: nowrap; 
+ 
+                padding: 8px 11px !important; 
+ 
+                font-size: 9px !important; 
+ 
+                gap: 5px !important; 
+            } 
+ 
+            .back-button svg { 
+                width: 12px !important; 
+                height: 12px !important; 
+            } 
+ 
+            /* JUDUL DI BAWAH BUTTON */ 
+ 
+            .intro-header > div:first-child { 
+                order: 1 !important; 
+ 
+                flex: none; 
+ 
+                min-width: 0; 
+ 
+                width: 100%; 
+ 
+                display: flex; 
+ 
+                align-items: flex-start; 
+ 
+                gap: 9px !important; 
+            } 
+ 
+            .intro-header > div:first-child > div:first-child { 
+                width: 32px !important; 
+                height: 32px !important; 
+ 
+                min-width: 32px !important; 
+ 
+                border-radius: 10px !important; 
+            } 
+ 
+            .intro-header > div:first-child > div:first-child svg { 
+                width: 14px !important; 
+                height: 14px !important; 
+            } 
+ 
+            .intro-header > div:first-child > div:last-child { 
+                min-width: 0; 
+                flex: 1; 
+            } 
+ 
+            .intro-header h1 { 
+                font-size: 12px !important; 
+ 
+                line-height: 1.3 !important; 
+ 
+                white-space: nowrap; 
+            } 
+ 
+            .intro-header p { 
+                font-size: 9px !important; 
+ 
+                line-height: 1.4 !important; 
+ 
+                margin-top: 3px !important; 
+            } 
+ 
+            /* ================================================= 
+               FORM
+            ================================================= */ 
+ 
+            .form-card { 
+                padding: 17px !important; 
+ 
+                border-radius: 16px; 
+            } 
+ 
+            .form-grid { 
+                grid-template-columns: 1fr !important; 
+ 
+                gap: 20px !important; 
+            } 
+ 
+            .form-grid > .col-span-1, 
+            .form-grid > .col-span-2 { 
+                grid-column: span 1 !important; 
+            } 
+ 
+            .category-date-grid { 
+                grid-template-columns: 1fr !important; 
+ 
+                gap: 14px !important; 
+            } 
+ 
+            /* FOTO */ 
+ 
+            .mobile-preview { 
+                height: 210px !important; 
+            } 
+ 
+            .upload-area { 
+                width: 100%; 
+            } 
+ 
+            /* ================================================= 
+               ACTION
+            ================================================= */ 
+ 
+            .action-area { 
+                flex-direction: column; 
+ 
+                align-items: stretch !important; 
+ 
+                gap: 12px; 
+ 
+                margin-top: 20px; 
+ 
+                padding-top: 16px; 
+            } 
+ 
+            .action-buttons { 
+                width: 100%; 
+ 
+                display: flex; 
+ 
+                flex-direction: column; 
+ 
+                justify-content: stretch; 
+ 
+                align-items: stretch; 
+ 
+                gap: 8px; 
+            } 
+ 
+            .action-buttons a, 
+            .action-buttons button { 
+                width: 100%; 
+ 
+                flex: none; 
+ 
+                justify-content: center; 
+ 
+                min-width: 0; 
+            } 
+ 
+            .action-buttons .save-button { 
+                order: -1; 
+            } 
+ 
+            .action-buttons a { 
+                padding-left: 12px !important; 
+                padding-right: 12px !important; 
+            } 
+ 
+            .save-button { 
+                flex: 1; 
+ 
+                padding-left: 10px !important; 
+                padding-right: 10px !important; 
+ 
+                font-size: 9px !important; 
+ 
+                white-space: nowrap; 
+            } 
+ 
+            .save-button svg { 
+                width: 12px !important; 
+                height: 12px !important; 
+            } 
+ 
+        } 
+ 
+        /* ===================================================== 
+           MOBILE SANGAT KECIL 
+        ===================================================== */ 
+ 
+        @media (max-width: 380px) { 
+ 
+            /* SIDEBAR */ 
+ 
+            .sidebar-nav { 
+                padding: 6px !important; 
+            } 
+ 
+            .nav-links { 
+                gap: 0 !important; 
+            } 
+ 
+            .nav-links .menu-item { 
+                min-width: 60px !important; 
+                width: auto !important; 
+                padding: 8px !important; 
+                font-size: 8px !important; 
+                gap: 4px !important; 
+            } 
+ 
+            .nav-links .menu-item svg { 
+                width: 18px !important; 
+                height: 18px !important; 
+            } 
+ 
+            .nav-links .menu-item span { 
+                font-size: 8px !important; 
+            } 
+ 
+            /* CONTENT */ 
+ 
+            .content-area { 
+                padding-left: 11px !important; 
+                padding-right: 11px !important; 
+            } 
+ 
+            .form-card { 
+                padding: 14px !important; 
+            } 
+ 
+            .intro-header { 
+                gap: 7px !important; 
+            } 
+ 
+            .intro-header > div:first-child { 
+                gap: 7px !important; 
+            } 
+ 
+            .intro-header > div:first-child > div:first-child { 
+                width: 30px !important; 
+                height: 30px !important; 
+ 
+                min-width: 30px !important; 
+            } 
+ 
+            .intro-header h1 { 
+                font-size: 11px !important; 
+            } 
+ 
+            .intro-header p { 
+                font-size: 8px !important; 
+            } 
+ 
+            .back-button { 
+                padding: 7px 9px !important; 
+ 
+                font-size: 8px !important; 
+            } 
+ 
+            .save-button { 
+                font-size: 8px !important; 
+ 
+                padding-left: 8px !important; 
+                padding-right: 8px !important; 
+            } 
+ 
+            .action-buttons { 
+                gap: 7px !important; 
+            } 
+ 
+        } 
+ 
+    </style> 
+ 
+</head> 
+ 
+ 
+<body class="text-slate-600"> 
+ 
+    <div class="page-layout"> 
+ 
+ 
+        <!-- SIDEBAR --> 
+ 
+        <aside class="desktop-sidebar"> 
+ 
+ 
+            <!-- BRAND --> 
+ 
+            <div 
+                class="sidebar-brand 
+                       h-[78px] 
+                       px-5 
+                       flex 
+                       items-center 
+                       border-b 
+                       border-slate-200 
+                       shrink-0"> 
+ 
+                <div 
+                    class="flex 
+                           items-center 
+                           gap-3 
+                           min-w-0"> 
+ 
+                    <img 
+                        src="assets/images/logo.png" 
+                        alt="Logo Access Media" 
+                        class="w-11 h-11 object-contain shrink-0"> 
+ 
+                    <div class="min-w-0"> 
+ 
+                        <h1 
+                            class="text-[13px] 
+                                   font-bold 
+                                   text-navy 
+                                   whitespace-nowrap"> 
+ 
+                            Access Internship 
+ 
+                        </h1> 
+ 
+                        <p 
+                            class="text-[10px] 
+                                   text-slate-400 
+                                   mt-1 
+                                   whitespace-nowrap"> 
+ 
+                            CV Access Media 
+ 
+                        </p> 
+ 
+                    </div> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+ 
+            <!-- NAVIGATION --> 
+ 
+            <nav 
+                class="sidebar-nav 
+                       flex-1 
+                       px-3 
+                       py-5 
+                       overflow-y-auto"> 
+ 
+                <p 
+                    class="menu-title 
+                           px-3 
+                           mb-3 
+                           text-[9px] 
+                           font-semibold 
+                           uppercase 
+                           tracking-[0.12em] 
+                           text-slate-400"> 
+ 
+                    Menu Utama 
+ 
+                </p> 
+ 
+ 
+                <div class="nav-links"> 
+ 
+ 
+                    <!-- DASHBOARD --> 
+ 
+                    <a 
+                        href="dashboard.html" 
+                        class="menu-item 
+                               flex 
+                               items-center 
+                               gap-3 
+                               px-3 
+                               py-2.5 
+                               rounded-lg 
+                               text-xs 
+                               text-slate-500 
+                               mb-1"> 
+ 
+                        <svg 
+                            class="w-4 h-4" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"> 
+ 
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="1.8" 
+                                d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" /> 
+ 
+                        </svg> 
+ 
+                        <span>Dashboard</span> 
+ 
+                    </a> 
+ 
+ 
+                    <!-- PROJECT --> 
+ 
+                    <a 
+                        href="project.html" 
+                        class="menu-item 
+                               flex 
+                               items-center 
+                               gap-3 
+                               px-3 
+                               py-2.5 
+                               rounded-lg 
+                               text-xs 
+                               text-slate-500 
+                               mb-1"> 
+ 
+                        <svg 
+                            class="w-4 h-4" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"> 
+ 
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="1.8" 
+                                d="M4 7h16v13H4V7Zm4 0V4h8v3" /> 
+ 
+                        </svg> 
+ 
+                        <span>Project</span> 
+ 
+                    </a> 
+ 
+ 
+                    <!-- DOKUMENTASI AKTIF --> 
+ 
+                    <a 
+                        href="dokumentasi.html" 
+                        class="menu-item 
+                               menu-active 
+                               flex 
+                               items-center 
+                               gap-3 
+                               px-3 
+                               py-2.5 
+                               rounded-lg 
+                               text-xs 
+                               mb-1"> 
+ 
+                        <svg 
+                            class="w-4 h-4" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"> 
+ 
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="1.8" 
+                                d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" /> 
+ 
+                        </svg> 
+ 
+                        <span>Dokumentasi</span> 
+ 
+                    </a> 
+ 
+ 
+                    <!-- INSTANSI --> 
+ 
+                    <a 
+                        href="instansi.html" 
+                        class="menu-item 
+                               flex 
+                               items-center 
+                               gap-3 
+                               px-3 
+                               py-2.5 
+                               rounded-lg 
+                               text-xs 
+                               text-slate-500 
+                               mb-1"> 
+ 
+                        <svg 
+                            class="w-4 h-4" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"> 
+ 
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="1.8" 
+                                d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" /> 
+ 
+                        </svg> 
+ 
+                        <span>Instansi</span> 
+ 
+                    </a> 
+ 
+ 
+                    <!-- PROFILE MOBILE --> 
+ 
+                    <a 
+                        href="profile.html" 
+                        class="menu-item 
+                               md:hidden 
+                               flex 
+                               items-center 
+                               gap-3 
+                               px-3 
+                               py-2.5 
+                               rounded-lg 
+                               text-xs 
+                               text-slate-500 
+                               mb-1"> 
+ 
+                        <svg 
+                            class="w-4 h-4" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"> 
+ 
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="1.8" 
+                                d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /> 
+ 
+                        </svg> 
+ 
+                        <span>Profile</span> 
+ 
+                    </a> 
+ 
+                </div> 
+ 
+            </nav> 
+ 
+ 
+            <!-- ADMIN PROFILE DESKTOP --> 
+ 
+            <div 
+                class="sidebar-profile 
+                       relative 
+                       p-3 
+                       border-t 
+                       border-slate-200 
+                       shrink-0"> 
+ 
+                <button 
+                    id="profileToggle" 
+                    type="button" 
+                    class="w-full 
+                           flex 
+                           items-center 
+                           gap-3 
+                           p-2 
+                           rounded-lg 
+                           hover:bg-slate-50 
+                           transition 
+                           text-left"> 
+ 
+                    <div 
+                        class="w-8 
+                               h-8 
+                               rounded-full 
+                               bg-gradient-to-br 
+                               from-green-100 
+                               to-purple-100 
+                               flex 
+                               items-center 
+                               justify-center 
+                               shrink-0"> 
+ 
+                        <span 
+                            class="text-[11px] 
+                                   font-bold 
+                                   text-green-700"> 
+ 
+                            A 
+ 
+                        </span> 
+ 
+                    </div> 
+ 
+ 
+                    <div class="min-w-0 flex-1"> 
+ 
+                        <p 
+                            class="text-[11px] 
+                                   font-semibold 
+                                   text-navy 
+                                   truncate"> 
+ 
+                            Administrator 
+ 
+                        </p> 
+ 
+                        <p 
+                            class="text-[9px] 
+                                   text-slate-400"> 
+ 
+                            Admin 
+ 
+                        </p> 
+ 
+                    </div> 
+ 
+ 
+                    <svg 
+                        id="profileChevron" 
+                        class="w-4 h-4 
+                               text-slate-400 
+                               transition-transform 
+                               duration-200" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"> 
+ 
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="1.8" 
+                            d="m6 9 6 6 6-6" /> 
+ 
+                    </svg> 
+ 
+                </button> 
+ 
+ 
+                <!-- PROFILE DROPDOWN --> 
+ 
+                <div 
+                    id="profileDropdown" 
+                    class="profile-dropdown 
+                           hidden 
+                           absolute 
+                           left-3 
+                           right-3 
+                           bottom-[68px] 
+                           z-50 
+                           bg-white 
+                           border 
+                           border-slate-200 
+                           rounded-xl 
+                           shadow-xl 
+                           p-2"> 
+ 
+ 
+                    <!-- PROFILE --> 
+ 
+                    <a 
+                        href="profile.html" 
+                        class="flex 
+                               items-center 
+                               gap-3 
+                               px-3 
+                               py-2.5 
+                               rounded-lg 
+                               text-[10px] 
+                               font-medium 
+                               text-slate-500 
+                               hover:bg-green-50 
+                               hover:text-green-700 
+                               transition"> 
+ 
+                        <div 
+                            class="w-7 
+                                   h-7 
+                                   rounded-lg 
+                                   bg-green-100 
+                                   flex 
+                                   items-center 
+                                   justify-center"> 
+ 
+                            <svg 
+                                class="w-3.5 h-3.5 text-green-600" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"> 
+ 
+                                <path 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    stroke-width="1.8" 
+                                    d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0-4 0 4 4 0 0 0 4 0Z" /> 
+ 
+                            </svg> 
+ 
+                        </div> 
+ 
+                        <div> 
+ 
+                            <p class="font-semibold text-navy"> 
+                                Profile 
+                            </p> 
+ 
+                            <p class="text-[8px] text-slate-400 mt-0.5"> 
+                                Lihat profile admin 
+                            </p> 
+ 
+                        </div> 
+ 
+                    </a> 
+ 
+ 
+                    <!-- LOGOUT --> 
+ 
+                    <button 
+                        id="logoutButton" 
+                        type="button" 
+                        class="w-full 
+                               flex 
+                               items-center 
+                               gap-3 
+                               px-3 
+                               py-2.5 
+                               rounded-lg 
+                               text-[10px] 
+                               font-medium 
+                               text-slate-500 
+                               hover:bg-red-50 
+                               hover:text-red-500 
+                               transition 
+                               text-left"> 
+ 
+                        <div 
+                            class="w-7 
+                                   h-7 
+                                   rounded-lg 
+                                   bg-red-50 
+                                   flex 
+                                   items-center 
+                                   justify-center"> 
+ 
+                            <svg 
+                                class="w-3.5 h-3.5 text-red-500" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"> 
+ 
+                                <path 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    stroke-width="1.8" 
+                                    d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" /> 
+ 
+                            </svg> 
+ 
+                        </div> 
+ 
+                        <div> 
+ 
+                            <p class="font-semibold text-slate-600"> 
+                                Logout 
+                            </p> 
+ 
+                            <p class="text-[8px] text-slate-400 mt-0.5"> 
+                                Keluar dari akun 
+                            </p> 
+ 
+                        </div> 
+ 
+                    </button> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+        </aside> 
+ 
+ 
+        <!-- MAIN --> 
+ 
+        <main class="main-area"> 
+ 
+ 
+            <!-- HEADER --> 
+ 
+            <header class="main-header"> 
+ 
+                <div> 
+ 
+                    <h2 
+                        class="text-[17px] 
+                               font-bold 
+                               text-navy"> 
+ 
+                        Tambah Dokumentasi 
+ 
+                    </h2> 
+ 
+                    <p 
+                        class="text-[11px] 
+                               text-slate-400 
+                               mt-0.5"> 
+ 
+                        Tambahkan dokumentasi kegiatan baru 
+ 
+                    </p> 
+ 
+                </div> 
+ 
+            </header> 
+ 
+ 
+            <!-- CONTENT --> 
+ 
+            <div 
+                class="dashboard-bg 
+                       content-area 
+                       min-h-[calc(100vh-78px)] 
+                       p-6"> 
+ 
+ 
+                <!-- JUDUL + BUTTON KEMBALI --> 
+ 
+                <section class="mb-4"> 
+ 
+                    <div 
+                        class="intro-header 
+                               flex 
+                               items-start 
+                               justify-between 
+                               gap-4"> 
+ 
+ 
+                        <!-- JUDUL --> 
+ 
+                        <div 
+                            class="flex 
+                                   items-start 
+                                   gap-3"> 
+ 
+                            <div 
+                                class="w-9 
+                                       h-9 
+                                       rounded-xl 
+                                       bg-gradient-to-br 
+                                       from-green-100 
+                                       to-purple-100 
+                                       flex 
+                                       items-center 
+                                       justify-center 
+                                       shrink-0"> 
+ 
+                                <svg 
+                                    class="w-4 h-4 text-green-700" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"> 
+ 
+                                    <path 
+                                        stroke-linecap="round" 
+                                        stroke-linejoin="round" 
+                                        stroke-width="1.7" 
+                                        d="M12 5v14M5 12h14" /> 
+ 
+                                </svg> 
+ 
+                            </div> 
+ 
+                            <div> 
+ 
+                                <h1 
+                                    class="text-sm 
+                                           font-bold 
+                                           text-navy"> 
+ 
+                                    Lengkapi dokumentasi 
+ 
+                                </h1> 
+ 
+                                <p 
+                                    class="text-[10px] 
+                                           text-slate-400 
+                                           mt-1"> 
+ 
+                                    Isi informasi yang diperlukan untuk menambahkan arsip kegiatan. 
+ 
+                                </p> 
+ 
+                            </div> 
+ 
+                        </div> 
+ 
+ 
+                        <!-- BUTTON KEMBALI --> 
+ 
+                        <div 
+                            class="back-button-wrapper 
+                                   flex 
+                                   items-center 
+                                   justify-end 
+                                   shrink-0"> 
+ 
+                            <a 
+                                href="dokumentasi.html" 
+                                class="back-button 
+                                       action-button 
+                                       inline-flex 
+                                       items-center 
+                                       gap-2 
+                                       px-4 
+                                       py-2.5 
+                                       rounded-lg 
+                                       text-[10px] 
+                                       font-semibold"> 
+ 
+                                <svg 
+                                    class="w-3.5 h-3.5" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"> 
+ 
+                                    <path 
+                                        stroke-linecap="round" 
+                                        stroke-linejoin="round" 
+                                        stroke-width="1.8" 
+                                        d="M15 19l-7-7 7-7" /> 
+ 
+                                </svg> 
+ 
+                                Kembali 
+ 
+                            </a> 
+ 
+                        </div> 
+ 
+                    </div> 
+ 
+                </section> 
+ 
+ 
+                <!-- FORM --> 
+ 
+                <section 
+                    class="form-card 
+                           bg-white 
+                           border 
+                           border-slate-200 
+                           rounded-2xl 
+                           p-6 
+                           soft-shadow"> 
+ 
+                    <form id="documentationForm"> 
+ 
+                        <div 
+                            class="grid 
+                                   grid-cols-3 
+                                   gap-6 
+                                   form-grid"> 
+ 
+ 
+                            <!-- FOTO --> 
+ 
+                            <div class="col-span-1"> 
+ 
+                                <label 
+                                    class="block 
+                                           text-[10px] 
+                                           font-semibold 
+                                           text-navy 
+                                           mb-2"> 
+ 
+                                    Foto Dokumentasi 
+ 
+                                    <span class="text-red-400">*</span> 
+ 
+                                </label> 
+ 
+ 
+                                <label 
+                                    for="photoInput" 
+                                    id="uploadArea" 
+                                    class="upload-area 
+                                           rounded-xl 
+                                           cursor-pointer 
+                                           overflow-hidden"> 
+ 
+ 
+                                    <div 
+                                        id="uploadPlaceholder" 
+                                        class="flex 
+                                               flex-col 
+                                               items-center 
+                                               justify-center 
+                                               min-h-[210px] 
+                                               px-5 
+                                               text-center"> 
+ 
+                                        <div 
+                                            class="w-10 
+                                                   h-10 
+                                                   rounded-xl 
+                                                   bg-green-50 
+                                                   flex 
+                                                   items-center 
+                                                   justify-center 
+                                                   mb-3"> 
+ 
+                                            <svg 
+                                                class="w-5 h-5 text-green-700" 
+                                                fill="none" 
+                                                stroke="currentColor" 
+                                                viewBox="0 0 24 24"> 
+ 
+                                                <path 
+                                                    stroke-linecap="round" 
+                                                    stroke-linejoin="round" 
+                                                    stroke-width="1.7" 
+                                                    d="M4 16l4-4a2 2 0 0 1 3 0l3 3m0 0 2-2a2 2 0 0 1 3 0l1 1M14 8h.01M5 20h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1Z" /> 
+ 
+                                            </svg> 
+ 
+                                        </div> 
+ 
+                                        <p 
+                                            class="text-[11px] 
+                                                   font-semibold 
+                                                   text-navy"> 
+ 
+                                            Pilih foto dokumentasi 
+ 
+                                        </p> 
+ 
+                                        <p 
+                                            class="text-[9px] 
+                                                   text-slate-400 
+                                                   mt-1 
+                                                   leading-relaxed"> 
+ 
+                                            Klik untuk memilih gambar 
+                                            dari perangkat 
+ 
+                                        </p> 
+ 
+                                        <span 
+                                            class="mt-3 
+                                                   px-3 
+                                                   py-1.5 
+                                                   rounded-lg 
+                                                   bg-white 
+                                                   border 
+                                                   border-slate-200 
+                                                   text-[9px] 
+                                                   font-semibold 
+                                                   text-green-700"> 
+ 
+                                            Pilih Foto 
+ 
+                                        </span> 
+ 
+                                    </div> 
+ 
+ 
+                                    <!-- PREVIEW --> 
+ 
+                                    <div 
+                                        id="imagePreview" 
+                                        class="image-preview"> 
+ 
+                                        <img 
+                                            id="previewImage" 
+                                            src="" 
+                                            alt="Preview Dokumentasi" 
+                                            class="mobile-preview 
+                                                   w-full 
+                                                   h-[210px] 
+                                                   object-cover"> 
+ 
+                                        <div 
+                                            class="px-3 
+                                                   py-2.5 
+                                                   bg-white 
+                                                   border-t 
+                                                   border-slate-100"> 
+ 
+                                            <p 
+                                                id="fileName" 
+                                                class="text-[9px] 
+                                                       font-semibold 
+                                                       text-navy 
+                                                       truncate"> 
+                                            </p> 
+ 
+                                            <p 
+                                                class="text-[8px] 
+                                                       text-slate-400 
+                                                       mt-0.5"> 
+ 
+                                                Klik foto untuk mengganti gambar. 
+ 
+                                            </p> 
+ 
+                                        </div> 
+ 
+                                    </div> 
+ 
+                                </label> 
+ 
+ 
+                                <input 
+                                    type="file" 
+                                    id="photoInput" 
+                                    name="photo" 
+                                    accept="image/jpeg,image/png,image/jpg" 
+                                    class="hidden"> 
+ 
+                                <p 
+                                    class="text-[8px] 
+                                           text-slate-400 
+                                           mt-2"> 
+ 
+                                    Format JPG, JPEG atau PNG. 
+ 
+                                </p> 
+ 
+                            </div> 
+ 
+ 
+                            <!-- INFORMASI --> 
+ 
+                            <div class="col-span-2"> 
+ 
+                                <div class="space-y-4"> 
+ 
+ 
+                                    <!-- JUDUL --> 
+ 
+                                    <div> 
+ 
+                                        <label 
+                                            for="title" 
+                                            class="block 
+                                                   text-[10px] 
+                                                   font-semibold 
+                                                   text-navy 
+                                                   mb-2"> 
+ 
+                                            Judul Dokumentasi 
+ 
+                                            <span class="text-red-400">*</span> 
+ 
+                                        </label> 
+ 
+                                        <input 
+                                            type="text" 
+                                            id="title" 
+                                            name="title" 
+                                            class="form-input" 
+                                            placeholder="Contoh: Briefing Pagi Sebelum Memulai Kegiatan" 
+                                            required> 
+ 
+                                    </div> 
+ 
+ 
+                                    <!-- KATEGORI + TANGGAL --> 
+ 
+                                    <div 
+                                        class="grid 
+                                               grid-cols-2 
+                                               gap-4 
+                                               category-date-grid"> 
+ 
+                                        <div> 
+ 
+                                            <label 
+                                                for="category" 
+                                                class="block 
+                                                       text-[10px] 
+                                                       font-semibold 
+                                                       text-navy 
+                                                       mb-2"> 
+ 
+                                                Kategori 
+ 
+                                                <span class="text-red-400">*</span> 
+ 
+                                            </label> 
+ 
+                                            <select 
+                                                id="category" 
+                                                name="category" 
+                                                class="form-input" 
+                                                required> 
+ 
+                                                <option 
+                                                    value="" 
+                                                    selected 
+                                                    disabled> 
+ 
+                                                    Pilih kategori 
+ 
+                                                </option> 
+ 
+                                                <option value="Briefing"> 
+                                                    Briefing 
+                                                </option> 
+ 
+                                                <option value="Diskusi"> 
+                                                    Diskusi 
+                                                </option> 
+ 
+                                                <option value="Pengerjaan Project"> 
+                                                    Pengerjaan Project 
+                                                </option> 
+ 
+                                                <option value="Presentasi"> 
+                                                    Presentasi 
+                                                </option> 
+ 
+                                            </select> 
+ 
+                                        </div> 
+ 
+ 
+                                        <div> 
+ 
+                                            <label 
+                                                for="date" 
+                                                class="block 
+                                                       text-[10px] 
+                                                       font-semibold 
+                                                       text-navy 
+                                                       mb-2"> 
+ 
+                                                Tanggal Kegiatan 
+ 
+                                                <span class="text-red-400">*</span> 
+ 
+                                            </label> 
+ 
+                                            <input 
+                                                type="date" 
+                                                id="date" 
+                                                name="date" 
+                                                class="form-input" 
+                                                required> 
+ 
+                                        </div> 
+ 
+                                    </div> 
+ 
+ 
+                                    <!-- DESKRIPSI --> 
+ 
+                                    <div> 
+ 
+                                        <label 
+                                            for="description" 
+                                            class="block 
+                                                   text-[10px] 
+                                                   font-semibold 
+                                                   text-navy 
+                                                   mb-2"> 
+ 
+                                            Deskripsi 
+ 
+                                            <span class="text-red-400">*</span> 
+ 
+                                        </label> 
+ 
+                                        <textarea 
+                                            id="description" 
+                                            name="description" 
+                                            class="form-input" 
+                                            placeholder="Tuliskan kegiatan yang terdapat pada dokumentasi..." 
+                                            required></textarea> 
+ 
+                                        <div 
+                                            class="flex 
+                                                   justify-between 
+                                                   mt-1.5"> 
+ 
+                                            <span 
+                                                class="text-[8px] 
+                                                       text-slate-400"> 
+ 
+                                                Jelaskan kegiatan secara singkat 
+                                                dan jelas. 
+ 
+                                            </span> 
+ 
+                                            <span 
+                                                id="charCount" 
+                                                class="text-[8px] 
+                                                       text-slate-400"> 
+ 
+                                                0 karakter 
+ 
+                                            </span> 
+ 
+                                        </div> 
+ 
+                                    </div> 
+ 
+ 
+                                    <!-- INFO --> 
+ 
+                                    <div 
+                                        class="rounded-xl 
+                                               border 
+                                               border-purple-100 
+                                               bg-purple-50/50 
+                                               px-4 
+                                               py-3"> 
+ 
+                                        <div 
+                                            class="flex 
+                                                   items-start 
+                                                   gap-2.5"> 
+ 
+                                            <div 
+                                                class="w-7 
+                                                       h-7 
+                                                       rounded-lg 
+                                                       bg-white 
+                                                       flex 
+                                                       items-center 
+                                                       justify-center 
+                                                       shrink-0"> 
+ 
+                                                <svg 
+                                                    class="w-3.5 h-3.5 text-purple-500" 
+                                                    fill="none" 
+                                                    stroke="currentColor" 
+                                                    viewBox="0 0 24 24"> 
+ 
+                                                    <path 
+                                                        stroke-linecap="round" 
+                                                        stroke-linejoin="round" 
+                                                        stroke-width="1.7" 
+                                                        d="M13 16h-1v-4h-1m1-4h.01M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" /> 
+ 
+                                                </svg> 
+ 
+                                            </div> 
+ 
+                                            <div> 
+ 
+                                                <p 
+                                                    class="text-[9px] 
+                                                           font-semibold 
+                                                           text-navy"> 
+ 
+                                                    Dokumentasi kegiatan 
+ 
+                                                </p> 
+ 
+                                                <p 
+                                                    class="text-[8px] 
+                                                           text-slate-400 
+                                                           mt-0.5 
+                                                           leading-relaxed"> 
+ 
+                                                    Gunakan foto dan deskripsi 
+                                                    yang sesuai dengan kegiatan 
+                                                    internship. 
+ 
+                                                </p> 
+ 
+                                            </div> 
+ 
+                                        </div> 
+ 
+                                    </div> 
+ 
+                                </div> 
+ 
+                            </div> 
+ 
+                        </div> 
+ 
+ 
+                        <!-- ACTION --> 
+ 
+                        <div 
+                            class="action-area 
+                                   flex 
+                                   items-center 
+                                   justify-between 
+                                   gap-3 
+                                   mt-6 
+                                   pt-5 
+                                   border-t 
+                                   border-slate-100"> 
+ 
+                            <p 
+                                class="text-[8px] 
+                                       text-slate-400"> 
+ 
+                                <span class="text-red-400">*</span> 
+                                Wajib diisi 
+ 
+                            </p> 
+ 
+ 
+                            <div 
+                                class="action-buttons 
+                                       flex 
+                                       items-center 
+                                       gap-2"> 
+ 
+ 
+                                <!-- BATAL --> 
+ 
+                                <a 
+                                    href="dokumentasi.html" 
+                                    class="action-button 
+                                           inline-flex 
+                                           items-center 
+                                           justify-center 
+                                           px-4 
+                                           py-2.5 
+                                           rounded-lg 
+                                           bg-white 
+                                           border 
+                                           border-slate-200 
+                                           text-[10px] 
+                                           font-semibold 
+                                           text-slate-500 
+                                           hover:bg-slate-50 
+                                           hover:border-slate-300 
+                                           transition"> 
+ 
+                                    Batal 
+ 
+                                </a> 
+ 
+ 
+                                <!-- SIMPAN --> 
+ 
+                                <button 
+                                    type="submit" 
+                                    class="action-button 
+                                           save-button 
+                                           inline-flex 
+                                           items-center 
+                                           justify-center 
+                                           gap-1.5 
+                                           px-4 
+                                           py-2.5 
+                                           rounded-lg 
+                                           text-[10px] 
+                                           font-semibold"> 
+ 
+                                    Simpan Dokumentasi 
+ 
+                                </button> 
+ 
+                            </div> 
+ 
+                        </div> 
+ 
+                    </form> 
+ 
+                </section> 
+ 
+            </div> 
+ 
+        </main> 
+ 
+    </div> 
+ 
+ 
+    <!-- JAVASCRIPT --> 
+ 
+    <script> 
+ 
+        /* ===================================================== 
+           PROFILE DROPDOWN DESKTOP 
+        ===================================================== */ 
+ 
+        const profileToggle = 
+            document.getElementById( 
+                "profileToggle" 
+            ); 
+ 
+        const profileDropdown = 
+            document.getElementById( 
+                "profileDropdown" 
+            ); 
+ 
+        const profileChevron = 
+            document.getElementById( 
+                "profileChevron" 
+            ); 
+ 
+ 
+        /* PROFILE DESKTOP */ 
+ 
+        profileToggle.addEventListener( 
+            "click", 
+            function (event) { 
+ 
+                event.stopPropagation(); 
+ 
+                profileDropdown.classList.toggle( 
+                    "hidden" 
+                ); 
+ 
+                profileChevron.classList.toggle( 
+                    "rotate-180" 
+                ); 
+ 
+            } 
+        ); 
+ 
+ 
+        /* CLOSE PROFILE */ 
+ 
+        document.addEventListener( 
+            "click", 
+            function (event) { 
+ 
+                if ( 
+                    !profileDropdown.contains(event.target) && 
+                    !profileToggle.contains(event.target) 
+                ) { 
+ 
+                    profileDropdown.classList.add( 
+                        "hidden" 
+                    ); 
+ 
+                    profileChevron.classList.remove( 
+                        "rotate-180" 
+                    ); 
+ 
+                } 
+ 
+            } 
+        ); 
+ 
+ 
+        /* ===================================================== 
+           LOGOUT 
+        ===================================================== */ 
+ 
+        const logoutButton = 
+            document.getElementById( 
+                "logoutButton" 
+            ); 
+ 
+ 
+        logoutButton.addEventListener( 
+            "click", 
+            function () { 
+ 
+                const confirmLogout = 
+                    confirm( 
+                        "Apakah Anda yakin ingin logout?" 
+                    ); 
+ 
+                if (confirmLogout) { 
+ 
+                    localStorage.removeItem( 
+                        "isLoggedIn" 
+                    ); 
+ 
+                    window.location.href = 
+                        "login.html"; 
+ 
+                } 
+ 
+            } 
+        ); 
+ 
+ 
+        /* ===================================================== 
+           FOTO PREVIEW 
+        ===================================================== */ 
+ 
+        const photoInput = 
+            document.getElementById( 
+                "photoInput" 
+            ); 
+ 
+        const uploadArea = 
+            document.getElementById( 
+                "uploadArea" 
+            ); 
+ 
+        const uploadPlaceholder = 
+            document.getElementById( 
+                "uploadPlaceholder" 
+            ); 
+ 
+        const imagePreview = 
+            document.getElementById( 
+                "imagePreview" 
+            ); 
+ 
+        const previewImage = 
+            document.getElementById( 
+                "previewImage" 
+            ); 
+ 
+        const fileName = 
+            document.getElementById( 
+                "fileName" 
+            ); 
+ 
+ 
+        photoInput.addEventListener( 
+            "change", 
+            function () { 
+ 
+                const file = 
+                    this.files[0]; 
+ 
+                if (!file) { 
+                    return; 
+                } 
+ 
+ 
+                if ( 
+                    !file.type.startsWith( 
+                        "image/" 
+                    ) 
+                ) { 
+ 
+                    alert( 
+                        "Silakan pilih file gambar." 
+                    ); 
+ 
+                    this.value = ""; 
+ 
+                    return; 
+                } 
+ 
+ 
+                const reader = 
+                    new FileReader(); 
+ 
+ 
+                reader.onload = 
+                    function (event) { 
+ 
+                        previewImage.src = 
+                            event.target.result; 
+ 
+                        fileName.textContent = 
+                            file.name; 
+ 
+                        uploadPlaceholder.style.display = 
+                            "none"; 
+ 
+                        imagePreview.classList.add( 
+                            "show" 
+                        ); 
+ 
+                    }; 
+ 
+ 
+                reader.readAsDataURL(file); 
+ 
+            } 
+        ); 
+ 
+ 
+        /* ===================================================== 
+           DRAG & DROP 
+        ===================================================== */ 
+ 
+        uploadArea.addEventListener( 
+            "dragover", 
+            function (event) { 
+ 
+                event.preventDefault(); 
+ 
+                uploadArea.classList.add( 
+                    "dragover" 
+                ); 
+ 
+            } 
+        ); 
+ 
+ 
+        uploadArea.addEventListener( 
+            "dragleave", 
+            function () { 
+ 
+                uploadArea.classList.remove( 
+                    "dragover" 
+                ); 
+ 
+            } 
+        ); 
+ 
+ 
+        uploadArea.addEventListener( 
+            "drop", 
+            function (event) { 
+ 
+                event.preventDefault(); 
+ 
+                uploadArea.classList.remove( 
+                    "dragover" 
+                ); 
+ 
+ 
+                const files = 
+                    event.dataTransfer.files; 
+ 
+ 
+                if ( 
+                    files.length > 0 && 
+                    files[0].type.startsWith( 
+                        "image/" 
+                    ) 
+                ) { 
+ 
+                    photoInput.files = 
+                        files; 
+ 
+                    photoInput.dispatchEvent( 
+                        new Event("change") 
+                    ); 
+ 
+                } else { 
+ 
+                    alert( 
+                        "Silakan masukkan file gambar." 
+                    ); 
+ 
+                } 
+ 
+            } 
+        ); 
+ 
+ 
+        /* ===================================================== 
+           CHARACTER COUNT 
+        ===================================================== */ 
+ 
+        const description = 
+            document.getElementById( 
+                "description" 
+            ); 
+ 
+        const charCount = 
+            document.getElementById( 
+                "charCount" 
+            ); 
+ 
+ 
+        description.addEventListener( 
+            "input", 
+            function () { 
+ 
+                charCount.textContent = 
+                    `${this.value.length} karakter`; 
+ 
+            } 
+        ); 
+ 
+ 
+        /* ===================================================== 
+           FORM SUBMIT 
+        ===================================================== */ 
+ 
+        const documentationForm = 
+            document.getElementById( 
+                "documentationForm" 
+            ); 
+ 
+ 
+        documentationForm.addEventListener( 
+            "submit", 
+            function (event) { 
+ 
+                event.preventDefault(); 
+ 
+ 
+                if (!photoInput.files.length) { 
+ 
+                    alert( 
+                        "Silakan pilih foto dokumentasi terlebih dahulu." 
+                    ); 
+ 
+                    return; 
+ 
+                } 
+ 
+ 
+                if ( 
+                    !documentationForm.checkValidity() 
+                ) { 
+ 
+                    documentationForm.reportValidity(); 
+ 
+                    return; 
+ 
+                } 
+ 
+ 
+                alert( 
+                    "Dokumentasi berhasil disiapkan." 
+                ); 
+ 
+            } 
+        ); 
+ 
+    </script> 
+ 
+</body> 
+ 
+</html>

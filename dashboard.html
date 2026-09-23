@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Access Internship</title>
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            50: "#EFFAF4",
+                            100: "#DDF3E7",
+                            500: "#008A4B",
+                            600: "#007A43",
+                            700: "#006A3A",
+                        },
+                        purple: {
+                            50: "#FBF0F8",
+                            100: "#F1D9EB",
+                            400: "#A42B8E",
+                            500: "#8A1B78",
+                            600: "#761666",
+                        },
+                        navy: "#263750",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CUSTOM STYLE -->
+    <style>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F8FAF9;
+        }
+        .dashboard-bg {
+            background: 
+                radial-gradient(circle at 90% 5%, rgba(138, 27, 120, 0.08), transparent 25%),
+                radial-gradient(circle at 5% 90%, rgba(0, 138, 75, 0.08), transparent 25%),
+                #F8FAF9;
+        }
+        .soft-shadow {
+            box-shadow: 0 2px 8px rgba(38, 55, 80, 0.04), 0 1px 2px rgba(38, 55, 80, 0.03);
+        }
+        .menu-item { transition: all 0.2s ease; }
+        .menu-item:hover { background: #EFFAF4; color: #008A4B; }
+        .menu-active {
+            background: linear-gradient(90deg, #DDF3E7, #F1D9EB);
+            color: #006A3A;
+        }
+        .stat-card { transition: all 0.2s ease; }
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(38, 55, 80, 0.08);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F8FAF9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5D0; border-radius: 10px; }
+        .calendar-popup { animation: calendarShow 0.15s ease; }
+        @keyframes calendarShow {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .profile-dropdown {
+            position: absolute; left: 12px; right: 12px; bottom: 68px; z-index: 100;
+            background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 8px;
+            box-shadow: 0 10px 25px rgba(38, 55, 80, 0.10);
+            opacity: 0; visibility: hidden; transform: translateY(5px);
+            transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+        }
+        .profile-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    </style>
+</head>
+
+<body class="text-slate-600 overflow-x-hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col max-md:top-auto max-md:bottom-0 max-md:w-full max-md:h-[68px] max-md:flex-row max-md:border-r-0 max-md:border-t max-md:border-slate-200">
+        
+        <!-- LOGO / BRAND -->
+        <div class="h-[78px] px-5 flex items-center border-b border-slate-200 shrink-0 max-md:hidden">
+            <div class="flex items-center gap-3 min-w-0">
+                <img src="assets/images/logo.png" alt="Logo Access Media" class="w-11 h-11 object-contain shrink-0">
+                <div class="min-w-0">
+                    <h1 class="text-[13px] font-bold text-navy whitespace-nowrap">Access Internship</h1>
+                    <p class="text-[10px] text-slate-400 mt-1 whitespace-nowrap">CV Access Media</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU UTAMA -->
+        <nav class="flex-1 px-3 py-5 overflow-y-auto max-md:flex max-md:flex-row max-md:items-center max-md:justify-around max-md:w-full max-md:p-1.5 max-md:overflow-x-auto max-md:overflow-y-hidden">
+            <p class="px-3 mb-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 max-md:hidden">Menu Utama</p>
+
+            <!-- DASHBOARD -->
+            <a href="dashboard.html" class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" />
+                </svg>
+                <span class="max-md:text-[8px]">Dashboard</span>
+            </a>
+
+            <!-- PROJECT -->
+            <a href="project.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+                </svg>
+                <span class="max-md:text-[8px]">Project</span>
+            </a>
+
+            <!-- DOKUMENTASI -->
+            <a href="dokumentasi.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
+                </svg>
+                <span class="max-md:text-[8px]">Dokumentasi</span>
+            </a>
+            
+            <!-- INSTANSI -->
+            <a href="instansi.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+                </svg>
+                <span class="max-md:text-[8px]">Instansi</span>
+            </a>
+
+            <!-- PROFILE khusus menu mobile -->
+            <a href="profile.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                </svg>
+                <span class="max-md:text-[8px]">
+                    Profile
+                </span>
+            </a>
+        </nav>
+
+        <!-- ADMINISTRATOR -->
+        <div class="relative p-3 border-t border-slate-200 shrink-0 max-md:hidden">
+            <button id="profileToggle" type="button" class="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition text-left">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
+                    <span class="text-[11px] font-bold text-green-700">A</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <p class="text-[11px] font-semibold text-navy truncate">Administrator</p>
+                    <p class="text-[9px] text-slate-400">Admin</p>
+                </div>
+                <svg id="profileChevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m6 9 6 6 6-6" />
+                </svg>
+            </button>
+
+            <!-- DROPDOWN PROFILE -->
+            <div id="profileDropdown" class="profile-dropdown absolute left-3 right-3 bottom-[68px] z-50 bg-white border border-slate-200 rounded-xl shadow-xl p-2">
+                <a href="profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-green-50 hover:text-green-700 transition">
+                    <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-navy">Profile</p>
+                        <p class="text-[8px] text-slate-400 mt-0.5">Lihat profile admin</p>
+                    </div>
+                </a>
+
+                <button id="logoutButton" type="button" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-red-50 hover:text-red-500 transition text-left">
+                    <div class="w-7 h-7 rounded-lg bg-red-50 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-600">Logout</p>
+                        <p class="text-[8px] text-slate-400 mt-0.5">Keluar dari akun</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="ml-[220px] min-h-screen max-md:ml-0 max-md:pb-[68px]">
+
+        <!-- NAVBAR -->
+        <header class="sticky top-0 z-40 h-[78px] bg-white/95 backdrop-blur-md border-b border-slate-200 px-7 flex items-center justify-between max-md:h-[70px] max-md:px-4 max-md:gap-3">
+            <div class="min-w-0">
+                <h2 class="text-[17px] font-bold text-navy max-md:text-[15px]">Dashboard</h2>
+                <p class="text-[11px] text-slate-400 mt-0.5 truncate max-md:text-[9px]">Ringkasan informasi Access Internship</p>
+            </div>
+
+            <!-- DATE PICKER -->
+            <div class="relative shrink-0">
+                <button id="dateButton" type="button" class="flex items-center gap-2 text-[11px] text-slate-400 hover:text-slate-600 transition cursor-pointer max-md:gap-1 max-md:text-[9px]">
+                    <svg class="w-4 h-4 text-green-600 max-md:w-3.5 max-md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+                    </svg>
+                    <span id="currentDate" class="max-sm:hidden">Memuat tanggal...</span>
+                    <span id="currentDateMobile" class="hidden max-sm:inline">...</span>
+                    <svg class="w-3 h-3 text-slate-300 max-md:w-2.5 max-md:h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <!-- CALENDAR POPUP -->
+                <div id="calendarPopup" class="calendar-popup hidden absolute right-0 top-9 z-50 w-[240px] bg-white border border-slate-200 rounded-xl shadow-xl p-4 max-sm:w-[220px] max-sm:right-[-4px]">
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <p class="text-[10px] text-slate-400">Pilih tanggal</p>
+                            <p id="selectedDateLabel" class="text-xs font-semibold text-navy mt-0.5">Hari ini</p>
+                        </div>
+                        <button id="todayButton" type="button" class="text-[9px] font-semibold text-green-600 hover:text-green-700 hover:underline">Hari ini</button>
+                    </div>
+
+                    <input type="date" id="datePicker" class="w-full px-3 py-2.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-lg outline-none cursor-pointer focus:border-green-500 focus:ring-2 focus:ring-green-100">
+
+                    <div class="mt-3 pt-3 border-t border-slate-100">
+                        <p class="text-[9px] text-slate-400 leading-relaxed">Pilih tanggal untuk melihat informasi dashboard pada tanggal tersebut.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="dashboard-bg min-h-[calc(100vh-78px)] p-6 max-md:p-4 max-sm:p-3">
+
+            <!-- WELCOME -->
+            <section class="relative overflow-hidden rounded-2xl border border-green-100 bg-gradient-to-r from-[#EFFAF4] via-white to-[#FBF0F8] px-6 py-5 mb-6 soft-shadow max-md:px-4 max-md:py-4 max-md:mb-4">
+                <div class="absolute -right-10 -top-16 w-40 h-40 rounded-full bg-purple-100/60 max-md:w-28 max-md:h-28 max-md:-right-8 max-md:-top-10"></div>
+                <div class="absolute -left-10 -bottom-20 w-36 h-36 rounded-full bg-green-100/60 max-md:w-28 max-md:h-28"></div>
+                
+                <div class="relative">
+                    <h1 class="text-xl font-bold text-navy max-md:text-[17px]">Selamat datang kembali</h1>
+                    <p class="text-[11px] text-slate-500 mt-1 max-w-xl leading-relaxed max-md:text-[10px]">Pantau kegiatan, project, dokumentasi, dan informasi internship melalui satu dashboard.</p>
+                </div>
+            </section>
+
+            <!-- STATISTICS -->
+            <div class="grid grid-cols-3 gap-4 mb-6 max-md:gap-3 max-md:mb-4">
+                
+                <!-- CARD 2 - PROJECT -->
+                <div class="stat-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow max-md:p-3">
+                    <div class="absolute left-0 top-0 w-full h-1 bg-purple-500"></div>
+                    <div class="flex items-start justify-between gap-2">
+                        <div class="min-w-0">
+                            <p class="text-[10px] font-medium text-slate-400 truncate">Project</p>
+                            <p id="totalProject" class="text-2xl font-bold text-navy mt-1 max-md:text-xl">12</p>
+                            <p class="text-[9px] text-purple-600 mt-2 max-md:text-[8px]">Total project</p>
+                        </div>
+                        <div class="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center shrink-0 max-md:w-8 max-md:h-8">
+                            <svg class="w-4 h-4 text-purple-600 max-md:w-3.5 max-md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3 - DOKUMENTASI -->
+                <div class="stat-card relative overflow-hidden bg-white border border-green-100 rounded-xl p-4 soft-shadow max-md:p-3">
+                    <div class="absolute left-0 top-0 w-full h-1 bg-gradient-to-r from-green-500 to-purple-500"></div>
+                    <div class="flex items-start justify-between gap-2">
+                        <div class="min-w-0">
+                            <p class="text-[10px] font-medium text-slate-400 truncate">Dokumentasi</p>
+                            <p id="totalDokumentasi" class="text-2xl font-bold text-navy mt-1 max-md:text-xl">15</p>
+                            <p class="text-[9px] text-green-600 mt-2 max-md:text-[8px]">Total dokumentasi</p>
+                        </div>
+                        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0 max-md:w-8 max-md:h-8">
+                            <svg class="w-4 h-4 text-green-700 max-md:w-3.5 max-md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4 - INSTANSI -->
+                <div class="stat-card relative overflow-hidden bg-white border border-purple-100 rounded-xl p-4 soft-shadow max-md:p-3">
+                    <div class="absolute left-0 top-0 w-full h-1 bg-purple-500"></div>
+                    <div class="flex items-start justify-between gap-2">
+                        <div class="min-w-0">
+                            <p class="text-[10px] font-medium text-slate-400 truncate">Instansi</p>
+                            <p id="totalInstansi" class="text-2xl font-bold text-navy mt-1 max-md:text-xl">6</p>
+                            <p class="text-[9px] text-purple-600 mt-2 max-md:text-[8px]">Total instansi</p>
+                        </div>
+                        <div class="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center shrink-0 max-md:w-8 max-md:h-8">
+                            <svg class="w-4 h-4 text-purple-600 max-md:w-3.5 max-md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM SECTION -->
+            <div class="grid grid-cols-5 gap-4 max-lg:grid-cols-1 max-md:gap-4">
+                
+                <!-- AKSI CEPAT -->
+                <section class="col-span-3 rounded-xl border border-slate-200 bg-white p-5 soft-shadow max-md:p-4">
+                    <!-- HEADER -->
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-green-500"></span>
+                            <h3 class="text-base font-bold text-navy">
+                                Aksi Cepat
+                            </h3>
+                        </div>
+                        <p class="mt-1 text-[11px] text-slate-400">
+                            Akses menu yang sering digunakan.
+                        </p>
+                    </div>
+
+                    <!-- MENU -->
+                    <div class="mt-5 space-y-2.5">
+                        <!-- PROJECT -->
+                        <a href="project.html" class="group flex items-center justify-between rounded-xl border border-slate-200 bg-transparent p-3.5 transition duration-200 hover:border-purple-200 hover:bg-purple-50/40 max-md:p-3">
+                            <div class="min-w-0">
+                                <p class="text-sm font-semibold text-navy">
+                                    Project
+                                </p>
+                                <p class="mt-0.5 text-[10px] text-slate-400">
+                                    Kelola project
+                                </p>
+                            </div>
+                            <div class="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-transparent text-purple-500 transition group-hover:bg-purple-100 group-hover:text-purple-600">
+                                <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- DOKUMENTASI -->
+                        <a href="dokumentasi.html" class="group flex items-center justify-between rounded-xl border border-slate-200 bg-transparent p-3.5 transition duration-200 hover:border-green-200 hover:bg-green-50/40 max-md:p-3">
+                            <div class="min-w-0">
+                                <p class="text-sm font-semibold text-navy">
+                                    Dokumentasi
+                                </p>
+                                <p class="mt-0.5 text-[10px] text-slate-400">
+                                    Kelola dokumentasi
+                                </p>
+                            </div>
+                            <div class="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-transparent text-green-500 transition group-hover:bg-green-100 group-hover:text-green-600">
+                                <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- INSTANSI -->
+                        <a href="instansi.html" class="group flex items-center justify-between rounded-xl border border-slate-200 bg-transparent p-3.5 transition duration-200 hover:border-purple-200 hover:bg-purple-50/40 max-md:p-3">
+                            <div class="min-w-0">
+                                <p class="text-sm font-semibold text-navy">
+                                    Instansi
+                                </p>
+                                <p class="mt-0.5 text-[10px] text-slate-400">
+                                    Kelola informasi instansi
+                                </p>
+                            </div>
+                            <div class="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-transparent text-purple-500 transition group-hover:bg-purple-100 group-hover:text-purple-600">
+                                <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- AKTIVITAS TERBARU -->
+                <section class="col-span-2 rounded-xl border border-slate-200 bg-white p-5 soft-shadow max-md:p-4">
+                    <!-- HEADER -->
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-purple-600"></span>
+                            <h3 class="text-base font-bold text-navy">
+                                Aktivitas Terbaru
+                            </h3>
+                        </div>
+                        <p class="mt-1 text-[11px] text-slate-400">
+                            Aktivitas terbaru dalam sistem.
+                        </p>
+                    </div>
+
+                    <!-- LIST AKTIVITAS -->
+                    <div class="mt-7 space-y-3">
+                        <!-- AKTIVITAS 1 -->
+                        <div class="flex items-center gap-3 rounded-xl border border-slate-200 bg-transparent p-3.5 transition hover:bg-slate-50">
+                            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-purple-50">
+                                <span class="h-2 w-2 rounded-full bg-purple-600"></span>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <p class="text-xs font-semibold text-navy">
+                                    Project baru ditambahkan
+                                </p>
+                                <p class="mt-1 text-[10px] text-slate-400">
+                                    Hari ini
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- AKTIVITAS 2 -->
+                        <div class="flex items-center gap-3 rounded-xl border border-slate-200 bg-transparent p-3.5 transition hover:bg-slate-50">
+                            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-purple-50">
+                                <span class="h-2 w-2 rounded-full bg-purple-600"></span>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <p class="text-xs font-semibold text-navy">
+                                    Dokumentasi diperbarui
+                                </p>
+                                <p class="mt-1 text-[10px] text-slate-400">
+                                    Kemarin
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- AKTIVITAS 3 -->
+                        <div class="flex items-center gap-3 rounded-xl border border-slate-200 bg-transparent p-3.5 transition hover:bg-slate-50">
+                            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-purple-50">
+                                <span class="h-2 w-2 rounded-full bg-purple-600"></span>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <p class="text-xs font-semibold text-navy">
+                                    Informasi instansi diperbarui
+                                </p>
+                                <p class="mt-1 text-[10px] text-slate-400">
+                                    2 hari yang lalu
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ========================================
+        // DATE PICKER
+        // ========================================
+
+        const dateButton = document.getElementById("dateButton");
+        const calendarPopup = document.getElementById("calendarPopup");
+        const datePicker = document.getElementById("datePicker");
+        const currentDate = document.getElementById("currentDate");
+        const currentDateMobile = document.getElementById("currentDateMobile");
+        const selectedDateLabel = document.getElementById("selectedDateLabel");
+        const todayButton = document.getElementById("todayButton");
+
+        function formatDate(dateValue) {
+            const date = new Date(dateValue + "T00:00:00");
+            return date.toLocaleDateString("id-ID", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+        }
+
+        function getTodayValue() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, "0");
+            const day = String(today.getDate()).padStart(2, "0");
+            return `${year}-${month}-${day}`;
+        }
+
+        function formatMobileDate(dateValue) {
+            const date = new Date(dateValue + "T00:00:00");
+            return date.toLocaleDateString("id-ID", {
+                day: "numeric",
+                month: "short"
+            });
+        }
+
+        const todayValue = getTodayValue();
+        datePicker.value = todayValue;
+        currentDate.textContent = formatDate(todayValue);
+        currentDateMobile.textContent = formatMobileDate(todayValue);
+        selectedDateLabel.textContent = "Hari ini";
+
+        dateButton.addEventListener("click", function(event) {
+            event.stopPropagation();
+            calendarPopup.classList.toggle("hidden");
+        });
+
+        datePicker.addEventListener("change", function() {
+            const selectedDate = datePicker.value;
+            if (!selectedDate) return;
+
+            currentDate.textContent = formatDate(selectedDate);
+            currentDateMobile.textContent = formatMobileDate(selectedDate);
+
+            if (selectedDate === todayValue) {
+                selectedDateLabel.textContent = "Hari ini";
+            } else {
+                selectedDateLabel.textContent = formatDate(selectedDate);
+            }
+
+            calendarPopup.classList.add("hidden");
+        });
+
+        todayButton.addEventListener("click", function() {
+            datePicker.value = todayValue;
+            currentDate.textContent = formatDate(todayValue);
+            currentDateMobile.textContent = formatMobileDate(todayValue);
+            selectedDateLabel.textContent = "Hari ini";
+            calendarPopup.classList.add("hidden");
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!calendarPopup.contains(event.target) && !dateButton.contains(event.target)) {
+                calendarPopup.classList.add("hidden");
+            }
+        });
+
+
+        // ========================================
+        // AMBIL DATA LANGSUNG DARI FILE
+        // ========================================
+
+        async function loadPage(fileName) {
+            try {
+                const response = await fetch(fileName);
+
+                if (!response.ok) {
+                    throw new Error(`Gagal membaca ${fileName}`);
+                }
+
+                const html = await response.text();
+
+                return new DOMParser().parseFromString(
+                    html,
+                    "text/html"
+                );
+            } catch (error) {
+                console.error(error);
+                return null;
+            }
+        }
+
+
+        // ========================================
+        // HITUNG DATA PROJECT
+        // ========================================
+
+        function countProjects(doc) {
+            if (!doc) return 0;
+
+            const selectors = [
+                '[data-dashboard-item="project"]',
+                '.project-card',
+                '.project-item',
+                '[data-project]',
+                '[data-project-id]'
+            ];
+
+            for (const selector of selectors) {
+                const items = doc.querySelectorAll(selector);
+                if (items.length > 0) {
+                    return items.length;
+                }
+            }
+
+            return 0;
+        }
+
+
+        // ========================================
+        // HITUNG DATA DOKUMENTASI
+        // ========================================
+
+        function countDokumentasi(doc) {
+            if (!doc) return 0;
+
+            const selectors = [
+                '[data-dashboard-item="dokumentasi"]',
+                '.dokumentasi-card',
+                '.dokumentasi-item',
+                '.documentation-card',
+                '.documentation-item',
+                '[data-dokumentasi]',
+                '[data-documentation]'
+            ];
+
+            for (const selector of selectors) {
+                const items = doc.querySelectorAll(selector);
+                if (items.length > 0) {
+                    return items.length;
+                }
+            }
+
+            return 0;
+        }
+
+
+        // ========================================
+        // HITUNG DATA INSTANSI
+        // ========================================
+
+        function countInstansi(doc) {
+            if (!doc) return 0;
+
+            const selectors = [
+                '[data-dashboard-item="instansi"]',
+                '.instansi-card',
+                '.instansi-item',
+                '[data-instansi]',
+                '[data-instansi-id]'
+            ];
+
+            for (const selector of selectors) {
+                const items = doc.querySelectorAll(selector);
+                if (items.length > 0) {
+                    return items.length;
+                }
+            }
+
+            return 0;
+        }
+
+
+        // ========================================
+        // UPDATE DASHBOARD
+        // ========================================
+
+        async function updateDashboardCounts() {
+            const projectDoc = await loadPage("project.html");
+            const dokumentasiDoc = await loadPage("dokumentasi.html");
+            const instansiDoc = await loadPage("instansi.html");
+
+            const totalProject = countProjects(projectDoc);
+            const totalDokumentasi = countDokumentasi(dokumentasiDoc);
+            const totalInstansi = countInstansi(instansiDoc);
+
+            const projectElement = document.getElementById("totalProject");
+            const dokumentasiElement = document.getElementById("totalDokumentasi");
+            const instansiElement = document.getElementById("totalInstansi");
+
+            if (projectElement) {
+                projectElement.textContent = totalProject;
+            }
+
+            if (dokumentasiElement) {
+                dokumentasiElement.textContent = totalDokumentasi;
+            }
+
+            if (instansiElement) {
+                instansiElement.textContent = totalInstansi;
+            }
+        }
+
+
+        // Jalankan saat dashboard dibuka
+        updateDashboardCounts();
+
+
+        // ========================================
+        // PROFILE DROPDOWN
+        // ========================================
+
+        const profileToggle = document.getElementById("profileToggle");
+        const profileDropdown = document.getElementById("profileDropdown");
+        const profileChevron = document.getElementById("profileChevron");
+
+        if (profileToggle && profileDropdown) {
+            profileToggle.addEventListener("click", function(event) {
+                event.stopPropagation();
+                profileDropdown.classList.toggle("show");
+
+                if (profileChevron) {
+                    profileChevron.classList.toggle("rotate-180");
+                }
+            });
+        }
+
+        document.addEventListener("click", function(event) {
+            if (
+                profileDropdown &&
+                !profileDropdown.contains(event.target) &&
+                profileToggle &&
+                !profileToggle.contains(event.target)
+            ) {
+                profileDropdown.classList.remove("show");
+
+                if (profileChevron) {
+                    profileChevron.classList.remove("rotate-180");
+                }
+            }
+        });
+
+
+        // ========================================
+        // LOGOUT
+        // ========================================
+
+        const logoutButton = document.getElementById("logoutButton");
+
+        if (logoutButton) {
+            logoutButton.addEventListener("click", function() {
+                const confirmLogout = confirm("Apakah Anda yakin ingin logout?");
+
+                if (confirmLogout) {
+                    localStorage.removeItem("isLoggedIn");
+                    window.location.href = "login.html";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

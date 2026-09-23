@@ -1,0 +1,2576 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Instansi | Access Internship</title>
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            50: "#EFFAF4",
+                            100: "#DDF3E7",
+                            500: "#008A4B",
+                            600: "#007A43",
+                            700: "#006A3A",
+                        },
+
+                        purple: {
+                            50: "#FBF0F8",
+                            100: "#F1D9EB",
+                            400: "#A42B8E",
+                            500: "#8A1B78",
+                            600: "#761666",
+                        },
+
+                        navy: "#263750",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- STYLE -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F8FAF9;
+        }
+
+        .dashboard-bg {
+            background:
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(138, 27, 120, 0.08),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 5% 90%,
+                    rgba(0, 138, 75, 0.08),
+                    transparent 25%
+                ),
+                #F8FAF9;
+        }
+
+        .soft-shadow {
+            box-shadow:
+                0 2px 8px rgba(38, 55, 80, 0.04),
+                0 1px 2px rgba(38, 55, 80, 0.03);
+        }
+
+        .menu-item {
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background: #EFFAF4;
+            color: #008A4B;
+        }
+
+        .menu-active {
+            background:
+                linear-gradient(
+                    90deg,
+                    #DDF3E7,
+                    #F1D9EB
+                );
+
+            color: #006A3A;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: #008A4B;
+            box-shadow: 0 0 0 3px rgba(0, 138, 75, 0.08);
+            outline: none;
+        }
+
+        .profile-dropdown {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(5px);
+            transition:
+                opacity 0.15s ease,
+                transform 0.15s ease,
+                visibility 0.15s ease;
+        }
+
+        .profile-dropdown.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F8FAF9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5D0;
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           MOBILE RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 767px) {
+
+            main {
+                margin-left: 0 !important;
+                padding-bottom: 72px;
+            }
+
+
+            /* NAVBAR */
+
+            main header {
+                height: 68px !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            main header h2 {
+                font-size: 16px !important;
+            }
+
+            main header p {
+                font-size: 9px !important;
+                max-width: 270px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+
+            /* CONTENT */
+
+            .dashboard-bg {
+                min-height: calc(100vh - 68px) !important;
+                padding: 10px !important;
+            }
+
+
+            /* BREADCRUMB */
+
+            .breadcrumb {
+                margin-bottom: 10px !important;
+            }
+
+            .breadcrumb span,
+            .breadcrumb a {
+                font-size: 8px !important;
+            }
+
+
+            /* HERO */
+
+            .edit-hero {
+                padding: 16px !important;
+                margin-bottom: 12px !important;
+                border-radius: 15px !important;
+            }
+
+            .edit-hero h1 {
+                font-size: 17px !important;
+            }
+
+            .edit-hero p {
+                font-size: 9px !important;
+                line-height: 1.55;
+            }
+
+            .edit-hero .badge {
+                font-size: 8px !important;
+                padding: 5px 9px !important;
+            }
+
+
+            /* FORM SECTION */
+
+            .form-section {
+                border-radius: 14px !important;
+                margin-bottom: 12px !important;
+            }
+
+            .form-section-header {
+                padding: 12px 14px !important;
+            }
+
+            .form-section-header h2 {
+                font-size: 12px !important;
+            }
+
+            .form-section-header p {
+                font-size: 7px !important;
+            }
+
+            .form-section-body {
+                padding: 12px !important;
+            }
+
+
+            /* GRID */
+
+            .form-grid {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+
+
+            /* LABEL */
+
+            .form-label {
+                font-size: 8px !important;
+                margin-bottom: 5px !important;
+            }
+
+
+            /* INPUT */
+
+            .form-input,
+            .form-select {
+                height: 34px !important;
+                font-size: 9px !important;
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .form-textarea {
+                font-size: 9px !important;
+                min-height: 75px !important;
+                padding: 9px 10px !important;
+            }
+
+
+            /* FOOTER FORM */
+
+            .form-actions {
+                padding: 12px !important;
+                border-radius: 14px !important;
+                gap: 7px !important;
+            }
+
+            .form-actions button,
+            .form-actions a {
+                font-size: 8px !important;
+                padding: 8px 10px !important;
+            }
+
+            .form-actions svg {
+                width: 12px !important;
+                height: 12px !important;
+            }
+
+
+            /* LOGO */
+
+            .logo-upload {
+                padding: 12px !important;
+            }
+
+            .logo-preview {
+                width: 58px !important;
+                height: 58px !important;
+            }
+
+        }
+
+
+        /* =====================================================
+           EXTRA SMALL
+        ====================================================== */
+
+        @media (max-width: 380px) {
+
+            .dashboard-bg {
+                padding: 8px !important;
+            }
+
+            .edit-hero {
+                padding: 14px !important;
+            }
+
+            .edit-hero h1 {
+                font-size: 16px !important;
+            }
+
+            .form-section-body {
+                padding: 10px !important;
+            }
+
+            .form-actions {
+                padding: 10px !important;
+            }
+
+            .form-actions button,
+            .form-actions a {
+                font-size: 7px !important;
+                padding: 7px 8px !important;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body class="text-slate-600">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="fixed
+                  left-0
+                  top-0
+                  z-50
+                  h-screen
+                  w-[220px]
+                  bg-white
+                  border-r
+                  border-slate-200
+                  flex
+                  flex-col
+                  max-md:top-auto
+                  max-md:bottom-0
+                  max-md:w-full
+                  max-md:h-[68px]
+                  max-md:flex-row
+                  max-md:border-r-0
+                  max-md:border-t
+                  max-md:border-slate-200">
+
+
+        <!-- LOGO / BRAND -->
+
+        <div class="h-[78px]
+                    px-5
+                    flex
+                    items-center
+                    border-b
+                    border-slate-200
+                    shrink-0
+                    max-md:hidden">
+
+            <div class="flex items-center gap-3 min-w-0">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Logo Access Media"
+                    class="w-11 h-11 object-contain shrink-0">
+
+                <div class="min-w-0">
+
+                    <h1 class="text-[13px]
+                               font-bold
+                               text-navy
+                               whitespace-nowrap">
+
+                        Access Internship
+
+                    </h1>
+
+                    <p class="text-[10px]
+                              text-slate-400
+                              mt-1
+                              whitespace-nowrap">
+
+                        CV Access Media
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU UTAMA -->
+
+        <nav class="flex-1
+                    px-3
+                    py-5
+                    overflow-y-auto
+                    max-md:flex
+                    max-md:flex-row
+                    max-md:items-center
+                    max-md:justify-around
+                    max-md:w-full
+                    max-md:p-1.5
+                    max-md:overflow-x-auto
+                    max-md:overflow-y-hidden">
+
+            <p class="px-3
+                      mb-3
+                      text-[9px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.12em]
+                      text-slate-400
+                      max-md:hidden">
+
+                Menu Utama
+
+            </p>
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="dashboard.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- PROJECT -->
+
+            <a
+                href="project.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 7h16v13H4V7Zm4 0V4h8v3"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Project
+                </span>
+
+            </a>
+
+
+            <!-- DOKUMENTASI -->
+
+            <a
+                href="dokumentasi.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       mb-1
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Dokumentasi
+                </span>
+
+            </a>
+
+
+            <!-- INSTANSI ACTIVE -->
+
+            <a
+                href="instansi.html"
+                class="menu-item
+                       menu-active
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       font-semibold
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Instansi
+                </span>
+
+            </a>
+
+
+            <!-- PROFILE MOBILE -->
+
+            <a
+                href="profile.html"
+                class="menu-item
+                       flex
+                       items-center
+                       gap-3
+                       px-3
+                       py-2.5
+                       rounded-lg
+                       text-xs
+                       text-slate-500
+                       max-md:flex-col
+                       max-md:justify-center
+                       max-md:gap-1
+                       max-md:min-w-[62px]
+                       max-md:px-2
+                       max-md:py-2
+                       md:hidden">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Profile
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- ADMINISTRATOR -->
+
+        <div class="relative
+                    p-3
+                    border-t
+                    border-slate-200
+                    shrink-0
+                    max-md:hidden">
+
+            <button
+                id="profileToggle"
+                type="button"
+                class="w-full
+                       flex
+                       items-center
+                       gap-3
+                       p-2
+                       rounded-lg
+                       hover:bg-slate-50
+                       transition
+                       text-left">
+
+                <div
+                    class="w-8
+                           h-8
+                           rounded-full
+                           bg-gradient-to-br
+                           from-green-100
+                           to-purple-100
+                           flex
+                           items-center
+                           justify-center
+                           shrink-0">
+
+                    <span
+                        class="text-[11px]
+                               font-bold
+                               text-green-700">
+
+                        A
+
+                    </span>
+
+                </div>
+
+                <div class="min-w-0 flex-1">
+
+                    <p
+                        class="text-[11px]
+                               font-semibold
+                               text-navy
+                               truncate">
+
+                        Administrator
+
+                    </p>
+
+                    <p
+                        class="text-[9px]
+                               text-slate-400">
+
+                        Admin
+
+                    </p>
+
+                </div>
+
+                <svg
+                    id="profileChevron"
+                    class="w-4 h-4
+                           text-slate-400
+                           transition-transform
+                           duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="m6 9 6 6 6-6"/>
+
+                </svg>
+
+            </button>
+
+
+            <!-- DROPDOWN -->
+
+            <div
+                id="profileDropdown"
+                class="profile-dropdown
+                       absolute
+                       left-3
+                       right-3
+                       bottom-[68px]
+                       z-50
+                       bg-white
+                       border
+                       border-slate-200
+                       rounded-xl
+                       shadow-xl
+                       p-2">
+
+                <a
+                    href="profile.html"
+                    class="flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-green-50
+                           hover:text-green-700
+                           transition">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-green-100
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-green-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-navy">
+                            Profile
+                        </p>
+
+                        <p class="text-[8px]
+                                  text-slate-400
+                                  mt-0.5">
+
+                            Lihat profile admin
+
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <button
+                    id="logoutButton"
+                    type="button"
+                    class="w-full
+                           flex
+                           items-center
+                           gap-3
+                           px-3
+                           py-2.5
+                           rounded-lg
+                           text-[10px]
+                           font-medium
+                           text-slate-500
+                           hover:bg-red-50
+                           hover:text-red-500
+                           transition
+                           text-left">
+
+                    <div
+                        class="w-7
+                               h-7
+                               rounded-lg
+                               bg-red-50
+                               flex
+                               items-center
+                               justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-red-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-slate-600">
+                            Logout
+                        </p>
+
+                        <p class="text-[8px]
+                                  text-slate-400
+                                  mt-0.5">
+
+                            Keluar dari akun
+
+                        </p>
+
+                    </div>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="ml-[220px] min-h-screen">
+
+
+        <!-- NAVBAR -->
+
+        <header
+            class="sticky
+                   top-0
+                   z-40
+                   h-[78px]
+                   bg-white/95
+                   backdrop-blur-md
+                   border-b
+                   border-slate-200
+                   px-6
+                   flex
+                   items-center
+                   justify-between">
+
+            <div>
+
+                <h2
+                    class="text-[17px]
+                           font-bold
+                           text-navy">
+
+                    Edit Instansi
+
+                </h2>
+
+                <p
+                    class="text-[11px]
+                           text-slate-400
+                           mt-0.5">
+
+                    Perbarui informasi instansi mitra Access Media
+
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div
+            class="dashboard-bg
+                   min-h-[calc(100vh-78px)]
+                   p-6">
+
+
+            <!-- BREADCRUMB -->
+
+            <div
+                class="breadcrumb
+                       flex
+                       items-center
+                       gap-2
+                       mb-4">
+
+                <a
+                    href="instansi.html"
+                    class="text-[10px]
+                           text-green-600
+                           hover:text-green-700
+                           transition">
+
+                    Instansi
+
+                </a>
+
+                <svg
+                    class="w-3 h-3 text-slate-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="m9 18 6-6-6-6"/>
+
+                </svg>
+
+                <span
+                    class="text-[10px]
+                           text-slate-400">
+
+                    Edit Instansi
+
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 HERO
+            ================================================== -->
+
+            <section
+                class="edit-hero
+                       relative
+                       overflow-hidden
+                       rounded-2xl
+                       border
+                       border-green-100
+                       bg-gradient-to-r
+                       from-[#EFFAF4]
+                       via-white
+                       to-[#FBF0F8]
+                       px-7
+                       py-5
+                       mb-5
+                       soft-shadow">
+
+
+                <div
+                    class="absolute
+                           -right-10
+                           -top-16
+                           w-40
+                           h-40
+                           rounded-full
+                           bg-purple-100/60">
+                </div>
+
+
+                <div
+                    class="absolute
+                           -left-10
+                           -bottom-20
+                           w-36
+                           h-36
+                           rounded-full
+                           bg-green-100/60">
+                </div>
+
+
+                <div
+                    class="relative
+                           z-10">
+
+                    <span
+                        class="badge
+                               inline-flex
+                               items-center
+                               rounded-full
+                               bg-purple-100
+                               text-purple-600
+                               px-2.5
+                               py-1
+                               text-[9px]
+                               font-semibold
+                               mb-2">
+
+                        Edit Data Instansi
+
+                    </span>
+
+
+                    <h1
+                        class="text-[20px]
+                               font-bold
+                               text-navy
+                               leading-tight">
+
+                        Perbarui Informasi Instansi
+
+                    </h1>
+
+
+                    <p
+                        class="mt-1.5
+                               text-[11px]
+                               text-slate-500
+                               max-w-3xl">
+
+                        Ubah informasi instansi sesuai dengan data terbaru
+                        yang tersedia.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
+
+            <form id="editForm">
+
+
+                <!-- =================================================
+                     INFORMASI INSTANSI
+                ================================================== -->
+
+                <section
+                    class="form-section
+                           bg-white
+                           rounded-2xl
+                           border
+                           border-slate-200
+                           soft-shadow
+                           overflow-hidden
+                           mb-5">
+
+
+                    <!-- HEADER -->
+
+                    <div
+                        class="form-section-header
+                               px-5
+                               py-4
+                               border-b
+                               border-slate-200">
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2">
+
+                            <span
+                                class="w-2.5
+                                       h-2.5
+                                       rounded-full
+                                       bg-green-500">
+
+                            </span>
+
+                            <h2
+                                class="text-[15px]
+                                       font-bold
+                                       text-navy">
+
+                                Informasi Instansi
+
+                            </h2>
+
+                        </div>
+
+                        <p
+                            class="text-[10px]
+                                   text-slate-400
+                                   mt-1
+                                   ml-[18px]">
+
+                            Perbarui data utama instansi.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- BODY -->
+
+                    <div
+                        class="form-section-body
+                               p-5">
+
+
+                        <div
+                            class="form-grid
+                                   grid
+                                   grid-cols-2
+                                   md:grid-cols-3
+                                   gap-4">
+
+
+                            <!-- NAMA -->
+
+                            <div>
+
+                                <label
+                                    for="nama"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Nama Instansi
+
+                                </label>
+
+                                <input
+                                    id="nama"
+                                    name="nama"
+                                    type="text"
+                                    required
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="Masukkan nama instansi">
+
+                            </div>
+
+
+                            <!-- KODE -->
+
+                            <div>
+
+                                <label
+                                    for="kode"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Kode Instansi
+
+                                </label>
+
+                                <input
+                                    id="kode"
+                                    name="kode"
+                                    type="text"
+                                    required
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="Contoh: INS-001">
+
+                            </div>
+
+
+                            <!-- JENIS -->
+
+                            <div>
+
+                                <label
+                                    for="jenis"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Jenis Instansi
+
+                                </label>
+
+                                <select
+                                    id="jenis"
+                                    name="jenis"
+                                    required
+                                    class="form-select
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           bg-white
+                                           text-[10px]
+                                           text-slate-600">
+
+                                    <option value="Sekolah">
+                                        Sekolah
+                                    </option>
+
+                                    <option value="Perguruan Tinggi">
+                                        Perguruan Tinggi
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- TELEPON -->
+
+                            <div>
+
+                                <label
+                                    for="telepon"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    No. Telepon
+
+                                </label>
+
+                                <input
+                                    id="telepon"
+                                    name="telepon"
+                                    type="text"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="Contoh: (0265) 741000">
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div>
+
+                                <label
+                                    for="email"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Email
+
+                                </label>
+
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="email@instansi.sch.id">
+
+                            </div>
+
+
+                            <!-- WEBSITE -->
+
+                            <div>
+
+                                <label
+                                    for="website"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Website
+
+                                </label>
+
+                                <input
+                                    id="website"
+                                    name="website"
+                                    type="text"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="www.instansi.sch.id">
+
+                            </div>
+
+
+                            <!-- ALAMAT -->
+
+                            <div
+                                class="md:col-span-3">
+
+                                <label
+                                    for="alamat"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Alamat
+
+                                </label>
+
+                                <textarea
+                                    id="alamat"
+                                    name="alamat"
+                                    class="form-textarea
+                                           w-full
+                                           min-h-[80px]
+                                           px-3
+                                           py-2.5
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600
+                                           resize-none"
+                                    placeholder="Masukkan alamat lengkap instansi"></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     INFORMASI KERJA SAMA
+                ================================================== -->
+
+                <section
+                    class="form-section
+                           bg-white
+                           rounded-2xl
+                           border
+                           border-slate-200
+                           soft-shadow
+                           overflow-hidden
+                           mb-5">
+
+
+                    <!-- HEADER -->
+
+                    <div
+                        class="form-section-header
+                               px-5
+                               py-4
+                               border-b
+                               border-slate-200">
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2">
+
+                            <span
+                                class="w-2.5
+                                       h-2.5
+                                       rounded-full
+                                       bg-purple-500">
+
+                            </span>
+
+                            <h2
+                                class="text-[15px]
+                                       font-bold
+                                       text-navy">
+
+                                Informasi Kerja Sama
+
+                            </h2>
+
+                        </div>
+
+                        <p
+                            class="text-[10px]
+                                   text-slate-400
+                                   mt-1
+                                   ml-[18px]">
+
+                            Perbarui informasi kerja sama internship.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- BODY -->
+
+                    <div
+                        class="form-section-body
+                               p-5">
+
+
+                        <div
+                            class="form-grid
+                                   grid
+                                   grid-cols-2
+                                   md:grid-cols-3
+                                   gap-4">
+
+
+                            <!-- STATUS -->
+
+                            <div>
+
+                                <label
+                                    for="status"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Status Kerja Sama
+
+                                </label>
+
+                                <select
+                                    id="status"
+                                    name="status"
+                                    class="form-select
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           bg-white
+                                           text-[10px]
+                                           text-slate-600">
+
+                                    <option value="Aktif">
+                                        Aktif
+                                    </option>
+
+                                    <option value="Tidak Aktif">
+                                        Tidak Aktif
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- PERIODE -->
+
+                            <div>
+
+                                <label
+                                    for="periode"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Periode Kerja Sama
+
+                                </label>
+
+                                <input
+                                    id="periode"
+                                    name="periode"
+                                    type="text"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="Contoh: 2026">
+
+                            </div>
+
+
+                            <!-- KAPASITAS -->
+
+                            <div>
+
+                                <label
+                                    for="kapasitas"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Kapasitas Peserta Magang
+
+                                </label>
+
+                                <input
+                                    id="kapasitas"
+                                    name="kapasitas"
+                                    type="number"
+                                    min="0"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="Contoh: 20">
+
+                            </div>
+
+
+                            <!-- PJ -->
+
+                            <div>
+
+                                <label
+                                    for="penanggungJawab"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Penanggung Jawab
+
+                                </label>
+
+                                <input
+                                    id="penanggungJawab"
+                                    name="penanggungJawab"
+                                    type="text"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="Nama penanggung jawab">
+
+                            </div>
+
+
+                            <!-- KONTAK PJ -->
+
+                            <div>
+
+                                <label
+                                    for="kontakPJ"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Kontak Penanggung Jawab
+
+                                </label>
+
+                                <input
+                                    id="kontakPJ"
+                                    name="kontakPJ"
+                                    type="text"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="Contoh: 081234567890">
+
+                            </div>
+
+
+                            <!-- EMAIL PJ -->
+
+                            <div>
+
+                                <label
+                                    for="emailPJ"
+                                    class="form-label
+                                           block
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           mb-1.5">
+
+                                    Email Penanggung Jawab
+
+                                </label>
+
+                                <input
+                                    id="emailPJ"
+                                    name="emailPJ"
+                                    type="email"
+                                    class="form-input
+                                           w-full
+                                           h-[36px]
+                                           px-3
+                                           rounded-lg
+                                           border
+                                           border-slate-200
+                                           text-[10px]
+                                           text-slate-600"
+                                    placeholder="email@instansi.sch.id">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     DOKUMENTASI
+                ================================================== -->
+
+                <section
+                    class="form-section
+                           bg-white
+                           rounded-2xl
+                           border
+                           border-slate-200
+                           soft-shadow
+                           overflow-hidden
+                           mb-5">
+
+
+                    <!-- HEADER -->
+
+                    <div
+                        class="form-section-header
+                               px-5
+                               py-4
+                               border-b
+                               border-slate-200">
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-2">
+
+                            <span
+                                class="w-2.5
+                                       h-2.5
+                                       rounded-full
+                                       bg-green-500">
+
+                            </span>
+
+                            <h2
+                                class="text-[15px]
+                                       font-bold
+                                       text-navy">
+
+                                Dokumentasi
+
+                            </h2>
+
+                        </div>
+
+                        <p
+                            class="text-[10px]
+                                   text-slate-400
+                                   mt-1
+                                   ml-[18px]">
+
+                            Perbarui logo instansi jika diperlukan.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- BODY -->
+
+                    <div
+                        class="form-section-body
+                               p-5">
+
+
+                        <div
+                            class="logo-upload
+                                   flex
+                                   items-center
+                                   gap-4
+                                   p-4
+                                   rounded-xl
+                                   bg-slate-50
+                                   border
+                                   border-slate-100">
+
+
+                            <!-- PREVIEW -->
+
+                            <div
+                                id="logoPreview"
+                                class="logo-preview
+                                       w-16
+                                       h-16
+                                       rounded-xl
+                                       bg-green-100
+                                       flex
+                                       items-center
+                                       justify-center
+                                       shrink-0">
+
+                                <svg
+                                    class="w-8 h-8 text-green-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+
+                                </svg>
+
+                            </div>
+
+
+                            <!-- UPLOAD -->
+
+                            <div>
+
+                                <p
+                                    class="text-[10px]
+                                           font-semibold
+                                           text-navy">
+
+                                    Logo Instansi
+
+                                </p>
+
+                                <p
+                                    class="text-[8px]
+                                           text-slate-400
+                                           mt-1
+                                           mb-2">
+
+                                    Format JPG, PNG atau WEBP.
+
+                                </p>
+
+                                <label
+                                    class="inline-flex
+                                           items-center
+                                           gap-1.5
+                                           px-3
+                                           py-1.5
+                                           rounded-lg
+                                           bg-white
+                                           border
+                                           border-slate-200
+                                           text-[9px]
+                                           font-semibold
+                                           text-slate-500
+                                           hover:bg-green-50
+                                           hover:text-green-600
+                                           cursor-pointer
+                                           transition">
+
+                                    <svg
+                                        class="w-3 h-3"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.8"
+                                            d="M12 16V4m0 0L8 8m4-4 4 4M5 20h14"/>
+
+                                    </svg>
+
+                                    Pilih Logo
+
+                                    <input
+                                        id="logoInput"
+                                        type="file"
+                                        accept="image/png,image/jpeg,image/webp"
+                                        class="hidden">
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ACTION
+                ================================================== -->
+
+                <div
+                    class="form-actions
+                           flex
+                           items-center
+                           justify-between
+                           gap-3
+                           bg-white
+                           rounded-xl
+                           border
+                           border-slate-200
+                           px-5
+                           py-3
+                           soft-shadow
+                           mb-5">
+
+
+                    <a
+                        href="instansi.html"
+                        class="inline-flex
+                               items-center
+                               gap-1.5
+                               px-3
+                               py-2
+                               rounded-lg
+                               border
+                               border-slate-200
+                               bg-white
+                               text-slate-500
+                               text-[9px]
+                               font-semibold
+                               hover:bg-slate-50
+                               transition">
+
+                        <svg
+                            class="w-3 h-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M15 18l-6-6 6-6"/>
+
+                        </svg>
+
+                        Batal
+
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="inline-flex
+                               items-center
+                               gap-1.5
+                               px-4
+                               py-2
+                               rounded-lg
+                               bg-green-600
+                               hover:bg-green-700
+                               text-white
+                               text-[9px]
+                               font-semibold
+                               transition">
+
+                        <svg
+                            class="w-3 h-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M5 12.5 9.5 17 19 7"/>
+
+                        </svg>
+
+                        Simpan Perubahan
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <div
+                class="text-center
+                       pb-3">
+
+                <p
+                    class="text-[8px]
+                           text-slate-400">
+
+                    © 2026 Access Internship • CV Access Media
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           DATA
+        ====================================================== */
+
+        const defaultInstansi = [
+
+            {
+                id: 1,
+                nama: "SMK Negeri 3 Banjar",
+                kota: "Kota Banjar",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif",
+                kode: "INS-001",
+                telepon: "(0265) 741000",
+                email: "info@smkn3banjar.sch.id",
+                website: "smkn3banjar.sch.id",
+                alamat: "Jl. Raya Banjar No. 123, Kota Banjar, Jawa Barat",
+                kapasitas: 20,
+                penanggungJawab: "Bapak Ahmad",
+                kontakPJ: "0812-3456-7890",
+                emailPJ: "ahmad@smkn3banjar.sch.id"
+            },
+
+            {
+                id: 2,
+                nama: "SMK Negeri 1 Banjar",
+                kota: "Kota Banjar",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif",
+                kode: "INS-002",
+                telepon: "(0265) 741001",
+                email: "info@smkn1banjar.sch.id",
+                website: "smkn1banjar.sch.id",
+                alamat: "Kota Banjar, Jawa Barat",
+                kapasitas: 15,
+                penanggungJawab: "Ibu Siti",
+                kontakPJ: "081234567891",
+                emailPJ: "siti@smkn1banjar.sch.id"
+            },
+
+            {
+                id: 3,
+                nama: "SMK Negeri 2 Banjar",
+                kota: "Kota Banjar",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif",
+                kode: "INS-003",
+                telepon: "(0265) 741002",
+                email: "info@smkn2banjar.sch.id",
+                website: "smkn2banjar.sch.id",
+                alamat: "Kota Banjar, Jawa Barat",
+                kapasitas: 15,
+                penanggungJawab: "Bapak Dedi",
+                kontakPJ: "081234567892",
+                emailPJ: "dedi@smkn2banjar.sch.id"
+            },
+
+            {
+                id: 4,
+                nama: "SMK Negeri 1 Ciamis",
+                kota: "Kabupaten Ciamis",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif",
+                kode: "INS-004",
+                telepon: "(0265) 771000",
+                email: "info@smkn1ciamis.sch.id",
+                website: "smkn1ciamis.sch.id",
+                alamat: "Kabupaten Ciamis, Jawa Barat",
+                kapasitas: 20,
+                penanggungJawab: "Bapak Andi",
+                kontakPJ: "081234567893",
+                emailPJ: "andi@smkn1ciamis.sch.id"
+            },
+
+            {
+                id: 5,
+                nama: "SMK Negeri 1 Tasikmalaya",
+                kota: "Kota Tasikmalaya",
+                jenis: "Sekolah",
+                periode: "2026",
+                status: "Aktif",
+                kode: "INS-005",
+                telepon: "(0265) 331000",
+                email: "info@smkn1tasik.sch.id",
+                website: "smkn1tasik.sch.id",
+                alamat: "Kota Tasikmalaya, Jawa Barat",
+                kapasitas: 20,
+                penanggungJawab: "Ibu Rina",
+                kontakPJ: "081234567894",
+                emailPJ: "rina@smkn1tasik.sch.id"
+            },
+
+            {
+                id: 6,
+                nama: "Universitas Galuh",
+                kota: "Kabupaten Ciamis",
+                jenis: "Perguruan Tinggi",
+                periode: "2026",
+                status: "Aktif",
+                kode: "INS-006",
+                telepon: "(0265) 771717",
+                email: "info@unigal.ac.id",
+                website: "unigal.ac.id",
+                alamat: "Kabupaten Ciamis, Jawa Barat",
+                kapasitas: 30,
+                penanggungJawab: "Bapak Rahmat",
+                kontakPJ: "081234567895",
+                emailPJ: "rahmat@unigal.ac.id"
+            }
+
+        ];
+
+
+        /* =====================================================
+           GET DATA
+        ====================================================== */
+
+        function getInstansi() {
+
+            const data =
+                localStorage.getItem("accessInstansi");
+
+            if (!data) {
+
+                localStorage.setItem(
+                    "accessInstansi",
+                    JSON.stringify(defaultInstansi)
+                );
+
+                return defaultInstansi;
+
+            }
+
+            return JSON.parse(data);
+
+        }
+
+
+        /* =====================================================
+           AMBIL ID DARI URL
+        ====================================================== */
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const id =
+            Number(params.get("id")) || 1;
+
+
+        /* =====================================================
+           LOAD DATA KE FORM
+        ====================================================== */
+
+        function loadData() {
+
+            const data =
+                getInstansi();
+
+            const instansi =
+                data.find(item => item.id === id);
+
+            if (!instansi) {
+
+                alert("Data instansi tidak ditemukan.");
+
+                window.location.href =
+                    "instansi.html";
+
+                return;
+
+            }
+
+
+            document.getElementById("nama").value =
+                instansi.nama || "";
+
+            document.getElementById("kode").value =
+                instansi.kode || "";
+
+            document.getElementById("jenis").value =
+                instansi.jenis || "Sekolah";
+
+            document.getElementById("telepon").value =
+                instansi.telepon || "";
+
+            document.getElementById("email").value =
+                instansi.email || "";
+
+            document.getElementById("website").value =
+                instansi.website || "";
+
+            document.getElementById("alamat").value =
+                instansi.alamat || "";
+
+            document.getElementById("status").value =
+                instansi.status || "Aktif";
+
+            document.getElementById("periode").value =
+                instansi.periode || "";
+
+            document.getElementById("kapasitas").value =
+                instansi.kapasitas || "";
+
+            document.getElementById("penanggungJawab").value =
+                instansi.penanggungJawab || "";
+
+            document.getElementById("kontakPJ").value =
+                instansi.kontakPJ || "";
+
+            document.getElementById("emailPJ").value =
+                instansi.emailPJ || "";
+
+        }
+
+
+        /* =====================================================
+           SIMPAN PERUBAHAN
+        ====================================================== */
+
+        document
+            .getElementById("editForm")
+            .addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    const data =
+                        getInstansi();
+
+                    const index =
+                        data.findIndex(
+                            item => item.id === id
+                        );
+
+
+                    if (index === -1) {
+
+                        alert(
+                            "Data instansi tidak ditemukan."
+                        );
+
+                        return;
+
+                    }
+
+
+                    const nama =
+                        document.getElementById("nama").value.trim();
+
+                    const kode =
+                        document.getElementById("kode").value.trim();
+
+                    const jenis =
+                        document.getElementById("jenis").value;
+
+                    const telepon =
+                        document.getElementById("telepon").value.trim();
+
+                    const email =
+                        document.getElementById("email").value.trim();
+
+                    const website =
+                        document.getElementById("website").value.trim();
+
+                    const alamat =
+                        document.getElementById("alamat").value.trim();
+
+                    const status =
+                        document.getElementById("status").value;
+
+                    const periode =
+                        document.getElementById("periode").value.trim();
+
+                    const kapasitas =
+                        document.getElementById("kapasitas").value;
+
+                    const penanggungJawab =
+                        document
+                            .getElementById("penanggungJawab")
+                            .value
+                            .trim();
+
+                    const kontakPJ =
+                        document
+                            .getElementById("kontakPJ")
+                            .value
+                            .trim();
+
+                    const emailPJ =
+                        document
+                            .getElementById("emailPJ")
+                            .value
+                            .trim();
+
+
+                    /* UPDATE DATA */
+
+                    data[index] = {
+
+                        ...data[index],
+
+                        nama: nama,
+
+                        kode: kode,
+
+                        jenis: jenis,
+
+                        telepon: telepon,
+
+                        email: email,
+
+                        website: website,
+
+                        alamat: alamat,
+
+                        status: status,
+
+                        periode: periode,
+
+                        kapasitas:
+                            kapasitas
+                                ? Number(kapasitas)
+                                : 0,
+
+                        penanggungJawab:
+                            penanggungJawab,
+
+                        kontakPJ:
+                            kontakPJ,
+
+                        emailPJ:
+                            emailPJ
+
+                    };
+
+
+                    /* SIMPAN */
+
+                    localStorage.setItem(
+                        "accessInstansi",
+                        JSON.stringify(data)
+                    );
+
+
+                    alert(
+                        "Perubahan data instansi berhasil disimpan."
+                    );
+
+
+                    /* KEMBALI */
+
+                    window.location.href =
+                        "instansi.html";
+
+                }
+            );
+
+
+        /* =====================================================
+           LOGO PREVIEW
+        ====================================================== */
+
+        const logoInput =
+            document.getElementById("logoInput");
+
+        const logoPreview =
+            document.getElementById("logoPreview");
+
+
+        if (logoInput) {
+
+            logoInput.addEventListener(
+                "change",
+                function () {
+
+                    const file =
+                        this.files[0];
+
+                    if (!file) return;
+
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function (event) {
+
+                            logoPreview.innerHTML = `
+
+                                <img
+                                    src="${event.target.result}"
+                                    alt="Preview Logo"
+                                    class="w-full
+                                           h-full
+                                           object-contain
+                                           rounded-xl">
+
+                            `;
+
+                        };
+
+
+                    reader.readAsDataURL(file);
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           PROFILE DROPDOWN
+        ====================================================== */
+
+        const profileToggle =
+            document.getElementById("profileToggle");
+
+        const profileDropdown =
+            document.getElementById("profileDropdown");
+
+        const profileChevron =
+            document.getElementById("profileChevron");
+
+
+        if (profileToggle && profileDropdown) {
+
+            profileToggle.addEventListener(
+                "click",
+                function (event) {
+
+                    event.stopPropagation();
+
+                    profileDropdown.classList.toggle("show");
+
+                    if (profileChevron) {
+
+                        profileChevron.classList.toggle(
+                            "rotate-180"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        !profileDropdown.contains(event.target) &&
+                        !profileToggle.contains(event.target)
+                    ) {
+
+                        profileDropdown.classList.remove("show");
+
+                        if (profileChevron) {
+
+                            profileChevron.classList.remove(
+                                "rotate-180"
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           LOGOUT
+        ====================================================== */
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                function () {
+
+                    const yakin =
+                        confirm(
+                            "Apakah kamu yakin ingin logout?"
+                        );
+
+                    if (yakin) {
+
+                        window.location.href =
+                            "index.html";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           INIT
+        ====================================================== */
+
+        loadData();
+
+    </script>
+
+</body>
+
+</html>

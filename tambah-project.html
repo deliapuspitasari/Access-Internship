@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tambah Project | Access Internship</title>
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            50: "#EFFAF4",
+                            100: "#DDF3E7",
+                            500: "#008A4B",
+                            600: "#007A43",
+                            700: "#006A3A",
+                        },
+                        purple: {
+                            50: "#FBF0F8",
+                            100: "#F1D9EB",
+                            400: "#A42B8E",
+                            500: "#8A1B78",
+                            600: "#761666",
+                        },
+                        navy: "#263750",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CUSTOM STYLE -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #F8FAF9;
+        }
+
+        .dashboard-bg {
+            background:
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(138, 27, 120, 0.08),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 5% 90%,
+                    rgba(0, 138, 75, 0.08),
+                    transparent 25%
+                ),
+                #F8FAF9;
+        }
+
+        .soft-shadow {
+            box-shadow:
+                0 2px 8px rgba(38, 55, 80, 0.04),
+                0 1px 2px rgba(38, 55, 80, 0.03);
+        }
+
+        .menu-item {
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background: #EFFAF4;
+            color: #008A4B;
+        }
+
+        .menu-active {
+            background: linear-gradient(
+                90deg,
+                #DDF3E7,
+                #F1D9EB
+            );
+            color: #006A3A;
+        }
+
+        .profile-dropdown {
+            animation: profileShow 0.15s ease;
+        }
+
+        @keyframes profileShow {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F8FAF9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5D0;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body class="text-slate-600 overflow-x-hidden">
+
+    <!-- SIDEBAR -->
+    <aside
+        class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col
+        max-md:top-auto max-md:bottom-0 max-md:w-full max-md:h-[68px]
+        max-md:flex-row max-md:border-r-0 max-md:border-t max-md:border-slate-200">
+
+        <!-- LOGO / BRAND -->
+        <div
+            class="h-[78px] px-5 flex items-center border-b border-slate-200 shrink-0
+            max-md:hidden">
+
+            <div class="flex items-center gap-3 min-w-0">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Logo Access Media"
+                    class="w-11 h-11 object-contain shrink-0">
+
+                <div class="min-w-0">
+
+                    <h1 class="text-[13px] font-bold text-navy whitespace-nowrap">
+                        Access Internship
+                    </h1>
+
+                    <p class="text-[10px] text-slate-400 mt-1 whitespace-nowrap">
+                        CV Access Media
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MENU UTAMA -->
+        <nav
+            class="flex-1 px-3 py-5 overflow-y-auto
+            max-md:flex max-md:flex-row max-md:items-center
+            max-md:justify-around max-md:w-full max-md:p-1.5
+            max-md:overflow-x-auto max-md:overflow-y-hidden">
+
+            <p
+                class="px-3 mb-3 text-[9px] font-semibold uppercase
+                tracking-[0.12em] text-slate-400 max-md:hidden">
+                Menu Utama
+            </p>
+
+            <!-- DASHBOARD -->
+            <a
+                href="dashboard.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500 mb-1
+                max-md:flex-col max-md:justify-center max-md:gap-1
+                max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" />
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Dashboard
+                </span>
+
+            </a>
+
+            <!-- PROJECT -->
+            <a
+                href="project.html"
+                class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs font-semibold mb-1
+                max-md:flex-col max-md:justify-center max-md:gap-1
+                max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Project
+                </span>
+
+            </a>
+
+            <!-- DOKUMENTASI -->
+            <a
+                href="dokumentasi.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500 mb-1
+                max-md:flex-col max-md:justify-center max-md:gap-1
+                max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Dokumentasi
+                </span>
+
+            </a>
+
+            <!-- INSTANSI -->
+            <a
+                href="instansi.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500
+                max-md:flex-col max-md:justify-center max-md:gap-1
+                max-md:min-w-[62px] max-md:px-2 max-md:py-2">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Instansi
+                </span>
+
+            </a>
+
+            <!-- PROFILE KHUSUS MOBILE -->
+            <a
+                href="profile.html"
+                class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg
+                text-xs text-slate-500
+                max-md:flex-col max-md:justify-center max-md:gap-1
+                max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
+
+                <svg
+                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+
+                </svg>
+
+                <span class="max-md:text-[8px]">
+                    Profile
+                </span>
+
+            </a>
+
+        </nav>
+
+        <!-- ADMINISTRATOR -->
+        <div
+            class="relative p-3 border-t border-slate-200 shrink-0
+            max-md:hidden">
+
+            <button
+                id="profileToggle"
+                type="button"
+                class="w-full flex items-center gap-3 p-2 rounded-lg
+                hover:bg-slate-50 transition text-left">
+
+                <div
+                    class="w-8 h-8 rounded-full bg-gradient-to-br
+                    from-green-100 to-purple-100 flex items-center
+                    justify-center shrink-0">
+
+                    <span class="text-[11px] font-bold text-green-700">
+                        A
+                    </span>
+
+                </div>
+
+                <div class="min-w-0 flex-1">
+
+                    <p class="text-[11px] font-semibold text-navy truncate">
+                        Administrator
+                    </p>
+
+                    <p class="text-[9px] text-slate-400">
+                        Admin
+                    </p>
+
+                </div>
+
+                <svg
+                    id="profileChevron"
+                    class="w-4 h-4 text-slate-400 transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="m6 9 6 6 6-6" />
+
+                </svg>
+
+            </button>
+
+            <!-- DROPDOWN PROFILE -->
+            <div
+                id="profileDropdown"
+                class="profile-dropdown hidden absolute left-3 right-3
+                bottom-[68px] z-50 bg-white border border-slate-200
+                rounded-xl shadow-xl p-2">
+
+                <!-- PROFILE -->
+                <a
+                    href="profile.html"
+                    class="flex items-center gap-3 px-3 py-2.5
+                    rounded-lg text-[10px] font-medium text-slate-500
+                    hover:bg-green-50 hover:text-green-700 transition">
+
+                    <div
+                        class="w-7 h-7 rounded-lg bg-green-100
+                        flex items-center justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-green-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-navy">
+                            Profile
+                        </p>
+
+                        <p class="text-[8px] text-slate-400 mt-0.5">
+                            Lihat profile admin
+                        </p>
+
+                    </div>
+
+                </a>
+
+                <!-- LOGOUT -->
+                <button
+                    id="logoutButton"
+                    type="button"
+                    class="w-full flex items-center gap-3 px-3 py-2.5
+                    rounded-lg text-[10px] font-medium text-slate-500
+                    hover:bg-red-50 hover:text-red-500 transition text-left">
+
+                    <div
+                        class="w-7 h-7 rounded-lg bg-red-50
+                        flex items-center justify-center">
+
+                        <svg
+                            class="w-3.5 h-3.5 text-red-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <p class="font-semibold text-slate-600">
+                            Logout
+                        </p>
+
+                        <p class="text-[8px] text-slate-400 mt-0.5">
+                            Keluar dari akun
+                        </p>
+
+                    </div>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main
+        class="ml-[220px] min-h-screen
+        max-md:ml-0 max-md:pb-[68px]">
+
+        <!-- NAVBAR -->
+        <header
+            class="sticky top-0 z-40 h-[78px]
+            bg-white/95 backdrop-blur-md
+            border-b border-slate-200 px-7
+            flex items-center justify-between
+            max-md:h-[70px] max-md:px-4 max-md:gap-3">
+
+            <div class="min-w-0">
+
+                <h2
+                    class="text-[17px] font-bold text-navy
+                    max-md:text-[15px]">
+
+                    Tambah Project
+
+                </h2>
+
+                <p
+                    class="text-[11px] text-slate-400 mt-0.5 truncate
+                    max-md:text-[9px]">
+
+                    Tambahkan project baru ke Access Internship
+
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <div
+            class="dashboard-bg min-h-[calc(100vh-78px)]
+            p-6 max-md:p-4 max-sm:p-3">
+
+            <div class="max-w-[1050px] mx-auto">
+
+                <!-- BACK -->
+                <div class="mb-5">
+
+                    <a
+                        href="project.html"
+                        class="inline-flex items-center gap-2
+                        px-3 py-2.5 bg-green-700
+                        border border-slate-200
+                        rounded-lg text-[10px]
+                        font-semibold text-white
+                        hover:bg-green-700
+                        hover:text-white
+                        transition">
+
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M15 18l-6-6 6-6" />
+
+                        </svg>
+
+                        Kembali
+
+                    </a>
+
+                </div>
+
+
+                <!-- FORM CARD -->
+                <section
+                    class="bg-white border border-slate-200
+                    rounded-xl soft-shadow overflow-hidden">
+
+                    <!-- FORM HEADER -->
+                    <div
+                        class="px-5 py-5 border-b border-slate-100
+                        max-md:px-4 max-md:py-4">
+
+                        <div class="flex items-center gap-3">
+
+                            <div
+                                class="w-10 h-10 rounded-lg
+                                bg-gradient-to-br from-green-100
+                                to-purple-100
+                                flex items-center justify-center
+                                shrink-0">
+
+                                <svg
+                                    class="w-5 h-5 text-green-700"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M12 5v14M5 12h14" />
+
+                                </svg>
+
+                            </div>
+
+                            <div>
+
+                                <h3
+                                    class="text-sm font-bold text-navy">
+
+                                    Informasi Project
+
+                                </h3>
+
+                                <p
+                                    class="text-[10px] text-slate-400
+                                    mt-1">
+
+                                    Lengkapi informasi project yang ingin ditambahkan.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FORM -->
+                    <form
+                        id="projectForm"
+                        class="p-5 max-md:p-4">
+
+                        <!-- GRID -->
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2
+                            gap-5">
+
+                            <!-- NAMA PROJECT -->
+                            <div>
+
+                                <label
+                                    for="namaProject"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Nama Project
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="namaProject"
+                                    name="namaProject"
+                                    placeholder="Masukkan nama project"
+                                    required
+                                    class="w-full px-3 py-2.5
+                                    text-xs text-slate-600
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100">
+
+                            </div>
+
+
+                            <!-- JENIS PROJECT -->
+                            <div>
+
+                                <label
+                                    for="jenisProject"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Jenis Project
+
+                                </label>
+
+                                <select
+                                    id="jenisProject"
+                                    name="jenisProject"
+                                    required
+                                    class="w-full px-3 py-2.5
+                                    text-xs text-slate-600
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100">
+
+                                    <option value="">
+                                        Pilih jenis project
+                                    </option>
+
+                                    <option value="Website">
+                                        Website
+                                    </option>
+
+                                    <option value="Aplikasi">
+                                        Aplikasi
+                                    </option>
+
+                                    <option value="Desain">
+                                        Desain
+                                    </option>
+
+                                    <option value="Video">
+                                        Video
+                                    </option>
+
+                                    <option value="Lainnya">
+                                        Lainnya
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- NAMA PESERTA -->
+                            <div>
+
+                                <label
+                                    for="namaPeserta"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Nama Peserta
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="namaPeserta"
+                                    name="namaPeserta"
+                                    placeholder="Masukkan nama peserta"
+                                    required
+                                    class="w-full px-3 py-2.5
+                                    text-xs text-slate-600
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100">
+
+                            </div>
+
+
+                            <!-- JENIS PESERTA -->
+                            <div>
+
+                                <label
+                                    for="jenisPeserta"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Jenis Peserta
+
+                                </label>
+
+                                <select
+                                    id="jenisPeserta"
+                                    name="jenisPeserta"
+                                    required
+                                    class="w-full px-3 py-2.5
+                                    text-xs text-slate-600
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100">
+
+                                    <option value="">
+                                        Pilih jenis peserta
+                                    </option>
+
+                                    <option value="Siswa PKL">
+                                        Siswa PKL
+                                    </option>
+
+                                    <option value="Mahasiswa Magang">
+                                        Mahasiswa Magang
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- TANGGAL MULAI -->
+                            <div>
+
+                                <label
+                                    for="tanggalMulai"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Tanggal Mulai
+
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="tanggalMulai"
+                                    name="tanggalMulai"
+                                    required
+                                    class="w-full px-3 py-2.5
+                                    text-xs text-slate-600
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100">
+
+                            </div>
+
+
+                            <!-- TANGGAL SELESAI -->
+                            <div>
+
+                                <label
+                                    for="tanggalSelesai"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Tanggal Selesai
+
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="tanggalSelesai"
+                                    name="tanggalSelesai"
+                                    required
+                                    class="w-full px-3 py-2.5
+                                    text-xs text-slate-600
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100">
+
+                            </div>
+
+
+                            <!-- DESKRIPSI -->
+                            <div class="md:col-span-2">
+
+                                <label
+                                    for="deskripsi"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Deskripsi Project
+
+                                </label>
+
+                                <textarea
+                                    id="deskripsi"
+                                    name="deskripsi"
+                                    rows="5"
+                                    placeholder="Tuliskan deskripsi project"
+                                    required
+                                    class="w-full px-3 py-2.5
+                                    text-xs text-slate-600
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none resize-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100"></textarea>
+
+                            </div>
+
+
+                            <!-- THUMBNAIL -->
+                            <div class="md:col-span-2">
+
+                                <label
+                                    for="thumbnail"
+                                    class="block text-[10px]
+                                    font-semibold text-navy mb-2">
+
+                                    Thumbnail Project
+
+                                </label>
+
+                                <input
+                                    type="file"
+                                    id="thumbnail"
+                                    name="thumbnail"
+                                    accept="image/*"
+                                    class="w-full px-3 py-2.5
+                                    text-[10px] text-slate-500
+                                    bg-white border border-slate-200
+                                    rounded-lg outline-none
+                                    focus:border-green-500
+                                    focus:ring-2 focus:ring-green-100">
+
+                                <p
+                                    class="text-[9px] text-slate-400 mt-1">
+
+                                    Gunakan gambar sebagai thumbnail project.
+
+                                </p>
+
+
+                                <!-- PREVIEW -->
+                                <div
+                                    id="thumbnailPreview"
+                                    class="hidden mt-3">
+
+                                    <img
+                                        id="previewImage"
+                                        src=""
+                                        alt="Preview Thumbnail"
+                                        class="w-full max-w-[260px]
+                                        h-[150px] object-cover
+                                        rounded-lg border
+                                        border-slate-200">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BUTTON -->
+                        <div
+                            class="flex items-center justify-end gap-3
+                            mt-7 pt-5
+                            border-t border-slate-100
+                            max-sm:flex-col-reverse
+                            max-sm:items-stretch">
+
+                            <a
+                                href="project.html"
+                                class="inline-flex items-center
+                                justify-center px-4 py-2.5
+                                rounded-lg border
+                                border-slate-200
+                                text-[10px] font-semibold
+                                text-slate-500
+                                hover:bg-slate-50 transition
+                                max-sm:w-full">
+
+                                Batal
+
+                            </a>
+
+                            <button
+                                type="submit"
+                                class="inline-flex items-center
+                                justify-center gap-2 px-4 py-2.5
+                                rounded-lg bg-green-600
+                                text-white text-[10px]
+                                font-semibold
+                                hover:bg-green-700 transition
+                                max-sm:w-full">
+
+                                Simpan Project
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        /* =========================
+           THUMBNAIL PREVIEW
+        ========================= */
+
+        const projectForm =
+            document.getElementById("projectForm");
+
+        const thumbnailInput =
+            document.getElementById("thumbnail");
+
+        const thumbnailPreview =
+            document.getElementById("thumbnailPreview");
+
+        const previewImage =
+            document.getElementById("previewImage");
+
+
+        thumbnailInput.addEventListener(
+            "change",
+            function () {
+
+                const file = this.files[0];
+
+                if (!file) {
+
+                    thumbnailPreview.classList.add("hidden");
+                    previewImage.src = "";
+
+                    return;
+                }
+
+                const reader =
+                    new FileReader();
+
+                reader.onload =
+                    function (event) {
+
+                        previewImage.src =
+                            event.target.result;
+
+                        thumbnailPreview.classList.remove(
+                            "hidden"
+                        );
+
+                    };
+
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+
+        /* =========================
+           SIMPAN PROJECT
+        ========================= */
+
+        projectForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const namaProject =
+                    document.getElementById(
+                        "namaProject"
+                    ).value.trim();
+
+
+                const jenisProject =
+                    document.getElementById(
+                        "jenisProject"
+                    ).value;
+
+
+                const namaPeserta =
+                    document.getElementById(
+                        "namaPeserta"
+                    ).value.trim();
+
+
+                const jenisPeserta =
+                    document.getElementById(
+                        "jenisPeserta"
+                    ).value;
+
+
+                const tanggalMulai =
+                    document.getElementById(
+                        "tanggalMulai"
+                    ).value;
+
+
+                const tanggalSelesai =
+                    document.getElementById(
+                        "tanggalSelesai"
+                    ).value;
+
+
+                const deskripsi =
+                    document.getElementById(
+                        "deskripsi"
+                    ).value.trim();
+
+
+                const file =
+                    thumbnailInput.files[0];
+
+
+                /*
+                 * Simpan project
+                 */
+                const saveProject =
+                    function (thumbnailData) {
+
+                        const project = {
+
+                            id: Date.now(),
+
+                            namaProject:
+                                namaProject,
+
+                            jenisProject:
+                                jenisProject,
+
+                            namaPeserta:
+                                namaPeserta,
+
+                            jenisPeserta:
+                                jenisPeserta,
+
+                            tanggalMulai:
+                                tanggalMulai,
+
+                            tanggalSelesai:
+                                tanggalSelesai,
+
+                            deskripsi:
+                                deskripsi,
+
+                            thumbnail:
+                                thumbnailData,
+
+                            tanggalDibuat:
+                                new Date().toISOString()
+
+                        };
+
+
+                        let projects =
+                            JSON.parse(
+                                localStorage.getItem(
+                                    "projects"
+                                )
+                            ) || [];
+
+
+                        projects.push(project);
+
+
+                        localStorage.setItem(
+                            "projects",
+                            JSON.stringify(projects)
+                        );
+
+
+                        alert(
+                            "Project berhasil ditambahkan!"
+                        );
+
+
+                        window.location.href =
+                            "project.html";
+
+                    };
+
+
+                /*
+                 * Jika ada thumbnail,
+                 * ubah gambar menjadi Data URL
+                 */
+                if (file) {
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function (event) {
+
+                            saveProject(
+                                event.target.result
+                            );
+
+                        };
+
+
+                    reader.readAsDataURL(file);
+
+                } else {
+
+                    saveProject("");
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           PROFILE DROPDOWN
+        ========================= */
+
+        const profileToggle =
+            document.getElementById(
+                "profileToggle"
+            );
+
+        const profileDropdown =
+            document.getElementById(
+                "profileDropdown"
+            );
+
+        const profileChevron =
+            document.getElementById(
+                "profileChevron"
+            );
+
+
+        profileToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                profileDropdown.classList.toggle(
+                    "hidden"
+                );
+
+                profileChevron.classList.toggle(
+                    "rotate-180"
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !profileDropdown.contains(
+                        event.target
+                    ) &&
+                    !profileToggle.contains(
+                        event.target
+                    )
+                ) {
+
+                    profileDropdown.classList.add(
+                        "hidden"
+                    );
+
+                    profileChevron.classList.remove(
+                        "rotate-180"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           LOGOUT
+        ========================= */
+
+        const logoutButton =
+            document.getElementById(
+                "logoutButton"
+            );
+
+
+        logoutButton.addEventListener(
+            "click",
+            function () {
+
+                const confirmLogout =
+                    confirm(
+                        "Apakah Anda yakin ingin logout?"
+                    );
+
+
+                if (confirmLogout) {
+
+                    localStorage.removeItem(
+                        "isLoggedIn"
+                    );
+
+                    window.location.href =
+                        "login.html";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
