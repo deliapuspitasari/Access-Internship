@@ -53,23 +53,13 @@
 
         .dashboard-bg {
             background:
-                radial-gradient(
-                    circle at 90% 5%,
-                    rgba(138, 27, 120, 0.08),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 5% 90%,
-                    rgba(0, 138, 75, 0.08),
-                    transparent 25%
-                ),
+                radial-gradient(circle at 90% 5%, rgba(138, 27, 120, 0.08), transparent 25%),
+                radial-gradient(circle at 5% 90%, rgba(0, 138, 75, 0.08), transparent 25%),
                 #F8FAF9;
         }
 
         .soft-shadow {
-            box-shadow:
-                0 2px 8px rgba(38, 55, 80, 0.04),
-                0 1px 2px rgba(38, 55, 80, 0.03);
+            box-shadow: 0 2px 8px rgba(38, 55, 80, 0.04), 0 1px 2px rgba(38, 55, 80, 0.03);
         }
 
         .menu-item {
@@ -82,11 +72,7 @@
         }
 
         .menu-active {
-            background: linear-gradient(
-                90deg,
-                #DDF3E7,
-                #F1D9EB
-            );
+            background: linear-gradient(90deg, #DDF3E7, #F1D9EB);
             color: #006A3A;
         }
 
@@ -323,10 +309,7 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(5px);
-            transition:
-                opacity 0.15s ease,
-                transform 0.15s ease,
-                visibility 0.15s ease;
+            transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
         }
 
         .profile-dropdown.show {
@@ -348,49 +331,16 @@
     <!-- =====================================================
          SIDEBAR
     ====================================================== -->
-    <aside
-        class="fixed
-               left-0
-               top-0
-               z-50
-               h-screen
-               w-[220px]
-               bg-white
-               border-r
-               border-slate-200
-               flex
-               flex-col
-               max-md:top-auto
-               max-md:bottom-0
-               max-md:w-full
-               max-md:h-[68px]
-               max-md:flex-row
-               max-md:border-r-0
-               max-md:border-t
-               max-md:border-slate-200">
+    <aside class="fixed left-0 top-0 z-50 h-screen w-[220px] bg-white border-r border-slate-200 flex flex-col max-md:top-auto max-md:bottom-0 max-md:w-full max-md:h-[68px] max-md:flex-row max-md:border-r-0 max-md:border-t max-md:border-slate-200">
 
         <!-- LOGO / BRAND -->
-        <div
-            class="h-[78px]
-                   px-5
-                   flex
-                   items-center
-                   border-b
-                   border-slate-200
-                   shrink-0
-                   max-md:hidden">
-
+        <div class="h-[78px] px-5 flex items-center border-b border-slate-200 shrink-0 max-md:hidden">
             <div class="flex items-center gap-3 min-w-0">
-                <img
-                    src="assets/images/logo.png"
-                    alt="Logo Access Media"
-                    class="w-11 h-11 object-contain shrink-0">
-
+                <img src="assets/images/logo.png" alt="Logo Access Media" class="w-11 h-11 object-contain shrink-0">
                 <div class="min-w-0">
                     <h1 class="text-[13px] font-bold text-navy whitespace-nowrap">
                         Access Internship
                     </h1>
-
                     <p class="text-[10px] text-slate-400 mt-1 whitespace-nowrap">
                         CV Access Media
                     </p>
@@ -399,221 +349,56 @@
         </div>
 
         <!-- MENU UTAMA -->
-        <nav
-            class="flex-1
-                   px-3
-                   py-5
-                   overflow-y-auto
-                   max-md:flex
-                   max-md:flex-row
-                   max-md:items-center
-                   max-md:justify-around
-                   max-md:w-full
-                   max-md:p-1.5
-                   max-md:overflow-x-auto
-                   max-md:overflow-y-hidden">
-
-            <p
-                class="px-3
-                       mb-3
-                       text-[9px]
-                       font-semibold
-                       uppercase
-                       tracking-[0.12em]
-                       text-slate-400
-                       max-md:hidden">
+        <nav class="flex-1 px-3 py-5 overflow-y-auto max-md:flex max-md:flex-row max-md:items-center max-md:justify-around max-md:w-full max-md:p-1.5 max-md:overflow-x-auto max-md:overflow-y-hidden">
+            <p class="px-3 mb-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 max-md:hidden">
                 Menu Utama
             </p>
 
             <!-- DASHBOARD -->
-            <a
-                href="dashboard.html"
-                class="menu-item
-                       flex
-                       items-center
-                       gap-3
-                       px-3
-                       py-2.5
-                       rounded-lg
-                       text-xs
-                       text-slate-500
-                       mb-1
-                       max-md:flex-col
-                       max-md:justify-center
-                       max-md:gap-1
-                       max-md:min-w-[62px]
-                       max-md:px-2
-                       max-md:py-2
-                       max-md:mb-0">
-
-                <svg
-                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" />
+            <a href="dashboard.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" />
                 </svg>
-
                 <span class="max-md:text-[8px]">
                     Dashboard
                 </span>
             </a>
 
             <!-- PROJECT -->
-            <a
-                href="project.html"
-                class="menu-item
-                       flex
-                       items-center
-                       gap-3
-                       px-3
-                       py-2.5
-                       rounded-lg
-                       text-xs
-                       text-slate-500
-                       mb-1
-                       max-md:flex-col
-                       max-md:justify-center
-                       max-md:gap-1
-                       max-md:min-w-[62px]
-                       max-md:px-2
-                       max-md:py-2
-                       max-md:mb-0">
-
-                <svg
-                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="M4 7h16v13H4V7Zm4 0V4h8v3" />
+            <a href="project.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16v13H4V7Zm4 0V4h8v3" />
                 </svg>
-
                 <span class="max-md:text-[8px]">
                     Project
                 </span>
             </a>
 
             <!-- DOKUMENTASI -->
-            <a
-                href="dokumentasi.html"
-                class="menu-item
-                       flex
-                       items-center
-                       gap-3
-                       px-3
-                       py-2.5
-                       rounded-lg
-                       text-xs
-                       text-slate-500
-                       mb-1
-                       max-md:flex-col
-                       max-md:justify-center
-                       max-md:gap-1
-                       max-md:min-w-[62px]
-                       max-md:px-2
-                       max-md:py-2
-                       max-md:mb-0">
-
-                <svg
-                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
+            <a href="dokumentasi.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 mb-1 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 4h14v16H5V4Zm3 4h8m-8 4h8m-8 4h5" />
                 </svg>
-
                 <span class="max-md:text-[8px]">
                     Dokumentasi
                 </span>
             </a>
 
             <!-- INSTANSI -->
-            <a
-                href="instansi.html"
-                class="menu-item
-                       menu-active
-                       flex
-                       items-center
-                       gap-3
-                       px-3
-                       py-2.5
-                       rounded-lg
-                       text-xs
-                       font-semibold
-                       max-md:flex-col
-                       max-md:justify-center
-                       max-md:gap-1
-                       max-md:min-w-[62px]
-                       max-md:px-2
-                       max-md:py-2
-                       max-md:mb-0">
-
-                <svg
-                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+            <a href="instansi.html" class="menu-item menu-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 max-md:mb-0">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
                 </svg>
-
                 <span class="max-md:text-[8px]">
                     Instansi
                 </span>
             </a>
 
             <!-- PROFILE MOBILE -->
-            <a
-                href="profile.html"
-                class="menu-item
-                       flex
-                       items-center
-                       gap-3
-                       px-3
-                       py-2.5
-                       rounded-lg
-                       text-xs
-                       text-slate-500
-                       max-md:flex-col
-                       max-md:justify-center
-                       max-md:gap-1
-                       max-md:min-w-[62px]
-                       max-md:px-2
-                       max-md:py-2
-                       md:hidden">
-
-                <svg
-                    class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+            <a href="profile.html" class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs text-slate-500 max-md:flex-col max-md:justify-center max-md:gap-1 max-md:min-w-[62px] max-md:px-2 max-md:py-2 md:hidden">
+                <svg class="w-4 h-4 max-md:w-[18px] max-md:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
                 </svg>
-
                 <span class="max-md:text-[8px]">
                     Profile
                 </span>
@@ -621,180 +406,54 @@
         </nav>
 
         <!-- ADMINISTRATOR -->
-        <div
-            class="relative
-                   p-3
-                   border-t
-                   border-slate-200
-                   shrink-0
-                   max-md:hidden">
-
-            <button
-                id="profileToggle"
-                type="button"
-                class="w-full
-                       flex
-                       items-center
-                       gap-3
-                       p-2
-                       rounded-lg
-                       hover:bg-slate-50
-                       transition
-                       text-left">
-
-                <div
-                    class="w-8
-                           h-8
-                           rounded-full
-                           bg-gradient-to-br
-                           from-green-100
-                           to-purple-100
-                           flex
-                           items-center
-                           justify-center
-                           shrink-0">
-
+        <div class="relative p-3 border-t border-slate-200 shrink-0 max-md:hidden">
+            <button id="profileToggle" type="button" class="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition text-left">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-100 to-purple-100 flex items-center justify-center shrink-0">
                     <span class="text-[11px] font-bold text-green-700">
                         A
                     </span>
                 </div>
-
                 <div class="min-w-0 flex-1">
                     <p class="text-[11px] font-semibold text-navy truncate">
                         Administrator
                     </p>
-
                     <p class="text-[9px] text-slate-400">
                         Admin
                     </p>
                 </div>
-
-                <svg
-                    id="profileChevron"
-                    class="w-4 h-4 text-slate-400 transition-transform duration-200"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.8"
-                        d="m6 9 6 6 6-6" />
+                <svg id="profileChevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m6 9 6 6 6-6" />
                 </svg>
             </button>
 
             <!-- DROPDOWN PROFILE -->
-            <div
-                id="profileDropdown"
-                class="profile-dropdown
-                       absolute
-                       left-3
-                       right-3
-                       bottom-[68px]
-                       z-50
-                       bg-white
-                       border
-                       border-slate-200
-                       rounded-xl
-                       shadow-xl
-                       p-2">
-
-                <a
-                    href="profile.html"
-                    class="flex
-                           items-center
-                           gap-3
-                           px-3
-                           py-2.5
-                           rounded-lg
-                           text-[10px]
-                           font-medium
-                           text-slate-500
-                           hover:bg-green-50
-                           hover:text-green-700
-                           transition">
-
-                    <div
-                        class="w-7
-                               h-7
-                               rounded-lg
-                               bg-green-100
-                               flex
-                               items-center
-                               justify-center">
-
-                        <svg
-                            class="w-3.5 h-3.5 text-green-600"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+            <div id="profileDropdown" class="profile-dropdown absolute left-3 right-3 bottom-[68px] z-50 bg-white border border-slate-200 rounded-xl shadow-xl p-2">
+                <a href="profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-green-50 hover:text-green-700 transition">
+                    <div class="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
                         </svg>
                     </div>
-
                     <div>
                         <p class="font-semibold text-navy">
                             Profile
                         </p>
-
                         <p class="text-[8px] text-slate-400 mt-0.5">
                             Lihat profile admin
                         </p>
                     </div>
                 </a>
 
-                <button
-                    id="logoutButton"
-                    type="button"
-                    class="w-full
-                           flex
-                           items-center
-                           gap-3
-                           px-3
-                           py-2.5
-                           rounded-lg
-                           text-[10px]
-                           font-medium
-                           text-slate-500
-                           hover:bg-red-50
-                           hover:text-red-500
-                           transition
-                           text-left">
-
-                    <div
-                        class="w-7
-                               h-7
-                               rounded-lg
-                               bg-red-50
-                               flex
-                               items-center
-                               justify-center">
-
-                        <svg
-                            class="w-3.5 h-3.5 text-red-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
+                <button id="logoutButton" type="button" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-[10px] font-medium text-slate-500 hover:bg-red-50 hover:text-red-500 transition text-left">
+                    <div class="w-7 h-7 rounded-lg bg-red-50 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 8l4 4m0 0-4 4m4-4H9m3-7V4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-1" />
                         </svg>
                     </div>
-
                     <div>
                         <p class="font-semibold text-slate-600">
                             Logout
                         </p>
-
                         <p class="text-[8px] text-slate-400 mt-0.5">
                             Keluar dari akun
                         </p>
@@ -810,286 +469,101 @@
     <main class="ml-[220px] min-h-screen">
 
         <!-- NAVBAR -->
-        <header
-            class="sticky
-                   top-0
-                   z-40
-                   h-[78px]
-                   bg-white/95
-                   backdrop-blur-md
-                   border-b
-                   border-slate-200
-                   px-6
-                   flex
-                   items-center
-                   justify-between">
-
+        <header class="sticky top-0 z-40 h-[78px] bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 flex items-center justify-between">
             <div>
                 <h2 class="text-[17px] font-bold text-navy">
                     Instansi
                 </h2>
-
                 <p class="text-[11px] text-slate-400 mt-0.5">
                     Beberapa instansi yang telah bekerja sama
                 </p>
             </div>
-
-            <div class="flex items-center gap-2 text-[11px] text-slate-400">
-            </div>
+            <div class="flex items-center gap-2 text-[11px] text-slate-400"></div>
         </header>
 
         <!-- CONTENT -->
-        <div
-            class="dashboard-bg
-                   min-h-[calc(100vh-78px)]
-                   p-6">
+        <div class="dashboard-bg min-h-[calc(100vh-78px)] p-6">
 
             <!-- HERO -->
-            <section
-                class="relative
-                       overflow-hidden
-                       rounded-2xl
-                       border
-                       border-green-100
-                       bg-gradient-to-r
-                       from-[#EFFAF4]
-                       via-white
-                       to-[#FBF0F8]
-                       px-7
-                       py-5
-                       mb-5
-                       soft-shadow">
-
+            <section class="relative overflow-hidden rounded-2xl border border-green-100 bg-gradient-to-r from-[#EFFAF4] via-white to-[#FBF0F8] px-7 py-5 mb-5 soft-shadow">
                 <!-- DECORATION UNGU -->
-                <div
-                    class="absolute
-                           -right-10
-                           -top-16
-                           w-40
-                           h-40
-                           rounded-full
-                           bg-purple-100/60">
-                </div>
-
+                <div class="absolute -right-10 -top-16 w-40 h-40 rounded-full bg-purple-100/60"></div>
                 <!-- DECORATION HIJAU -->
-                <div
-                    class="absolute
-                           -left-10
-                           -bottom-20
-                           w-36
-                           h-36
-                           rounded-full
-                           bg-green-100/60">
-                </div>
+                <div class="absolute -left-10 -bottom-20 w-36 h-36 rounded-full bg-green-100/60"></div>
 
                 <div class="relative z-10">
-                    <h1
-                        class="text-[20px]
-                               font-bold
-                               text-navy
-                               leading-tight">
-
+                    <h1 class="text-[20px] font-bold text-navy leading-tight">
                         Instansi Mitra Access Media
                     </h1>
-
-                    <p
-                        class="mt-1.5
-                               text-[11px]
-                               text-slate-500
-                               max-w-3xl">
-
-                        Informasi sekolah dan perguruan tinggi yang telah
-                        bekerja sama dalam program internship bersama Access Media.
+                    <p class="mt-1.5 text-[11px] text-slate-500 max-w-3xl">
+                        Informasi sekolah dan perguruan tinggi yang telah bekerja sama dalam program internship bersama Access Media.
                     </p>
                 </div>
             </section>
 
             <!-- STAT CARDS -->
-            <div
-                class="grid
-                       grid-cols-1
-                       md:grid-cols-3
-                       gap-4
-                       mb-5">
-
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
                 <!-- TOTAL INSTANSI -->
-                <div
-                    class="stat-card
-                           bg-white
-                           rounded-2xl
-                           border
-                           border-green-100
-                           border-t-4
-                           border-t-green-500
-                           p-4
-                           soft-shadow">
-
+                <div class="stat-card bg-white rounded-2xl border border-green-100 border-t-4 border-t-green-500 p-4 soft-shadow">
                     <div class="flex items-start justify-between">
-
                         <div>
                             <p class="text-[11px] text-slate-400">
                                 Total Instansi
                             </p>
-
-                            <p
-                                id="totalInstansi"
-                                class="text-[24px]
-                                       font-bold
-                                       text-navy
-                                       mt-1">
+                            <p id="totalInstansi" class="text-[24px] font-bold text-navy mt-1">
                                 0
                             </p>
-
-                            <p
-                                class="text-[10px]
-                                       text-green-600
-                                       mt-1.5">
+                            <p class="text-[10px] text-green-600 mt-1.5">
                                 Mitra terdaftar
                             </p>
                         </div>
-
-                        <div
-                            class="w-10
-                                   h-10
-                                   rounded-xl
-                                   bg-green-100
-                                   flex
-                                   items-center
-                                   justify-center">
-
-                            <svg
-                                class="w-[18px] h-[18px] text-green-600"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                        <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                            <svg class="w-[18px] h-[18px] text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
                             </svg>
                         </div>
                     </div>
                 </div>
 
                 <!-- SEKOLAH -->
-                <div
-                    class="stat-card
-                           bg-white
-                           rounded-2xl
-                           border
-                           border-purple-100
-                           border-t-4
-                           border-t-purple-500
-                           p-4
-                           soft-shadow">
-
+                <div class="stat-card bg-white rounded-2xl border border-purple-100 border-t-4 border-t-purple-500 p-4 soft-shadow">
                     <div class="flex items-start justify-between">
-
                         <div>
                             <p class="text-[11px] text-slate-400">
                                 Sekolah
                             </p>
-
-                            <p
-                                id="totalSekolah"
-                                class="text-[24px]
-                                       font-bold
-                                       text-navy
-                                       mt-1">
+                            <p id="totalSekolah" class="text-[24px] font-bold text-navy mt-1">
                                 0
                             </p>
-
-                            <p
-                                class="text-[10px]
-                                       text-purple-500
-                                       mt-1.5">
+                            <p class="text-[10px] text-purple-500 mt-1.5">
                                 SMK / SMA sederajat
                             </p>
                         </div>
-
-                        <div
-                            class="w-10
-                                   h-10
-                                   rounded-xl
-                                   bg-purple-100
-                                   flex
-                                   items-center
-                                   justify-center">
-
-                            <svg
-                                class="w-[18px] h-[18px] text-purple-500"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-9h6v9"/>
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center">
+                            <svg class="w-[18px] h-[18px] text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-9h6v9"/>
                             </svg>
                         </div>
                     </div>
                 </div>
 
                 <!-- PERGURUAN TINGGI -->
-                <div
-                    class="stat-card
-                           bg-white
-                           rounded-2xl
-                           border
-                           border-green-100
-                           border-t-4
-                           border-t-green-500
-                           p-4
-                           soft-shadow">
-
+                <div class="stat-card bg-white rounded-2xl border border-green-100 border-t-4 border-t-green-500 p-4 soft-shadow">
                     <div class="flex items-start justify-between">
-
                         <div>
                             <p class="text-[11px] text-slate-400">
                                 Perguruan Tinggi
                             </p>
-
-                            <p
-                                id="totalKampus"
-                                class="text-[24px]
-                                       font-bold
-                                       text-navy
-                                       mt-1">
+                            <p id="totalKampus" class="text-[24px] font-bold text-navy mt-1">
                                 0
                             </p>
-
-                            <p
-                                class="text-[10px]
-                                       text-green-600
-                                       mt-1.5">
+                            <p class="text-[10px] text-green-600 mt-1.5">
                                 Universitas / Politeknik
                             </p>
                         </div>
-
-                        <div
-                            class="w-10
-                                   h-10
-                                   rounded-xl
-                                   bg-green-100
-                                   flex
-                                   items-center
-                                   justify-center">
-
-                            <svg
-                                class="w-[18px] h-[18px] text-green-600"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M4 10l8-5 8 5-8 5-8-5Zm3 3v4l5 3 5-3v-4"/>
+                        <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                            <svg class="w-[18px] h-[18px] text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 10l8-5 8 5-8 5-8-5Zm3 3v4l5 3 5-3v-4"/>
                             </svg>
                         </div>
                     </div>
@@ -1097,261 +571,52 @@
             </div>
 
             <!-- TABLE -->
-            <section
-                class="bg-white
-                       rounded-2xl
-                       border
-                       border-slate-200
-                       soft-shadow
-                       overflow-hidden">
-
+            <section class="bg-white rounded-2xl border border-slate-200 soft-shadow overflow-hidden">
                 <!-- TABLE HEADER -->
-                <div
-                    class="px-5
-                           py-4
-                           border-b
-                           border-slate-200
-                           grid
-                           grid-cols-2
-                           gap-2.5
-                           items-center
-                           md:flex
-                           md:flex-row
-                           md:items-center
-                           md:justify-between
-                           md:gap-3">
-
+                <div class="px-5 py-4 border-b border-slate-200 grid grid-cols-2 gap-2.5 items-center md:flex md:flex-row md:items-center md:justify-between md:gap-3">
                     <!-- TITLE -->
-                    <div
-                        class="min-w-0
-                               col-start-1
-                               row-start-1
-                               md:col-auto
-                               md:row-auto">
-
+                    <div class="min-w-0 col-start-1 row-start-1 md:col-auto md:row-auto">
                         <div class="flex items-center gap-2">
-
-                            <span
-                                class="w-[9px]
-                                       h-[9px]
-                                       md:w-2.5
-                                       md:h-2.5
-                                       rounded-full
-                                       bg-green-500
-                                       shrink-0">
-                            </span>
-
-                            <h2
-                                class="text-[13px]
-                                       md:text-[15px]
-                                       font-bold
-                                       text-navy">
-
+                            <span class="w-[9px] h-[9px] md:w-2.5 md:h-2.5 rounded-full bg-green-500 shrink-0"></span>
+                            <h2 class="text-[13px] md:text-[15px] font-bold text-navy">
                                 Daftar Instansi
                             </h2>
                         </div>
-
-                        <p
-                            class="hidden
-                                   md:block
-                                   text-[10px]
-                                   text-slate-400
-                                   mt-1
-                                   ml-[18px]">
-
+                        <p class="hidden md:block text-[10px] text-slate-400 mt-1 ml-[18px]">
                             Instansi yang menjadi mitra program internship.
                         </p>
                     </div>
 
                     <!-- ACTION -->
-                    <div
-                        class="contents
-                               md:flex
-                               md:items-center
-                               md:gap-2.5
-                               md:flex-wrap">
-
+                    <div class="contents md:flex md:items-center md:gap-2.5 md:flex-wrap">
                         <!-- SEARCH -->
-                        <div
-                            class="relative
-                                   min-w-0
-                                   col-start-1
-                                   row-start-2
-                                   w-full
-                                   md:col-auto
-                                   md:row-auto
-                                   md:w-auto">
-
-                            <svg
-                                class="absolute
-                                       left-3
-                                       top-1/2
-                                       -translate-y-1/2
-                                       w-3.5
-                                       h-3.5
-                                       text-slate-400"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/>
+                        <div class="relative min-w-0 col-start-1 row-start-2 w-full md:col-auto md:row-auto md:w-auto">
+                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/>
                             </svg>
-
-                            <input
-                                id="searchInstansi"
-                                type="text"
-                                placeholder="Cari instansi..."
-                                class="w-full
-                                       md:w-[170px]
-                                       h-[31px]
-                                       md:h-auto
-                                       pl-9
-                                       pr-3
-                                       py-2
-                                       rounded-lg
-                                       border
-                                       border-slate-200
-                                       text-[10px]
-                                       text-slate-600
-                                       outline-none
-                                       focus:border-green-500
-                                       focus:ring-2
-                                       focus:ring-green-100">
+                            <input id="searchInstansi" type="text" placeholder="Cari instansi..." class="w-full md:w-[170px] h-[31px] md:h-auto pl-9 pr-3 py-2 rounded-lg border border-slate-200 text-[10px] text-slate-600 outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100">
                         </div>
 
                         <!-- FILTER -->
-                        <div
-                            class="relative
-                                   min-w-0
-                                   col-start-2
-                                   row-start-2
-                                   w-full
-                                   md:col-auto
-                                   md:row-auto
-                                   md:w-auto">
-
-                            <svg
-                                class="absolute
-                                       left-3
-                                       top-1/2
-                                       -translate-y-1/2
-                                       w-3.5
-                                       h-3.5
-                                       text-slate-400
-                                       pointer-events-none"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M4 6h16M7 12h10m-7 6h4"/>
+                        <div class="relative min-w-0 col-start-2 row-start-2 w-full md:col-auto md:row-auto md:w-auto">
+                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M7 12h10m-7 6h4"/>
                             </svg>
-
-                            <select
-                                id="filterJenis"
-                                class="w-full
-                                       md:w-[145px]
-                                       h-[31px]
-                                       md:h-[34px]
-                                       appearance-none
-                                       pl-9
-                                       pr-7
-                                       py-2
-                                       rounded-lg
-                                       border
-                                       border-slate-200
-                                       bg-white
-                                       text-[10px]
-                                       text-slate-600
-                                       outline-none
-                                       cursor-pointer
-                                       focus:border-green-500
-                                       focus:ring-2
-                                       focus:ring-green-100">
-
-                                <option value="all">
-                                    Semua Instansi
-                                </option>
-
-                                <option value="Sekolah">
-                                    Sekolah
-                                </option>
-
-                                <option value="Perguruan Tinggi">
-                                    Perguruan Tinggi
-                                </option>
+                            <select id="filterJenis" class="w-full md:w-[145px] h-[31px] md:h-[34px] appearance-none pl-9 pr-7 py-2 rounded-lg border border-slate-200 bg-white text-[10px] text-slate-600 outline-none cursor-pointer focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                                <option value="all">Semua Instansi</option>
+                                <option value="Sekolah">Sekolah</option>
+                                <option value="Perguruan Tinggi">Perguruan Tinggi</option>
                             </select>
-
-                            <svg
-                                class="absolute
-                                       right-2.5
-                                       top-1/2
-                                       -translate-y-1/2
-                                       w-3
-                                       h-3
-                                       text-slate-400
-                                       pointer-events-none"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="m6 9 6 6 6-6"/>
+                            <svg class="absolute right-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m6 9 6 6 6-6"/>
                             </svg>
                         </div>
 
                         <!-- TAMBAH INSTANSI -->
-                        <a
-                            href="tambah-instansi.html"
-                            class="col-start-2
-                                   row-start-1
-                                   min-w-0
-                                   inline-flex
-                                   items-center
-                                   justify-center
-                                   gap-1.5
-                                   w-full
-                                   h-[30px]
-                                   px-2
-                                   rounded-lg
-                                   bg-green-600
-                                   hover:bg-green-700
-                                   text-white
-                                   text-[8px]
-                                   font-semibold
-                                   transition
-                                   whitespace-nowrap
-                                   md:col-auto
-                                   md:row-auto
-                                   md:w-auto
-                                   md:h-auto
-                                   md:px-3
-                                   md:py-2
-                                   md:text-[10px]">
-
-                            <svg
-                                class="w-3.5 h-3.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M12 5v14M5 12h14"/>
+                        <a href="tambah-instansi.html" class="col-start-2 row-start-1 min-w-0 inline-flex items-center justify-center gap-1.5 w-full h-[30px] px-2 rounded-lg bg-green-600 hover:bg-green-700 text-white text-[8px] font-semibold transition whitespace-nowrap md:col-auto md:row-auto md:w-auto md:h-auto md:px-3 md:py-2 md:text-[10px]">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 5v14M5 12h14"/>
                             </svg>
-
                             Tambah Instansi
                         </a>
                     </div>
@@ -1359,120 +624,41 @@
 
                 <!-- TABLE -->
                 <div class="overflow-x-auto">
-
-                    <table
-                        class="w-full
-                               min-w-[700px]
-                               text-left">
-
+                    <table class="w-full min-w-[700px] text-left">
                         <thead>
-                            <tr
-                                class="bg-slate-50
-                                       border-b
-                                       border-slate-200">
-
-                                <th
-                                    class="px-5
-                                           py-2.5
-                                           text-[8px]
-                                           font-semibold
-                                           uppercase
-                                           tracking-wider
-                                           text-slate-400">
+                            <tr class="bg-slate-50 border-b border-slate-200">
+                                <th class="px-5 py-2.5 text-[8px] font-semibold uppercase tracking-wider text-slate-400">
                                     Instansi
                                 </th>
-
-                                <th
-                                    class="px-4
-                                           py-2.5
-                                           text-[8px]
-                                           font-semibold
-                                           uppercase
-                                           tracking-wider
-                                           text-slate-400">
+                                <th class="px-4 py-2.5 text-[8px] font-semibold uppercase tracking-wider text-slate-400">
                                     Jenis
                                 </th>
-
-                                <th
-                                    class="px-4
-                                           py-2.5
-                                           text-[8px]
-                                           font-semibold
-                                           uppercase
-                                           tracking-wider
-                                           text-slate-400">
+                                <th class="px-4 py-2.5 text-[8px] font-semibold uppercase tracking-wider text-slate-400">
                                     Periode
                                 </th>
-
-                                <th
-                                    class="px-4
-                                           py-2.5
-                                           text-[8px]
-                                           font-semibold
-                                           uppercase
-                                           tracking-wider
-                                           text-slate-400">
+                                <th class="px-4 py-2.5 text-[8px] font-semibold uppercase tracking-wider text-slate-400">
                                     Status
                                 </th>
-
-                                <th
-                                    class="px-5
-                                           py-2.5
-                                           text-[8px]
-                                           font-semibold
-                                           uppercase
-                                           tracking-wider
-                                           text-slate-400
-                                           text-center">
+                                <th class="px-5 py-2.5 text-[8px] font-semibold uppercase tracking-wider text-slate-400 text-center">
                                     Aksi
                                 </th>
                             </tr>
                         </thead>
-
-                        <tbody
-                            id="instansiTable"
-                            class="divide-y divide-slate-100">
+                        <tbody id="instansiTable" class="divide-y divide-slate-100">
                         </tbody>
                     </table>
                 </div>
 
                 <!-- EMPTY STATE -->
-                <div
-                    id="emptyState"
-                    class="hidden
-                           px-6
-                           py-10
-                           text-center">
-
-                    <div
-                        class="w-10
-                               h-10
-                               mx-auto
-                               rounded-full
-                               bg-slate-100
-                               flex
-                               items-center
-                               justify-center
-                               mb-2">
-
-                        <svg
-                            class="w-4 h-4 text-slate-400"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M3 21h18M5 21V7l7-4 7 4v14"/>
+                <div id="emptyState" class="hidden px-6 py-10 text-center">
+                    <div class="w-10 h-10 mx-auto rounded-full bg-slate-100 flex items-center justify-center mb-2">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14"/>
                         </svg>
                     </div>
-
                     <p class="text-xs font-semibold text-slate-500">
                         Belum ada instansi
                     </p>
-
                     <p class="text-[10px] text-slate-400 mt-1">
                         Tambahkan instansi baru untuk menampilkannya di sini.
                     </p>
@@ -1484,216 +670,69 @@
     <!-- =====================================================
          MODAL DETAIL INSTANSI
     ====================================================== -->
-    <div
-        id="detailModal"
-        class="fixed
-               inset-0
-               z-[100]
-               hidden
-               items-center
-               justify-center
-               bg-slate-900/40
-               backdrop-blur-sm
-               p-4"
-        onclick="if(event.target === this) tutupDetailModal()">
-
-        <div
-            class="w-full
-                   max-w-[560px]
-                   bg-white
-                   rounded-2xl
-                   shadow-2xl
-                   overflow-hidden">
-
+    <div id="detailModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4" onclick="if(event.target === this) tutupDetailModal()">
+        <div class="w-full max-w-[560px] bg-white rounded-2xl shadow-2xl overflow-hidden">
             <!-- HEADER -->
-            <div
-                class="px-6
-                       py-5
-                       border-b
-                       border-slate-200
-                       flex
-                       items-center
-                       justify-between">
-
+            <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
                 <div>
                     <h2 class="text-[17px] font-bold text-navy">
                         Detail Instansi
                     </h2>
-
                     <p class="text-[10px] text-slate-400 mt-1">
                         Informasi lengkap instansi mitra Access Media
                     </p>
                 </div>
-
-                <button
-                    type="button"
-                    onclick="tutupDetailModal()"
-                    class="w-8
-                           h-8
-                           rounded-lg
-                           flex
-                           items-center
-                           justify-center
-                           text-slate-400
-                           hover:bg-slate-100
-                           hover:text-slate-600
-                           transition">
-
-                    <svg
-                        class="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.8"
-                            d="M6 6l12 12M18 6L6 18"/>
+                <button type="button" onclick="tutupDetailModal()" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18"/>
                     </svg>
                 </button>
             </div>
 
             <!-- BODY -->
             <div class="p-6">
-
                 <div class="flex items-center gap-3 mb-5">
-
-                    <div
-                        id="detailIcon"
-                        class="w-11
-                               h-11
-                               rounded-xl
-                               bg-green-100
-                               flex
-                               items-center
-                               justify-center
-                               shrink-0">
-
-                        <svg
-                            class="w-5 h-5 text-green-600"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                    <div id="detailIcon" class="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
                         </svg>
                     </div>
-
                     <div class="min-w-0">
-
-                        <h3
-                            id="detailNama"
-                            class="text-[15px]
-                                   font-bold
-                                   text-navy
-                                   truncate">
+                        <h3 id="detailNama" class="text-[15px] font-bold text-navy truncate">
                             -
                         </h3>
-
-                        <p
-                            id="detailKota"
-                            class="text-[10px]
-                                   text-slate-400
-                                   mt-1">
+                        <p id="detailKota" class="text-[10px] text-slate-400 mt-1">
                             -
                         </p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
-
-                    <div
-                        class="rounded-xl
-                               border
-                               border-slate-200
-                               bg-slate-50
-                               p-3">
-
-                        <p
-                            class="text-[8px]
-                                   font-semibold
-                                   uppercase
-                                   tracking-wider
-                                   text-slate-400">
-
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                        <p class="text-[8px] font-semibold uppercase tracking-wider text-slate-400">
                             Jenis Instansi
                         </p>
-
-                        <p
-                            id="detailJenis"
-                            class="text-[11px]
-                                   font-semibold
-                                   text-navy
-                                   mt-1.5">
+                        <p id="detailJenis" class="text-[11px] font-semibold text-navy mt-1.5">
                             -
                         </p>
                     </div>
 
-                    <div
-                        class="rounded-xl
-                               border
-                               border-slate-200
-                               bg-slate-50
-                               p-3">
-
-                        <p
-                            class="text-[8px]
-                                   font-semibold
-                                   uppercase
-                                   tracking-wider
-                                   text-slate-400">
-
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                        <p class="text-[8px] font-semibold uppercase tracking-wider text-slate-400">
                             Periode
                         </p>
-
-                        <p
-                            id="detailPeriode"
-                            class="text-[11px]
-                                   font-semibold
-                                   text-navy
-                                   mt-1.5">
+                        <p id="detailPeriode" class="text-[11px] font-semibold text-navy mt-1.5">
                             -
                         </p>
                     </div>
 
-                    <div
-                        class="rounded-xl
-                               border
-                               border-slate-200
-                               bg-slate-50
-                               p-3
-                               col-span-2">
-
-                        <p
-                            class="text-[8px]
-                                   font-semibold
-                                   uppercase
-                                   tracking-wider
-                                   text-slate-400">
-
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 col-span-2">
+                        <p class="text-[8px] font-semibold uppercase tracking-wider text-slate-400">
                             Status
                         </p>
-
                         <div class="flex items-center gap-1.5 mt-1.5">
-
-                            <span
-                                id="detailStatusDot"
-                                class="w-1.5
-                                       h-1.5
-                                       rounded-full
-                                       bg-green-500">
-                            </span>
-
-                            <p
-                                id="detailStatus"
-                                class="text-[11px]
-                                       font-semibold
-                                       text-green-600">
+                            <span id="detailStatusDot" class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                            <p id="detailStatus" class="text-[11px] font-semibold text-green-600">
                                 -
                             </p>
                         </div>
@@ -1701,66 +740,15 @@
                 </div>
 
                 <!-- ACTION -->
-                <div
-                    class="flex
-                           justify-end
-                           gap-2
-                           mt-6
-                           pt-4
-                           border-t
-                           border-slate-100">
-
-                    <button
-                        type="button"
-                        onclick="tutupDetailModal()"
-                        class="px-4
-                               py-2.5
-                               rounded-lg
-                               bg-slate-100
-                               hover:bg-slate-200
-                               text-slate-500
-                               text-[10px]
-                               font-semibold
-                               transition">
-
+                <div class="flex justify-end gap-2 mt-6 pt-4 border-t border-slate-100">
+                    <button type="button" onclick="tutupDetailModal()" class="px-4 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 text-[10px] font-semibold transition">
                         Tutup
                     </button>
-
-                    <button
-                        type="button"
-                        onclick="editDariDetail()"
-                        class="px-4
-                               py-2.5
-                               rounded-lg
-                               bg-green-600
-                               hover:bg-green-700
-                               text-white
-                               text-[10px]
-                               font-semibold
-                               transition
-                               flex
-                               items-center
-                               gap-1.5">
-
-                        <svg
-                            class="w-3.5 h-3.5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M12 20h9"/>
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                    <button type="button" onclick="editDariDetail()" class="px-4 py-2.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-[10px] font-semibold transition flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 20h9"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
                         </svg>
-
                         Edit Instansi
                     </button>
                 </div>
@@ -1771,282 +759,75 @@
     <!-- =====================================================
          MODAL EDIT INSTANSI
     ====================================================== -->
-    <div
-        id="editModal"
-        class="fixed
-               inset-0
-               z-[101]
-               hidden
-               items-center
-               justify-center
-               bg-slate-900/40
-               backdrop-blur-sm
-               p-4"
-        onclick="if(event.target === this) tutupEditModal()">
-
-        <div
-            class="w-full
-                   max-w-[580px]
-                   bg-white
-                   rounded-2xl
-                   shadow-2xl
-                   overflow-hidden">
-
+    <div id="editModal" class="fixed inset-0 z-[101] hidden items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4" onclick="if(event.target === this) tutupEditModal()">
+        <div class="w-full max-w-[580px] bg-white rounded-2xl shadow-2xl overflow-hidden">
             <!-- HEADER -->
-            <div
-                class="px-6
-                       py-5
-                       border-b
-                       border-slate-200
-                       flex
-                       items-center
-                       justify-between">
-
+            <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
                 <div>
                     <h2 class="text-[17px] font-bold text-navy">
                         Edit Instansi
                     </h2>
-
                     <p class="text-[10px] text-slate-400 mt-1">
                         Perbarui informasi instansi yang dipilih
                     </p>
                 </div>
-
-                <button
-                    type="button"
-                    onclick="tutupEditModal()"
-                    class="w-8
-                           h-8
-                           rounded-lg
-                           flex
-                           items-center
-                           justify-center
-                           text-slate-400
-                           hover:bg-slate-100
-                           hover:text-slate-600
-                           transition">
-
-                    <svg
-                        class="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.8"
-                            d="M6 6l12 12M18 6L6 18"/>
+                <button type="button" onclick="tutupEditModal()" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18"/>
                     </svg>
                 </button>
             </div>
 
             <!-- FORM -->
             <form id="editInstansiForm" class="p-6">
-
                 <div class="mb-4">
-                    <label
-                        class="block
-                               text-[10px]
-                               font-semibold
-                               text-navy
-                               mb-2">
-
+                    <label class="block text-[10px] font-semibold text-navy mb-2">
                         Nama Instansi
                     </label>
-
-                    <input
-                        type="text"
-                        id="editNama"
-                        required
-                        class="w-full
-                               h-[42px]
-                               px-3.5
-                               rounded-lg
-                               border
-                               border-slate-200
-                               text-[11px]
-                               text-slate-600
-                               outline-none
-                               focus:border-green-500
-                               focus:ring-2
-                               focus:ring-green-100">
+                    <input type="text" id="editNama" required class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200 text-[11px] text-slate-600 outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100">
                 </div>
 
                 <div class="mb-4">
-                    <label
-                        class="block
-                               text-[10px]
-                               font-semibold
-                               text-navy
-                               mb-2">
-
+                    <label class="block text-[10px] font-semibold text-navy mb-2">
                         Kota / Kabupaten
                     </label>
-
-                    <input
-                        type="text"
-                        id="editKota"
-                        required
-                        class="w-full
-                               h-[42px]
-                               px-3.5
-                               rounded-lg
-                               border
-                               border-slate-200
-                               text-[11px]
-                               text-slate-600
-                               outline-none
-                               focus:border-green-500
-                               focus:ring-2
-                               focus:ring-green-100">
+                    <input type="text" id="editKota" required class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200 text-[11px] text-slate-600 outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100">
                 </div>
 
                 <div class="mb-4">
-                    <label
-                        class="block
-                               text-[10px]
-                               font-semibold
-                               text-navy
-                               mb-2">
-
+                    <label class="block text-[10px] font-semibold text-navy mb-2">
                         Jenis Instansi
                     </label>
-
-                    <select
-                        id="editJenis"
-                        required
-                        class="w-full
-                               h-[42px]
-                               px-3.5
-                               rounded-lg
-                               border
-                               border-slate-200
-                               bg-white
-                               text-[11px]
-                               text-slate-600
-                               outline-none
-                               focus:border-green-500
-                               focus:ring-2
-                               focus:ring-green-100">
-
-                        <option value="Sekolah">
-                            Sekolah
-                        </option>
-
-                        <option value="Perguruan Tinggi">
-                            Perguruan Tinggi
-                        </option>
+                    <select id="editJenis" required class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200 bg-white text-[11px] text-slate-600 outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                        <option value="Sekolah">Sekolah</option>
+                        <option value="Perguruan Tinggi">Perguruan Tinggi</option>
                     </select>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
-
                     <div>
-                        <label
-                            class="block
-                                   text-[10px]
-                                   font-semibold
-                                   text-navy
-                                   mb-2">
-
+                        <label class="block text-[10px] font-semibold text-navy mb-2">
                             Periode
                         </label>
-
-                        <input
-                            type="text"
-                            id="editPeriode"
-                            required
-                            class="w-full
-                                   h-[42px]
-                                   px-3.5
-                                   rounded-lg
-                                   border
-                                   border-slate-200
-                                   text-[11px]
-                                   text-slate-600
-                                   outline-none
-                                   focus:border-green-500
-                                   focus:ring-2
-                                   focus:ring-green-100">
+                        <input type="text" id="editPeriode" required class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200 text-[11px] text-slate-600 outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100">
                     </div>
 
                     <div>
-                        <label
-                            class="block
-                                   text-[10px]
-                                   font-semibold
-                                   text-navy
-                                   mb-2">
-
+                        <label class="block text-[10px] font-semibold text-navy mb-2">
                             Status
                         </label>
-
-                        <select
-                            id="editStatus"
-                            required
-                            class="w-full
-                                   h-[42px]
-                                   px-3.5
-                                   rounded-lg
-                                   border
-                                   border-slate-200
-                                   bg-white
-                                   text-[11px]
-                                   text-slate-600
-                                   outline-none
-                                   focus:border-green-500
-                                   focus:ring-2
-                                   focus:ring-green-100">
-
-                            <option value="Aktif">
-                                Aktif
-                            </option>
-
-                            <option value="Tidak Aktif">
-                                Tidak Aktif
-                            </option>
+                        <select id="editStatus" required class="w-full h-[42px] px-3.5 rounded-lg border border-slate-200 bg-white text-[11px] text-slate-600 outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100">
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Aktif">Tidak Aktif</option>
                         </select>
                     </div>
                 </div>
 
-                <div
-                    class="flex
-                           justify-end
-                           gap-2
-                           mt-6
-                           pt-4
-                           border-t
-                           border-slate-100">
-
-                    <button
-                        type="button"
-                        onclick="tutupEditModal()"
-                        class="px-4
-                               py-2.5
-                               rounded-lg
-                               bg-slate-100
-                               hover:bg-slate-200
-                               text-slate-500
-                               text-[10px]
-                               font-semibold
-                               transition">
-
+                <div class="flex justify-end gap-2 mt-6 pt-4 border-t border-slate-100">
+                    <button type="button" onclick="tutupEditModal()" class="px-4 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 text-[10px] font-semibold transition">
                         Batal
                     </button>
-
-                    <button
-                        type="submit"
-                        class="px-4
-                               py-2.5
-                               rounded-lg
-                               bg-green-600
-                               hover:bg-green-700
-                               text-white
-                               text-[10px]
-                               font-semibold
-                               transition">
-
+                    <button type="submit" class="px-4 py-2.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-[10px] font-semibold transition">
                         Simpan Perubahan
                     </button>
                 </div>
@@ -2058,11 +839,9 @@
          JAVASCRIPT
     ====================================================== -->
     <script>
-
         /* =====================================================
            DATA DEFAULT
         ====================================================== */
-
         const defaultInstansi = [
             {
                 id: 1,
@@ -2114,376 +893,126 @@
             }
         ];
 
-
         /* =====================================================
            GET DATA
         ====================================================== */
-
         function getInstansi() {
-
             const data = localStorage.getItem("accessInstansi");
-
             if (!data) {
-
-                localStorage.setItem(
-                    "accessInstansi",
-                    JSON.stringify(defaultInstansi)
-                );
-
+                localStorage.setItem("accessInstansi", JSON.stringify(defaultInstansi));
                 return defaultInstansi;
             }
-
             try {
-
                 return JSON.parse(data);
-
             } catch (error) {
-
-                localStorage.setItem(
-                    "accessInstansi",
-                    JSON.stringify(defaultInstansi)
-                );
-
+                localStorage.setItem("accessInstansi", JSON.stringify(defaultInstansi));
                 return defaultInstansi;
             }
         }
 
-
         /* =====================================================
            RENDER TABLE
         ====================================================== */
-
         function renderInstansi(data = getInstansi()) {
-
             const table = document.getElementById("instansiTable");
             const empty = document.getElementById("emptyState");
 
             table.innerHTML = "";
 
             if (data.length === 0) {
-
                 empty.classList.remove("hidden");
-
                 return;
             }
 
             empty.classList.add("hidden");
 
             data.forEach(instansi => {
-
                 const row = document.createElement("tr");
+                row.className = "hover:bg-slate-50 transition";
 
-                row.className =
-                    "hover:bg-slate-50 transition";
-
-
-                const iconBg =
-                    instansi.jenis === "Sekolah"
-                        ? "bg-green-100"
-                        : "bg-purple-100";
-
-
-                const iconColor =
-                    instansi.jenis === "Sekolah"
-                        ? "text-green-600"
-                        : "text-purple-600";
-
-
-                const badgeBg =
-                    instansi.jenis === "Sekolah"
-                        ? "bg-purple-50 text-purple-600"
-                        : "bg-green-50 text-green-600";
-
-
-                const statusColor =
-                    instansi.status === "Aktif"
-                        ? "text-green-600"
-                        : "text-slate-500";
-
-
-                const statusDot =
-                    instansi.status === "Aktif"
-                        ? "bg-green-500"
-                        : "bg-slate-400";
-
+                const iconBg = instansi.jenis === "Sekolah" ? "bg-green-100" : "bg-purple-100";
+                const iconColor = instansi.jenis === "Sekolah" ? "text-green-600" : "text-purple-600";
+                const badgeBg = instansi.jenis === "Sekolah" ? "bg-purple-50 text-purple-600" : "bg-green-50 text-green-600";
+                const statusColor = instansi.status === "Aktif" ? "text-green-600" : "text-slate-500";
+                const statusDot = instansi.status === "Aktif" ? "bg-green-500" : "bg-slate-400";
 
                 row.innerHTML = `
-
                     <!-- INSTANSI -->
                     <td class="px-5 py-3">
-
                         <div class="flex items-center gap-2.5">
-
-                            <div
-                                class="w-8
-                                       h-8
-                                       rounded-lg
-                                       ${iconBg}
-                                       flex
-                                       items-center
-                                       justify-center
-                                       shrink-0">
-
-                                <svg
-                                    class="w-3.5 h-3.5 ${iconColor}"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24">
-
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.8"
-                                        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                            <div class="w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center shrink-0">
+                                <svg class="w-3.5 h-3.5 ${iconColor}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
                                 </svg>
                             </div>
-
                             <div>
-
-                                <p
-                                    class="text-[11px]
-                                           font-semibold
-                                           text-navy">
-
+                                <p class="text-[11px] font-semibold text-navy">
                                     ${instansi.nama}
                                 </p>
-
-                                <p
-                                    class="text-[9px]
-                                           text-slate-400
-                                           mt-0.5">
-
+                                <p class="text-[9px] text-slate-400 mt-0.5">
                                     ${instansi.kota}
                                 </p>
-
                             </div>
                         </div>
                     </td>
 
-
                     <!-- JENIS -->
                     <td class="px-4 py-3">
-
-                        <span
-                            class="inline-flex
-                                   px-2
-                                   py-0.5
-                                   rounded-full
-                                   text-[8px]
-                                   font-medium
-                                   ${badgeBg}">
-
+                        <span class="inline-flex px-2 py-0.5 rounded-full text-[8px] font-medium ${badgeBg}">
                             ${instansi.jenis}
-
                         </span>
                     </td>
 
-
                     <!-- PERIODE -->
-                    <td
-                        class="px-4
-                               py-3
-                               text-[10px]
-                               text-slate-500">
-
+                    <td class="px-4 py-3 text-[10px] text-slate-500">
                         ${instansi.periode}
-
                     </td>
-
 
                     <!-- STATUS -->
                     <td class="px-4 py-3">
-
-                        <span
-                            class="inline-flex
-                                   items-center
-                                   gap-1.5
-                                   text-[9px]
-                                   ${statusColor}">
-
-                            <span
-                                class="w-1.5
-                                       h-1.5
-                                       rounded-full
-                                       ${statusDot}">
-                            </span>
-
+                        <span class="inline-flex items-center gap-1.5 text-[9px] ${statusColor}">
+                            <span class="w-1.5 h-1.5 rounded-full ${statusDot}"></span>
                             ${instansi.status}
-
                         </span>
                     </td>
 
-
                     <!-- AKSI -->
                     <td class="px-5 py-3 text-center">
-
                         <div class="relative inline-block">
-
                             <!-- TOMBOL TITIK TIGA -->
-                            <button
-                                type="button"
-                                onclick="toggleActionMenu(this)"
-                                class="action-button
-                                       w-8
-                                       h-8
-                                       rounded-lg
-                                       flex
-                                       items-center
-                                       justify-center
-                                       text-slate-400
-                                       hover:bg-slate-100
-                                       hover:text-navy
-                                       transition">
-
-                                <svg
-                                    class="w-4 h-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24">
-
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M12 6.5h.01M12 12h.01M12 17.5h.01"/>
+                            <button type="button" onclick="toggleActionMenu(this)" class="action-button w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-100 hover:text-navy transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.5h.01M12 12h.01M12 17.5h.01"/>
                                 </svg>
-
                             </button>
 
-
                             <!-- DROPDOWN AKSI -->
-                            <div
-                                class="action-menu
-                                       hidden
-                                       absolute
-                                       right-0
-                                       top-full
-                                       mt-1
-                                       w-[125px]
-                                       bg-white
-                                       border
-                                       border-slate-200
-                                       rounded-xl
-                                       shadow-lg
-                                       z-50
-                                       p-1.5
-                                       text-left">
-
+                            <div class="action-menu hidden absolute right-0 top-full mt-1 w-[125px] bg-white border border-slate-200 rounded-xl shadow-lg z-50 p-1.5 text-left">
                                 <!-- DETAIL -->
-                                <button
-                                    type="button"
-                                    onclick='lihatDetail(${JSON.stringify(instansi.id)})'
-                                    class="w-full
-                                           flex
-                                           items-center
-                                           gap-2
-                                           px-2.5
-                                           py-2
-                                           rounded-lg
-                                           text-[9px]
-                                           text-slate-600
-                                           hover:bg-green-50
-                                           hover:text-green-600
-                                           transition">
-
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24">
-
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.8"
-                                            d="M2.5 12s3.5-5.5 9.5-5.5
-                                               9.5 5.5 9.5 5.5
-                                               -3.5 5.5-9.5 5.5
-                                               -9.5-5.5-9.5-5.5Z"/>
-
-                                        <circle
-                                            cx="12"
-                                            cy="12"
-                                            r="2.5"
-                                            stroke-width="1.8"/>
+                                <button type="button" onclick='lihatDetail(${JSON.stringify(instansi.id)})' class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[9px] text-slate-600 hover:bg-green-50 hover:text-green-600 transition">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.5 12s3.5-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.5 5.5-9.5 5.5-9.5-5.5-9.5-5.5Z"/>
+                                        <circle cx="12" cy="12" r="2.5" stroke-width="1.8"/>
                                     </svg>
-
                                     Detail
                                 </button>
 
-
                                 <!-- EDIT -->
-                                <button
-                                    type="button"
-                                    onclick='editInstansi(${JSON.stringify(instansi.id)})'
-                                    class="w-full
-                                           flex
-                                           items-center
-                                           gap-2
-                                           px-2.5
-                                           py-2
-                                           rounded-lg
-                                           text-[9px]
-                                           text-slate-600
-                                           hover:bg-purple-50
-                                           hover:text-purple-600
-                                           transition">
-
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24">
-
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.8"
-                                            d="M12 20h9"/>
-
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.8"
-                                            d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                                <button type="button" onclick='editInstansi(${JSON.stringify(instansi.id)})' class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[9px] text-slate-600 hover:bg-purple-50 hover:text-purple-600 transition">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 20h9"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
                                     </svg>
-
                                     Edit
                                 </button>
 
-
                                 <!-- HAPUS -->
-                                <button
-                                    type="button"
-                                    onclick='hapusInstansi(${JSON.stringify(instansi.id)})'
-                                    class="w-full
-                                           flex
-                                           items-center
-                                           gap-2
-                                           px-2.5
-                                           py-2
-                                           rounded-lg
-                                           text-[9px]
-                                           text-red-500
-                                           hover:bg-red-50
-                                           transition">
-
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24">
-
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.8"
-                                            d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>
+                                <button type="button" onclick='hapusInstansi(${JSON.stringify(instansi.id)})' class="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[9px] text-red-500 hover:bg-red-50 transition">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>
                                     </svg>
-
                                     Hapus
                                 </button>
-
                             </div>
                         </div>
                     </td>
@@ -2493,653 +1022,291 @@
             });
         }
 
-
         /* =====================================================
            UPDATE STAT
         ====================================================== */
-
         function updateStats() {
-
             const data = getInstansi();
+            const sekolah = data.filter(item => item.jenis === "Sekolah").length;
+            const kampus = data.filter(item => item.jenis === "Perguruan Tinggi").length;
 
-            const sekolah =
-                data.filter(
-                    item => item.jenis === "Sekolah"
-                ).length;
-
-            const kampus =
-                data.filter(
-                    item => item.jenis === "Perguruan Tinggi"
-                ).length;
-
-
-            document.getElementById(
-                "totalInstansi"
-            ).textContent = data.length;
-
-
-            document.getElementById(
-                "totalSekolah"
-            ).textContent = sekolah;
-
-
-            document.getElementById(
-                "totalKampus"
-            ).textContent = kampus;
+            document.getElementById("totalInstansi").textContent = data.length;
+            document.getElementById("totalSekolah").textContent = sekolah;
+            document.getElementById("totalKampus").textContent = kampus;
         }
-
 
         /* =====================================================
            MODAL DETAIL + EDIT
         ====================================================== */
-
         let detailInstansiId = null;
         let editInstansiId = null;
 
-
         function lihatDetail(id) {
-
             const data = getInstansi();
-
-            const instansi = data.find(
-                item => String(item.id) === String(id)
-            );
+            const instansi = data.find(item => String(item.id) === String(id));
 
             if (!instansi) return;
 
             detailInstansiId = instansi.id;
 
-
-            document.getElementById(
-                "detailNama"
-            ).textContent =
-                instansi.nama || "-";
-
-
-            document.getElementById(
-                "detailKota"
-            ).textContent =
-                instansi.kota || "-";
-
-
-            document.getElementById(
-                "detailJenis"
-            ).textContent =
-                instansi.jenis || "-";
-
-
-            document.getElementById(
-                "detailPeriode"
-            ).textContent =
-                instansi.periode || "-";
-
+            document.getElementById("detailNama").textContent = instansi.nama || "-";
+            document.getElementById("detailKota").textContent = instansi.kota || "-";
+            document.getElementById("detailJenis").textContent = instansi.jenis || "-";
+            document.getElementById("detailPeriode").textContent = instansi.periode || "-";
 
             /* STATUS DETAIL DINAMIS */
+            const detailStatus = document.getElementById("detailStatus");
+            const detailStatusDot = document.getElementById("detailStatusDot");
 
-            const detailStatus =
-                document.getElementById("detailStatus");
-
-            const detailStatusDot =
-                document.getElementById("detailStatusDot");
-
-
-            detailStatus.textContent =
-                instansi.status || "-";
-
+            detailStatus.textContent = instansi.status || "-";
 
             if (instansi.status === "Aktif") {
-
-                detailStatus.className =
-                    "text-[11px] font-semibold text-green-600";
-
-                detailStatusDot.className =
-                    "w-1.5 h-1.5 rounded-full bg-green-500";
-
+                detailStatus.className = "text-[11px] font-semibold text-green-600";
+                detailStatusDot.className = "w-1.5 h-1.5 rounded-full bg-green-500";
             } else {
-
-                detailStatus.className =
-                    "text-[11px] font-semibold text-slate-500";
-
-                detailStatusDot.className =
-                    "w-1.5 h-1.5 rounded-full bg-slate-400";
+                detailStatus.className = "text-[11px] font-semibold text-slate-500";
+                detailStatusDot.className = "w-1.5 h-1.5 rounded-full bg-slate-400";
             }
-
 
             /* ICON DETAIL */
-
-            const icon =
-                document.getElementById("detailIcon");
-
+            const icon = document.getElementById("detailIcon");
 
             if (instansi.jenis === "Perguruan Tinggi") {
-
-                icon.className =
-                    "w-11 h-11 rounded-xl bg-purple-100 flex items-center justify-center shrink-0";
-
+                icon.className = "w-11 h-11 rounded-xl bg-purple-100 flex items-center justify-center shrink-0";
                 icon.innerHTML = `
-                    <svg
-                        class="w-5 h-5 text-purple-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.8"
-                            d="m3 9 9-5 9 5-9 5-9-5Zm3 3.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.5"/>
+                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m3 9 9-5 9 5-9 5-9-5Zm3 3.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.5"/>
                     </svg>
                 `;
-
             } else {
-
-                icon.className =
-                    "w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center shrink-0";
-
+                icon.className = "w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center shrink-0";
                 icon.innerHTML = `
-                    <svg
-                        class="w-5 h-5 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.8"
-                            d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
                     </svg>
                 `;
             }
 
-
             /* TUTUP ACTION DROPDOWN */
-
             document.querySelectorAll(".action-menu").forEach(menu => {
                 menu.classList.add("hidden");
             });
 
-
             /* BUKA MODAL */
-
-            const modal =
-                document.getElementById("detailModal");
-
+            const modal = document.getElementById("detailModal");
             modal.classList.remove("hidden");
             modal.classList.add("flex");
-
             document.body.classList.add("overflow-hidden");
         }
 
-
         function tutupDetailModal() {
-
-            const modal =
-                document.getElementById("detailModal");
-
+            const modal = document.getElementById("detailModal");
             modal.classList.add("hidden");
             modal.classList.remove("flex");
-
             document.body.classList.remove("overflow-hidden");
-
             detailInstansiId = null;
         }
 
-
         function editDariDetail() {
-
             if (detailInstansiId === null) return;
-
             const id = detailInstansiId;
-
             tutupDetailModal();
-
             editInstansi(id);
         }
-
 
         /* =====================================================
            ACTION DROPDOWN
         ====================================================== */
-
         function toggleActionMenu(button) {
-
-            const container =
-                button.closest(".relative");
-
+            const container = button.closest(".relative");
             if (!container) return;
 
-            const menu =
-                container.querySelector(".action-menu");
-
+            const menu = container.querySelector(".action-menu");
             if (!menu) return;
 
-
             document.querySelectorAll(".action-menu").forEach(item => {
-
                 if (item !== menu) {
                     item.classList.add("hidden");
                 }
             });
 
-
             menu.classList.toggle("hidden");
         }
-
 
         /* =====================================================
            TUTUP DROPDOWN SAAT KLIK DI LUAR
         ====================================================== */
-
         document.addEventListener("click", function(event) {
-
-            if (
-                !event.target.closest(".action-button") &&
-                !event.target.closest(".action-menu")
-            ) {
-
-                document
-                    .querySelectorAll(".action-menu")
-                    .forEach(menu => {
-                        menu.classList.add("hidden");
-                    });
+            if (!event.target.closest(".action-button") && !event.target.closest(".action-menu")) {
+                document.querySelectorAll(".action-menu").forEach(menu => {
+                    menu.classList.add("hidden");
+                });
             }
         });
-
 
         /* =====================================================
            EDIT INSTANSI
         ====================================================== */
-
         function editInstansi(id) {
-
             const data = getInstansi();
-
-            const instansi = data.find(
-                item => String(item.id) === String(id)
-            );
+            const instansi = data.find(item => String(item.id) === String(id));
 
             if (!instansi) return;
 
             editInstansiId = instansi.id;
 
+            document.querySelectorAll(".action-menu").forEach(menu => {
+                menu.classList.add("hidden");
+            });
 
-            document
-                .querySelectorAll(".action-menu")
-                .forEach(menu => {
-                    menu.classList.add("hidden");
-                });
+            document.getElementById("editNama").value = instansi.nama || "";
+            document.getElementById("editKota").value = instansi.kota || "";
+            document.getElementById("editJenis").value = instansi.jenis || "Sekolah";
+            document.getElementById("editPeriode").value = instansi.periode || "";
+            document.getElementById("editStatus").value = instansi.status || "Aktif";
 
-
-            document.getElementById("editNama").value =
-                instansi.nama || "";
-
-
-            document.getElementById("editKota").value =
-                instansi.kota || "";
-
-
-            document.getElementById("editJenis").value =
-                instansi.jenis || "Sekolah";
-
-
-            document.getElementById("editPeriode").value =
-                instansi.periode || "";
-
-
-            document.getElementById("editStatus").value =
-                instansi.status || "Aktif";
-
-
-            const modal =
-                document.getElementById("editModal");
-
+            const modal = document.getElementById("editModal");
             modal.classList.remove("hidden");
             modal.classList.add("flex");
-
             document.body.classList.add("overflow-hidden");
         }
 
-
         function tutupEditModal() {
-
-            const modal =
-                document.getElementById("editModal");
-
+            const modal = document.getElementById("editModal");
             modal.classList.add("hidden");
             modal.classList.remove("flex");
-
             document.body.classList.remove("overflow-hidden");
-
             editInstansiId = null;
         }
-
 
         /* =====================================================
            SIMPAN EDIT
         ====================================================== */
+        document.getElementById("editInstansiForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-        document
-            .getElementById("editInstansiForm")
-            .addEventListener("submit", function(event) {
+            if (editInstansiId === null) return;
 
-                event.preventDefault();
+            const data = getInstansi();
+            const index = data.findIndex(item => String(item.id) === String(editInstansiId));
 
-                if (editInstansiId === null) return;
+            if (index === -1) return;
 
+            data[index].nama = document.getElementById("editNama").value.trim();
+            data[index].kota = document.getElementById("editKota").value.trim();
+            data[index].jenis = document.getElementById("editJenis").value;
+            data[index].periode = document.getElementById("editPeriode").value.trim();
+            data[index].status = document.getElementById("editStatus").value;
 
-                const data = getInstansi();
+            localStorage.setItem("accessInstansi", JSON.stringify(data));
 
-
-                const index =
-                    data.findIndex(
-                        item =>
-                            String(item.id) ===
-                            String(editInstansiId)
-                    );
-
-
-                if (index === -1) return;
-
-
-                data[index].nama =
-                    document
-                        .getElementById("editNama")
-                        .value
-                        .trim();
-
-
-                data[index].kota =
-                    document
-                        .getElementById("editKota")
-                        .value
-                        .trim();
-
-
-                data[index].jenis =
-                    document
-                        .getElementById("editJenis")
-                        .value;
-
-
-                data[index].periode =
-                    document
-                        .getElementById("editPeriode")
-                        .value
-                        .trim();
-
-
-                data[index].status =
-                    document
-                        .getElementById("editStatus")
-                        .value;
-
-
-                localStorage.setItem(
-                    "accessInstansi",
-                    JSON.stringify(data)
-                );
-
-
-                tutupEditModal();
-
-                filterInstansi();
-
-                updateStats();
-            });
-
+            tutupEditModal();
+            filterInstansi();
+            updateStats();
+        });
 
         /* =====================================================
            ESCAPE UNTUK MODAL
         ====================================================== */
-
         document.addEventListener("keydown", function(event) {
-
             if (event.key !== "Escape") return;
 
+            const detailModal = document.getElementById("detailModal");
+            const editModal = document.getElementById("editModal");
 
-            const detailModal =
-                document.getElementById("detailModal");
-
-
-            const editModal =
-                document.getElementById("editModal");
-
-
-            if (
-                editModal &&
-                !editModal.classList.contains("hidden")
-            ) {
-
+            if (editModal && !editModal.classList.contains("hidden")) {
                 tutupEditModal();
-
-            } else if (
-                detailModal &&
-                !detailModal.classList.contains("hidden")
-            ) {
-
+            } else if (detailModal && !detailModal.classList.contains("hidden")) {
                 tutupDetailModal();
             }
         });
 
-
         /* =====================================================
            HAPUS INSTANSI
         ====================================================== */
-
         function hapusInstansi(id) {
-
             const data = getInstansi();
-
-
-            /* ID DISAMAKAN DENGAN FUNGSI LAIN */
-
-            const instansi = data.find(
-                item => String(item.id) === String(id)
-            );
-
+            const instansi = data.find(item => String(item.id) === String(id));
 
             if (!instansi) return;
 
-
-            const yakin = confirm(
-                `Apakah kamu yakin ingin menghapus "${instansi.nama}"?`
-            );
-
-
+            const yakin = confirm(`Apakah kamu yakin ingin menghapus "${instansi.nama}"?`);
             if (!yakin) return;
 
+            const dataBaru = data.filter(item => String(item.id) !== String(id));
 
-            const dataBaru =
-                data.filter(
-                    item =>
-                        String(item.id) !== String(id)
-                );
+            localStorage.setItem("accessInstansi", JSON.stringify(dataBaru));
 
-
-            localStorage.setItem(
-                "accessInstansi",
-                JSON.stringify(dataBaru)
-            );
-
-
-            /* TUTUP SEMUA MENU */
-
-            document
-                .querySelectorAll(".action-menu")
-                .forEach(menu => {
-                    menu.classList.add("hidden");
-                });
-
-
-            /* RENDER ULANG */
+            document.querySelectorAll(".action-menu").forEach(menu => {
+                menu.classList.add("hidden");
+            });
 
             filterInstansi();
-
             updateStats();
         }
-
 
         /* =====================================================
            SEARCH + FILTER
         ====================================================== */
-
         function filterInstansi() {
+            const keyword = document.getElementById("searchInstansi").value.toLowerCase().trim();
+            const jenis = document.getElementById("filterJenis").value;
 
-            const keyword =
-                document
-                    .getElementById("searchInstansi")
-                    .value
-                    .toLowerCase()
-                    .trim();
+            const data = getInstansi().filter(item => {
+                const nama = String(item.nama || "").toLowerCase();
+                const kota = String(item.kota || "").toLowerCase();
+                const jenisItem = String(item.jenis || "").toLowerCase();
 
+                const cocokSearch = nama.includes(keyword) || kota.includes(keyword) || jenisItem.includes(keyword);
+                const cocokJenis = jenis === "all" || item.jenis === jenis;
 
-            const jenis =
-                document
-                    .getElementById("filterJenis")
-                    .value;
-
-
-            const data =
-                getInstansi().filter(item => {
-
-                    const nama =
-                        String(item.nama || "")
-                            .toLowerCase();
-
-
-                    const kota =
-                        String(item.kota || "")
-                            .toLowerCase();
-
-
-                    const jenisItem =
-                        String(item.jenis || "")
-                            .toLowerCase();
-
-
-                    const cocokSearch =
-                        nama.includes(keyword) ||
-                        kota.includes(keyword) ||
-                        jenisItem.includes(keyword);
-
-
-                    const cocokJenis =
-                        jenis === "all" ||
-                        item.jenis === jenis;
-
-
-                    return cocokSearch && cocokJenis;
-                });
-
+                return cocokSearch && cocokJenis;
+            });
 
             renderInstansi(data);
         }
 
-
         /* =====================================================
            EVENT SEARCH
         ====================================================== */
-
-        document
-            .getElementById("searchInstansi")
-            .addEventListener(
-                "input",
-                filterInstansi
-            );
-
+        document.getElementById("searchInstansi").addEventListener("input", filterInstansi);
 
         /* =====================================================
            EVENT FILTER
         ====================================================== */
-
-        document
-            .getElementById("filterJenis")
-            .addEventListener(
-                "change",
-                filterInstansi
-            );
-
+        document.getElementById("filterJenis").addEventListener("change", filterInstansi);
 
         /* =====================================================
            INIT
         ====================================================== */
-
         renderInstansi();
-
         updateStats();
-
 
         /* =====================================================
            ADMINISTRATOR PROFILE DROPDOWN
         ====================================================== */
-
-        const profileToggle =
-            document.getElementById("profileToggle");
-
-
-        const profileDropdown =
-            document.getElementById("profileDropdown");
-
-
-        const profileChevron =
-            document.getElementById("profileChevron");
-
+        const profileToggle = document.getElementById("profileToggle");
+        const profileDropdown = document.getElementById("profileDropdown");
+        const profileChevron = document.getElementById("profileChevron");
 
         if (profileToggle && profileDropdown) {
+            profileToggle.addEventListener("click", function(event) {
+                event.stopPropagation();
+                profileDropdown.classList.toggle("show");
+                if (profileChevron) {
+                    profileChevron.classList.toggle("rotate-180");
+                }
+            });
 
-            profileToggle.addEventListener(
-                "click",
-                function(event) {
-
-                    event.stopPropagation();
-
-
-                    profileDropdown.classList.toggle(
-                        "show"
-                    );
-
-
+            document.addEventListener("click", function(event) {
+                if (!profileDropdown.contains(event.target) && !profileToggle.contains(event.target)) {
+                    profileDropdown.classList.remove("show");
                     if (profileChevron) {
-
-                        profileChevron.classList.toggle(
-                            "rotate-180"
-                        );
+                        profileChevron.classList.remove("rotate-180");
                     }
                 }
-            );
-
-
-            document.addEventListener(
-                "click",
-                function(event) {
-
-                    if (
-                        !profileDropdown.contains(
-                            event.target
-                        ) &&
-                        !profileToggle.contains(
-                            event.target
-                        )
-                    ) {
-
-                        profileDropdown.classList.remove(
-                            "show"
-                        );
-
-
-                        if (profileChevron) {
-
-                            profileChevron.classList.remove(
-                                "rotate-180"
-                            );
-                        }
-                    }
-                }
-            );
+            });
         }
-
     </script>
-
 </body>
 </html>
