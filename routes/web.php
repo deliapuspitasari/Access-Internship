@@ -12,3 +12,6 @@ Route::get('/login', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/project', function () {
+    return view('project.index');
+})->name('project');

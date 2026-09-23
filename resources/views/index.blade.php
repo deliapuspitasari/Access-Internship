@@ -438,13 +438,25 @@
 
                 <!-- BUTTON LIHAT SEMUA PROJECT -->
                 <div class="mt-8 text-center">
-                    <button id="showProjectsBtn" type="button" class="inline-flex items-center gap-2 rounded-xl border border-lavender bg-white px-5 py-3 text-sm font-bold text-darkpurple transition hover:bg-lavender/30">
-                        <span id="showProjectsText" data-translate="btn-all-projects">Lihat semua project</span>
-                        <svg id="showProjectsIcon" class="h-4 w-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
+    <a href="{{ route('project') }}"
+       class="inline-flex items-center gap-2 rounded-xl border border-lavender bg-white px-5 py-3 text-sm font-bold text-darkpurple transition hover:bg-lavender/30">
+
+        <span data-translate="btn-all-projects">
+            Lihat semua project
+        </span>
+
+        <svg class="h-4 w-4 transition-transform duration-300"
+             fill="none"
+             stroke="currentColor"
+             viewBox="0 0 24 24">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m6 9 6 6 6-6" />
+        </svg>
+
+    </a>
+</div>
             </div>
         </section>
 
