@@ -8,12 +8,11 @@ class Project extends Model
 {
     protected $table = 'projects';
 
-    protected $fillable = [
-        'nama_project',
-        'kategori_project',
-        'asal_peserta',
-        'deskripsi',
-        'thumbnail',
-        'tanggal',
-    ];
+   protected $fillable = [
+    'nama_project',
+    'jenis_project',
+    'kategori_peserta',
+    'tanggal',
+    'deskripsi',
+];
 }
