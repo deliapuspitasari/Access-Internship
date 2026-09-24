@@ -567,16 +567,17 @@
 
         </header>
 
+
 <!-- ========================= -->
 <!-- CONTENT -->
 <!-- ========================= -->
+
 <div
     class="dashboard-bg min-h-[calc(100vh-78px)]
     p-6 max-md:p-4 max-sm:p-3">
 
     <!-- HEADER DETAIL PROJECT -->
-    <section
-        
+    <section class="relative overflow-hidden mb-5">
 
         <!-- DECORATION -->
         <div
@@ -592,20 +593,22 @@
             max-md:w-28 max-md:h-28">
         </div>
 
-        <div class="mb-5">
+        <!-- BACK BUTTON -->
+        <div class="relative z-10">
 
-                    <a
-                        href="{{ url('/project') }}"
-                        class="inline-flex items-center gap-2
-                        px-3 py-2.5 bg-green-700
-                        border border-slate-200
-                        rounded-lg text-[10px]
-                        font-semibold text-white
-                        hover:bg-green-700
-                        hover:text-white
-                        transition">
-
-                        <svg
+            <a
+                href="{{ url('/project') }}"
+                class="inline-flex items-center
+                px-3 py-2.5
+                bg-green-500
+                border border-green-700
+                rounded-lg
+                text-[10px]
+                font-semibold
+                text-white
+                hover:bg-green-700
+                transition">
+<svg
                             class="w-4 h-4"
                             fill="none"
                             stroke="currentColor"
@@ -618,196 +621,139 @@
                                 d="M15 18l-6-6 6-6" />
 
                         </svg>
+                Kembali
 
-                        Kembali
-                    </a>
-                </div>
-  
+            </a>
+
+        </div>
+
     </section>
 
 
     <!-- DETAIL PROJECT -->
-    <section
-        class="bg-white border border-slate-200
-        rounded-xl p-5 soft-shadow">
-        
+<section
+    class="bg-white border border-slate-200
+    rounded-2xl soft-shadow overflow-hidden
+    max-w-6xl">
 
+    <div class="grid grid-cols-1 md:grid-cols-2">
+
+        <!-- FOTO PROJECT -->
         <div
-            class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]
-            gap-6">
+            class="min-h-[300px] md:min-h-[420px]
+            bg-gradient-to-br from-green-50
+            via-white to-purple-50
+            flex items-center justify-center
+            border-b md:border-b-0 md:border-r
+            border-slate-100">
 
-            <!-- GAMBAR / PREVIEW -->
-            <div>
+            <!-- Placeholder foto -->
+            <svg
+                class="w-16 h-16 text-slate-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
 
-                <div
-                    class="w-full min-h-[220px]
-                    rounded-xl overflow-hidden
-                    bg-gradient-to-br
-                    from-green-50 via-white to-purple-50
-                    flex items-center justify-center
-                    border border-slate-100">
+                <rect
+                    x="3" y="3"
+                    width="18" height="18"
+                    rx="2"
+                    stroke-width="1.5"/>
 
-                    <svg
-                        class="w-16 h-16 text-slate-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
+                <path
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m7 15 3-3 2 2 2-2 3 3"/>
 
-                        <rect
-                            x="3"
-                            y="3"
-                            width="18"
-                            height="18"
-                            rx="2"
-                            stroke-width="1.5"/>
+            </svg>
 
-                        <path
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="m7 15 3-3 2 2 2-2 3 3"/>
+        </div>
 
-                    </svg>
 
-                </div>
+        <!-- INFORMASI PROJECT -->
+        <div class="p-6 md:p-8 flex flex-col justify-center">
+
+            <!-- JENIS PROJECT -->
+            <div class="mb-5">
+
+                <span
+                    class="inline-flex px-3 py-1.5
+                    rounded-lg bg-green-50
+                    text-green-600 text-[10px]
+                    font-semibold">
+
+                    {{ $project->jenis_project }}
+
+                </span>
 
             </div>
 
 
-            <!-- DATA PROJECT -->
-            <div>
+            <!-- NAMA PROJECT -->
+            <h2
+                class="text-2xl font-bold
+                text-navy leading-tight mb-4">
 
-                <!-- JENIS PROJECT -->
-                <div class="mb-5">
+                {{ $project->nama_project }}
 
-                    <span
-                        class="inline-flex
-                        px-2.5 py-1
-                        rounded-full
-                        bg-green-50
-                        text-green-600
-                        text-[8px]
-                        font-semibold">
-
-                        {{ $project->jenis_project }}
-
-                    </span>
-
-                </div>
+            </h2>
 
 
-                <!-- NAMA PROJECT -->
-                <div class="mb-5">
+            <!-- DESKRIPSI -->
+            <p
+                class="text-[11px] text-slate-500
+                leading-relaxed">
 
-                    <p
-                        class="text-[9px]
-                        font-medium
-                        text-slate-400
-                        mb-1">
+                {{ $project->deskripsi ?? '-' }}
 
-                        Nama Project
-
-                    </p>
-
-                    <h2
-                        class="text-lg
-                        font-bold
-                        text-navy">
-
-                        {{ $project->nama_project }}
-
-                    </h2>
-
-                </div>
+            </p>
 
 
-                <!-- KATEGORI PESERTA -->
-                <div class="mb-5">
-
-                    <p
-                        class="text-[9px]
-                        font-medium
-                        text-slate-400
-                        mb-1">
-
-                        Kategori Peserta
-
-                    </p>
-
-                    <p
-                        class="text-[11px]
-                        text-slate-600">
-
-                        {{ $project->kategori_peserta ?? '-' }}
-
-                    </p>
-
-                </div>
+            <!-- PEMISAH -->
+            <div class="border-t border-slate-100 my-6"></div>
 
 
-                <!-- TANGGAL -->
-                <div class="mb-5">
+            <!-- KATEGORI PESERTA -->
+            <div class="flex items-center justify-between gap-4 mb-5">
 
-                    <p
-                        class="text-[9px]
-                        font-medium
-                        text-slate-400
-                        mb-1">
+                <p class="text-[10px] text-slate-400">
+                    Kategori Peserta
+                </p>
 
-                        Tanggal
+                <p class="text-[11px] font-semibold text-navy text-right">
+                    {{ $project->kategori_peserta ?? '-' }}
+                </p>
 
-                    </p>
-
-                    <p
-                        class="text-[11px]
-                        text-slate-600">
-
-                        @if($project->tanggal)
-                            {{ \Carbon\Carbon::parse($project->tanggal)->format('d M Y') }}
-                        @else
-                            -
-                        @endif
-
-                    </p>
-
-                </div>
+            </div>
 
 
-                <!-- DESKRIPSI -->
-                <div>
+            <!-- TANGGAL -->
+            <div class="flex items-center justify-between gap-4">
 
-                    <p
-                        class="text-[9px]
-                        font-medium
-                        text-slate-400
-                        mb-1">
+                <p class="text-[10px] text-slate-400">
+                    Tanggal
+                </p>
 
-                        Deskripsi
+                <p class="text-[11px] font-semibold text-navy text-right">
 
-                    </p>
+                    @if($project->tanggal)
+                        {{ \Carbon\Carbon::parse($project->tanggal)->format('d M Y') }}
+                    @else
+                        -
+                    @endif
 
-                    <p
-                        class="text-[10px]
-                        text-slate-500
-                        leading-relaxed">
-
-                        {{ $project->deskripsi ?? '-' }}
-
-                    </p>
-
-                </div>
+                </p>
 
             </div>
 
         </div>
 
+    </div>
 
-      
-    </section>
+</section>
 
 </div>
-
-
     <!-- ========================= -->
     <!-- JAVASCRIPT -->
     <!-- ========================= -->
