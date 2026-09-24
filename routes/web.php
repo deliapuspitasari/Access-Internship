@@ -13,7 +13,7 @@ Route::get('/login', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
-// Project
-Route::get('/project', function () {
-    return view('project.index');
-});
+
+
+
+require __DIR__.'/project.php';
